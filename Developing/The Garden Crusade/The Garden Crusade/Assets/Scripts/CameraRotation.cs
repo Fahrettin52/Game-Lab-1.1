@@ -12,7 +12,7 @@ public class CameraRotation : MonoBehaviour {
 	public float Limit2;		//50
 	public float maxViewDistance;		//15
 	public float minViewDistance;		//3
-	private float distance = 3;
+//	private float distance = 3;
 	private float desiredDistance;
 	private float correcterDistance;
 	public int zoomSpeed;		//30
