@@ -1,0 +1,8 @@
+Termiet soldier animation list (frames)
+
+idle - 5 tm 28
+attack mode start - 30 tm 40
+Attack - 40 tm 64
+attackmode idle - 64 tm 74 )loop(
+walk - 90 tm 123 )loop)
+death - 126 tm 150
