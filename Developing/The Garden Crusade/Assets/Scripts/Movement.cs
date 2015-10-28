@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Movement : MonoBehaviour{
@@ -6,11 +6,12 @@ public class Movement : MonoBehaviour{
     public float forwardSpeed;
     public float rotateSpeed;
     public int mouseSpeed;
-    public int rayDistance;
+    public float rayDistance;
     public int strafeSpeed;
 
     void Update(){
         MoveAndRotate();
+        
     }
 
     void MoveAndRotate(){

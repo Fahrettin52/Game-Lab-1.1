@@ -33,7 +33,7 @@ public class InteractionWithEnvironment : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		Interaction ();
+		//Interaction ();
 	}
 
 	void Interaction () {
