@@ -1,19 +1,20 @@
 sarrah
 
 run = 70 tm 102(loop)
-idle = 10 tm 30 (loop)
+idle = 12 tm 30 (loop)
 idle to run = 31 tm 69
+run = 71 tm 102
 run to idle = 103 tm 116
 
-jump start = 117 tm 126
-jump UP =  		126 tm 130 (loop)
+jump start = 117 tm 128
+jump UP =  		129 tm 130 (loop)
 
-jumpDown =		start 131 tm 136
+jumpDownstart = 131 tm 136
 jump Down = 		137 tm 150 (loop)
 
 jump Land = 		151 tm 182
 
 fight stance start =	182 tm 187
 Fight stance = 		188 tm 196 (Loop)
-punch = 		196 tm 203
+punch = 		189 tm 203
 death =			204 tm 231
