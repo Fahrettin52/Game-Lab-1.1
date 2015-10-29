@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<ItemContainer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Weapons>
+    <Item xsi:type="Weapon">
+      <ItemType>TWOHAND</ItemType>
+      <Quality>LEGENDARY</Quality>
+      <SpriteNeutral>Weapons/AxeNormal</SpriteNeutral>
+      <SpriteHighlighted>Weapons/AxeHighlight</SpriteHighlighted>
+      <MaxSize>1</MaxSize>
+      <ItemName>Iron Axe</ItemName>
+      <Description>Axe Made Of Iron</Description>
+      <Intellect>5</Intellect>
+      <Agility>5</Agility>
+      <Stamina>25</Stamina>
+      <Strength>25</Strength>
+      <AttackSpeed>5</AttackSpeed>
+    </Item>
+    <Item xsi:type="Weapon">
+      <ItemType>MAINHAND</ItemType>
+      <Quality>RARE</Quality>
+      <SpriteNeutral>Weapons/SwordNeutral</SpriteNeutral>
+      <SpriteHighlighted>Weapons/SwordHighlighted</SpriteHighlighted>
+      <MaxSize>1</MaxSize>
+      <ItemName>Iron Sword</ItemName>
+      <Description>Sword Made Of Iron</Description>
+      <Intellect>2</Intellect>
+      <Agility>2</Agility>
+      <Stamina>10</Stamina>
+      <Strength>10</Strength>
+      <AttackSpeed>10</AttackSpeed>
+    </Item>
+    <Item xsi:type="Weapon">
+      <ItemType>SHIELD</ItemType>
+      <Quality>RARE</Quality>
+      <SpriteNeutral>Weapons/ShieldNormal</SpriteNeutral>
+      <SpriteHighlighted>Weapons/ShieldHighlight</SpriteHighlighted>
+      <MaxSize>1</MaxSize>
+      <ItemName>Iron Shield</ItemName>
+      <Description>Shield Made Of Iron</Description>
+      <Intellect>5</Intellect>
+      <Agility>5</Agility>
+      <Stamina>20</Stamina>
+      <Strength>5</Strength>
+      <AttackSpeed>0</AttackSpeed>
+    </Item>
+  </Weapons>
+  <Equipment>
+    <Item xsi:type="Equipment">
+      <ItemType>BELT</ItemType>
+      <Quality>EPIC</Quality>
+      <SpriteNeutral>Equipment/BeltNormal</SpriteNeutral>
+      <SpriteHighlighted>Weapons/BeltHighlight</SpriteHighlighted>
+      <MaxSize>1</MaxSize>
+      <ItemName>Leather Belt</ItemName>
+      <Description>Belt Made Of Leather</Description>
+      <Intellect>7</Intellect>
+      <Agility>6</Agility>
+      <Stamina>4</Stamina>
+      <Strength>2</Strength>
+    </Item>
+    <Item xsi:type="Equipment">
+      <ItemType>BOOTS</ItemType>
+      <Quality>LEGENDARY</Quality>
+      <SpriteNeutral>Equipment/BootsNormal</SpriteNeutral>
+      <SpriteHighlighted>Weapons/BootsHighlight</SpriteHighlighted>
+      <MaxSize>1</MaxSize>
+      <ItemName>Leather Boots</ItemName>
+      <Description>Boots Made Of Leather</Description>
+      <Intellect>3</Intellect>
+      <Agility>15</Agility>
+      <Stamina>10</Stamina>
+      <Strength>4</Strength>
+    </Item>
+    <Item xsi:type="Equipment">
+      <ItemType>BRACES</ItemType>
+      <Quality>LEGENDARY</Quality>
+      <SpriteNeutral>Equipment/BracerNormal</SpriteNeutral>
+      <SpriteHighlighted>Weapons/BracerHighlight</SpriteHighlighted>
+      <MaxSize>2</MaxSize>
+      <ItemName>Iron Braces</ItemName>
+      <Description>Braces Mad Of Iron</Description>
+      <Intellect>5</Intellect>
+      <Agility>6</Agility>
+      <Stamina>12</Stamina>
+      <Strength>6</Strength>
+    </Item>
+    <Item xsi:type="Equipment">
+      <ItemType>CHEST</ItemType>
+      <Quality>UNCOMMON</Quality>
+      <SpriteNeutral>Equipment/ChestNormal</SpriteNeutral>
+      <SpriteHighlighted>Weapons/ChestHighlight</SpriteHighlighted>
+      <MaxSize>1</MaxSize>
+      <ItemName>Iron Chestplate</ItemName>
+      <Description>Chestplate MAde Of Iron</Description>
+      <Intellect>3</Intellect>
+      <Agility>3</Agility>
+      <Stamina>25</Stamina>
+      <Strength>10</Strength>
+    </Item>
+    <Item xsi:type="Equipment">
+      <ItemType>HEAD</ItemType>
+      <Quality>EPIC</Quality>
+      <SpriteNeutral>Equipment/HelmetNormal</SpriteNeutral>
+      <SpriteHighlighted>Weapons/HelmetHighlight</SpriteHighlighted>
+      <MaxSize>1</MaxSize>
+      <ItemName>Iron Helmet</ItemName>
+      <Description>Helmet Made Of Iron</Description>
+      <Intellect>5</Intellect>
+      <Agility>2</Agility>
+      <Stamina>30</Stamina>
+      <Strength>15</Strength>
+    </Item>
+    <Item xsi:type="Equipment">
+      <ItemType>NECK</ItemType>
+      <Quality>RARE</Quality>
+      <SpriteNeutral>Equipment/NeckNormal</SpriteNeutral>
+      <SpriteHighlighted>Weapons/NeckHighlighted</SpriteHighlighted>
+      <MaxSize>1</MaxSize>
+      <ItemName>Ruby Neckles</ItemName>
+      <Description>Neckles Made Of Ruby</Description>
+      <Intellect>25</Intellect>
+      <Agility>2</Agility>
+      <Stamina>3</Stamina>
+      <Strength>1</Strength>
+    </Item>
+    <Item xsi:type="Equipment">
+      <ItemType>PANTS</ItemType>
+      <Quality>UNCOMMON</Quality>
+      <SpriteNeutral>Equipment/PantsNormal</SpriteNeutral>
+      <SpriteHighlighted>Weapons/PantsHighlighted</SpriteHighlighted>
+      <MaxSize>1</MaxSize>
+      <ItemName>Cotton Jeans</ItemName>
+      <Description>Jeans Made Of Cotton</Description>
+      <Intellect>3</Intellect>
+      <Agility>20</Agility>
+      <Stamina>5</Stamina>
+      <Strength>2</Strength>
+    </Item>
+    <Item xsi:type="Equipment">
+      <ItemType>RING</ItemType>
+      <Quality>LEGENDARY</Quality>
+      <SpriteNeutral>Equipment/RingNormal</SpriteNeutral>
+      <SpriteHighlighted>Weapons/RingHighlighted</SpriteHighlighted>
+      <MaxSize>1</MaxSize>
+      <ItemName>Diamond Ring</ItemName>
+      <Description>Ring With An Diamond Stone</Description>
+      <Intellect>45</Intellect>
+      <Agility>3</Agility>
+      <Stamina>1</Stamina>
+      <Strength>25</Strength>
+    </Item>
+    <Item xsi:type="Equipment">
+      <ItemType>SHOULDER</ItemType>
+      <Quality>RARE</Quality>
+      <SpriteNeutral>Equipment/ShoulderNormal</SpriteNeutral>
+      <SpriteHighlighted>Weapons/ShoulderHighlight</SpriteHighlighted>
+      <MaxSize>1</MaxSize>
+      <ItemName>Leaf Shoulder</ItemName>
+      <Description>Shoulder Made Of Leafs</Description>
+      <Intellect>4</Intellect>
+      <Agility>7</Agility>
+      <Stamina>6</Stamina>
+      <Strength>4</Strength>
+    </Item>
+    <Item xsi:type="Equipment">
+      <ItemType>TRINKET</ItemType>
+      <Quality>LEGENDARY</Quality>
+      <SpriteNeutral>Equipment/TrinketNormal</SpriteNeutral>
+      <SpriteHighlighted>Weapons/TrinketHighlight</SpriteHighlighted>
+      <MaxSize>1</MaxSize>
+      <ItemName>Voodoo Trinket</ItemName>
+      <Description>Cursed Trinket</Description>
+      <Intellect>26</Intellect>
+      <Agility>4</Agility>
+      <Stamina>2</Stamina>
+      <Strength>9</Strength>
+    </Item>
+  </Equipment>
+  <Consumable>
+    <Item xsi:type="Consumeable">
+      <ItemType>CONSUMEABLE</ItemType>
+      <Quality>COMMON</Quality>
+      <SpriteNeutral>Consumeable/HealthNormal</SpriteNeutral>
+      <SpriteHighlighted>Consumeable/HealthHighlight</SpriteHighlighted>
+      <MaxSize>10</MaxSize>
+      <ItemName>Health Potion</ItemName>
+      <Description>Heals An Amount Of Health</Description>
+      <Health>10</Health>
+      <Mana>0</Mana>
+    </Item>
+    <Item xsi:type="Consumeable">
+      <ItemType>CONSUMEABLE</ItemType>
+      <Quality>COMMON</Quality>
+      <SpriteNeutral>Consumeable/ManaNormal</SpriteNeutral>
+      <SpriteHighlighted>Consumeable/ManaHighlight</SpriteHighlighted>
+      <MaxSize>10</MaxSize>
+      <ItemName>Energy Potion</ItemName>
+      <Description>Heals An Amount Of Energy</Description>
+      <Health>0</Health>
+      <Mana>10</Mana>
+    </Item>
+  </Consumable>
+</ItemContainer>
