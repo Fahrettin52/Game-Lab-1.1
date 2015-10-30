@@ -33,9 +33,9 @@ public class Stamina : MonoBehaviour {
     public RaycastHit rayHit;
     public int damagePunch;
     public GameObject enemy;
-    public GameObject transformRayPos;
 
-	void Start () {
+
+    void Start () {
 		itemGroup = GameObject.Find ("InventoryBackground").GetComponent<CanvasGroup> ();
 		currentStamina = maxStamina;
 		hitCooldown = false;
@@ -54,13 +54,14 @@ public class Stamina : MonoBehaviour {
             ManaDrop();
             StartCoroutine(CoolDownDmg());
 
-            if (Physics.Raycast(transformRayPos.transform.position, transform.forward, out rayHit, rayDistance))
+            if (Physics.Raycast(transform.position + new Vector3(0,1.3f,0), transform.forward, out rayHit, rayDistance))
             {
-                Debug.DrawRay(transformRayPos.transform.position, transform.forward, Color.green, rayDistance);
+                Debug.DrawRay(transform.position + new Vector3(0,1.3f,0), transform.forward, Color.green, rayDistance);
                 if (rayHit.transform.tag == "Enemy")
                 {
                     print("Enemy");
                     enemy.GetComponent<AnimationTermite>().DropDead(damagePunch); 
+
                 }
             }
         }
