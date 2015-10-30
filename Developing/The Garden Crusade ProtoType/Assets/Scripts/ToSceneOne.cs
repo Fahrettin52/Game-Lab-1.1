@@ -12,6 +12,7 @@ public class ToSceneOne : MonoBehaviour {
     public GameObject MenuButton;
     public GameObject ExitToMenu;
     public bool ActivateCanvas;
+    public GameObject deadScreen;
 
     public void Start() {
         StartScreen.SetActive(true);
@@ -30,6 +31,8 @@ public class ToSceneOne : MonoBehaviour {
             MenuButton.SetActive(false);
             ExitToMenu.SetActive(false);
             StartScreen.SetActive(true);
+            deadScreen.SetActive(false);
+            GetComponent<AudioSource>().enabled = true;
             // 0 stuff
             break;
 
@@ -111,7 +114,6 @@ public class ToSceneOne : MonoBehaviour {
     public void ExitToStart() {
         Application.LoadLevel(0);
         OnLevelWasLoaded(0);
-
     }
 }
 

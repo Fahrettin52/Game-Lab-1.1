@@ -12,8 +12,11 @@ public class HPPosition : MonoBehaviour {
     public GameObject termiet;
 
     void Update () {
-        bar.position = enemy.position + new Vector3(0, 2f, 0);
-        transform.rotation = Quaternion.LookRotation(transform.position - mainCamera.transform.position);
-        hpText.text = "Health: " + termiet.GetComponent<AnimationTermite>().livesEnemy.ToString("F0");
+        if (player != null)
+        {
+            bar.position = enemy.position + new Vector3(0, 2f, 0);
+            transform.rotation = Quaternion.LookRotation(transform.position - mainCamera.transform.position);
+            hpText.text = "Health: " + termiet.GetComponent<AnimationTermite>().livesEnemy.ToString("F0");
+        }
     }
 }

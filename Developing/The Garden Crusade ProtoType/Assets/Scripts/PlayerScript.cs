@@ -112,6 +112,8 @@ public class PlayerScript : MonoBehaviour {
         yield return new WaitForSeconds(3);
         Destroy(gameObject);
         Destroy(GameObject.Find("Canvas"));
+        GameObject.Find("_Manager").GetComponent<ToSceneOne>().deadScreen.SetActive(true);
+        GameObject.Find("_Manager").GetComponent<AudioSource>().enabled = false;
     }
 	
 	private float MapValues(float curHealth, float minValue, float maxValue, float outMin, float outMax){
