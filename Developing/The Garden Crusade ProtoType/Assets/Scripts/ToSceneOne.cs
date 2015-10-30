@@ -62,7 +62,17 @@ public class ToSceneOne : MonoBehaviour {
     }
 
     public void Return() {
-        Start();
+        if (Application.loadedLevel == 0) {
+            Start();
+        } 
+        else {
+            StartScreen.SetActive(false);
+            OptionScreen.SetActive(false);
+            CreditsScreen.SetActive(false);
+            QuestScreen.SetActive(false);
+            KeybindScreen.SetActive(false);
+            ActivateCanvas = false;
+        }
     }
 
     public void Credits() {
