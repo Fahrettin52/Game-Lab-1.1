@@ -9,8 +9,8 @@ public class AnimationTermite : MonoBehaviour {
 	public float range;
 	public float attackRange;
 	public float moveSpeed;
-	public int livesEnemy = 100;
-	
+    public int livesEnemy = 100;
+    public GameObject dropRandomItem;
 
 	void Start () {
 		player = GameObject.Find("Player").transform;
@@ -34,11 +34,13 @@ public class AnimationTermite : MonoBehaviour {
     	}
 
     	if(distance < attackRange){
-    		animator.SetBool("TermSolAttackStart", true);
-    	}
+            animator.SetBool("TermSolAttackStart", true);
+            animator.SetBool("TermSolWalk", false);
+        }
     	else{
     		animator.SetBool("TermSolAttackStart", false);
-    	}
+            animator.SetBool("TermSolWalk", true);
+        }
 	}
 
 	void FollowPlayer (){
@@ -52,6 +54,7 @@ public class AnimationTermite : MonoBehaviour {
 			animator.SetBool("TermSolDeath", true);
 			moveSpeed = 0;
 			Destroy(gameObject, 2f);
+            GameObject.Instantiate(dropRandomItem).transform.position = transform.position;
 		}
 	}
 }

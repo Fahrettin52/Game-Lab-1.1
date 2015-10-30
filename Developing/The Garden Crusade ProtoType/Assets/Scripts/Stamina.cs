@@ -29,6 +29,11 @@ public class Stamina : MonoBehaviour {
 	public float cooldown;
 	public int energyPot;
 	private CanvasGroup itemGroup;
+    public int rayDistance;
+    public RaycastHit rayHit;
+    public int damagePunch;
+    public GameObject enemy;
+    public GameObject transformRayPos;
 
 	void Start () {
 		itemGroup = GameObject.Find ("InventoryBackground").GetComponent<CanvasGroup> ();
@@ -40,11 +45,24 @@ public class Stamina : MonoBehaviour {
 		ManaText ();
 		ManaRegen ();
 		ManaColor ();
-		if (Input.GetButtonDown ("Fire1") && !hitCooldown && itemGroup.alpha <1 && !Inventory.mouseInside) {
-            hitCooldown = true;
-			ManaDrop ();
-            StartCoroutine(CoolDownDmg());
+
+        if (Input.GetButtonDown("Fire1") && !hitCooldown && itemGroup.alpha < 1 && !Inventory.mouseInside)
+            
+        {
             StartCoroutine(FightToIdle());
+            hitCooldown = true;
+            ManaDrop();
+            StartCoroutine(CoolDownDmg());
+
+            if (Physics.Raycast(transformRayPos.transform.position, transform.forward, out rayHit, rayDistance))
+            {
+                Debug.DrawRay(transformRayPos.transform.position, transform.forward, Color.green, rayDistance);
+                if (rayHit.transform.tag == "Enemy")
+                {
+                    print("Enemy");
+                    enemy.GetComponent<AnimationTermite>().DropDead(damagePunch); 
+                }
+            }
         }
 	}
 

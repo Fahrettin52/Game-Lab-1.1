@@ -9,12 +9,6 @@ public class GiveDamage : MonoBehaviour {
 	public float rayDistance;
 	public int damagePunch;
 
-	
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
 	void Update () {
 		GivePunch ();
 	}

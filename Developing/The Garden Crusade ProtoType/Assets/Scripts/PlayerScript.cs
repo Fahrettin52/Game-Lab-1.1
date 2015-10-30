@@ -147,7 +147,7 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider other) {
-		if (other.tag == "Generator") {
+		if (other.tag == "Generator" || other.tag == "DroppedItem") {
 			int randomType = UnityEngine.Random.Range(0,3);
 			GameObject tmp = Instantiate(InventoryManager.Instance.itemObject);
 			int randomItem;
@@ -176,7 +176,8 @@ public class PlayerScript : MonoBehaviour {
 		if (other.tag == "Chest") {
 			chest = other.GetComponent<ChestScript>().chestInventory;  
 		}
-	}
+        Destroy(GameObject.FindGameObjectWithTag("DroppedItem"));
+    }
 
 	private void OnTriggerExit (Collider other) {
 		if (other.gameObject.tag == "Chest") {
