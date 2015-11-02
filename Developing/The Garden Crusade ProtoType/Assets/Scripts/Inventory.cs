@@ -8,14 +8,14 @@ public class Inventory : MonoBehaviour {
 
 	public 	int rows;
 	public 	int slots;
-    public int emptySlots;  
+    private int emptySlots;  
 	private float hoverYOffset;
 	private float inventoryWidth, inventoryHeight;
 	public 	float slotPaddingLeft, slotPaddingTop;
 	public 	float slotSize;
 	private	RectTransform inventoryRect; 
-	private CanvasGroup itemGroup;
-    private CanvasGroup buttonGroup;
+	public CanvasGroup itemGroup;
+    public CanvasGroup buttonGroup;
 	public static Inventory instance;	
 	private bool fadingIn;
 	private bool fadingOut;
@@ -117,13 +117,11 @@ public class Inventory : MonoBehaviour {
 
     public void ButtonEnter() { 
         if (buttonGroup.alpha == 1){
-            print("Enter");
             mouseInside = true;
         }
     }
 
     public void ButtonExit(){
-        print("Exit");
         mouseInside = false;
     }
 
@@ -308,8 +306,11 @@ public class Inventory : MonoBehaviour {
 		return false;
 	}
 	// moves a item to another slot in the inventory
-	public void MoveItem(GameObject clicked){ 
-		if (clicked.transform.parent.GetComponent<CanvasGroup> ().alpha > 0) {
+	public void MoveItem(GameObject clicked){
+            CanvasGroup cg = clicked.transform.parent.GetComponent<CanvasGroup>();
+
+        if (cg != null && cg.alpha > 0 || clicked.transform.parent.parent.GetComponent<CanvasGroup>().alpha > 0)
+        {
 			InventoryManager.Instance.Clicked = clicked;
 			if (!InventoryManager.Instance.MovingSlot.IsEmpty) {
 				Slot tmp = clicked.GetComponent<Slot> ();

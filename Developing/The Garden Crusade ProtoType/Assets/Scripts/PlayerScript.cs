@@ -73,18 +73,18 @@ public class PlayerScript : MonoBehaviour {
                 chest.Open();
             }
         }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            if(character.alpha == 0)
-            {
-                character.alpha = 1;
-            }
-            else
-            {
-                character.alpha = 0;
-            }
+        //if (Input.GetKeyDown(KeyCode.C))
+        //{
+        //    if(character.alpha == 0)
+        //    {
+        //        character.alpha = 1;
+        //    }
+        //    else
+        //    {
+        //        character.alpha = 0;
+        //    }
 
-        }
+        //}
     }
 
 	public void HandleHealth (){

@@ -14,6 +14,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 	public bool mayUseHealth;
 	public bool mayUseMana;
 	private CanvasGroup itemGroup;
+    public ItemType canContain;
 
 	public Stack<ItemScript> Items {
 		get { return items; }
