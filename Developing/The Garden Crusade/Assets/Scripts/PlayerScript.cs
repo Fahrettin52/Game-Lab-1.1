@@ -149,7 +149,13 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider other) {
-		if (other.tag == "Generator" || other.tag == "DroppedItem") {
+        if (other.gameObject.name == "Cube")
+        { 
+            Application.LoadLevel(2);
+            print(other.gameObject.name);
+        }
+
+        if (other.tag == "Generator" || other.tag == "DroppedItem") {
 			int randomType = UnityEngine.Random.Range(0,3);
 			GameObject tmp = Instantiate(InventoryManager.Instance.itemObject);
 			int randomItem;
