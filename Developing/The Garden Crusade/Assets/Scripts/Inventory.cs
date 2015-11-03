@@ -16,7 +16,6 @@ public class Inventory : MonoBehaviour {
 	private	RectTransform inventoryRect; 
 	public CanvasGroup itemGroup;
     public CanvasGroup buttonGroup;
-	public static Inventory instance;	
 	private bool fadingIn;
 	private bool fadingOut;
 	public 	float fadeTime;
@@ -32,14 +31,6 @@ public class Inventory : MonoBehaviour {
     public bool IsOpen {
 		get { return isOpen; }
 		set { isOpen = value; }
-	}
-
-	public static Inventory Instance {
-		get {if (instance == null) {
-				instance = GameObject.FindObjectOfType<Inventory>();
-			}
-			return Inventory.instance;
-		}
 	}
 
 	public int EmptySlots {
@@ -213,7 +204,7 @@ public class Inventory : MonoBehaviour {
 		}
 	}
 
-	private void CreateLayout(){ // creates inventory layout
+	public virtual void CreateLayout(){ // creates inventory layout
 
 		if (allSlots != null) {
 			foreach (GameObject go in allSlots) {
@@ -225,7 +216,7 @@ public class Inventory : MonoBehaviour {
 		hoverYOffset = slotSize * 0.1f; // icon met 1 % omlaag gaat
 
 		emptySlots = slots; // stores the number of empty slots
-
+         
 		inventoryWidth = (slots / rows) * (slotSize + slotPaddingLeft) + slotPaddingLeft; // calculates the width of the inventory
 
 		inventoryHeight = rows * (slotSize + slotPaddingTop) + slotPaddingTop; // calculates the height of the inventory

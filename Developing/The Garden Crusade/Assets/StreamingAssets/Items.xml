@@ -2,7 +2,7 @@
 <ItemContainer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Weapons>
     <Item xsi:type="Weapon">
-      <ItemType>TWOHAND</ItemType>
+      <ItemType>MAINHAND</ItemType>
       <Quality>LEGENDARY</Quality>
       <SpriteNeutral>Weapons/AxeNormal</SpriteNeutral>
       <SpriteHighlighted>Weapons/AxeHighlight</SpriteHighlighted>
@@ -30,7 +30,7 @@
       <AttackSpeed>10</AttackSpeed>
     </Item>
     <Item xsi:type="Weapon">
-      <ItemType>SHIELD</ItemType>
+      <ItemType>OFFHAND</ItemType>
       <Quality>RARE</Quality>
       <SpriteNeutral>Weapons/ShieldNormal</SpriteNeutral>
       <SpriteHighlighted>Weapons/ShieldHighlight</SpriteHighlighted>
@@ -49,7 +49,7 @@
       <ItemType>BELT</ItemType>
       <Quality>EPIC</Quality>
       <SpriteNeutral>Equipment/BeltNormal</SpriteNeutral>
-      <SpriteHighlighted>Weapons/BeltHighlight</SpriteHighlighted>
+      <SpriteHighlighted>Equipment/BeltHighlight</SpriteHighlighted>
       <MaxSize>1</MaxSize>
       <ItemName>Leather Belt</ItemName>
       <Description>Belt Made Of Leather</Description>
@@ -62,7 +62,7 @@
       <ItemType>BOOTS</ItemType>
       <Quality>LEGENDARY</Quality>
       <SpriteNeutral>Equipment/BootsNormal</SpriteNeutral>
-      <SpriteHighlighted>Weapons/BootsHighlight</SpriteHighlighted>
+      <SpriteHighlighted>Equipment/BootsHighlight</SpriteHighlighted>
       <MaxSize>1</MaxSize>
       <ItemName>Leather Boots</ItemName>
       <Description>Boots Made Of Leather</Description>
@@ -75,7 +75,7 @@
       <ItemType>BRACES</ItemType>
       <Quality>LEGENDARY</Quality>
       <SpriteNeutral>Equipment/BracerNormal</SpriteNeutral>
-      <SpriteHighlighted>Weapons/BracerHighlight</SpriteHighlighted>
+      <SpriteHighlighted>Equipment/BracerHighlight</SpriteHighlighted>
       <MaxSize>2</MaxSize>
       <ItemName>Iron Braces</ItemName>
       <Description>Braces Mad Of Iron</Description>
@@ -88,7 +88,7 @@
       <ItemType>CHEST</ItemType>
       <Quality>UNCOMMON</Quality>
       <SpriteNeutral>Equipment/ChestNormal</SpriteNeutral>
-      <SpriteHighlighted>Weapons/ChestHighlight</SpriteHighlighted>
+      <SpriteHighlighted>Equipment/ChestHighlight</SpriteHighlighted>
       <MaxSize>1</MaxSize>
       <ItemName>Iron Chestplate</ItemName>
       <Description>Chestplate MAde Of Iron</Description>
@@ -101,7 +101,7 @@
       <ItemType>HEAD</ItemType>
       <Quality>EPIC</Quality>
       <SpriteNeutral>Equipment/HelmetNormal</SpriteNeutral>
-      <SpriteHighlighted>Weapons/HelmetHighlight</SpriteHighlighted>
+      <SpriteHighlighted>Equipment/HelmetHighlight</SpriteHighlighted>
       <MaxSize>1</MaxSize>
       <ItemName>Iron Helmet</ItemName>
       <Description>Helmet Made Of Iron</Description>
@@ -114,7 +114,7 @@
       <ItemType>NECK</ItemType>
       <Quality>RARE</Quality>
       <SpriteNeutral>Equipment/NeckNormal</SpriteNeutral>
-      <SpriteHighlighted>Weapons/NeckHighlighted</SpriteHighlighted>
+      <SpriteHighlighted>Equipment/NeckHighlighted</SpriteHighlighted>
       <MaxSize>1</MaxSize>
       <ItemName>Ruby Neckles</ItemName>
       <Description>Neckles Made Of Ruby</Description>
@@ -127,7 +127,7 @@
       <ItemType>PANTS</ItemType>
       <Quality>UNCOMMON</Quality>
       <SpriteNeutral>Equipment/PantsNormal</SpriteNeutral>
-      <SpriteHighlighted>Weapons/PantsHighlighted</SpriteHighlighted>
+      <SpriteHighlighted>Equipment/PantsHighlighted</SpriteHighlighted>
       <MaxSize>1</MaxSize>
       <ItemName>Cotton Jeans</ItemName>
       <Description>Jeans Made Of Cotton</Description>
@@ -140,7 +140,7 @@
       <ItemType>RING</ItemType>
       <Quality>LEGENDARY</Quality>
       <SpriteNeutral>Equipment/RingNormal</SpriteNeutral>
-      <SpriteHighlighted>Weapons/RingHighlighted</SpriteHighlighted>
+      <SpriteHighlighted>Equipment/RingHighlight</SpriteHighlighted>
       <MaxSize>1</MaxSize>
       <ItemName>Diamond Ring</ItemName>
       <Description>Ring With An Diamond Stone</Description>
@@ -153,7 +153,7 @@
       <ItemType>SHOULDER</ItemType>
       <Quality>RARE</Quality>
       <SpriteNeutral>Equipment/ShoulderNormal</SpriteNeutral>
-      <SpriteHighlighted>Weapons/ShoulderHighlight</SpriteHighlighted>
+      <SpriteHighlighted>Equipment/ShoulderHighlighted</SpriteHighlighted>
       <MaxSize>1</MaxSize>
       <ItemName>Leaf Shoulder</ItemName>
       <Description>Shoulder Made Of Leafs</Description>
@@ -166,7 +166,7 @@
       <ItemType>TRINKET</ItemType>
       <Quality>LEGENDARY</Quality>
       <SpriteNeutral>Equipment/TrinketNormal</SpriteNeutral>
-      <SpriteHighlighted>Weapons/TrinketHighlight</SpriteHighlighted>
+      <SpriteHighlighted>Equipment/TrinketHighlight</SpriteHighlighted>
       <MaxSize>1</MaxSize>
       <ItemName>Voodoo Trinket</ItemName>
       <Description>Cursed Trinket</Description>

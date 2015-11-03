@@ -11,13 +11,14 @@ public class Weapon : Equipment {
 	public Weapon (string itemName, string description, ItemType itemType, Quality quality, string spriteNeutral, string spriteHighlighted, int maxSize, int intellect, int agility, int stamina, int strength, float attackSpeed) 
 		: base(itemName,description,itemType,quality,spriteNeutral,spriteHighlighted,maxSize,intellect,agility,stamina,strength) {
 		this.AttackSpeed = attackSpeed; 
-	}	
-
-	public override void Use(Slot slot, ItemScript item)
-    {
 	}
 
-	public override string GetToolTip () {
+    public override void Use(Slot slot, ItemScript item)
+    {
+        CharacterPanel.Instance.EquipItem(slot, item);
+    }
+
+    public override string GetToolTip () {
 
         string equipmentTip = base.GetToolTip();
 

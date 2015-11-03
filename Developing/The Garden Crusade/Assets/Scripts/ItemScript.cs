@@ -10,7 +10,7 @@ public class ItemScript : MonoBehaviour {
 	public Sprite spriteHighlighted;
 	public GameObject player;
 	private Item item;
-    public ItemType type;
+    //public ItemType type;
 
     public Item Item {
 		get { return item; }

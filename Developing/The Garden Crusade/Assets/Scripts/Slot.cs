@@ -146,12 +146,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 	}
 
     public static void SwapItems(Slot from, Slot to){
-        Stack<ItemScript> tmpTo = new Stack<ItemScript>(InventoryManager.Instance.To.Items); // stores the itemf from the to slot, so we can do a swap
-        InventoryManager.Instance.To.AddItems(InventoryManager.Instance.From.Items); // clear the from slot
+        Stack<ItemScript> tmpTo = new Stack<ItemScript>(to.Items); // stores the itemf from the to slot, so we can do a swap
+        to.AddItems(from.Items); // clear the from slot
 
         if (tmpTo.Count == 0){ // if to slot is 0 then we dont need to move anything to the from slot
             to.transform.parent.GetComponent<Inventory>().EmptySlots--;
-            InventoryManager.Instance.From.ClearSlot(); // clear the from slot
+            from.ClearSlot(); // clear the from slot
         }
         else{
             from.AddItems(tmpTo); // if the to slot contains item then we need to move the to the from slot

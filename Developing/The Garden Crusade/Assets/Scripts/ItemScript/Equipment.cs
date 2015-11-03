@@ -21,9 +21,10 @@ public class Equipment : Item {
 	
 	public override void Use (Slot slot, ItemScript item)
     {
+        CharacterPanel.Instance.EquipItem(slot, item);
 	}
 
-	public override string GetToolTip () {
+	public override string GetToolTip () { 
 
         string stats = string.Empty;
 
