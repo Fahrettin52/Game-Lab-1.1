@@ -13,7 +13,8 @@ public class Weapon : Equipment {
 		this.AttackSpeed = attackSpeed; 
 	}	
 
-	public override void Use (Slot slot){
+	public override void Use(Slot slot, ItemScript item)
+    {
 	}
 
 	public override string GetToolTip () {

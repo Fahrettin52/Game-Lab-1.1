@@ -25,8 +25,9 @@ public class ItemScript : MonoBehaviour {
         player = GameObject.FindWithTag ("Player");
 	}
 
-	public void Use (Slot slot) {
-        item.Use(slot);
+	public void Use (Slot slot)
+    {
+        item.Use(slot, this);
 }
 
 	public string GetToolTip () {

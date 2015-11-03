@@ -23,7 +23,7 @@ public abstract class Item {
 		this.MaxSize 			= maxSize;
 	}
 
-	public abstract void Use (Slot slot);
+	public abstract void Use (Slot slot, ItemScript item);
 
     public virtual string GetToolTip () {
         //string stats = string.Empty;
@@ -34,7 +34,7 @@ public abstract class Item {
             newLine = "\n";
         }
 
-        switch (Quality) {
+        switch (Quality) {  
             case Quality.COMMON:
                 color = "white";
                 break;

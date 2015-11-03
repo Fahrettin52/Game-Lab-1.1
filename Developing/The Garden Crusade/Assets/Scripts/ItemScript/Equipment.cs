@@ -19,7 +19,8 @@ public class Equipment : Item {
 		this.Strength = strength;
 	}	
 	
-	public override void Use (Slot slot) {
+	public override void Use (Slot slot, ItemScript item)
+    {
 	}
 
 	public override string GetToolTip () {

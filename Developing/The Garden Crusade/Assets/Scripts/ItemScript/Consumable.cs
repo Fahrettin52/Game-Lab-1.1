@@ -15,7 +15,7 @@ public class Consumeable : Item {
 		this.Mana = mana;
 	} 
 
-	public override void Use (Slot slot) {
+	public override void Use (Slot slot, ItemScript item) {
 
         if (ItemName == "Energy Potion" && Stamina.Instance.currentStamina < Stamina.Instance.maxStamina){
             Debug.Log(ItemName);
