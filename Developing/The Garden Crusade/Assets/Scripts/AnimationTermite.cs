@@ -27,9 +27,14 @@ public class AnimationTermite : MonoBehaviour {
     public int livesEnemy = 100;
     public GameObject dropRandomItem;
     public Image fill;
+    public NavMeshAgent agent;
+    private Vector3 resetPos;
+    private bool resetBool;
 
     void Start () {
+        agent = GetComponent<NavMeshAgent>();
 		player = GameObject.Find("Player").transform;
+        resetPos = transform.position;
 	}
 	
 
@@ -51,12 +56,16 @@ public class AnimationTermite : MonoBehaviour {
             {
                 animator.SetBool("TermSolWalk", false);
                 animator.SetBool("TermSolWalkStop", true);
+                
+                agent.SetDestination(resetPos);
+                resetBool = true;
             }
 
             if (distance < attackRange)
             {
                 animator.SetBool("TermSolAttackStart", true);
                 animator.SetBool("TermSolWalk", false);
+                //agent.Stop();
             }
             else
             {
@@ -67,9 +76,14 @@ public class AnimationTermite : MonoBehaviour {
 	}
 
 	void FollowPlayer (){
-		transform.LookAt(player);
-    	transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
-	}
+
+        agent.SetDestination(player.transform.position);
+        if (resetBool == true) {
+            //agent.Resume();
+            transform.LookAt(agent.destination);
+            resetBool = false;
+        }
+    }
 
 	public void DropDead (int damage){
         livesEnemy -= damage;
