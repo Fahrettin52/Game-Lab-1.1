@@ -18,7 +18,15 @@ public class CharacterPanel : Inventory {
             return CharacterPanel.instance; }
     }
 
+    public Slot WeaponSlot
+    {
+        get { return equipmentSlots[9]; }
+    }
 
+    public Slot OffhandSlot
+    {
+        get { return equipmentSlots[10]; }
+    }
 
     void Awake() {
         equipmentSlots = transform.GetComponentsInChildren<Slot>();
