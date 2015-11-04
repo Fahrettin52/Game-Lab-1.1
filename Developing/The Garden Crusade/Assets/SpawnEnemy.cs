@@ -14,6 +14,8 @@ public class SpawnEnemy : MonoBehaviour {
     public GameObject enemyPrefab;
     public int spawnMax;
     public int spawned;
+    public GameObject walkTo;
+    public Vector3 resetWalkTo;
 
     // Use this for initialization
     void Start () {
@@ -27,7 +29,10 @@ public class SpawnEnemy : MonoBehaviour {
 	void Update () {
         timeToSpawn -= 1 * Time.deltaTime;
         if(timeToSpawn<=0 && spawned<spawnMax) {
+            spawned++;
             Instantiate(enemyPrefab, new Vector3(Random.Range(maxHor, minHor), transform.position.y, Random.Range(maxVert, minVert)), transform.rotation);
+            Instantiate(walkTo, new Vector3(Random.Range(maxHor, minHor), transform.position.y, Random.Range(maxVert, minVert)), transform.rotation);
+
             timeToSpawn = 5;
         }
 	}

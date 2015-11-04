@@ -56,7 +56,6 @@ public class AnimationTermite : MonoBehaviour {
             {
                 animator.SetBool("TermSolWalk", false);
                 animator.SetBool("TermSolWalkStop", true);
-                
                 agent.SetDestination(resetPos);
                 resetBool = true;
             }
