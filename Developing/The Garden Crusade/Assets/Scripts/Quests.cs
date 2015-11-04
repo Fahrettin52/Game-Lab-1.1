@@ -26,16 +26,28 @@ public class Quests : MonoBehaviour {
 	public float rayDis;
 
 	void Start () {
-		boomstronkLevel = GameObject.Find("Boomstronk Level");
-		boomstronkLevel.SetActive(false);
-		undergroundLevel = GameObject.Find("Underground Level");
-		undergroundLevel.SetActive(false);
+		if(Application.loadedLevel == 1){
+			boomstronkLevel = GameObject.Find("Boomstronk Level");
+			boomstronkLevel.SetActive(false);
+		}
+
+		if(Application.loadedLevel == 2){
+			undergroundLevel = GameObject.Find("Underground Level");
+			undergroundLevel.SetActive(false);
+		}
+
 		popupText = GameObject.Find("Canvas1/Pop up text");
 		popupText.SetActive(false);
-		schuurLevel = GameObject.Find("Schuur Level");
-		schuurLevel.SetActive(false);
-		tutLevel = GameObject.Find("Tutorial Level");
-		tutLevel.SetActive(false);
+
+		if(Application.loadedLevel == 3){
+			schuurLevel = GameObject.Find("Schuur Level");
+			schuurLevel.SetActive(false);
+		}
+
+		if(Application.loadedLevel == 0){
+			tutLevel = GameObject.Find("Tutorial Level");
+			tutLevel.SetActive(false);
+		}
 	}
 	
 	
