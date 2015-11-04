@@ -44,10 +44,10 @@ public class Quests : MonoBehaviour {
 			schuurLevel.SetActive(false);
 		}
 
-		if(Application.loadedLevel == 0){
+		/*if(Application.loadedLevel == 0){
 			tutLevel = GameObject.Find("Tutorial Level");
 			tutLevel.SetActive(false);
-		}
+		}*/
 	}
 	
 	
