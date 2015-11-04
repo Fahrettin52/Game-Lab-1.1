@@ -2,7 +2,7 @@
 <ItemContainer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Weapons>
     <Item xsi:type="Weapon">
-      <ItemType>MAINHAND</ItemType>
+      <ItemType>TWOHAND</ItemType>
       <Quality>LEGENDARY</Quality>
       <SpriteNeutral>Weapons/AxeNormal</SpriteNeutral>
       <SpriteHighlighted>Weapons/AxeHighlight</SpriteHighlighted>

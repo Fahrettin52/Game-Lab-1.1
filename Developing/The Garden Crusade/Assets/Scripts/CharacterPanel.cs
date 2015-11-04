@@ -43,7 +43,14 @@ public class CharacterPanel : Inventory {
     }
 
     public void EquipItem(Slot slot, ItemScript item){
-        Slot.SwapItems(slot, Array.Find(equipmentSlots, x => x.canContain == item.Item.ItemType));
-    }
 
+        if (item.Item.ItemType == ItemType.MAINHAND || item.Item.ItemType == ItemType.TWOHAND && OffhandSlot.IsEmpty)
+        {
+            Slot.SwapItems(slot, WeaponSlot);
+        }
+        else
+        {
+            Slot.SwapItems(slot, Array.Find(equipmentSlots, x => x.canContain == item.Item.ItemType));
+        }
+    }
 }
