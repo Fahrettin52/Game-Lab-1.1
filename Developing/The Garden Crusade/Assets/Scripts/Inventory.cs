@@ -130,14 +130,14 @@ public class Inventory : MonoBehaviour {
 		}
 	}
 
-	public void ShowToolTip (GameObject slot) {
+	public virtual void ShowToolTip (GameObject slot) {
 		Slot tmpSlot =  slot.GetComponent<Slot>(); 
 		if (!tmpSlot.IsEmpty && InventoryManager.Instance.HoverObject == null && !InventoryManager.Instance.selectStackSize.activeSelf && slot.GetComponentInParent<Inventory>().isOpen ) {   
 			InventoryManager.Instance.visualTextObject.text = tmpSlot.CurrentItem.GetToolTip();
 			InventoryManager.Instance.SizeTextObject.text = InventoryManager.Instance.visualTextObject.text;
-			InventoryManager.Instance.tooltipObject.SetActive (true); 
-			float xPos = slot.transform.position.x - slotPaddingLeft; 
-			float yPos = slot.transform.position.y - slot.GetComponent<RectTransform>().sizeDelta.y -2;
+			InventoryManager.Instance.tooltipObject.SetActive (true);
+            float xPos = slot.transform.position.x  - slotPaddingLeft;
+            float yPos = slot.transform.position.y  - slot.GetComponent<RectTransform>().sizeDelta.y -2;
 			InventoryManager.Instance.tooltipObject.transform.position = new Vector2(xPos, yPos); 
 		}
 	}

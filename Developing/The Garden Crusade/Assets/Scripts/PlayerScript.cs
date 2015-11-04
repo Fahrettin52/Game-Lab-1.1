@@ -22,6 +22,7 @@ public class PlayerScript : MonoBehaviour {
     public float speed;
 	public Inventory inventory;
 	private Inventory chest;
+    public Inventory charPanel;
 	public RectTransform healthTransform;
 	public float cachedY;
 	private float minXValue;
@@ -66,25 +67,21 @@ public class PlayerScript : MonoBehaviour {
         {
             inventory.Open();
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.X))
         {
             if (chest != null)
             {
                 chest.Open();
             }
         }
-        //if (Input.GetKeyDown(KeyCode.C))
-        //{
-        //    if(character.alpha == 0)
-        //    {
-        //        character.alpha = 1;
-        //    }
-        //    else
-        //    {
-        //        character.alpha = 0;
-        //    }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (charPanel != null)
+            {
+                charPanel.Open();
+            }
+        }
 
-        //}
     }
 
 	public void HandleHealth (){

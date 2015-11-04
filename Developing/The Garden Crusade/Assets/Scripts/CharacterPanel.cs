@@ -53,4 +53,16 @@ public class CharacterPanel : Inventory {
             Slot.SwapItems(slot, Array.Find(equipmentSlots, x => x.canContain == item.Item.ItemType));
         }
     }
+
+    public override void ShowToolTip(GameObject slot)
+    {
+        Slot tmpSlot = slot.GetComponent<Slot>();
+        if (!tmpSlot.IsEmpty && InventoryManager.Instance.HoverObject == null && !InventoryManager.Instance.selectStackSize.activeSelf && slot.GetComponentInParent<Inventory>().IsOpen)
+        {
+            InventoryManager.Instance.visualTextObject.text = tmpSlot.CurrentItem.GetToolTip();
+            InventoryManager.Instance.SizeTextObject.text = InventoryManager.Instance.visualTextObject.text;
+            InventoryManager.Instance.tooltipObject.SetActive(true);
+            InventoryManager.Instance.tooltipObject.transform.position = slot.transform.position;
+        }
+    }
 }
