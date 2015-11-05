@@ -151,6 +151,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 
         if ( to != null && from != null )
         {
+            bool calculateStats = from.transform.parent == CharacterPanel.Instance.transform || to.transform.parent == CharacterPanel.Instance.transform;
+
             if (movingType == ItemType.TWOHAND && CharacterPanel.Instance.OffhandSlot.IsEmpty || movingType == ItemType.MAINHAND)
             {
                 movingType = ItemType.GENERICWEAPON;
@@ -172,6 +174,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
                         from.AddItems(tmpTo); // if the to slot contains item then we need to move the t o the from slot
                     }
                 }
+            }
+
+            if (calculateStats)
+            {
+                CharacterPanel.Instance.CalculateStats();
             }
         }
     }

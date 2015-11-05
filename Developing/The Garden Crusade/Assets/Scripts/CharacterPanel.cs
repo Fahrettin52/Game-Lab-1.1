@@ -65,4 +65,82 @@ public class CharacterPanel : Inventory {
             InventoryManager.Instance.tooltipObject.transform.position = slot.transform.position;
         }
     }
+
+    public void CalculateStats()
+    {
+        int strength = 0;
+        int stamina = 0;
+        int intellect = 0;
+        int agility = 0;
+
+        foreach (Slot slot in equipmentSlots)
+        {
+            if (!slot.IsEmpty)
+            {
+                Equipment e = (Equipment)slot.CurrentItem.Item;
+                strength    += e.Strength;
+                stamina     += e.Stamina;
+                intellect   += e.Intellect;
+                agility     += e.Agility;
+            }
+        }
+
+        PlayerScript.Instance.SetStats(strength, stamina, intellect, agility);
+    }
+
+    public override void SaveInventory()
+    {
+        print("Stats Save");
+        string content = string.Empty;
+
+        for (int i = 0; i < equipmentSlots.Length; i++)
+        {
+            if (!equipmentSlots[i].IsEmpty)
+            {
+                content += i + "-" + equipmentSlots[i].Items.Peek().Item.ItemName + ";";
+            }
+        }
+
+        PlayerPrefs.SetString("CharacterBackground", content);
+        PlayerPrefs.Save();
+    }
+
+    public override void LoadInventory()
+    {
+        foreach (Slot slot in equipmentSlots)
+        {
+            slot.ClearSlot();
+        }
+
+        string content = PlayerPrefs.GetString("CharacterBackground");
+        string[] splitContent = content.Split(';');
+
+        for (int i = 0; i < splitContent.Length - 1; i++)
+        {
+            string[] splitValues = splitContent[i].Split('-');
+
+            int index = Int32.Parse(splitValues[0]);
+            string itemName = splitValues[1];
+
+            GameObject loadedItem = Instantiate(InventoryManager.Instance.itemObject);
+
+            loadedItem.AddComponent<ItemScript>();
+
+            if (index == 9 || index == 10)
+            {
+                loadedItem.GetComponent<ItemScript>().Item = InventoryManager.Instance.ItemContainer.Weapons.Find(x => x.ItemName == itemName);
+            }
+            else
+            {
+                loadedItem.GetComponent<ItemScript>().Item = InventoryManager.Instance.ItemContainer.Equipment.Find(x => x.ItemName == itemName);
+            }
+
+            equipmentSlots[index].AddItem(loadedItem.GetComponent<ItemScript>());
+
+            Destroy(loadedItem);
+
+            CalculateStats();
+        }
+    }
 }
+ 

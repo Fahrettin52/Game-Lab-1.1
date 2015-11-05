@@ -31,8 +31,12 @@ public class PlayerScript : MonoBehaviour {
 	public Image mana;
 	public int healtPot;
     public GameObject sarah;
+    public Text statsText;
+    public int baseStrength, baseStamina, baseIntellect, baseAgility;
+    private int strength, stamina, intellect, agility;
 
-	private int CurrentHealth {
+
+    private int CurrentHealth {
 		get	{ return currentHealth; }
 		set	{
 			currentHealth = value; 
@@ -48,6 +52,9 @@ public class PlayerScript : MonoBehaviour {
 	public bool onCooldown;
 	
 	void Start (){
+
+        SetStats(0, 0, 0, 0);
+
 		cachedY = healthTransform.position.y;
 
 		maxXValue = healthTransform.position.x;
@@ -210,10 +217,17 @@ public class PlayerScript : MonoBehaviour {
 		}
 		HandleHealth ();
 	}
+
+    public void SetStats(int strength, int stamina, int intellect, int agility)
+    {
+        this.strength   = strength + baseStrength;
+        this.stamina    = stamina + baseStamina;
+        this.intellect  = intellect + baseIntellect;
+        this.agility    = agility + baseAgility;
+
+        statsText.text = string.Format("Strength: {0}\nStamina: {1}\nIntellect: {2}\nAgility: {3}", this.strength, this.stamina, this.intellect, this.agility);
+    }
 } 
-
-
-
 
 
 

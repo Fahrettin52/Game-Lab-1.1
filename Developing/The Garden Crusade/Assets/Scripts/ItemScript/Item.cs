@@ -52,7 +52,7 @@ public abstract class Item {
                 break;
         }
 
-        return string.Format("<color=" + color + "><size=16>{0}</size></color><size=14><i><color=lime>" + newLine + "{1}</color></i></size>", ItemName,Description);
+        return string.Format("<color=" + color + "><size=16>{0}</size></color><size=14><i><color=lime>" + newLine + "{1}</color></i>\n{2}</size>", ItemName,Description, ItemType.ToString().ToLower());
 	}
 
 }
