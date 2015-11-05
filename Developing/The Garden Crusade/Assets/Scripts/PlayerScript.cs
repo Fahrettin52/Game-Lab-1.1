@@ -96,7 +96,7 @@ public class PlayerScript : MonoBehaviour {
 
 		float currentXValue = MapValues (currentHealth, 0, maxHealth, minXValue, maxXValue);
 
-		healthTransform.position = new Vector3 (currentXValue, cachedY);
+		healthTransform.position = new Vector3 (currentXValue, cachedY) * InventoryManager.Instance.canvas.scaleFactor;
 
 		if (currentHealth > maxHealth / 2 ) { 
 			visualHealth.color = new Color32 ((byte)MapValues (currentHealth, maxHealth / 2, maxHealth, 255, 0), 255, 0, 255);
