@@ -14,6 +14,8 @@ public class ToSceneOne : MonoBehaviour {
     public bool ActivateCanvas;
     public GameObject deadScreen;
 
+    public Transform startPosition;
+
     public void Start() {
         StartScreen.SetActive(true);
         OptionScreen.SetActive(false);
@@ -33,16 +35,17 @@ public class ToSceneOne : MonoBehaviour {
             StartScreen.SetActive(true);
             deadScreen.SetActive(false);
             GetComponent<AudioSource>().enabled = true;
-            // 0 stuff
-            break;
+                break;
 
             case 1:
             MenuButton.SetActive(true);
             StartScreen.SetActive(false);
             //StartScreen = GameObject.Find("Filler");
             ExitToMenu.SetActive(true);
-            // 1 stuff
-            break;
+                // 1 stuff
+               // startPosition = GameObject.Find("StartPosition").transform;
+              //  PlayerScript.Instance.transform.position = startPosition.position;
+                break;
         }
     }
 

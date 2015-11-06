@@ -153,9 +153,15 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider other) {
-        if (other.gameObject.name == "Cube")
-        { 
-            Application.LoadLevel(1);
+        if (other.gameObject.name == "ToBoomstronk")
+        {
+            InventoryManager.Instance.Save();
+            Application.LoadLevel(2);
+        }
+
+        if (other.gameObject.tag == "Load")
+        {
+            InventoryManager.Instance.Load();
         }
 
         if (other.tag == "Generator" || other.tag == "DroppedItem") {

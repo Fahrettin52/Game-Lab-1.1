@@ -25,6 +25,7 @@ public class Movement : MonoBehaviour{
     {
         MoveAndRotate();
         jump();
+        Crouch();
     }
 
     public void jump()
@@ -127,6 +128,20 @@ public class Movement : MonoBehaviour{
         }
         else {
                 transform.Translate (Vector3.right * strafeSpeed  * Time.deltaTime);
+        }
+    }
+
+    public void Crouch()
+    {
+        if (Input.GetButton("Crouch"))
+        {
+            GetComponent<CapsuleCollider>().height = 0.5f;
+            GetComponent<CapsuleCollider>().center = new Vector3(0, 0.4f, 0);
+        }
+        else
+        {
+            GetComponent<CapsuleCollider>().height = 2.62f;
+            GetComponent<CapsuleCollider>().center = new Vector3(0, 1.14f, 0);
         }
     }
 }
