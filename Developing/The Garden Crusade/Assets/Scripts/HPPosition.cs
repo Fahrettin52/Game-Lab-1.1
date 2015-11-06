@@ -11,6 +11,11 @@ public class HPPosition : MonoBehaviour {
     public Text hpText;
     public GameObject termiet;
 
+    void Start() {
+        mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
+        player = GameObject.Find("Player").GetComponent<Transform>();
+    }
+
     void Update () {
         if (player != null)
         {
