@@ -179,13 +179,13 @@ public class Inventory : MonoBehaviour {
         PlayerPrefs.SetFloat(gameObject.name + "xPos", inventoryRect.position.x);
         PlayerPrefs.SetFloat(gameObject.name + "yPos", inventoryRect.position.y);
         PlayerPrefs.Save();
-        CharacterPanel.Instance.SaveInventory();
+        //CharacterPanel.Instance.SaveInventory();
     }
 
     public virtual void LoadInventory()
     {
         print("inventory load");
-        CharacterPanel.Instance.LoadInventory();
+        //CharacterPanel.Instance.LoadInventory();
         //Loads all the inventory's data from the playerprefs
         string content = PlayerPrefs.GetString(gameObject.name + "content");
 

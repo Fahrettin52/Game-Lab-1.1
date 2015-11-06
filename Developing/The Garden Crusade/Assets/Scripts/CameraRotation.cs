@@ -20,8 +20,11 @@ public class CameraRotation : MonoBehaviour {
 	public float cameraTargetHeight;		//1
 	private float currentDistance;
 	public bool activateReset = true;
-	
-	void Start () {
+    public CanvasGroup inventoryCanvas;  
+    public CanvasGroup chestCanvas;
+    public CanvasGroup characterCanvas;
+
+    void Start () {
 		Vector3 angles = transform.eulerAngles;
 		x = angles.x;
 		y = angles.y;
@@ -29,9 +32,10 @@ public class CameraRotation : MonoBehaviour {
 	
 	
 	void LateUpdate () {
-		if(Input.GetButton("Fire1")){
+		if(Input.GetButton("Fire1") && inventoryCanvas.alpha < 1 && chestCanvas.alpha < 1 && characterCanvas.alpha < 1)
+        {
 			x += Input.GetAxis("Mouse X") * mouseSpeedX;
-			y += Input.GetAxis("Mouse Y") * mouseSpeedY;
+			y += Input.GetAxis("Mouse Y") * -mouseSpeedY;
 			activateReset = false;
 		}
 		else{

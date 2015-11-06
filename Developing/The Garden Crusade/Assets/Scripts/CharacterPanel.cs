@@ -107,6 +107,7 @@ public class CharacterPanel : Inventory {
 
     public override void LoadInventory()
     {
+        print("Stats Load");
         foreach (Slot slot in equipmentSlots)
         {
             slot.ClearSlot();
