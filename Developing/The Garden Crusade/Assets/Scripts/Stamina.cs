@@ -60,7 +60,7 @@ public class Stamina : MonoBehaviour {
                 if (rayHit.transform.tag == "Enemy")
                 {
                     print("Enemy");
-                    enemy.GetComponent<AnimationTermite>().DropDead(damagePunch); 
+                    rayHit.transform.GetComponent<AnimationTermite>().DropDead(damagePunch); 
 
                 }
             }

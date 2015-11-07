@@ -12,6 +12,7 @@ public class GivePlayerDamage : MonoBehaviour
     void Start()
     {
         hitCooldown = false;
+        sarah = GameObject.Find("Player");
     }
 
     void OnCollisionStay(Collision col)

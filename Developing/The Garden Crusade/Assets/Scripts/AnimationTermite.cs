@@ -30,12 +30,16 @@ public class AnimationTermite : MonoBehaviour {
     public NavMeshAgent agent;
     private Vector3 resetPos;
     private bool resetBool;
+    public float navSpeed;
 
     void Start () {
         agent = GetComponent<NavMeshAgent>();
 		player = GameObject.Find("Player").transform;
         resetPos = transform.position;
+        navSpeed = GetComponent<NavMeshAgent>().speed;
+        attackRange = 6.6f;
 	}
+
 	
 
 	void Update () {
@@ -64,12 +68,13 @@ public class AnimationTermite : MonoBehaviour {
             {
                 animator.SetBool("TermSolAttackStart", true);
                 animator.SetBool("TermSolWalk", false);
-                //agent.Stop();
+                agent.Stop();
             }
             else
             {
                 animator.SetBool("TermSolAttackStart", false);
                 animator.SetBool("TermSolWalk", true);
+                agent.Resume();
             }
         }
 	}
@@ -78,7 +83,6 @@ public class AnimationTermite : MonoBehaviour {
 
         agent.SetDestination(player.transform.position);
         if (resetBool == true) {
-            //agent.Resume();
             transform.LookAt(agent.destination);
             resetBool = false;
         }
@@ -90,10 +94,14 @@ public class AnimationTermite : MonoBehaviour {
         if (livesEnemy < 1)
             {
                 animator.SetBool("TermSolDeath", true);
+                animator.SetBool("TermSolWalk", false);
+                animator.SetBool("TermSolWalkStop", true);
+                transform.Find("Termiet soldier model").GetComponent<GivePlayerDamage>().damageForPlayer=0;
                 moveSpeed = 0;
+                navSpeed = 0;
                 Destroy(gameObject, 2f);
                 GameObject.Instantiate(dropRandomItem).transform.position = transform.position;
-            Destroy(GameObject.Find("EnemyHP"));
+                
             }
 	}
 }
