@@ -31,7 +31,6 @@ public class SpawnEnemy : MonoBehaviour {
         if(timeToSpawn<=0 && spawned<spawnMax) {
             spawned++;
             Instantiate(enemyPrefab, new Vector3(Random.Range(maxHor, minHor), transform.position.y, Random.Range(maxVert, minVert)), transform.rotation);
-            Instantiate(walkTo, new Vector3(Random.Range(maxHor, minHor), transform.position.y, Random.Range(maxVert, minVert)), transform.rotation);
 
             timeToSpawn = 5;
         }
