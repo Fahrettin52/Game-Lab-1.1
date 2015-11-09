@@ -31,6 +31,10 @@ public class AnimationTermite : MonoBehaviour {
     private Vector3 resetPos;
     private bool resetBool;
     public float navSpeed;
+    public float maxVert, minVert, maxHor, minHor;
+    public float countToRoam, countToRoamMax;
+    public bool mayRoam;
+    public Vector3 toRoam;
 
     void Start () {
         agent = GetComponent<NavMeshAgent>();
@@ -60,7 +64,7 @@ public class AnimationTermite : MonoBehaviour {
             {
                 animator.SetBool("TermSolWalk", false);
                 animator.SetBool("TermSolWalkStop", true);
-                agent.SetDestination(resetPos);
+                Roam();
                 resetBool = true;
             }
 
@@ -103,5 +107,19 @@ public class AnimationTermite : MonoBehaviour {
                 GameObject.Instantiate(dropRandomItem).transform.position = transform.position;
                 
             }
-	}
+
+    }
+
+    
+    public void Roam() {
+        countToRoam -= 1 * Time.deltaTime;
+        if(countToRoam<=0) {
+            toRoam = new Vector3(Random.Range(maxHor, minHor), transform.position.y, Random.Range(maxVert, minVert));
+            agent.SetDestination(toRoam);
+            agent.Resume();
+            countToRoam = countToRoamMax;
+        }   
+
+
+    }
 }

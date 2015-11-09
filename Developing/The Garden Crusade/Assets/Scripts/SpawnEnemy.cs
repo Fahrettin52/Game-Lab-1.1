@@ -30,6 +30,10 @@ public class SpawnEnemy : MonoBehaviour {
         timeToSpawn -= 1 * Time.deltaTime;
         if(timeToSpawn<=0 && spawned<spawnMax) {
             spawned++;
+            enemyPrefab.GetComponent<AnimationTermite>().minHor = minHor;
+            enemyPrefab.GetComponent<AnimationTermite>().maxHor = maxHor;
+            enemyPrefab.GetComponent<AnimationTermite>().minVert = minVert;
+            enemyPrefab.GetComponent<AnimationTermite>().maxVert = maxVert;
             Instantiate(enemyPrefab, new Vector3(Random.Range(maxHor, minHor), transform.position.y, Random.Range(maxVert, minVert)), transform.rotation);
             //Instantiate(walkTo, new Vector3(Random.Range(maxHor, minHor), transform.position.y, Random.Range(maxVert, minVert)), transform.rotation);
 
