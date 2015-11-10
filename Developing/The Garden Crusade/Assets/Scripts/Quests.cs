@@ -74,7 +74,7 @@ public class Quests : MonoBehaviour {
 				}
 			}
 			else{
-				//popupText.SetActive(false);
+				popupText.SetActive(false);
 			}
 		}
 	}
@@ -101,9 +101,9 @@ public class Quests : MonoBehaviour {
 					Destroy(rayHit.transform.gameObject);
 				}
 			}
-			/*else{
+			else{
 				popupText.SetActive(false);
-			}*/
+			}
 		}
 
 	}
@@ -122,9 +122,9 @@ public class Quests : MonoBehaviour {
 				}
 			}
 		}
-		/*else{
+		else{
 			popupText.SetActive(false);
-		}*/
+		}
 	}
 
 	void LevelThreeQuests () {
@@ -145,9 +145,9 @@ public class Quests : MonoBehaviour {
 				}
 			}
 		}
-		/*else{
+		else{
 			popupText.SetActive(false);
-		}*/
+		}
 	}
 
 	void OnTriggerEnter (Collider trigger){
