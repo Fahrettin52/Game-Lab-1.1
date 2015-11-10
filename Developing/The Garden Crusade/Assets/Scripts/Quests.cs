@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Quests : MonoBehaviour {
 
 	private int quest1_1;
-	private int currentObjective = 0;
+	public int currentObjective;
 	public int currentObjectiveText = 0;
 	public int currentTag = 0;
 	public int energyShards;
@@ -21,13 +21,15 @@ public class Quests : MonoBehaviour {
 	public GameObject tutLevel;
 	public GameObject popupText;
 	public Text textTest;
+    public int teller;
 
 	public RaycastHit rayHit;
 	public float rayDis;
 
 	void Start () {
 		if(Application.loadedLevel == 2){
-			boomstronkLevel = GameObject.Find("Boomstronk Level");
+            teller = 7;
+            boomstronkLevel = GameObject.Find("Boomstronk Level");
 			boomstronkLevel.SetActive(false);
 		}
 
@@ -156,8 +158,8 @@ public class Quests : MonoBehaviour {
 				currentObjective += 1;
 				currentObjectiveText += 1;
 				currentTag += 1;
-				Destroy(trigger.gameObject);
-				LoopForBool ();
+                LoopForBool();
+                Destroy(trigger.gameObject);
 				break;
 			}
 		}
@@ -202,7 +204,7 @@ public class Quests : MonoBehaviour {
 	}
 	
 	void LoopForBool (){
-		for(int i = 0; i < quest1.Length; i ++){
+		for(int i = teller; i < quest1.Length; i ++){
 			if(i == currentObjective){
 					quest1[i] = true;
 			}
