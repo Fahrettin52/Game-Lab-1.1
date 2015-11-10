@@ -67,6 +67,7 @@ public class Quests : MonoBehaviour {
 			if(rayHit.transform.tag == "Tutorial Puzzle" && quest1[5] == true){
 				popupText.SetActive(true);
 				if(Input.GetButtonDown("Use")){
+					GetComponent<Puzzle1>().ActivatePuzzle();
 					currentObjective += 1;
 					currentObjectiveText += 1;
 					LoopForBool ();
@@ -74,7 +75,7 @@ public class Quests : MonoBehaviour {
 				}
 			}
 			else{
-				//popupText.SetActive(false);
+				popupText.SetActive(false);
 			}
 		}
 	}
@@ -101,9 +102,9 @@ public class Quests : MonoBehaviour {
 					Destroy(rayHit.transform.gameObject);
 				}
 			}
-			/*else{
+			else{
 				popupText.SetActive(false);
-			}*/
+			}
 		}
 
 	}
@@ -122,9 +123,9 @@ public class Quests : MonoBehaviour {
 				}
 			}
 		}
-		/*else{
+		else{
 			popupText.SetActive(false);
-		}*/
+		}
 	}
 
 	void LevelThreeQuests () {
@@ -145,9 +146,9 @@ public class Quests : MonoBehaviour {
 				}
 			}
 		}
-		/*else{
+		else{
 			popupText.SetActive(false);
-		}*/
+		}
 	}
 
 	void OnTriggerEnter (Collider trigger){
