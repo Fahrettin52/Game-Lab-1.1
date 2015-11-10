@@ -32,7 +32,7 @@ public class CameraRotation : MonoBehaviour {
 	
 	
 	void LateUpdate () {
-		if(Input.GetButton("Fire1") && inventoryCanvas.alpha < 1 && chestCanvas.alpha < 1 && characterCanvas.alpha < 1)
+		if(Input.GetButton("Fire1") /*&& inventoryCanvas.alpha < 1 && chestCanvas.alpha < 1 && characterCanvas.alpha < 1*/)
         {
 			x += Input.GetAxis("Mouse X") * mouseSpeedX;
 			y += Input.GetAxis("Mouse Y") * -mouseSpeedY;
