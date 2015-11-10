@@ -30,6 +30,9 @@ public class InteractionWithEnvironment : MonoBehaviour {
 			case 4:
 				print("Shrink ray");
 				break;
+			case 5:
+				print("Puzzle Level 3");
+				break;
 		}
 	}
 
@@ -62,6 +65,14 @@ public class InteractionWithEnvironment : MonoBehaviour {
 			if(rayHit.transform.tag == "Shrink ray"){
 				if(Input.GetButtonDown("Use")){
 					interactInt = 4;
+					Interaction (interactInt);
+				}
+			}
+		}
+		if(Physics.Raycast(transform.position, transform.forward, out rayHit, rayDis)){
+			if(rayHit.transform.tag == "Puzzle Underground"){
+				if(Input.GetButtonDown("Use")){
+					interactInt = 5;
 					Interaction (interactInt);
 				}
 			}
