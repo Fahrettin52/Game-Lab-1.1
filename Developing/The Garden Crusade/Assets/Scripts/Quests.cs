@@ -67,7 +67,6 @@ public class Quests : MonoBehaviour {
 			if(rayHit.transform.tag == "Tutorial Puzzle" && quest1[5] == true){
 				popupText.SetActive(true);
 				if(Input.GetButtonDown("Use")){
-					GetComponent<Puzzle1>().ActivatePuzzle();
 					currentObjective += 1;
 					currentObjectiveText += 1;
 					LoopForBool ();
