@@ -149,7 +149,7 @@ public class Movement : MonoBehaviour{
         }
     }
     public void Run() {
-        if (Input.GetButton("Run") && Input.GetButton("Horizontal")) {
+        if (Input.GetButton("Run")) {
             forwardSpeed = runSpeed;
         } else {
             forwardSpeed = normalSpeed;

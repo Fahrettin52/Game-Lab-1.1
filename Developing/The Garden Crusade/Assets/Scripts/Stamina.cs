@@ -28,7 +28,7 @@ public class Stamina : MonoBehaviour {
 	public bool hitCooldown;
 	public float cooldown;
 	public int energyPot;
-	private CanvasGroup itemGroup;
+	public CanvasGroup itemGroup;
     public int rayDistance;
     public RaycastHit rayHit;
     public int damagePunch;
@@ -36,7 +36,7 @@ public class Stamina : MonoBehaviour {
 
 
     void Start () {
-		itemGroup = GameObject.Find ("InventoryBackground").GetComponent<CanvasGroup> ();
+		//itemGroup = GameObject.Find ("InventoryBackground").GetComponent<CanvasGroup> ();
 		currentStamina = maxStamina;
 		hitCooldown = false;
 	}
