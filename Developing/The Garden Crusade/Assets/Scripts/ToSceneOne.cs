@@ -13,6 +13,7 @@ public class ToSceneOne : MonoBehaviour {
     public GameObject ExitToMenu;
     public bool ActivateCanvas;
     public GameObject deadScreen;
+    public GameObject background;
 
     public Transform startPosition;
 
@@ -27,7 +28,8 @@ public class ToSceneOne : MonoBehaviour {
     public void OnLevelWasLoaded(int level) {
         switch (level) {
             case 0:
-            ActivateCanvas = false;
+                background.SetActive(true);
+                ActivateCanvas = false;
             OptionScreen.SetActive(false);
             //StartScreen = GameObject.Find("StartScreen");
             MenuButton.SetActive(false);
@@ -42,6 +44,7 @@ public class ToSceneOne : MonoBehaviour {
             StartScreen.SetActive(false);
             //StartScreen = GameObject.Find("Filler");
             ExitToMenu.SetActive(true);
+            background.SetActive(false);
                 // 1 stuff
                // startPosition = GameObject.Find("StartPosition").transform;
               //  PlayerScript.Instance.transform.position = startPosition.position;

@@ -39,7 +39,7 @@ public class CharacterPanel : Inventory {
 
     void Start () {
         itemGroup = GetComponentInParent<CanvasGroup>();
-        buttonGroup = GameObject.Find("ButtonCanvas").GetComponent<CanvasGroup>();
+        //buttonGroup = GameObject.Find("ButtonCanvas").GetComponent<CanvasGroup>();
     }
 
     public void EquipItem(Slot slot, ItemScript item){

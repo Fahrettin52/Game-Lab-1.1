@@ -28,7 +28,6 @@ public class AnimationTermite : MonoBehaviour {
     public GameObject dropRandomItem;
     public Image fill;
     public NavMeshAgent agent;
-    private Vector3 resetPos;
     private bool resetBool;
     public float navSpeed;
     public float maxVert, minVert, maxHor, minHor;
@@ -39,7 +38,6 @@ public class AnimationTermite : MonoBehaviour {
     void Start () {
         agent = GetComponent<NavMeshAgent>();
 		player = GameObject.Find("Player").transform;
-        resetPos = transform.position;
         navSpeed = GetComponent<NavMeshAgent>().speed;
         attackRange = 6.6f;
 	}

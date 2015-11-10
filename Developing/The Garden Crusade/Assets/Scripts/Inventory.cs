@@ -44,7 +44,7 @@ public class Inventory : MonoBehaviour {
         isOpen = false;
         playerRef = GameObject.Find("Player");
         itemGroup = GetComponent<CanvasGroup>();
-        buttonGroup = GameObject.Find("ButtonCanvas").GetComponent<CanvasGroup>();
+       // buttonGroup = GameObject.Find("ButtonCanvas").GetComponent<CanvasGroup>();
         CreateLayout();
         InventoryManager.Instance.MovingSlot = GameObject.Find("MovingSlot").GetComponent<Slot>();
     } 

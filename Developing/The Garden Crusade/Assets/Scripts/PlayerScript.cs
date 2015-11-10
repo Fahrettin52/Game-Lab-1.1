@@ -31,7 +31,7 @@ public class PlayerScript : MonoBehaviour {
 	public Image mana;
 	public int healtPot;
     public GameObject sarah;
-    public Text statsText;
+    public Text strengthStats, staminaStats, intellectStats, agilityStats;
     public int baseStrength, baseStamina, baseIntellect, baseAgility;
     private int strength, stamina, intellect, agility;
 
@@ -231,7 +231,10 @@ public class PlayerScript : MonoBehaviour {
         this.intellect  = intellect + baseIntellect;
         this.agility    = agility + baseAgility;
 
-        statsText.text = string.Format("Strength: {0}\nStamina: {1}\nIntellect: {2}\nAgility: {3}", this.strength, this.stamina, this.intellect, this.agility);
+        strengthStats.text  = string.Format("Strength: {0}", this.strength);
+        staminaStats.text   = string.Format("Stamina: {0}", this.stamina);
+        intellectStats.text = string.Format("Intellect: {0}", this.intellect);
+        agilityStats.text   = string.Format("Agility: {0}", this.agility);
     }
 } 
 
