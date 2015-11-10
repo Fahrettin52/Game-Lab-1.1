@@ -4,6 +4,8 @@ using System.Collections;
 public class Movement : MonoBehaviour{
 
     public float forwardSpeed;
+    public int normalSpeed;
+    public int runSpeed;
     public float rotateSpeed;
     public int mouseSpeed;
     public float rayDistance;
@@ -16,6 +18,7 @@ public class Movement : MonoBehaviour{
     public int dubbleJump;
     public int maxJump;
 
+
     void Start() {
         rb = GetComponent<Rigidbody>();
     }
@@ -26,6 +29,7 @@ public class Movement : MonoBehaviour{
         MoveAndRotate();
         jump();
         Crouch();
+        Run();
     }
 
     public void jump()
@@ -142,6 +146,13 @@ public class Movement : MonoBehaviour{
         {
             GetComponent<CapsuleCollider>().height = 2.62f;
             GetComponent<CapsuleCollider>().center = new Vector3(0, 1.14f, 0);
+        }
+    }
+    public void Run() {
+        if (Input.GetButton("Run")) {
+            forwardSpeed = runSpeed;
+        } else {
+            forwardSpeed = normalSpeed;
         }
     }
 }
