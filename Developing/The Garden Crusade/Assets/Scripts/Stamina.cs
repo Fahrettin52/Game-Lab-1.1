@@ -98,17 +98,20 @@ public class Stamina : MonoBehaviour {
 		staminaText.text = "Energy: " + currentStamina.ToString("F0"); 
 	}
 
-	public void ManaColor(){
+    public void ManaColor()
+    {
 
-		if (currentStamina > maxStamina / 2 ) { 
-			bar.color = new Color32 (0, (byte)MapValues (currentStamina, maxStamina / 2, maxStamina, 255, 0), 255, 255);
-		}
-		else { 
-			bar.color = new Color32 ((byte)MapValues (currentStamina, 0, maxStamina / 2 , 255, 0), 255, 255, 255);
-		}
-	}
+        if (currentStamina > maxStamina / 2)
+        {
+            bar.color = new Color32(0, (byte)MapValues(currentStamina, maxStamina / 2, maxStamina, 255, 0), 255, 255);
+        }
+        else
+        {
+            bar.color = new Color32((byte)MapValues(currentStamina, 0, maxStamina / 2, 255, 0), 255, 255, 255);
+        }
+    }
 
-	private float MapValues(float x, float inMin, float inMax, float outMin, float outMax){
+    private float MapValues(float x, float inMin, float inMax, float outMin, float outMax){
 		return (x - inMin) * (outMax - outMin) / (inMax - inMin) + outMin; 
 	}
 

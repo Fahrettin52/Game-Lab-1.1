@@ -68,6 +68,8 @@ public class PlayerScript : MonoBehaviour {
 
     void Update()
     {
+        visualHealth.fillAmount = currentHealth / 100f;
+        HandleHealth();
         HandleMovement();
 
         if (Input.GetKeyDown(KeyCode.I))
