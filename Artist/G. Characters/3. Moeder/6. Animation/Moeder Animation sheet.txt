@@ -1,0 +1,6 @@
+moeder animation sheet
+
+15 tm 24 = idle(loop)
+28 tm 50 = talk (loop)
+55 tm 83 = walk (loop)
+...
