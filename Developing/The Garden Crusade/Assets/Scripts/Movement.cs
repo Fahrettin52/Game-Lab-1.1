@@ -27,9 +27,12 @@ public class Movement : MonoBehaviour{
     void Update()
     {
         MoveAndRotate();
-        jump();
         Crouch();
         Run();
+    }
+
+    void FixedUpdate (){
+    	jump();
     }
 
     public void jump()
@@ -37,7 +40,7 @@ public class Movement : MonoBehaviour{
         if (Physics.Raycast(transform.position, Vector3.down, grondDis))
         {
             mayJump = true;
-            rb.useGravity = false;
+            //rb.useGravity = false;
             dubbleJump = 0;
         }
         else
