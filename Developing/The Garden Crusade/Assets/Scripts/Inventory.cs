@@ -15,7 +15,7 @@ public class Inventory : MonoBehaviour {
 	public 	float slotSize;
 	private	RectTransform inventoryRect; 
 	public CanvasGroup itemGroup;
-    //public CanvasGroup buttonGroup;
+    public CanvasGroup buttonGroup;
 	private bool fadingIn;
 	private bool fadingOut;
 	public 	float fadeTime;
@@ -102,21 +102,24 @@ public class Inventory : MonoBehaviour {
 		MoveInventory();
 	}
 
-	//public void PointerExit () {
-	//	mouseInside = false;
- //   }
+    public void PointerExit()
+    {
+        mouseInside = false;
+    }
 
-	public void PointerEnter () {
+    public void PointerEnter () {
 		if (itemGroup.alpha > 0) {
 			mouseInside = true;
 		}
     }
 
-    //public void ButtonEnter() { 
-    //    if (buttonGroup.alpha == 1){
-    //        mouseInside = true;
-    //    }
-    //}
+    public void ButtonEnter()
+    {
+        if (buttonGroup.alpha == 1)
+        {
+            mouseInside = true;
+        }
+    }
 
     public void ButtonExit(){
         mouseInside = false;
