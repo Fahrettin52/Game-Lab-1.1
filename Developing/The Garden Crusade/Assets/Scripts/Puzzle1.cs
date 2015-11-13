@@ -17,8 +17,8 @@ public class Puzzle1 : MonoBehaviour {
 	
 	void Update () {
 		DeactivatePuzzle ();
-		AlphaZero ();
 		oldSprite = newSprite;
+		AlphaZero ();
 	}
 
 	public void ActivatePuzzle (){
@@ -47,8 +47,12 @@ public class Puzzle1 : MonoBehaviour {
 	}
 
 	public void SwitchImage1 (){
-		mouseImage.GetComponent<Image>().sprite = buttons[0].GetComponent<Image>().sprite;
-		buttons[0].GetComponent<Image>().sprite = newSprite;
-		buttons[0].GetComponent<Image>().sprite = null;
+		newSprite = mouseImage.GetComponent<Image>().sprite;
+		buttons[0].transform.Find("Image").GetComponent<Image>().sprite = newSprite;
+		mouseImage.GetComponent<Image>().sprite = null;
+		if(buttons[0].transform.Find("Image").GetComponent<Image>().sprite == null){
+			print(newSprite);
+			buttons[0].transform.Find("Image").GetComponent<Image>().sprite = oldSprite;
+		}
 	}
 }
