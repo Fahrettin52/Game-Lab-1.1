@@ -119,9 +119,7 @@ public class Movement : MonoBehaviour{
         }
 
         if (Input.GetButton("E")) {
-            print("Input");
             if (Physics.Raycast (transform.position, -transform.right, rayDistance)) {
-                print ("Hit");
             } 
         }
         else{

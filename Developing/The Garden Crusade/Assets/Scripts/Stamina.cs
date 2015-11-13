@@ -34,6 +34,11 @@ public class Stamina : MonoBehaviour {
     public int damagePunch;
     public GameObject enemy;
 
+    public float currentRage;
+    public float maxRage;
+    public Image rageFillAmount;
+    public Text rageText;
+
 
     void Start () {
 		//itemGroup = GameObject.Find ("InventoryBackground").GetComponent<CanvasGroup> ();
@@ -49,6 +54,7 @@ public class Stamina : MonoBehaviour {
         if (Input.GetButtonDown("Fire1") && !hitCooldown && itemGroup.alpha < 1 && !Inventory.mouseInside)
             
         {
+            RageBar();
             StartCoroutine(FightToIdle());
             hitCooldown = true;
             ManaDrop();
@@ -129,6 +135,25 @@ public class Stamina : MonoBehaviour {
 		ManaColor ();
 		ManaText ();
 	}
+
+    public void RageBar()
+    {
+        if (currentRage < maxRage)
+        {
+            currentRage += 10f;
+        }
+        rageFillAmount.fillAmount += 1 / 10f;
+
+        if (currentRage < maxRage / 2)
+        {
+            rageFillAmount.color = new Color32(255, (byte)MapValues(currentRage, maxRage / 2, maxRage, 255, 0), 255, 65);
+        }
+        else
+        {
+            rageFillAmount.color = new Color32(255, 0, (byte)MapValues(currentRage, 100, maxRage / 2, 0, 255), 130);
+        }
+        rageText.text = "Rage: " + currentRage.ToString("F0");
+    }
 }
 
 
