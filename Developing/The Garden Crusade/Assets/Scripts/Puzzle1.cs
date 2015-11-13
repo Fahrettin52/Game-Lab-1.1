@@ -9,8 +9,8 @@ public class Puzzle1 : MonoBehaviour {
 	public Sprite newSprite;
 	public Sprite oldSprite;
 
-	private int currentButton;
-	private bool completePuzzle;
+	public int currentButton;
+	public bool completePuzzle;
 
 	void Start () {
 		 mouseImage = GameObject.Find("PuzzleMouse");
@@ -56,7 +56,7 @@ public class Puzzle1 : MonoBehaviour {
 				buttons[i].transform.Find("Image").GetComponent<Image>().sprite = null;
 					if(buttons[i].transform.Find("Image").GetComponent<Image>().sprite == null){
 					buttons[i].transform.Find("Image").GetComponent<Image>().sprite = oldSprite;
-				}
+					}
 			}
 		}
 		
@@ -64,27 +64,35 @@ public class Puzzle1 : MonoBehaviour {
 
 	public void ButtonClick1 (){
 		currentButton = 0;
+		print(newSprite);
 		SwitchImage ();
 	}
 
 	public void ButtonClick2 (){
 		currentButton = 1;
+		print(newSprite);
 		SwitchImage ();
 	}
 
 	public void ButtonClick3 (){
 		currentButton = 2;
+		print(newSprite);
 		SwitchImage ();
 	}
 
 	public void ButtonClick4 (){
 		currentButton = 3;
+		print(newSprite);
 		SwitchImage ();
 	}
 
 	void PuzzleCompleted (){
-		if(buttons[0].transform.Find("Image").GetComponent<Image>().sprite.name == "LadyBug1" && buttons[1].transform.Find("Image").GetComponent<Image>().sprite.name == "LadyBug2" && buttons[2].transform.Find("Image").GetComponent<Image>().sprite.name == "LadyBug3" && buttons[3].transform.Find("Image").GetComponent<Image>().sprite.name == "LadyBug4"){
+		if(buttons[0].transform.Find("Image").GetComponent<Image>().sprite.name == "LadyBug1" /*&& 
+		   buttons[1].transform.Find("Image").GetComponent<Image>().sprite.name == "LadyBug2" && 
+		   buttons[2].transform.Find("Image").GetComponent<Image>().sprite.name == "LadyBug3" && 
+		   buttons[3].transform.Find("Image").GetComponent<Image>().sprite.name == "LadyBug4"*/){
 			completePuzzle = true;
+
 		}
 	}
 }
