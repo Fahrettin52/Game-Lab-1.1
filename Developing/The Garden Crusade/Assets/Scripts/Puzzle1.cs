@@ -9,6 +9,9 @@ public class Puzzle1 : MonoBehaviour {
 	public Sprite newSprite;
 	public Sprite oldSprite;
 
+	private int currentButton;
+	private bool completePuzzle;
+
 	void Start () {
 		 mouseImage = GameObject.Find("PuzzleMouse");
 		 puzzleCanvas = GameObject.Find("PuzzleActivateCanvas");
@@ -16,13 +19,13 @@ public class Puzzle1 : MonoBehaviour {
 	}
 	
 	void Update () {
-		DeactivatePuzzle ();
 		oldSprite = newSprite;
+		DeactivatePuzzle ();
 		AlphaZero ();
+		PuzzleCompleted ();
 	}
 
 	public void ActivatePuzzle (){
-		print("PuzzleActivate");
 		puzzleCanvas.SetActive(true);
 		GetComponent<Movement>().enabled = false;
 		GetComponent<Quests>().enabled = false;
@@ -30,7 +33,6 @@ public class Puzzle1 : MonoBehaviour {
 
 	void DeactivatePuzzle (){
 		if(Input.GetButtonDown("Use")){
-			print("Connect");
 			puzzleCanvas.SetActive(false);
 			GetComponent<Movement>().enabled = true;
 			GetComponent<Quests>().enabled = true;
@@ -46,13 +48,43 @@ public class Puzzle1 : MonoBehaviour {
 		}
 	}
 
-	public void SwitchImage1 (){
-		newSprite = mouseImage.GetComponent<Image>().sprite;
-		buttons[0].transform.Find("Image").GetComponent<Image>().sprite = newSprite;
-		mouseImage.GetComponent<Image>().sprite = null;
-		if(buttons[0].transform.Find("Image").GetComponent<Image>().sprite == null){
-			print(newSprite);
-			buttons[0].transform.Find("Image").GetComponent<Image>().sprite = oldSprite;
+	void SwitchImage (){
+		for(int i = 0; i < buttons.Length; i ++){
+			if(i == currentButton){
+				newSprite = buttons[i].transform.Find("Image").GetComponent<Image>().sprite;
+				mouseImage.GetComponent<Image>().sprite = newSprite;
+				buttons[i].transform.Find("Image").GetComponent<Image>().sprite = null;
+					if(buttons[i].transform.Find("Image").GetComponent<Image>().sprite == null){
+					buttons[i].transform.Find("Image").GetComponent<Image>().sprite = oldSprite;
+				}
+			}
+		}
+		
+	}
+
+	public void ButtonClick1 (){
+		currentButton = 0;
+		SwitchImage ();
+	}
+
+	public void ButtonClick2 (){
+		currentButton = 1;
+		SwitchImage ();
+	}
+
+	public void ButtonClick3 (){
+		currentButton = 2;
+		SwitchImage ();
+	}
+
+	public void ButtonClick4 (){
+		currentButton = 3;
+		SwitchImage ();
+	}
+
+	void PuzzleCompleted (){
+		if(buttons[0].transform.Find("Image").GetComponent<Image>().sprite.name == "LadyBug1" && buttons[1].transform.Find("Image").GetComponent<Image>().sprite.name == "LadyBug2" && buttons[2].transform.Find("Image").GetComponent<Image>().sprite.name == "LadyBug3" && buttons[3].transform.Find("Image").GetComponent<Image>().sprite.name == "LadyBug4"){
+			completePuzzle = true;
 		}
 	}
 }
