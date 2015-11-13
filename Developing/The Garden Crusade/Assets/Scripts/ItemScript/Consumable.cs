@@ -5,14 +5,16 @@ public class Consumeable : Item {
 
 	public int Health { get; set; }
 	public int Mana { get; set; }
+    public int Rage { get; set; }
 
-	public Consumeable () {
+    public Consumeable () {
 	}
 
-	public Consumeable (string itemName, string description, ItemType itemType, Quality quality, string spriteNeutral, string spriteHighlighted, int maxSize, int health, int mana) 
+	public Consumeable (string itemName, string description, ItemType itemType, Quality quality, string spriteNeutral, string spriteHighlighted, int maxSize, int health, int mana, int rage) 
 		: base(itemName,description,itemType,quality,spriteNeutral,spriteHighlighted,maxSize) {
 		this.Health = health;
 		this.Mana = mana;
+        this.Rage = Rage;
 	} 
 
 	public override void Use (Slot slot, ItemScript item) {
@@ -45,11 +47,15 @@ public class Consumeable : Item {
         string stats = string.Empty;
 
         if (Health > 0) {
-            stats += "\n Restores " + Health.ToString() + " Health";
+            stats += "\n Restores " + Health.ToString() + " health";
         }
         if (Mana > 0)
         {
-            stats += "\n Restores " + Mana.ToString() + " Energy";
+            stats += "\n Restores " + Mana.ToString() + " energy";
+        }
+        if (Rage > 0)
+        {
+            stats += "\n Restores " + Rage.ToString() + " rage";
         }
         string itemTip = base.GetToolTip();
 

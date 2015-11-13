@@ -22,6 +22,7 @@ public class ItemManager : MonoBehaviour {
 	public float 	attackSpeed;
 	public int 		health;
 	public int 		mana;
+    public int      rage;
 
 	public void CreateItem () {
 		ItemContainer itemContainer = new ItemContainer ();
@@ -41,7 +42,7 @@ public class ItemManager : MonoBehaviour {
 			itemContainer.Weapons.Add(new Weapon(itemName, description, itemType, quality, spriteNeutral, spriteHighlighted, maxSize, intellect, agility, stamina, strength, attackSpeed));
 				break;
 			case Category.CONSUMEABLE:
-			    itemContainer.Consumable.Add(new Consumeable(itemName, description, itemType, quality, spriteNeutral, spriteHighlighted, maxSize, health, mana));
+			    itemContainer.Consumable.Add(new Consumeable(itemName, description, itemType, quality, spriteNeutral, spriteHighlighted, maxSize, health, mana, rage));
 				break;
         }
 
