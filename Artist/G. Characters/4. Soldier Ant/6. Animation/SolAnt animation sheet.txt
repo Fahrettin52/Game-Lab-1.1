@@ -1,0 +1,12 @@
+soldier Ant Animation Sheet
+
+Idle = 10 tm 20
+EquipWeapon = 20 tm 36
+IdleAttack = 36 tm 46
+Attack = 46 tm 70
+
+walk = 75 tm 105
+
+Block = 110 tm 116
+Hit = 122 tm 130
+Death= 130 t 164
