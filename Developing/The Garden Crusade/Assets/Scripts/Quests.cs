@@ -10,6 +10,8 @@ public class Quests : MonoBehaviour {
 	public int currentTag = 0;
 	public int energyShards;
 	public int shrinkRayActivate;
+	public int oldValues;
+	public int oldValuesText;
 
 	public bool [] quest1;
 	public string [] quest1Text;
@@ -59,6 +61,7 @@ public class Quests : MonoBehaviour {
 		LevelTwoQuests ();
 		LevelThreeQuests ();
 		TutorialQuests ();
+		PuzzleDone ();
 
 	}
 
@@ -69,6 +72,9 @@ public class Quests : MonoBehaviour {
 			if(rayHit.transform.tag == "Tutorial Puzzle" && quest1[5] == true){
 				popupText.SetActive(true);
 				if(Input.GetButtonDown("Use")){
+					currentObjective += 1;
+					currentObjectiveText += 1;
+					LoopForBool ();
                     GetComponent<Puzzle1>().ActivatePuzzle();
                     Destroy(rayHit.transform.gameObject);
 				}
@@ -93,7 +99,6 @@ public class Quests : MonoBehaviour {
 		if(Physics.Raycast(transform.position, fwd, out rayHit, rayDis)){
 			if(rayHit.transform.tag == "Mother" && quest1[9] == true){
 				popupText.SetActive(true);
-				print("Show Text");
 				if(Input.GetButtonDown("Use")){
 					currentObjective += 1;
 					currentObjectiveText += 1;
@@ -210,8 +215,8 @@ public class Quests : MonoBehaviour {
 	}
 
 	public void PuzzleDone (){
-		currentObjective += 1;
-		currentObjectiveText += 1;
-		LoopForBool ();
+		if(GetComponent<Puzzle1>().completePuzzle == true){
+			GetComponent<Puzzle1>().enabled = false;
+		}
 	}
 }
