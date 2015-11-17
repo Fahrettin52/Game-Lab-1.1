@@ -60,7 +60,9 @@ public class Stamina : MonoBehaviour {
             ManaDrop();
             StartCoroutine(CoolDownDmg());
 
-            if (Physics.Raycast(transform.position + new Vector3(0,1.3f,0), transform.forward, out rayHit, rayDistance))
+            if (Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.forward, out rayHit, rayDistance) ||
+               (Physics.Raycast(transform.position + new Vector3(0, 0, 0), transform.forward, out rayHit, rayDistance) ||
+               (Physics.Raycast(transform.position + new Vector3(0, 2.6f, 0), transform.forward, out rayHit, rayDistance))))
             {
                 Debug.DrawRay(transform.position + new Vector3(0,1.3f,0), transform.forward, Color.green, rayDistance);
                 if (rayHit.transform.tag == "Enemy")
