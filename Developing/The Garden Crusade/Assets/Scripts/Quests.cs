@@ -69,11 +69,8 @@ public class Quests : MonoBehaviour {
 			if(rayHit.transform.tag == "Tutorial Puzzle" && quest1[5] == true){
 				popupText.SetActive(true);
 				if(Input.GetButtonDown("Use")){
-                    //GetComponent<Puzzle1>().ActivatePuzzle();
+                    GetComponent<Puzzle1>().ActivatePuzzle();
                     Destroy(rayHit.transform.gameObject);
-					currentObjective += 1;
-					currentObjectiveText += 1;
-					LoopForBool ();
 				}
 			}
 			else{
@@ -210,5 +207,11 @@ public class Quests : MonoBehaviour {
 					quest1[i] = true;
 			}
 		}
+	}
+
+	public void PuzzleDone (){
+		currentObjective += 1;
+		currentObjectiveText += 1;
+		LoopForBool ();
 	}
 }

@@ -87,12 +87,13 @@ public class Puzzle1 : MonoBehaviour {
 	}
 
 	void PuzzleCompleted (){
-		if(buttons[0].transform.Find("Image").GetComponent<Image>().sprite.name == "LadyBug1" /*&& 
+		if(
+			buttons[0].transform.Find("Image").GetComponent<Image>().sprite.name == "LadyBug1" && 
 		   buttons[1].transform.Find("Image").GetComponent<Image>().sprite.name == "LadyBug2" && 
 		   buttons[2].transform.Find("Image").GetComponent<Image>().sprite.name == "LadyBug3" && 
-		   buttons[3].transform.Find("Image").GetComponent<Image>().sprite.name == "LadyBug4"*/){
+		   buttons[3].transform.Find("Image").GetComponent<Image>().sprite.name == "LadyBug4"){
+		
 			completePuzzle = true;
-
-		}
+		}		
 	}
 }
