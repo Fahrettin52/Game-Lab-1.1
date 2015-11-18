@@ -54,7 +54,7 @@ public class Stamina : MonoBehaviour {
         if (Input.GetButtonDown("Fire1") && !hitCooldown && itemGroup.alpha < 1 && !Inventory.mouseInside)
             
         {
-            RageBar();
+            //RageBar();
             StartCoroutine(FightToIdle());
             hitCooldown = true;
             ManaDrop();

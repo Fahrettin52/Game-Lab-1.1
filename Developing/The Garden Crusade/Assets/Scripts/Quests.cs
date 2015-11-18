@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Quests : MonoBehaviour {
 
-	private int quest1_1;
+	public int quest1_1;
 	public int currentObjective;
 	public int currentObjectiveText = 0;
 	public int currentTag = 0;
@@ -22,6 +22,7 @@ public class Quests : MonoBehaviour {
 	public GameObject schuurLevel;
 	public GameObject tutLevel;
 	public GameObject popupText;
+	public GameObject puzzleCanvas;
 	public Text textTest;
     public int teller;
 
@@ -61,7 +62,6 @@ public class Quests : MonoBehaviour {
 		LevelTwoQuests ();
 		LevelThreeQuests ();
 		TutorialQuests ();
-		PuzzleDone ();
 
 	}
 
@@ -72,10 +72,11 @@ public class Quests : MonoBehaviour {
 			if(rayHit.transform.tag == "Tutorial Puzzle" && quest1[5] == true){
 				popupText.SetActive(true);
 				if(Input.GetButtonDown("Use")){
+					print("ActivatePuzzle");
+					GetComponent<Puzzle1>().ActivatePuzzle ();
 					currentObjective += 1;
 					currentObjectiveText += 1;
 					LoopForBool ();
-                    GetComponent<Puzzle1>().ActivatePuzzle();
                     Destroy(rayHit.transform.gameObject);
 				}
 			}
@@ -211,12 +212,6 @@ public class Quests : MonoBehaviour {
 			if(i == currentObjective){
 					quest1[i] = true;
 			}
-		}
-	}
-
-	public void PuzzleDone (){
-		if(GetComponent<Puzzle1>().completePuzzle == true){
-			GetComponent<Puzzle1>().enabled = false;
 		}
 	}
 }

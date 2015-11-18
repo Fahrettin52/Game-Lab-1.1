@@ -20,7 +20,7 @@ public class Puzzle1 : MonoBehaviour {
 	
 	void Update () {
 		oldSprite = newSprite;
-		DeactivatePuzzle ();
+		//DeactivatePuzzle ();
 		AlphaZero ();
 		PuzzleCompleted ();
 	}
@@ -29,6 +29,7 @@ public class Puzzle1 : MonoBehaviour {
 		puzzleCanvas.SetActive(true);
 		GetComponent<Movement>().enabled = false;
 		GetComponent<Quests>().enabled = false;
+		GetComponent<Stamina>().enabled = false;
 	}
 
 	void DeactivatePuzzle (){

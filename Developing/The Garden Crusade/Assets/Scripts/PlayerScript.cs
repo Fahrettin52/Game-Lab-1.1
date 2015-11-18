@@ -158,7 +158,7 @@ public class PlayerScript : MonoBehaviour {
         if (other.gameObject.name == "ToBoomstronk")
         {
             InventoryManager.Instance.Save();
-            Application.LoadLevel(2);
+            Application.LoadLevel("Level 1");
         }
 
         if (other.gameObject.tag == "Load")

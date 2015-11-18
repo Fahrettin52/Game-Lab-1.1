@@ -101,6 +101,7 @@ public class AnimationTermite : MonoBehaviour {
                 transform.Find("Termiet soldier model").GetComponent<GivePlayerDamage>().damageForPlayer=0;
                 moveSpeed = 0;
                 navSpeed = 0;
+                GameObject.Find("Player").GetComponent<Quests>().quest1_1 += 1;
                 Destroy(gameObject, 2f);
                 GameObject.Instantiate(dropRandomItem).transform.position = transform.position;
                 
