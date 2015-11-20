@@ -1,0 +1,6 @@
+0-60 = lopen
+60-90 = zichzelf grootmaken
+90-120 = idle hoofd schudden
+120-170 = zichzelf grootmaken + aanval 
+170-200 = death
+210-270 = idle rondkijken
