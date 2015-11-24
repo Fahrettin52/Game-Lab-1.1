@@ -41,8 +41,8 @@ public class Stamina : MonoBehaviour {
 
 
     void Start () {
-		//itemGroup = GameObject.Find ("InventoryBackground").GetComponent<CanvasGroup> ();
-		currentStamina = maxStamina;
+        //itemGroup = GameObject.Find ("InventoryBackground").GetComponent<CanvasGroup> ();
+        currentStamina = maxStamina;
 		hitCooldown = false;
 	}
 
@@ -51,8 +51,8 @@ public class Stamina : MonoBehaviour {
 		ManaRegen ();
 		ManaColor ();
 
-        if (Input.GetButtonDown("Fire1") && !hitCooldown && itemGroup.alpha < 1 && !Inventory.mouseInside)
-            
+        if (Input.GetButtonDown("Fire1") && !hitCooldown && itemGroup.alpha < 1 && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+
         {
             RageBar();
             StartCoroutine(FightToIdle());
@@ -125,7 +125,7 @@ public class Stamina : MonoBehaviour {
 
 	IEnumerator CoolDownDmg (){
 		hitCooldown = true;
-		yield return new WaitForSeconds (cooldown);
+        yield return new WaitForSeconds (cooldown);
         hitCooldown = false;
 	}
 	public void GetMana () {

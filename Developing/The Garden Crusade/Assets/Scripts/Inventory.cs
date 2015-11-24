@@ -8,7 +8,7 @@ public class Inventory : MonoBehaviour {
 
 	public 	int rows;
 	public 	int slots;
-    private int emptySlots;  
+    public int emptySlots;  
 	private float hoverYOffset;
 	private float inventoryWidth, inventoryHeight;
 	public 	float slotPaddingLeft, slotPaddingTop;

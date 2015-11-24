@@ -4,26 +4,27 @@ using System.Collections;
 
 public class Puzzle1 : MonoBehaviour {
 	public GameObject puzzleCanvas;
-	public GameObject [] buttons;
+	public Image [] buttons;
+    //public Image one, two, three, four;
 	public GameObject mouseImage;
-	public Sprite newSprite;
-	public Sprite oldSprite;
+    public Sprite newSprite;
+    public Sprite oldSprite;
+    public bool[] checkPuzzle;
 
-	public int currentButton;
+    public int currentButton;
 	public bool completePuzzle;
 
 	void Start () {
-		 mouseImage = GameObject.Find("PuzzleMouse");
-		 puzzleCanvas = GameObject.Find("PuzzleActivateCanvas");
-		 puzzleCanvas.SetActive(false);
+        mouseImage = GameObject.Find("PuzzleMouse");
+        puzzleCanvas = GameObject.Find("PuzzleActivateCanvas");
+		puzzleCanvas.SetActive(false);
 	}
 	
 	void Update () {
-		oldSprite = newSprite;
-		//DeactivatePuzzle ();
-		AlphaZero ();
-		PuzzleCompleted ();
-	}
+        oldSprite = newSprite;
+        //DeactivatePuzzle ();
+        AlphaZero ();
+    }
 
 	public void ActivatePuzzle (){
 		puzzleCanvas.SetActive(true);
@@ -32,13 +33,13 @@ public class Puzzle1 : MonoBehaviour {
 		GetComponent<Stamina>().enabled = false;
 	}
 
-	void DeactivatePuzzle (){
-		if(Input.GetButtonDown("Use")){
-			puzzleCanvas.SetActive(false);
-			GetComponent<Movement>().enabled = true;
-			GetComponent<Quests>().enabled = true;
-		}
-	}
+	//void DeactivatePuzzle (){
+	//	if(Input.GetButtonDown("Use")){
+	//		puzzleCanvas.SetActive(false);
+	//		GetComponent<Movement>().enabled = true;
+	//		GetComponent<Quests>().enabled = true;
+	//	}
+	//}
 
 	void AlphaZero (){
 		if(mouseImage.GetComponent<Image>().sprite == null){
@@ -49,51 +50,67 @@ public class Puzzle1 : MonoBehaviour {
 		}
 	}
 
-	void SwitchImage (){
-		for(int i = 0; i < buttons.Length; i ++){
-			if(i == currentButton){
-				newSprite = buttons[i].transform.Find("Image").GetComponent<Image>().sprite;
-				mouseImage.GetComponent<Image>().sprite = newSprite;
-				buttons[i].transform.Find("Image").GetComponent<Image>().sprite = null;
-					if(buttons[i].transform.Find("Image").GetComponent<Image>().sprite == null){
-					buttons[i].transform.Find("Image").GetComponent<Image>().sprite = oldSprite;
-					}
-			}
-		}
-		
-	}
+    public void PlaceImage(int curA)
+    {
+        currentButton = curA;
+        newSprite = buttons[currentButton].GetComponent<Image>().sprite;
+        mouseImage.GetComponent<Image>().sprite = newSprite;
+        buttons[currentButton].GetComponent<Image>().sprite = null;
+    //    GetImage(currentButton);
+    //}
 
-	public void ButtonClick1 (){
-		currentButton = 0;
-		SwitchImage ();
-	}
+    //public void GetImage(int curB)
+    //{
+    //    currentButton = curB;
+        buttons[currentButton].GetComponent<Image>().sprite = oldSprite;
+        PuzzleCompleted();
+    }
 
-	public void ButtonClick2 (){
-		currentButton = 1;
-		SwitchImage ();
-	}
+    public void PuzzleCompleted(){
+        if (buttons[0].GetComponent<Image>().GetComponent<LadyBuggs>().myDirection == LadyBuggs.Direction.Four)
+        {
+            checkPuzzle[0] = true;
+        }
+        else
+        {
+            checkPuzzle[0] = false;
+        }
+        if (buttons[1].GetComponent<Image>().GetComponent<LadyBuggs>().myDirection == LadyBuggs.Direction.Three)
+        {
+            checkPuzzle[1] = true;
+        }
+        else
+        {
+            checkPuzzle[1] = false;
+        }
+        if (buttons[2].GetComponent<Image>().GetComponent<LadyBuggs>().myDirection == LadyBuggs.Direction.One)
+        {
+            checkPuzzle[2] = true;
+        }
+        else
+        {
+            checkPuzzle[2] = false;
+        }
+        if (buttons[3].GetComponent<Image>().GetComponent<LadyBuggs>().myDirection == LadyBuggs.Direction.Two)
+        {
+            checkPuzzle[3] = true;
+        }
+        else
+        {
+            checkPuzzle[3] = false;
+        }
 
-	public void ButtonClick3 (){
-		currentButton = 2;
-		SwitchImage ();
-	}
-
-	public void ButtonClick4 (){
-		currentButton = 3;
-		SwitchImage ();
-	}
-
-	void PuzzleCompleted (){
-		if(
-		   buttons[0].transform.Find("Image").GetComponent<Image>().sprite.name == "LadyBug1" && 
-		   buttons[1].transform.Find("Image").GetComponent<Image>().sprite.name == "LadyBug2" && 
-		   buttons[2].transform.Find("Image").GetComponent<Image>().sprite.name == "LadyBug3" && 
-		   buttons[3].transform.Find("Image").GetComponent<Image>().sprite.name == "LadyBug4"){
-			
-			completePuzzle = true;
-			puzzleCanvas.SetActive(false);
-			GetComponent<Movement>().enabled = true;
-			GetComponent<Quests>().enabled = true;
-		}		
-	}
+        if (checkPuzzle[0] == true && checkPuzzle[1] == true && checkPuzzle[2] == true && checkPuzzle[3] == true)
+        {
+            completePuzzle = true;
+            puzzleCanvas.SetActive(false);
+            GetComponent<Movement>().enabled = true;
+            GetComponent<Quests>().enabled = true;
+        }
+    }
 }
+
+            //one.GetComponent<Image>().sprite.name == "LadyBug5" &&
+            //two.GetComponent<Image>().sprite.name == "LadyBug3" &&
+            //three.GetComponent<Image>().sprite.name == "LadyBug8" &&
+            //four.GetComponent<Image>().sprite.name == "LadyBug10"

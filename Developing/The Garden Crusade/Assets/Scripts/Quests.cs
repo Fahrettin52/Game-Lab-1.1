@@ -96,9 +96,9 @@ public class Quests : MonoBehaviour {
 			}
 		}
 
-		Vector3 fwd = transform.TransformDirection(Vector3.forward);
-		if(Physics.Raycast(transform.position, fwd, out rayHit, rayDis)){
+		if(Physics.Raycast(transform.position + new Vector3 (0, 1.3f, 0), transform.forward, out rayHit, rayDis)){
 			if(rayHit.transform.tag == "Mother" && quest1[9] == true){
+                Debug.DrawRay(transform.position, transform.forward);
 				popupText.SetActive(true);
 				if(Input.GetButtonDown("Use")){
 					currentObjective += 1;
