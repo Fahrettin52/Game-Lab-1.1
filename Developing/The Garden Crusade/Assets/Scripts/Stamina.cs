@@ -51,7 +51,7 @@ public class Stamina : MonoBehaviour {
 		ManaRegen ();
 		ManaColor ();
 
-        if (Input.GetButtonDown("Fire1") && !hitCooldown && itemGroup.alpha < 1 && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+        if (Input.GetButtonDown("Fire1") && !hitCooldown && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
 
         {
             RageBar();

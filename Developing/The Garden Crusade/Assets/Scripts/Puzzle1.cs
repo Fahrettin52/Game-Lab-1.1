@@ -99,6 +99,9 @@ public class Puzzle1 : MonoBehaviour {
             GetComponent<Movement>().enabled = true;
             GetComponent<Quests>().enabled = true;
             mouseImage.GetComponent<Image>().sprite = null;
+            GetComponent<Quests>().questText.SetActive(true);
+            GetComponent<Quests>().popupText.SetActive(true);
+            GetComponent<Quests>().popupText.SetActive(false);
         }
     }
 }

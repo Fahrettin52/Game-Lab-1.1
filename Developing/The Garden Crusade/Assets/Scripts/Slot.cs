@@ -97,10 +97,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 			items.Peek ().Use(this);
             stackTxt.text = items.Count > 1 ? items.Count.ToString() : string.Empty;
 			
-			if (IsEmpty){ 
-				ChangeSprite(slotEmpty, slotHiglight); 
-				transform.parent.GetComponent<Inventory>().EmptySlots++;
-			}
+			//if (IsEmpty){ 
+			//	ChangeSprite(slotEmpty, slotHiglight); 
+			//	transform.parent.GetComponent<Inventory>().EmptySlots++;
+			//}
 		}
 	}
 
@@ -133,7 +133,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 
 	public void OnPointerClick (PointerEventData eventData) { 
 		if (eventData.button == PointerEventData.InputButton.Right && !GameObject.Find ("Hover")&& itemGroup.alpha > 0) {
-                UseItem ();
+            UseItem ();
         } 
 		else if (eventData.button == PointerEventData.InputButton.Left && Input.GetKey (KeyCode.LeftShift) && !IsEmpty && !GameObject.Find ("Hover")) { // if i click the left mouse button and the same time holding leftshift and the slot has items on it and im not moving any items 	
 			Vector2 position;

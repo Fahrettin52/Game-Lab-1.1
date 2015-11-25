@@ -25,12 +25,12 @@ public class ItemScript : MonoBehaviour {
         player = GameObject.FindWithTag ("Player");
 	}
 
-	public void Use (Slot slot)
+    public void Use(Slot slot)
     {
         item.Use(slot, this);
-}
+    }
 
-	public string GetToolTip () {
+    public string GetToolTip () {
         return item.GetToolTip();
 	}
 }

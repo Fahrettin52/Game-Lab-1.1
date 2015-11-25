@@ -25,8 +25,10 @@ public class Quests : MonoBehaviour {
 	public GameObject puzzleCanvas;
 	public Text textTest;
     public int teller;
+    public GameObject questText;
+    public GameObject puzzleHelper;
 
-	public RaycastHit rayHit;
+    public RaycastHit rayHit;
 	public float rayDis;
 
 	void Start () {
@@ -72,6 +74,9 @@ public class Quests : MonoBehaviour {
 			if(rayHit.transform.tag == "Tutorial Puzzle" && quest1[5] == true){
 				popupText.SetActive(true);
 				if(Input.GetButtonDown("Use")){
+                    puzzleHelper.SetActive(true);
+                    questText.SetActive(false);
+                    popupText.SetActive(false);
 					print("ActivatePuzzle");
 					GetComponent<Puzzle1>().ActivatePuzzle ();
 					currentObjective += 1;

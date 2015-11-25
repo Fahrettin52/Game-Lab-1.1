@@ -18,6 +18,7 @@ public class PlayerScript : MonoBehaviour {
         }
     }
 
+    public CanvasGroup characterBackgroundHolder;
     public CanvasGroup character;
     public float speed;
 	public Inventory inventory;
@@ -74,6 +75,7 @@ public class PlayerScript : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.I))
         {
+            inventory.GetComponent<CanvasGroup>().blocksRaycasts = !inventory.GetComponent<CanvasGroup>().blocksRaycasts;
             inventory.Open();
         }
         if (Input.GetKeyDown(KeyCode.X))
@@ -85,6 +87,7 @@ public class PlayerScript : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.C))
         {
+            characterBackgroundHolder.GetComponent<CanvasGroup>().blocksRaycasts = !characterBackgroundHolder.GetComponent<CanvasGroup>().blocksRaycasts;
             if (charPanel != null)
             {
                 charPanel.Open();
@@ -164,6 +167,7 @@ public class PlayerScript : MonoBehaviour {
         if (other.gameObject.tag == "Load")
         {
             InventoryManager.Instance.Load();
+            Destroy(GameObject.Find("LoadPlayerPref"));
         }
 
         if (other.tag == "Generator" || other.tag == "DroppedItem") {
