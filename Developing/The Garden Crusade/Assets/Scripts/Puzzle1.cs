@@ -5,12 +5,10 @@ using System.Collections;
 public class Puzzle1 : MonoBehaviour {
 	public GameObject puzzleCanvas;
 	public Image [] buttons;
-    //public Image one, two, three, four;
 	public GameObject mouseImage;
     public Sprite newSprite;
     public Sprite oldSprite;
     public bool[] checkPuzzle;
-
     public int currentButton;
 	public bool completePuzzle;
 
@@ -56,18 +54,12 @@ public class Puzzle1 : MonoBehaviour {
         newSprite = buttons[currentButton].GetComponent<Image>().sprite;
         mouseImage.GetComponent<Image>().sprite = newSprite;
         buttons[currentButton].GetComponent<Image>().sprite = null;
-    //    GetImage(currentButton);
-    //}
-
-    //public void GetImage(int curB)
-    //{
-    //    currentButton = curB;
         buttons[currentButton].GetComponent<Image>().sprite = oldSprite;
         PuzzleCompleted();
     }
 
     public void PuzzleCompleted(){
-        if (buttons[0].GetComponent<Image>().GetComponent<LadyBuggs>().myDirection == LadyBuggs.Direction.Four)
+        if (buttons[0].GetComponent<Image>().sprite.name == "LadyBug5")
         {
             checkPuzzle[0] = true;
         }
@@ -75,7 +67,7 @@ public class Puzzle1 : MonoBehaviour {
         {
             checkPuzzle[0] = false;
         }
-        if (buttons[1].GetComponent<Image>().GetComponent<LadyBuggs>().myDirection == LadyBuggs.Direction.Three)
+        if (buttons[1].GetComponent<Image>().sprite.name == "LadyBug3")
         {
             checkPuzzle[1] = true;
         }
@@ -83,7 +75,7 @@ public class Puzzle1 : MonoBehaviour {
         {
             checkPuzzle[1] = false;
         }
-        if (buttons[2].GetComponent<Image>().GetComponent<LadyBuggs>().myDirection == LadyBuggs.Direction.One)
+        if (buttons[2].GetComponent<Image>().sprite.name == "LadyBug8")
         {
             checkPuzzle[2] = true;
         }
@@ -91,7 +83,7 @@ public class Puzzle1 : MonoBehaviour {
         {
             checkPuzzle[2] = false;
         }
-        if (buttons[3].GetComponent<Image>().GetComponent<LadyBuggs>().myDirection == LadyBuggs.Direction.Two)
+        if (buttons[3].GetComponent<Image>().sprite.name == "LadyBug10")
         {
             checkPuzzle[3] = true;
         }
@@ -106,11 +98,8 @@ public class Puzzle1 : MonoBehaviour {
             puzzleCanvas.SetActive(false);
             GetComponent<Movement>().enabled = true;
             GetComponent<Quests>().enabled = true;
+            mouseImage.GetComponent<Image>().sprite = null;
         }
     }
 }
 
-            //one.GetComponent<Image>().sprite.name == "LadyBug5" &&
-            //two.GetComponent<Image>().sprite.name == "LadyBug3" &&
-            //three.GetComponent<Image>().sprite.name == "LadyBug8" &&
-            //four.GetComponent<Image>().sprite.name == "LadyBug10"
