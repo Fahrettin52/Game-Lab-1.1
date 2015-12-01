@@ -212,7 +212,7 @@ public class Quests : MonoBehaviour {
 		}
 	}
 	
-	void LoopForBool (){
+	public void LoopForBool (){
 		for(int i = teller; i < quest1.Length; i ++){
 			if(i == currentObjective){
 					quest1[i] = true;

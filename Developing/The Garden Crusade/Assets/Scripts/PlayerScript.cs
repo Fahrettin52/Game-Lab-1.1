@@ -158,7 +158,7 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider other) {
-        if (other.gameObject.name == "ToBoomstronk")
+        if (other.gameObject.name == "ToBoomstronk" && GetComponent<Quests>().quest1[6] == true)
         {
             InventoryManager.Instance.Save();
             Application.LoadLevel("Level 1");

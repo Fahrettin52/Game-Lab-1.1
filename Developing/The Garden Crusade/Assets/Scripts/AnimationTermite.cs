@@ -34,18 +34,27 @@ public class AnimationTermite : MonoBehaviour {
     public float countToRoam, countToRoamMax;
     public bool mayRoam;
     public Vector3 toRoam;
+    public bool idle;
 
     void Start () {
         agent = GetComponent<NavMeshAgent>();
 		player = GameObject.Find("Player").transform;
+        if(idle==false)
+        {
         navSpeed = GetComponent<NavMeshAgent>().speed;
+        }
         attackRange = 6.6f;
 	}
 
 	
 
 	void Update () {
-		EnemyFollow ();
+        if (idle == false)
+        {
+        EnemyFollow();
+        }
+
+		
 	}
 
 	void EnemyFollow (){
@@ -101,6 +110,12 @@ public class AnimationTermite : MonoBehaviour {
                 transform.Find("Termiet soldier model").GetComponent<GivePlayerDamage>().damageForPlayer=0;
                 moveSpeed = 0;
                 navSpeed = 0;
+                if (player.GetComponent<Quests>().quest1[3] == true || player.GetComponent<Quests>().quest1[4] == true)
+                {
+                    player.GetComponent<Quests>().currentObjective ++;
+                    player.GetComponent<Quests>().currentObjectiveText ++;
+                    player.GetComponent<Quests>().LoopForBool();
+                }
                 Destroy(gameObject, 1f);
                 GameObject.Instantiate(dropRandomItem).transform.position = transform.position;
                 if(GameObject.Find("Player").GetComponent<Quests>().quest1[8] == true){

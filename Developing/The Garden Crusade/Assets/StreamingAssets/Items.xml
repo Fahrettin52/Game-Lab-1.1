@@ -90,7 +90,7 @@
       <Quality>LEGENDARY</Quality>
       <SpriteNeutral>Equipment/BracerNormal</SpriteNeutral>
       <SpriteHighlighted>Equipment/BracerHighlight</SpriteHighlighted>
-      <MaxSize>2</MaxSize>
+      <MaxSize>1</MaxSize>
       <ItemName>Iron Braces</ItemName>
       <Description>Braces Mad Of Iron</Description>
       <Intellect>5</Intellect>
