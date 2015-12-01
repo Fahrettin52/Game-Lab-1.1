@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class CastingBar : MonoBehaviour {
 
-	private Vector3 startPos;
-	private Vector3 endPos;
+	public Vector3 startPos;
+	public Vector3 endPos;
 	public Image castImage;
 	public RectTransform castTransform;
 	public Canvas canvas;
@@ -14,7 +14,11 @@ public class CastingBar : MonoBehaviour {
 	private Spell spinningCombo = 	new Spell("Spinning", 3f, Color.black);
 	private Spell heal = 			new Spell("Heal", 1f, Color.green);
 
-	private bool casting;
+    public int rayDistance;
+    public RaycastHit rayHit;
+    public int damageSpell1;
+    public int damageSpell2;
+    private bool casting;
 
 	public Text castTime;
 	public Text spellName;
@@ -23,30 +27,49 @@ public class CastingBar : MonoBehaviour {
 	public float fadeSpeed;
     private GameObject player;
 
-	void Start () {
+    public float radiusSpell;
+    public Vector3 direction;
+    public float useSpeed;
+    public float useSpeedReset;
+    public int damage;
+
+    void Start () {
 
         player = GameObject.Find("Player");
         casting = false;
-		castTransform = GetComponent<RectTransform>();
-		castImage = GetComponent<Image>();
+		//castTransform = GetComponent<RectTransform>();
+		//castImage = GetComponent<Image>();
 		endPos = castTransform.position;
 		startPos = new Vector3 (castTransform.position.x - (castTransform.rect.width * canvas.scaleFactor), castTransform.position.y, castTransform.position.z);
 	}
 
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Alpha1) && player != null) {
-			StartCoroutine(CastSpell(dubbleHit));
-		}
-		if (Input.GetKeyDown (KeyCode.Alpha2) && player != null) {
-			StartCoroutine(CastSpell(trippleHit));
-		}
-		if (Input.GetKeyDown (KeyCode.Alpha3) && player != null) {
-			StartCoroutine(CastSpell(spinningCombo));
-		}
-		if (Input.GetKeyDown (KeyCode.Alpha4) && player != null) {
-			StartCoroutine(CastSpell(heal));
-		}
-	}
+        if (Input.GetKeyDown(KeyCode.Alpha1) && player != null) {
+            StartCoroutine(CastSpell(dubbleHit));
+            if (Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.forward, out rayHit, rayDistance)) {
+                if (rayHit.transform.tag == "Enemy") {
+                    rayHit.transform.GetComponent<AnimationTermite>().DropDead(damageSpell1);
+                }
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2) && player != null) {
+            StartCoroutine(CastSpell(trippleHit));
+            if (Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.forward, out rayHit, rayDistance)) {
+                if (rayHit.transform.tag == "Enemy") { 
+                    rayHit.transform.GetComponent<AnimationTermite>().DropDead(damageSpell2);
+                }
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3) && player != null) {
+            AreaDamage();
+            StartCoroutine(CastSpell(spinningCombo));
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4) && player != null) {
+            StartCoroutine(CastSpell(heal));
+            GetComponent<PlayerScript>().currentHealth += 10;
+            GetComponent<PlayerScript>().GetHealth();
+        }
+    }
 
 	private IEnumerator FadeOut () {
 
@@ -115,4 +138,18 @@ public class CastingBar : MonoBehaviour {
 			StartCoroutine("FadeOut");
         }
 	}
+
+    void AreaDamage(){
+        RaycastHit[] areaDamage = Physics.SphereCastAll(transform.position, radiusSpell, direction, radiusSpell);
+        useSpeed -=1 * Time.deltaTime;
+        print(areaDamage.Length);
+        if (useSpeed <= 1){
+            useSpeed = useSpeedReset;
+            for (int i = 0; i < areaDamage.Length; i++){
+                if (areaDamage[i].transform.tag == "Enemy"){
+                    areaDamage[i].transform.GetComponent<AnimationTermite>().DropDead(damage);
+                }
+            }
+        }
+    }
 }
