@@ -99,6 +99,7 @@ public class Movement : MonoBehaviour{
         if (Input.GetAxis("Vertical") > 0){
             sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
             if (Physics.Raycast(transform.position, transform.forward, rayDistance)){
+            
             }
             else{
                 transform.Translate(Vector3.forward * forwardSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
@@ -112,6 +113,7 @@ public class Movement : MonoBehaviour{
         if (Input.GetAxis("Vertical") < 0){
             sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
             if (Physics.Raycast(transform.position, -transform.forward, rayDistance)){
+                
             }
             else{
                 transform.Translate(Vector3.forward * forwardSpeed * Input.GetAxis("Vertical") * Time.deltaTime);

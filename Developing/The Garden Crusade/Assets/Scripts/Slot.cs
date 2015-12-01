@@ -96,12 +96,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 		if (!IsEmpty) {
 			items.Peek ().Use(this);
             stackTxt.text = items.Count > 1 ? items.Count.ToString() : string.Empty;
-			
-			//if (IsEmpty){ 
-			//	ChangeSprite(slotEmpty, slotHiglight); 
-			//	transform.parent.GetComponent<Inventory>().EmptySlots++;
-			//}
-		}
+
+            if (IsEmpty) {
+                ChangeSprite(slotEmpty, slotHiglight);
+                transform.parent.GetComponent<Inventory>().EmptySlots++;
+            }
+        }
 	}
 
 	public void ClearSlot () {	

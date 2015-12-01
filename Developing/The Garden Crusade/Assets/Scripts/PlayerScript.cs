@@ -34,7 +34,7 @@ public class PlayerScript : MonoBehaviour {
     public GameObject sarah;
     public Text strengthStats, staminaStats, intellectStats, agilityStats;
     public int baseStrength, baseStamina, baseIntellect, baseAgility;
-    private int strength, stamina, intellect, agility;
+    public int strength, stamina, intellect, agility;
 
 
     private int CurrentHealth {
@@ -233,6 +233,7 @@ public class PlayerScript : MonoBehaviour {
 
     public void SetStats(int strength, int stamina, int intellect, int agility)
     {
+        
         this.strength   = strength + baseStrength;
         this.stamina    = stamina + baseStamina;
         this.intellect  = intellect + baseIntellect;
@@ -242,6 +243,7 @@ public class PlayerScript : MonoBehaviour {
         staminaStats.text   = string.Format("Stamina: {0}", this.stamina);
         intellectStats.text = string.Format("Intellect: {0}", this.intellect);
         agilityStats.text   = string.Format("Agility: {0}", this.agility);
+        //GetComponent<CharacterPanel>().CalculateStats();
     }
 } 
 

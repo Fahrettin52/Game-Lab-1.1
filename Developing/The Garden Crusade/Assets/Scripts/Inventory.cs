@@ -126,8 +126,8 @@ public class Inventory : MonoBehaviour {
     }
 
     public void Open () {
-
-		if (itemGroup.alpha > 0){
+        
+        if (itemGroup.alpha > 0){
 			StartCoroutine("FadeOut");
 			PutItemBack();
 			HideToolTip();

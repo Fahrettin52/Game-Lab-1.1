@@ -42,6 +42,10 @@ public class CharacterPanel : Inventory {
         //buttonGroup = GameObject.Find("ButtonCanvas").GetComponent<CanvasGroup>();
     }
 
+    void Update() {
+        CalculateStats();
+    }
+
     public void EquipItem(Slot slot, ItemScript item){
 
         if (item.Item.ItemType == ItemType.MAINHAND || item.Item.ItemType == ItemType.TWOHAND && OffhandSlot.IsEmpty)
