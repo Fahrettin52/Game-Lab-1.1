@@ -104,6 +104,7 @@ public class AnimationTermite : MonoBehaviour {
         fill.fillAmount -= (damage / 100f);
         if (livesEnemy < 1)
             {
+            GameObject.Find("Player").GetComponent<Experience>().currentExp += 0.25f;
                 GameObject.Find("Spawn").GetComponent<SpawnEnemy>().spawned -= 1;
                 animator.SetBool("TermSolDeath", true);
                 animator.SetBool("TermSolWalk", false);
