@@ -19,14 +19,13 @@ public class Experience : MonoBehaviour {
 	void Update () {
         expBar.GetComponent<Image>().fillAmount = currentExp;
 
-        if(currentExp >= 1 && maxLevel <10)
+        if(currentExp >= 1 && currentLevel <maxLevel)
         {
             GetComponent<PlayerScript>().baseAgility += 5;
             GetComponent<PlayerScript>().baseIntellect += 5;
             GetComponent<PlayerScript>().baseStamina += 5;
             GetComponent<PlayerScript>().baseStrength += 5;
             currentLevel += 1;
-            maxLevel += 1;
             currentExp = 0;
             expGet /= 1.25f;
         }

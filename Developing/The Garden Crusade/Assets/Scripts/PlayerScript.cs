@@ -54,9 +54,9 @@ public class PlayerScript : MonoBehaviour {
 	
 	void Start (){
 
-       
+        SetStats(0, 0, 0, 0);
 
-		cachedY = healthTransform.position.y;
+        cachedY = healthTransform.position.y;
 
 		maxXValue = healthTransform.position.x;
 
@@ -69,7 +69,6 @@ public class PlayerScript : MonoBehaviour {
 
     void Update()
     {
-        SetStats(0, 0, 0, 0);
         visualHealth.fillAmount = currentHealth / 100f;
         HandleHealth();
         HandleMovement();
