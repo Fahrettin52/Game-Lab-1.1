@@ -111,6 +111,7 @@ public class PlayerScript : MonoBehaviour {
 		}
 		if (currentHealth <= 0) {
             StartCoroutine(Dead());
+            
         }
 	}
 

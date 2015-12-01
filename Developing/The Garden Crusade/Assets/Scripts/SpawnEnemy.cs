@@ -14,6 +14,8 @@ public class SpawnEnemy : MonoBehaviour {
     public GameObject enemyPrefab;
     public int spawnMax;
     public int spawned;
+    public int totalSpawned;
+    public int totalMax;
     //public GameObject walkTo;
     //public Vector3 resetWalkTo;
 
@@ -28,8 +30,9 @@ public class SpawnEnemy : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         timeToSpawn -= 1 * Time.deltaTime;
-        if(timeToSpawn<=0 && spawned<spawnMax) {
+        if(timeToSpawn<=0 && spawned<spawnMax && totalSpawned<totalMax) {
             spawned++;
+            totalSpawned++;
             enemyPrefab.GetComponent<AnimationTermite>().minHor = minHor;
             enemyPrefab.GetComponent<AnimationTermite>().maxHor = maxHor;
             enemyPrefab.GetComponent<AnimationTermite>().minVert = minVert;
@@ -38,6 +41,14 @@ public class SpawnEnemy : MonoBehaviour {
             //Instantiate(walkTo, new Vector3(Random.Range(maxHor, minHor), transform.position.y, Random.Range(maxVert, minVert)), transform.rotation);
 
             timeToSpawn = 5;
+        }
+        if(spawned == spawnMax || totalSpawned == totalMax)
+        {
+            timeToSpawn = 5;
+        }
+        if(spawned <= 0)
+        {
+            spawned = 0;
         }
 	}
 }
