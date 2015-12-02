@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
-
+using UnityEngine.UI;
 
 public class ToThrow : MonoBehaviour {
     public float rayDis;
@@ -27,6 +26,7 @@ public class ToThrow : MonoBehaviour {
                     Destroy(GameObject.FindWithTag("mayThrow"));
                     throwInfo.SetActive(true);
                     canThrow = true;
+                    throwInfo.GetComponent<Text>().text = changeText[1];
                 }
             }
         }

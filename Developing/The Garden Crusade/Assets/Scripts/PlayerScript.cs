@@ -6,12 +6,9 @@ public class PlayerScript : MonoBehaviour {
 
     private static PlayerScript instance;
 
-    public static PlayerScript Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
+    public static PlayerScript Instance {
+        get{
+            if (instance == null) {
                 instance = FindObjectOfType<PlayerScript>();
             }
             return instance;
@@ -36,7 +33,6 @@ public class PlayerScript : MonoBehaviour {
     public int baseStrength, baseStamina, baseIntellect, baseAgility;
     public int strength, stamina, intellect, agility;
 
-
     private int CurrentHealth {
 		get	{ return currentHealth; }
 		set	{
@@ -47,53 +43,39 @@ public class PlayerScript : MonoBehaviour {
 
 	public int maxHealth; 
 	public Text healthText;
-
 	public Image visualHealth;
 	public float cooldown;
 	public bool onCooldown;
 	
 	void Start (){
-
         SetStats(0, 0, 0, 0);
-
         cachedY = healthTransform.position.y;
-
 		maxXValue = healthTransform.position.x;
-
 		minXValue = healthTransform.position.x - healthTransform.rect.width;
-
 		currentHealth = maxHealth;
-
 		onCooldown = false;
 	}
 
-    void Update()
-    {
+    void Update() {
         visualHealth.fillAmount = currentHealth / 100f;
         HandleHealth();
         HandleMovement();
 
-        if (Input.GetKeyDown(KeyCode.I))
-        {
+        if (Input.GetKeyDown(KeyCode.I)){
             inventory.GetComponent<CanvasGroup>().blocksRaycasts = !inventory.GetComponent<CanvasGroup>().blocksRaycasts;
             inventory.Open();
         }
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            if (chest != null)
-            {
+        if (Input.GetKeyDown(KeyCode.X)) {
+            if (chest != null) {
                 chest.Open();
             }
         }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
+        if (Input.GetKeyDown(KeyCode.C)) {
             characterBackgroundHolder.GetComponent<CanvasGroup>().blocksRaycasts = !characterBackgroundHolder.GetComponent<CanvasGroup>().blocksRaycasts;
-            if (charPanel != null)
-            {
+            if (charPanel != null) {
                 charPanel.Open();
             }
         }
-
     }
 
 	public void HandleHealth (){
@@ -159,6 +141,10 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider other) {
+        if (other.gameObject.tag == "mayThrow") {
+            GetComponent<ToThrow>().throwInfo.SetActive(true);
+            GetComponent<ToThrow>().throwInfo.GetComponent<Text>().text = GetComponent<ToThrow>().changeText[0];
+        }
         if (other.gameObject.name == "ToBoomstronk" && GetComponent<Quests>().quest1[6] == true)
         {
             InventoryManager.Instance.Save();
@@ -204,19 +190,18 @@ public class PlayerScript : MonoBehaviour {
     }
 
 	private void OnTriggerExit (Collider other) {
-		if (other.gameObject.tag == "Chest") {
-			if (chest.IsOpen) {
-				chest.Open ();
-			}
-			chest = null;
-		}
+        if (other.gameObject.tag == "mayThrow") {
+            GetComponent<ToThrow>().throwInfo.SetActive(false);
+        }
+        if (other.gameObject.tag == "Chest") {
+            if (chest.IsOpen) {
+                chest.Open();
+            }
+            chest = null;
+        }
 	}
 
     private void OnCollisionEnter(Collision collision){
-        if (collision.gameObject.tag == "mayThrow") {
-            GetComponent<ToThrow>().throwInfo.SetActive(true);
-            GetComponent<ToThrow>().throwInfo.GetComponent<Text>().text = GetComponent<ToThrow>().changeText[0];
-        }
         if (collision.gameObject.tag == "Item")
         {
             if (inventory.AddItem(collision.gameObject.GetComponent<ItemScript>()))
