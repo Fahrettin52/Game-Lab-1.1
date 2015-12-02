@@ -32,6 +32,7 @@ public class CastingBar : MonoBehaviour {
     public float useSpeed;
     public float useSpeedReset;
     public int damage;
+    public bool maySpell = true;
 
     void Start () {
 
@@ -45,29 +46,56 @@ public class CastingBar : MonoBehaviour {
 
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Alpha1) && player != null) {
-            StartCoroutine(CastSpell(dubbleHit));
-            if (Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.forward, out rayHit, rayDistance)) {
-                if (rayHit.transform.tag == "Enemy") {
-                    rayHit.transform.GetComponent<AnimationTermite>().DropDead(damageSpell1);
+            if (maySpell == true) {
+                if (GetComponent<Stamina>().currentRage >= 10) {
+                    StartCoroutine(SpellCooldown(1f));
+                    GetComponent<Stamina>().currentRage -= 10f;
+                    GetComponent<Stamina>().RageBarLose(1);
+                    StartCoroutine(CastSpell(dubbleHit));
+                    if (Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.forward, out rayHit, rayDistance)) {
+                        if (rayHit.transform.tag == "Enemy") {
+                            rayHit.transform.GetComponent<AnimationTermite>().DropDead(damageSpell1);
+                        }
+                    }
                 }
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha2) && player != null) {
-            StartCoroutine(CastSpell(trippleHit));
-            if (Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.forward, out rayHit, rayDistance)) {
-                if (rayHit.transform.tag == "Enemy") { 
-                    rayHit.transform.GetComponent<AnimationTermite>().DropDead(damageSpell2);
+            if (maySpell == true) {
+                if (GetComponent<Stamina>().currentRage >= 20) {
+                    StartCoroutine(SpellCooldown(1.5f));
+                    GetComponent<Stamina>().currentRage -= 20f;
+                    GetComponent<Stamina>().RageBarLose(2);
+                    StartCoroutine(CastSpell(trippleHit));
+                    if (Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.forward, out rayHit, rayDistance)) {
+                        if (rayHit.transform.tag == "Enemy") {
+                            rayHit.transform.GetComponent<AnimationTermite>().DropDead(damageSpell2);
+                        }
+                    }
                 }
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha3) && player != null) {
-            AreaDamage();
-            StartCoroutine(CastSpell(spinningCombo));
+            if (maySpell == true) {
+                if (GetComponent<Stamina>().currentRage >= 30) {
+                    StartCoroutine(SpellCooldown(3f));
+                    GetComponent<Stamina>().currentRage -= 30f;
+                    GetComponent<Stamina>().RageBarLose(3);
+                    AreaDamage();
+                    StartCoroutine(CastSpell(spinningCombo));
+                }
+            }
         }
         if (Input.GetKeyDown(KeyCode.Alpha4) && player != null) {
-            StartCoroutine(CastSpell(heal));
-            GetComponent<PlayerScript>().currentHealth += 10;
-            GetComponent<PlayerScript>().GetHealth();
+            if (maySpell == true) {
+                if (GetComponent<Stamina>().currentRage >= 10 && GetComponent<PlayerScript>().currentHealth < GetComponent<PlayerScript>().maxHealth) {
+                    StartCoroutine(SpellCooldown(1f));
+                    GetComponent<Stamina>().currentRage -= 10f;
+                    GetComponent<Stamina>().RageBarLose(1);
+                    StartCoroutine(CastSpell(heal));
+                    GetComponent<PlayerScript>().GetHealth();
+                }
+            }
         }
     }
 
@@ -151,5 +179,10 @@ public class CastingBar : MonoBehaviour {
                 }
             }
         }
+    }
+    IEnumerator SpellCooldown(float cooldown) {
+        maySpell = false;
+        yield return new WaitForSeconds(cooldown);
+        maySpell = true;
     }
 }

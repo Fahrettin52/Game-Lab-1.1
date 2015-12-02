@@ -25,6 +25,7 @@ public class GivePlayerDamage : MonoBehaviour
 
     IEnumerator CoolDownDmgTaken()
     {
+        sarah.GetComponent<Stamina>().RageBar();
         sarah.GetComponent<PlayerScript>().currentHealth -= damageForPlayer;
         sarah.GetComponent<PlayerScript>().HandleHealth();
         hitCooldown = true;

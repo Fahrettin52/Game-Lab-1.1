@@ -51,10 +51,9 @@ public class Stamina : MonoBehaviour {
 		ManaRegen ();
 		ManaColor ();
 
-        if (Input.GetButtonDown("Fire1") && !hitCooldown && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+        if (Input.GetButtonDown("Fire1") && !hitCooldown && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject() && currentStamina >= 10)
 
         {
-            RageBar();
             StartCoroutine(FightToIdle());
             hitCooldown = true;
             ManaDrop();
@@ -124,7 +123,7 @@ public class Stamina : MonoBehaviour {
 	}
 
 	IEnumerator CoolDownDmg (){
-		hitCooldown = true;
+		//hitCooldown = true;
         yield return new WaitForSeconds (cooldown);
         hitCooldown = false;
 	}
@@ -142,9 +141,12 @@ public class Stamina : MonoBehaviour {
     {
         if (currentRage < maxRage)
         {
-            currentRage += 10f;
+            currentRage += 15f;
         }
-        rageFillAmount.fillAmount += 1 / 10f;
+        if (currentRage >= maxRage) {
+            currentRage = maxRage;
+        }
+        rageFillAmount.fillAmount += 1.5f / 10f;
 
         if (currentRage < maxRage / 2)
         {
@@ -155,6 +157,17 @@ public class Stamina : MonoBehaviour {
             rageFillAmount.color = new Color32(255, 0, (byte)MapValues(currentRage, 100, maxRage / 2, 0, 255), 130);
         }
         rageText.text = "Rage: " + currentRage.ToString("F0");
+    }
+    public void RageBarLose(int cost) {
+        if (currentRage >= 0) {
+            rageFillAmount.fillAmount -= cost / 10f;
+            if (currentRage < maxRage / 2) {
+                rageFillAmount.color = new Color32(255, (byte)MapValues(currentRage, maxRage / 2, maxRage, 255, 0), 255, 65);
+            } else {
+                rageFillAmount.color = new Color32(255, 0, (byte)MapValues(currentRage, 100, maxRage / 2, 0, 255), 130);
+            }
+            rageText.text = "Rage: " + currentRage.ToString("F0");
+        }
     }
 }
 

@@ -26,13 +26,13 @@ public class Movement : MonoBehaviour{
 
     void Update()
     {
-        MoveAndRotate();
         Crouch();
         Run();
     }
 
     void FixedUpdate (){
-    	jump();
+        MoveAndRotate();
+        jump();
     }
 
     public void jump()
@@ -98,43 +98,32 @@ public class Movement : MonoBehaviour{
         //Achteruit
         if (Input.GetAxis("Vertical") > 0){
             sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
-            if (Physics.Raycast(transform.position, transform.forward, rayDistance)){
-            
-            }
-            else{
+            if (!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.forward, rayDistance)){
                 transform.Translate(Vector3.forward * forwardSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
             }
-        }
-        if (Input.GetAxis("Vertical") == 0)
-        {
-            sarah.GetComponent<AnimationSara>().animator.SetBool("cancelRun", true);
         }
 
         if (Input.GetAxis("Vertical") < 0){
             sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
-            if (Physics.Raycast(transform.position, -transform.forward, rayDistance)){
-                
-            }
-            else{
+            if (!!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), -transform.forward, rayDistance)){
                 transform.Translate(Vector3.forward * forwardSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
             }
         }
 
-        if (Input.GetButton("E")) {
-            if (Physics.Raycast (transform.position, -transform.right, rayDistance)) {
-            } 
+        if (Input.GetAxis("Vertical") == 0) {
+            sarah.GetComponent<AnimationSara>().animator.SetBool("cancelRun", true);
         }
-        else{
-             transform.Translate (Vector3.left * strafeSpeed * Time.deltaTime);
-            }
 
-        if (Input.GetButton("Q")){
-            if (Physics.Raycast (transform.position, transform.right, rayDistance)) {
-                print ("Hit");
-            } 
+        if (Input.GetButton("Q")) {
+            if (!!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), -transform.right, rayDistance)) {
+                transform.Translate(Vector3.left * strafeSpeed * Time.deltaTime);
+            }
         }
-        else {
-                transform.Translate (Vector3.right * strafeSpeed  * Time.deltaTime);
+
+        if (Input.GetButton("E")) {
+            if (!!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.right, rayDistance)) {
+                transform.Translate(Vector3.right * strafeSpeed * Time.deltaTime);
+            }
         }
     }
 

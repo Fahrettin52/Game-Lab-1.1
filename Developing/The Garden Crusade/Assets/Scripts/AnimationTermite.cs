@@ -35,6 +35,7 @@ public class AnimationTermite : MonoBehaviour {
     public bool mayRoam;
     public Vector3 toRoam;
     public bool idle;
+    public bool mayDie = false;
 
     void Start () {
         agent = GetComponent<NavMeshAgent>();
@@ -102,31 +103,34 @@ public class AnimationTermite : MonoBehaviour {
 	public void DropDead (int damage){
         livesEnemy -= damage;
         fill.fillAmount -= (damage / 100f);
-        if (livesEnemy < 1)
-            {
-                GameObject.Find("Player").GetComponent<Experience>().currentExp += GameObject.Find("Player").GetComponent<Experience>().expGet;
-                GameObject.Find("Spawn").GetComponent<SpawnEnemy>().spawned -= 1;
-                animator.SetBool("TermSolDeath", true);
-                animator.SetBool("TermSolWalk", false);
-                animator.SetBool("TermSolWalkStop", true);
-                transform.Find("Termiet soldier model").GetComponent<GivePlayerDamage>().damageForPlayer=0;
-                moveSpeed = 0;
-                navSpeed = 0;
-                if (player.GetComponent<Quests>().quest1[3] == true || player.GetComponent<Quests>().quest1[4] == true)
-                {
-                    player.GetComponent<Quests>().currentObjective ++;
-                    player.GetComponent<Quests>().currentObjectiveText ++;
-                    player.GetComponent<Quests>().LoopForBool();
-                }
-                Destroy(gameObject, 1f);
-                GameObject.Instantiate(dropRandomItem).transform.position = transform.position;
-                if(GameObject.Find("Player").GetComponent<Quests>().quest1[8] == true){
-                    GameObject.Find("Player").GetComponent<Quests>().quest1_1 += 1;
-
-                }
-                
+        if( livesEnemy < 1) {
+            livesEnemy = 0; 
+        }
+        if (livesEnemy >= 1) {
+            mayDie = true;
+        }
+        if (livesEnemy < 1 && mayDie == true){
+            mayDie = false;  
+            GameObject.Find("Player").GetComponent<Experience>().currentExp += GameObject.Find("Player").GetComponent<Experience>().expGet;
+            GameObject.Find("Spawn").GetComponent<SpawnEnemy>().spawned -= 1;
+            animator.SetBool("TermSolDeath", true);
+            animator.SetBool("TermSolWalk", false);
+            animator.SetBool("TermSolWalkStop", true);
+            transform.Find("Termiet soldier model").GetComponent<GivePlayerDamage>().damageForPlayer=0;
+            moveSpeed = 0;
+            navSpeed = 0;
+            if (player.GetComponent<Quests>().quest1[3] == true || player.GetComponent<Quests>().quest1[4] == true){
+                player.GetComponent<Quests>().currentObjective ++;
+                player.GetComponent<Quests>().currentObjectiveText ++;
+                player.GetComponent<Quests>().LoopForBool();
             }
+            Destroy(gameObject, 1f);
+            GameObject.Instantiate(dropRandomItem).transform.position = transform.position;
+            if(GameObject.Find("Player").GetComponent<Quests>().quest1[8] == true){
+                GameObject.Find("Player").GetComponent<Quests>().quest1_1 += 1;
 
+            }   
+        }
     }
 
     

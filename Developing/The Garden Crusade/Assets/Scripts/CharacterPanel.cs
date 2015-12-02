@@ -42,9 +42,9 @@ public class CharacterPanel : Inventory {
         //buttonGroup = GameObject.Find("ButtonCanvas").GetComponent<CanvasGroup>();
     }
 
-    void Update() {
-        CalculateStats();
-    }
+    //void Update() {
+    //    CalculateStats();
+    //}
 
     public void EquipItem(Slot slot, ItemScript item){
 

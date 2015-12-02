@@ -28,7 +28,8 @@ public class Experience : MonoBehaviour {
             currentLevel += 1;
             currentExp = 0;
             expGet /= 1.25f;
-            GetComponent<PlayerScript>().SetStats(0, 0, 0, 0);
+            GameObject.Find("CharacterBackground").GetComponent<CharacterPanel>().CalculateStats();
+           // GetComponent<PlayerScript>().SetStats(0, 0, 0, 0);
         }
     }
 

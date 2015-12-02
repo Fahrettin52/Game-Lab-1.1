@@ -212,8 +212,11 @@ public class PlayerScript : MonoBehaviour {
 		}
 	}
 
-    private void OnCollisionEnter(Collision collision)
-    {
+    private void OnCollisionEnter(Collision collision){
+        if (collision.gameObject.tag == "mayThrow") {
+            GetComponent<ToThrow>().throwInfo.SetActive(true);
+            GetComponent<ToThrow>().throwInfo.GetComponent<Text>().text = GetComponent<ToThrow>().changeText[0];
+        }
         if (collision.gameObject.tag == "Item")
         {
             if (inventory.AddItem(collision.gameObject.GetComponent<ItemScript>()))
@@ -243,7 +246,6 @@ public class PlayerScript : MonoBehaviour {
         staminaStats.text   = string.Format("Stamina: {0}", this.stamina);
         intellectStats.text = string.Format("Intellect: {0}", this.intellect);
         agilityStats.text   = string.Format("Agility: {0}", this.agility);
-        //GetComponent<CharacterPanel>().CalculateStats();
     }
 } 
 
