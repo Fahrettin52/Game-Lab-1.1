@@ -106,7 +106,7 @@ public class AnimationTermite : MonoBehaviour {
         if( livesEnemy < 1) {
             livesEnemy = 0; 
         }
-        if (livesEnemy >= 1) {
+        if (livesEnemy <= 1) {
             mayDie = true;
         }
         if (livesEnemy < 1 && mayDie == true){
@@ -128,7 +128,6 @@ public class AnimationTermite : MonoBehaviour {
             GameObject.Instantiate(dropRandomItem).transform.position = transform.position;
             if(GameObject.Find("Player").GetComponent<Quests>().quest1[8] == true){
                 GameObject.Find("Player").GetComponent<Quests>().quest1_1 += 1;
-
             }   
         }
     }

@@ -14,9 +14,11 @@ public class Movement : MonoBehaviour{
     public bool mayJump;
     public Vector3 jumpSpeed;
     public float grondDis;
+    public float grondDisJump;
     private Rigidbody rb;
     public int dubbleJump;
     public int maxJump;
+    public bool mayMove = true;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
@@ -28,14 +30,20 @@ public class Movement : MonoBehaviour{
     }
 
     void FixedUpdate (){
-        MoveAndRotate();
+        MoveAndRotate(mayMove);
         jump();
     }
 
     public void jump(){
+        if (!Physics.Raycast(transform.position, Vector3.down, grondDisJump)) {
+            mayMove = false;
+        } else {
+            mayMove = true;
+        }
+
         if (Physics.Raycast(transform.position, Vector3.down, grondDis)){
-            mayJump = true;
-            dubbleJump = 0;
+        mayJump = true;
+        dubbleJump = 0;
         }
         else{
             mayJump = false;
@@ -54,36 +62,38 @@ public class Movement : MonoBehaviour{
         }
     }
 
-    void MoveAndRotate(){
-        transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed, 0);
-    
-        if (Input.GetAxis("Vertical") > 0){
-            sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
-            if (!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.forward, rayDistance)){
-                transform.Translate(Vector3.forward * forwardSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
+    void MoveAndRotate(bool mayMove){
+        if (mayMove == true) {
+            transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed, 0);
+
+            if (Input.GetAxis("Vertical") > 0) {
+                sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
+                if (!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.forward, rayDistance)) {
+                    transform.Translate(Vector3.forward * forwardSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
+                }
             }
-        }
 
-        if (Input.GetAxis("Vertical") < 0){
-            sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
-            if (!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), -transform.forward, rayDistance)){
-                transform.Translate(Vector3.forward * forwardSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
+            if (Input.GetAxis("Vertical") < 0) {
+                sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
+                if (!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), -transform.forward, rayDistance)) {
+                    transform.Translate(Vector3.forward * forwardSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
+                }
             }
-        }
 
-        if (Input.GetAxis("Vertical") == 0) {
-            sarah.GetComponent<AnimationSara>().animator.SetBool("cancelRun", true);
-        }
-
-        if (Input.GetButton("Q")) {
-            if (!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), -transform.right, rayDistance)) {
-                transform.Translate(Vector3.left * strafeSpeed * Time.deltaTime);
+            if (Input.GetAxis("Vertical") == 0) {
+                sarah.GetComponent<AnimationSara>().animator.SetBool("cancelRun", true);
             }
-        }
 
-        if (Input.GetButton("E")) {
-            if (!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.right, rayDistance)) {
-                transform.Translate(Vector3.right * strafeSpeed * Time.deltaTime);
+            if (Input.GetButton("Q")) {
+                if (!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), -transform.right, rayDistance)) {
+                    transform.Translate(Vector3.left * strafeSpeed * Time.deltaTime);
+                }
+            }
+
+            if (Input.GetButton("E")) {
+                if (!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.right, rayDistance)) {
+                    transform.Translate(Vector3.right * strafeSpeed * Time.deltaTime);
+                }
             }
         }
     }

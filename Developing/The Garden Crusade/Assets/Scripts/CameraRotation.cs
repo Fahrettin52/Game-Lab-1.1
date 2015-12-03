@@ -4,8 +4,8 @@ using System.Collections;
 public class CameraRotation : MonoBehaviour {
 
 	public Transform cameraTarget;
-	private float x = 0.0f;
-	private float y = 0.0f;
+	public float x = 0.0f;
+	public float y = 0.0f;
 	public int mouseSpeedX;  	//3
 	public int mouseSpeedY;		//2
 	public float Limit1;		//-20
@@ -23,12 +23,14 @@ public class CameraRotation : MonoBehaviour {
     public CanvasGroup inventoryCanvas;  
     public CanvasGroup chestCanvas;
     public CanvasGroup characterCanvas;
+    public float startPosX;
+    public float startPosF; 
 
     void Start () {
 		Vector3 angles = transform.eulerAngles;
-		x = angles.x;
-		y = angles.y;
-	}
+        x = angles.x + startPosX;
+		y = angles.y - startPosF;
+    }
 	
 	void LateUpdate () {
 		if(Input.GetButton("Fire2") /*&& inventoryCanvas.alpha < 1 && chestCanvas.alpha < 1 && characterCanvas.alpha < 1*/)
@@ -62,6 +64,7 @@ public class CameraRotation : MonoBehaviour {
         Vector3 cameraTargetPosition = new Vector3(cameraTarget.position.x, cameraTarget.position.y + cameraTargetHeight, cameraTarget.position.z);
         bool isCorrected = false;
         if (Physics.Linecast(cameraTargetPosition, position, out rayHit)) {
+            print(rayHit);
             position = rayHit.point;
             correcterDistance = Vector3.Distance(cameraTargetPosition, position);
             isCorrected = true;
@@ -72,7 +75,6 @@ public class CameraRotation : MonoBehaviour {
 
         transform.rotation = rotation;
         transform.position = position;
-
     }
 
 	private static float ClampAngle(float angle, float min, float max){

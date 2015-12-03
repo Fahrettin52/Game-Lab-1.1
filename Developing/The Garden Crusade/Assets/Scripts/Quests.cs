@@ -89,6 +89,10 @@ public class Quests : MonoBehaviour {
 				popupText.SetActive(false);
 			}
 		}
+        if(quest1[5] == true) {
+            quest1[3] = false;
+            quest1[4] = false;
+        }
 	}
 
 	void LevelOneQuests () {

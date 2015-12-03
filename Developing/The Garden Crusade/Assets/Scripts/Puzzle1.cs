@@ -11,6 +11,7 @@ public class Puzzle1 : MonoBehaviour {
     public bool[] checkPuzzle;
     public int currentButton;
 	public bool completePuzzle;
+    public GameObject enterTree;
 
 	void Start () {
         mouseImage = GameObject.Find("PuzzleMouse");
@@ -102,6 +103,7 @@ public class Puzzle1 : MonoBehaviour {
             GetComponent<Quests>().questText.SetActive(true);
             GetComponent<Quests>().popupText.SetActive(true);
             GetComponent<Quests>().popupText.SetActive(false);
+            enterTree.SetActive(true);
         }
     }
 }
