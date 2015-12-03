@@ -30,7 +30,6 @@ public class CameraRotation : MonoBehaviour {
 		y = angles.y;
 	}
 	
-	
 	void LateUpdate () {
 		if(Input.GetButton("Fire2") /*&& inventoryCanvas.alpha < 1 && chestCanvas.alpha < 1 && characterCanvas.alpha < 1*/)
         {
@@ -54,27 +53,27 @@ public class CameraRotation : MonoBehaviour {
 
 		Quaternion rotation = Quaternion.Euler (y, x, 0);
 
-		desiredDistance -= Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * zoomSpeed * Mathf.Abs(desiredDistance);
-		desiredDistance = Mathf.Clamp(desiredDistance, minViewDistance, maxViewDistance);
-		correcterDistance = desiredDistance;
-		Vector3 position = cameraTarget.position - (rotation * Vector3.forward * desiredDistance);
+        desiredDistance -= Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * zoomSpeed * Mathf.Abs(desiredDistance);
+        desiredDistance = Mathf.Clamp(desiredDistance, minViewDistance, maxViewDistance);
+        correcterDistance = desiredDistance;
+        Vector3 position = cameraTarget.position - (rotation * Vector3.forward * desiredDistance);
 
-		RaycastHit rayHit;
-		Vector3 cameraTargetPosition = new Vector3(cameraTarget.position.x, cameraTarget.position.y + cameraTargetHeight, cameraTarget.position.z);
-		bool isCorrected = false;
-		if(Physics.Linecast(cameraTargetPosition, position, out rayHit)){
-			position = rayHit.point;
-			correcterDistance = Vector3.Distance(cameraTargetPosition, position);
-			isCorrected = true;
-		}
+        RaycastHit rayHit;
+        Vector3 cameraTargetPosition = new Vector3(cameraTarget.position.x, cameraTarget.position.y + cameraTargetHeight, cameraTarget.position.z);
+        bool isCorrected = false;
+        if (Physics.Linecast(cameraTargetPosition, position, out rayHit)) {
+            position = rayHit.point;
+            correcterDistance = Vector3.Distance(cameraTargetPosition, position);
+            isCorrected = true;
+        }
 
-		currentDistance = !isCorrected || correcterDistance > currentDistance ? Mathf.Lerp(currentDistance, correcterDistance, Time.deltaTime * zoomSpeed) : correcterDistance;
-		position = cameraTarget.position - (rotation * Vector3.forward * currentDistance + new Vector3 (0, -cameraTargetHeight, 0));
+        currentDistance = !isCorrected || correcterDistance > currentDistance ? Mathf.Lerp(currentDistance, correcterDistance, Time.deltaTime * zoomSpeed) : correcterDistance;
+        position = cameraTarget.position - (rotation * Vector3.forward * currentDistance + new Vector3(0, -cameraTargetHeight, 0));
 
-		transform.rotation = rotation;
-		transform.position = position;
+        transform.rotation = rotation;
+        transform.position = position;
 
-	}
+    }
 
 	private static float ClampAngle(float angle, float min, float max){
 		if(angle < -360){

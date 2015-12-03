@@ -32,12 +32,13 @@ public class Consumeable : Item {
         }
         if (ItemName == "Health Potion" && PlayerScript.Instance.currentHealth < PlayerScript.Instance.maxHealth) {
             Debug.Log(ItemName);
-//            PlayerScript.Instance.currentHealth += PlayerScript.Instance.healtPot;
             PlayerScript.Instance.GetHealth();
             PlayerScript.Instance.HandleHealth();
-                //if (PlayerScript.Instance.currentHealth >= PlayerScript.Instance.maxHealth){
-                //    PlayerScript.Instance.currentHealth = PlayerScript.Instance.maxHealth;
-                //}
+            slot.RemoveItem();
+        }
+        if (ItemName == "Rage Potion" && Stamina.Instance.currentRage < Stamina.Instance.maxRage) {
+            Debug.Log(ItemName);
+            Stamina.Instance.RagePotion();
             slot.RemoveItem();
         }
     }

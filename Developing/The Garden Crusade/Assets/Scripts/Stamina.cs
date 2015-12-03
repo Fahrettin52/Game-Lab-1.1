@@ -137,10 +137,8 @@ public class Stamina : MonoBehaviour {
 		ManaText ();
 	}
 
-    public void RageBar()
-    {
-        if (currentRage < maxRage)
-        {
+    public void RageBar(){
+        if (currentRage < maxRage) {
             currentRage += 15f;
         }
         if (currentRage >= maxRage) {
@@ -148,12 +146,10 @@ public class Stamina : MonoBehaviour {
         }
         rageFillAmount.fillAmount += 1.5f / 10f;
 
-        if (currentRage < maxRage / 2)
-        {
+        if (currentRage < maxRage / 2) {
             rageFillAmount.color = new Color32(255, (byte)MapValues(currentRage, maxRage / 2, maxRage, 255, 0), 255, 65);
         }
-        else
-        {
+        else{
             rageFillAmount.color = new Color32(255, 0, (byte)MapValues(currentRage, 100, maxRage / 2, 0, 255), 130);
         }
         rageText.text = "Rage: " + currentRage.ToString("F0");
@@ -161,6 +157,18 @@ public class Stamina : MonoBehaviour {
     public void RageBarLose(int cost) {
         if (currentRage >= 0) {
             rageFillAmount.fillAmount -= cost / 10f;
+            if (currentRage < maxRage / 2) {
+                rageFillAmount.color = new Color32(255, (byte)MapValues(currentRage, maxRage / 2, maxRage, 255, 0), 255, 65);
+            } else {
+                rageFillAmount.color = new Color32(255, 0, (byte)MapValues(currentRage, 100, maxRage / 2, 0, 255), 130);
+            }
+            rageText.text = "Rage: " + currentRage.ToString("F0");
+        }
+    }
+    public void RagePotion() {
+        if (currentRage < 100) {
+            currentRage += 10f;
+            rageFillAmount.fillAmount += 1f / 10f;
             if (currentRage < maxRage / 2) {
                 rageFillAmount.color = new Color32(255, (byte)MapValues(currentRage, maxRage / 2, maxRage, 255, 0), 255, 65);
             } else {

@@ -44,7 +44,6 @@ public class Inventory : MonoBehaviour {
         isOpen = false;
         playerRef = GameObject.Find("Player");
         itemGroup = GetComponent<CanvasGroup>();
-       // buttonGroup = GameObject.Find("ButtonCanvas").GetComponent<CanvasGroup>();
         CreateLayout();
         InventoryManager.Instance.MovingSlot = GameObject.Find("MovingSlot").GetComponent<Slot>();
     } 
@@ -93,17 +92,13 @@ public class Inventory : MonoBehaviour {
 			position.Set(position.x, position.y - hoverYOffset); 
 			InventoryManager.Instance.HoverObject.transform.position = InventoryManager.Instance.canvas.transform.TransformPoint(position); // Sets the hoverobject position
 		}
-//		if (Input.GetKeyDown(KeyCode.R)) {
-//			PlayerPrefs.DeleteAll();
-//		}
 	}
 
 	public void OnDrag () {
 		MoveInventory();
 	}
 
-    public void PointerExit()
-    {
+    public void PointerExit(){
         mouseInside = false;
     }
 
@@ -113,10 +108,8 @@ public class Inventory : MonoBehaviour {
 		}
     }
 
-    public void ButtonEnter()
-    {
-        if (buttonGroup.alpha == 1)
-        {
+    public void ButtonEnter(){
+        if (buttonGroup.alpha == 1){
             mouseInside = true;
         }
     }
@@ -126,7 +119,6 @@ public class Inventory : MonoBehaviour {
     }
 
     public void Open () {
-        
         if (itemGroup.alpha > 0){
 			StartCoroutine("FadeOut");
 			PutItemBack();
@@ -145,8 +137,8 @@ public class Inventory : MonoBehaviour {
 			InventoryManager.Instance.visualTextObject.text = tmpSlot.CurrentItem.GetToolTip();
 			InventoryManager.Instance.SizeTextObject.text = InventoryManager.Instance.visualTextObject.text;
 			InventoryManager.Instance.tooltipObject.SetActive (true);
-            float xPos = slot.transform.position.x  - slotPaddingLeft;
-            float yPos = slot.transform.position.y  - slot.GetComponent<RectTransform>().sizeDelta.y -2;
+            float xPos = slot.transform.position.x + 1  ;
+            float yPos = slot.transform.position.y  - slot.GetComponent<RectTransform>().sizeDelta.y -8;
 			InventoryManager.Instance.tooltipObject.transform.position = new Vector2(xPos, yPos); 
 		}
 	}
