@@ -15,11 +15,12 @@ public class PlayerScript : MonoBehaviour {
         }
     }
 
+    public CanvasGroup inventoryGroup;
     public CanvasGroup characterBackgroundHolder;
     public CanvasGroup character;
     public float speed;
 	public Inventory inventory;
-	private Inventory chest;
+	public Inventory chest;
     public Inventory charPanel;
 	public RectTransform healthTransform;
 	public float cachedY;
@@ -62,18 +63,32 @@ public class PlayerScript : MonoBehaviour {
         HandleMovement();
 
         if (Input.GetKeyDown(KeyCode.I)){
-            inventory.GetComponent<CanvasGroup>().blocksRaycasts = !inventory.GetComponent<CanvasGroup>().blocksRaycasts;
-            inventory.Open();
+            if (inventory.GetComponent<CanvasGroup>().alpha < 1) {
+                inventory.GetComponent<CanvasGroup>().blocksRaycasts = true;
+            } else {
+                inventory.GetComponent<CanvasGroup>().blocksRaycasts = false;
+            }
+            if (inventory.GetComponent<CanvasGroup>().alpha == 0 || inventory.GetComponent<CanvasGroup>().alpha == 1) {
+                inventory.Open();
+            }
         }
         if (Input.GetKeyDown(KeyCode.X)) {
             if (chest != null) {
-                chest.Open();
+                if (chest.GetComponent<CanvasGroup>().alpha == 0 || chest.GetComponent<CanvasGroup>().alpha == 1) {
+                    chest.Open();
+                }
             }
         }
         if (Input.GetKeyDown(KeyCode.C)) {
-            characterBackgroundHolder.GetComponent<CanvasGroup>().blocksRaycasts = !characterBackgroundHolder.GetComponent<CanvasGroup>().blocksRaycasts;
+            if (characterBackgroundHolder.GetComponent<CanvasGroup>().alpha < 1) {
+                characterBackgroundHolder.GetComponent<CanvasGroup>().blocksRaycasts = true;
+            } else {
+                characterBackgroundHolder.GetComponent<CanvasGroup>().blocksRaycasts = false;
+            }
             if (charPanel != null) {
-                charPanel.Open();
+                if (characterBackgroundHolder.GetComponent<CanvasGroup>().alpha == 0 || characterBackgroundHolder.GetComponent<CanvasGroup>().alpha == 1) {
+                    charPanel.Open();
+                }
             }
         }
     }
