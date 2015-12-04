@@ -21,38 +21,46 @@ public class Movement : MonoBehaviour{
     public bool mayMove = true;
 
     void Start() {
+        grondDisJump = transform.localScale.y / 2f;
         rb = GetComponent<Rigidbody>();
-    }
-
-    void Update(){
-        Crouch();
-        Run();
     }
 
     void FixedUpdate (){
         MoveAndRotate(mayMove);
         jump();
+        Run();
+        Crouch();
     }
 
     public void jump(){
-        if (!Physics.Raycast(transform.position, Vector3.down, grondDisJump)) {
-            mayMove = false;
-        } else {
+        if (Physics.Raycast(transform.position + new Vector3(0, 0, 0), -transform.up, grondDis) ||
+           (Physics.Raycast(transform.position + new Vector3(-0.45f, 0, 0), -transform.up, grondDis) ||
+           (Physics.Raycast(transform.position + new Vector3(0.45f, 0, 0), -transform.up, grondDis) ||
+           (Physics.Raycast(transform.position + new Vector3(0, 0, 0.45f), -transform.up, grondDis) ||
+           (Physics.Raycast(transform.position + new Vector3(0, 0, -0.45f), -transform.up, grondDis)))))){
             mayMove = true;
-        }
-
-        if (Physics.Raycast(transform.position, Vector3.down, grondDis)){
-        mayJump = true;
-        dubbleJump = 0;
-        }
+        } 
         else{
+            mayMove = false;
+        }
+        if (Physics.Raycast(transform.position + new Vector3(0, 0, 0), -transform.up, grondDisJump) ||
+           (Physics.Raycast(transform.position + new Vector3(-0.45f, 0, 0), -transform.up, grondDisJump) ||
+           (Physics.Raycast(transform.position + new Vector3(0.45f, 0, 0), -transform.up, grondDisJump) ||
+           (Physics.Raycast(transform.position + new Vector3(0, 0, 0.45f), -transform.up, grondDisJump) ||
+           (Physics.Raycast(transform.position + new Vector3(0, 0, -0.45f), -transform.up, grondDisJump)))))) {
+            mayJump = true;
+            dubbleJump = 0;
+        } 
+        else {
             mayJump = false;
         }
-
-        if (Input.GetButton("Jump") && dubbleJump < maxJump) {
+        if (Input.GetButton("Jump") && mayJump == true) {
             sarah.GetComponent<AnimationSara>().mayJump();
             rb.velocity += jumpSpeed;
-            dubbleJump ++;
+        if (rb.velocity.y >= 5) {
+            rb.velocity = new Vector3 (0,5,0);
+        }
+        dubbleJump ++;
         }
         if (dubbleJump > 0){
             jumpSpeed.y = 0;
@@ -81,6 +89,7 @@ public class Movement : MonoBehaviour{
             }
 
             if (Input.GetAxis("Vertical") == 0) {
+                sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
                 sarah.GetComponent<AnimationSara>().animator.SetBool("cancelRun", true);
             }
 

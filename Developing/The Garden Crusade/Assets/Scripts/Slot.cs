@@ -108,10 +108,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 		items.Clear (); 
 		ChangeSprite (slotEmpty, slotHiglight); 
 		stackTxt.text = string.Empty;
-        if (transform.parent != null)
-        {
-            transform.parent.GetComponent<Inventory>().EmptySlots++;
-        }
     }
 	 
 	public Stack<ItemScript> RemoveItems(int amount){
@@ -146,41 +142,49 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 	}
 
     public static void SwapItems(Slot from, Slot to){
-
-        ItemType movingType = from.CurrentItem.Item.ItemType;
-
-        if ( to != null && from != null )
-        {
+        if ( to != null && from != null ){
             bool calculateStats = from.transform.parent == CharacterPanel.Instance.transform || to.transform.parent == CharacterPanel.Instance.transform;
 
-            if (movingType == ItemType.TWOHAND && CharacterPanel.Instance.OffhandSlot.IsEmpty || movingType == ItemType.MAINHAND)
-            {
-                movingType = ItemType.GENERICWEAPON;
-            }
-            if (to.canContain == ItemType.GENERIC || movingType == to.canContain)
-            {
-                if (movingType != ItemType.OFFHAND || (CharacterPanel.Instance.WeaponSlot.IsEmpty || CharacterPanel.Instance.WeaponSlot.CurrentItem.Item.ItemType != ItemType.TWOHAND))
-                {
-                    Stack<ItemScript> tmpTo = new Stack<ItemScript>(to.Items); // stores the itemf from the to slot, so we can do a swap
-                    to.AddItems(from.Items); // clear the from slot 
+            if (CanSwap(from,to)) {
+                    Stack<ItemScript> tmpTo = new Stack<ItemScript>(to.Items);
+                    to.AddItems(from.Items);
 
-                    if (tmpTo.Count == 0)
-                    { // if to slot is 0 then we dont need to move anything to the from slot
+                    if (tmpTo.Count == 0) {
                         to.transform.parent.GetComponent<Inventory>().EmptySlots--;
-                        from.ClearSlot(); // clear the from slot
+                        from.ClearSlot();
+                    } 
+                    else {
+                        from.AddItems(tmpTo);
                     }
-                    else
-                    {
-                        from.AddItems(tmpTo); // if the to slot contains item then we need to move the t o the from slot
-                    }
-                }
             }
-
-            if (calculateStats)
-            {
+            if (calculateStats) {
                 CharacterPanel.Instance.CalculateStats();
             }
         }
+    }
+
+    public static bool CanSwap(Slot from, Slot to) {
+
+        ItemType fromType = from.CurrentItem.Item.ItemType;
+        if (to.canContain == from.canContain) {
+            return true;
+        }
+        if (fromType != ItemType.OFFHAND && to.canContain == fromType) {
+            return true;
+        }
+        if (to.canContain == ItemType.GENERIC && (to.IsEmpty || to.CurrentItem.Item.ItemType == fromType)){
+            return true;
+        }
+        if (fromType == ItemType.MAINHAND && to.canContain == ItemType.GENERICWEAPON) {
+            return true;
+        }
+        if (fromType == ItemType.TWOHAND && to.canContain == ItemType.GENERICWEAPON && CharacterPanel.Instance.OffhandSlot.IsEmpty) {
+            return true;
+        }
+        if (fromType == ItemType.OFFHAND && (to.IsEmpty || to.CurrentItem.Item.ItemType == ItemType.OFFHAND ) && (CharacterPanel.Instance.WeaponSlot.IsEmpty || CharacterPanel.Instance.WeaponSlot.CurrentItem.Item.ItemType != ItemType.TWOHAND)) {
+            return true;
+        }
+        return false;
     }
 }
 
