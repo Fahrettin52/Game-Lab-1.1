@@ -36,6 +36,7 @@ public class AnimationTermite : MonoBehaviour {
     public Vector3 toRoam;
     public bool idle;
     public bool mayDie = false;
+    private bool mayDrop = true;
 
     void Start () {
         agent = GetComponent<NavMeshAgent>();
@@ -106,10 +107,10 @@ public class AnimationTermite : MonoBehaviour {
         if( livesEnemy < 1) {
             livesEnemy = 0; 
         }
-        if (livesEnemy <= 1) {
+        if (livesEnemy == 0) {
             mayDie = true;
         }
-        if (livesEnemy < 1 && mayDie == true){
+        if (livesEnemy == 0 && mayDie == true && mayDrop == true){
             mayDie = false;  
             GameObject.Find("Player").GetComponent<Experience>().currentExp += GameObject.Find("Player").GetComponent<Experience>().expGet;
             GameObject.Find("Spawn").GetComponent<SpawnEnemy>().spawned -= 1;
@@ -126,6 +127,7 @@ public class AnimationTermite : MonoBehaviour {
             }
             Destroy(gameObject, 1f);
             GameObject.Instantiate(dropRandomItem).transform.position = transform.position;
+            mayDrop = false;
             if(GameObject.Find("Player").GetComponent<Quests>().quest1[8] == true){
                 GameObject.Find("Player").GetComponent<Quests>().quest1_1 += 1;
             }   

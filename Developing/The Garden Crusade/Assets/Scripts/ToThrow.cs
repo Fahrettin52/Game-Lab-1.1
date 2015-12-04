@@ -11,6 +11,7 @@ public class ToThrow : MonoBehaviour {
     public Rigidbody rb;
     public float throwSpeed;
     public string[] changeText;
+    public GameObject trowPos;
 
     void Start() {
         throwInfo.SetActive(false);
@@ -18,7 +19,6 @@ public class ToThrow : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetButtonDown("F")) {
             if (Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.forward, out rayHit, rayDis) ||
                (Physics.Raycast(transform.position + new Vector3(0, 0, 0), transform.forward, out rayHit, rayDis) ||
                (Physics.Raycast(transform.position + new Vector3(0, 2.6f, 0), transform.forward, out rayHit, rayDis)))) {
@@ -29,9 +29,8 @@ public class ToThrow : MonoBehaviour {
                     throwInfo.GetComponent<Text>().text = changeText[1];
                 }
             }
-        }
         if (canThrow == true && Input.GetButtonDown("G")) {
-            Instantiate(throwPrefab, transform.position + new Vector3(0, 1.3f, 0) + transform.forward, Quaternion.identity);
+            Instantiate(throwPrefab, trowPos.transform.position + transform.forward, Quaternion.identity);
             rb = GameObject.Find("testThrow(Clone)").GetComponent<Rigidbody>();
             rb.velocity = new Vector3(0, 0, 0) + transform.forward * throwSpeed;
             throwInfo.SetActive(false);
