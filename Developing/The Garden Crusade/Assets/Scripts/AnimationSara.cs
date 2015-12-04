@@ -23,9 +23,9 @@ public class AnimationSara : MonoBehaviour
         animator.SetBool("idleCombat", true);
     }
 
-    public void mayJump()
+    public void mayJump1(bool may)
     {
-        animator.SetTrigger("mayJump");
+        animator.SetBool("mayJump1",may);
     }
 
     public void mayDie()

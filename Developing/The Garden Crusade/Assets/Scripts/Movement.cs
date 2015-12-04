@@ -12,7 +12,7 @@ public class Movement : MonoBehaviour{
     public int strafeSpeed;
     public GameObject sarah;
     public bool mayJump;
-    public Vector3 jumpSpeed;
+    public float jumpSpeed;
     public float grondDis;
     public float grondDisJump;
     private Rigidbody rb;
@@ -40,33 +40,19 @@ public class Movement : MonoBehaviour{
            (Physics.Raycast(transform.position + new Vector3(0, 0, -0.45f), -transform.up, grondDis)))))){
             mayMove = true;
         } 
-        else{
-            mayMove = false;
-        }
         if (Physics.Raycast(transform.position + new Vector3(0, 0, 0), -transform.up, grondDisJump) ||
            (Physics.Raycast(transform.position + new Vector3(-0.45f, 0, 0), -transform.up, grondDisJump) ||
            (Physics.Raycast(transform.position + new Vector3(0.45f, 0, 0), -transform.up, grondDisJump) ||
            (Physics.Raycast(transform.position + new Vector3(0, 0, 0.45f), -transform.up, grondDisJump) ||
            (Physics.Raycast(transform.position + new Vector3(0, 0, -0.45f), -transform.up, grondDisJump)))))) {
             mayJump = true;
-            dubbleJump = 0;
         } 
         else {
             mayJump = false;
         }
+        sarah.GetComponent<AnimationSara>().mayJump1(mayJump);
         if (Input.GetButton("Jump") && mayJump == true) {
-            sarah.GetComponent<AnimationSara>().mayJump();
-            rb.velocity += jumpSpeed;
-        if (rb.velocity.y >= 5) {
-            rb.velocity = new Vector3 (0,5,0);
-        }
-        dubbleJump ++;
-        }
-        if (dubbleJump > 0){
-            jumpSpeed.y = 0;
-        }
-        if (jumpSpeed.y == 0){
-            jumpSpeed.y = 5;
+            rb.velocity = new Vector3(0, jumpSpeed, 0);
         }
     }
 
@@ -121,7 +107,8 @@ public class Movement : MonoBehaviour{
     public void Run() {
         if (Input.GetButton("Run")) {
             forwardSpeed = runSpeed;
-        } else {
+        } 
+        else {
             forwardSpeed = normalSpeed;
         }
     }
