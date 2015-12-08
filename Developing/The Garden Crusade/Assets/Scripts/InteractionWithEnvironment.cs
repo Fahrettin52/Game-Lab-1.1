@@ -6,6 +6,7 @@ public class InteractionWithEnvironment : MonoBehaviour {
 	public float rayDis;
 	public RaycastHit rayHit;
 	public int interactInt;
+	public bool convoActive;
 	
 	void Start () {
 
@@ -22,7 +23,8 @@ public class InteractionWithEnvironment : MonoBehaviour {
 				print("Puzzle Level 1");
 				break;
 			case 2:
-				print("Mother");
+				convoActive = true;
+				GetComponent<ConversationSystem>().StartConvo(convoActive);
 				break;
 			case 3:
 				print("NPC");
