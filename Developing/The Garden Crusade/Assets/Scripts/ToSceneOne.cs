@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class ToSceneOne : MonoBehaviour {
 
+    public bool ActivateCanvas;
+
     public GameObject StartScreen;
     public GameObject OptionScreen;
     public GameObject CreditsScreen;
@@ -11,7 +13,6 @@ public class ToSceneOne : MonoBehaviour {
     public GameObject KeybindScreen;
     public GameObject MenuButton;
     public GameObject ExitToMenu;
-    public bool ActivateCanvas;
     public GameObject deadScreen;
     public GameObject background;
 
