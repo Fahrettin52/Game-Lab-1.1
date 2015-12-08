@@ -55,7 +55,13 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 		txtRect.SetSizeWithCurrentAnchors (RectTransform.Axis.Vertical, slotRect.sizeDelta.y);
 
 		if (transform.parent != null) {
-			itemGroup = transform.parent.GetComponent<CanvasGroup> ();
+
+            Transform p = transform.parent;
+
+            while (itemGroup == null && p != null) {
+                itemGroup = p.GetComponent<CanvasGroup>();
+                p = p.parent;
+            }
 		}
 	}
 	

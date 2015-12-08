@@ -95,7 +95,9 @@ public class Inventory : MonoBehaviour {
 	}
 
 	public void OnDrag () {
-		MoveInventory();
+        if (isOpen) {
+            MoveInventory();
+        }
 	}
 
     public void PointerExit(){
