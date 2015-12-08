@@ -124,6 +124,10 @@ public class AnimationTermite : MonoBehaviour {
                 player.GetComponent<Quests>().currentObjective ++;
                 player.GetComponent<Quests>().currentObjectiveText ++;
                 player.GetComponent<Quests>().LoopForBool();
+                if(player.GetComponent<Quests>().quest1[5] == true){
+                    player.GetComponent<Quests>().quest1[3] = false;
+                    player.GetComponent<Quests>().quest1[4] = false;
+                }
             }
             Destroy(gameObject, 1f);
             GameObject.Instantiate(dropRandomItem).transform.position = transform.position;
