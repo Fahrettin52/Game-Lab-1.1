@@ -85,7 +85,7 @@ public class InventoryManager : MonoBehaviour {
 	}
 
 	public void Start () {
-		Type[] itemTypes = { typeof(Equipment), typeof(Weapon), typeof(Consumeable) };
+		Type[] itemTypes = { typeof(Equipment), typeof(Weapon), typeof(Consumeable), typeof(Material) };
 		XmlSerializer serializer = new XmlSerializer (typeof(ItemContainer), itemTypes);
 		TextReader textReader = new StreamReader (Application.streamingAssetsPath + "/Items.xml");
 		itemContainer = (ItemContainer)serializer.Deserialize (textReader);

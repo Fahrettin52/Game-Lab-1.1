@@ -156,9 +156,27 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider other) {
+        if (other.tag == "Material"){
+            for (int i = 0; i < 5; i++) {
+                for (int x = 0; x < 3; x++) {
+                    GameObject tmp = Instantiate(InventoryManager.Instance.itemObject);
+
+                    tmp.AddComponent<ItemScript>();
+
+                    ItemScript newMaterial = tmp.GetComponent<ItemScript>();
+
+                    newMaterial.Item = InventoryManager.Instance.ItemContainer.Materials[x];
+
+                    inventory.AddItem(newMaterial);
+
+                    Destroy(tmp);
+                }
+            }
+        }
+
         if (other.gameObject.tag == "mayThrow") {
-            GetComponent<ToThrow>().throwInfo.SetActive(true);
-            GetComponent<ToThrow>().throwInfo.GetComponent<Text>().text = GetComponent<ToThrow>().changeText[0];
+        GetComponent<ToThrow>().throwInfo.SetActive(true);
+        GetComponent<ToThrow>().throwInfo.GetComponent<Text>().text = GetComponent<ToThrow>().changeText[0];
         }
         if (other.gameObject.name == "ToBoomstronk" && GetComponent<Quests>().quest1[6] == true)
         {

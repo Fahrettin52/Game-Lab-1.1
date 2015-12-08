@@ -7,6 +7,7 @@ public class ItemContainer {
 	private List<Item> weapons = new List<Item>();
 	private List<Item> equipment = new List<Item>();
 	private List<Item> consumeable = new List<Item>();
+    private List<Item> materials = new List<Item>();
 
     public List<Item> Weapons {
 		get { return weapons; }
@@ -22,6 +23,11 @@ public class ItemContainer {
 		get { return consumeable; }
 		set { consumeable = value;}
 	}
+
+    public List<Item> Materials {
+        get { return materials; }
+        set { materials = value; }
+    }
 
     public ItemContainer () {
 	}	 

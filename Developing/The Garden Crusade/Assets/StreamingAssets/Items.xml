@@ -58,6 +58,7 @@
       <AttackSpeed>10</AttackSpeed>
     </Item>
   </Weapons>
+  
   <Equipment>
     <Item xsi:type="Equipment">
       <ItemType>BELT</ItemType>
@@ -190,6 +191,7 @@
       <Strength>9</Strength>
     </Item>
   </Equipment>
+  
   <Consumable>
     <Item xsi:type="Consumeable">
       <ItemType>CONSUMEABLE</ItemType>
@@ -228,33 +230,34 @@
       <Rage>10</Rage>
     </Item>
   </Consumable>
+
   <Materials>
-  <Item xsi:type="Material">
-    <ItemType>MATERIAL</ItemType>
-    <Quality>COMMON</Quality>
-    <SpriteNeutral>Materials/IronNormal</SpriteNeutral>
-    <SpriteHighlighted>Materials/IronHighlight</SpriteHighlighted>
-    <MaxSize>10</MaxSize>
-    <ItemName>Iron ingot</ItemName>
-    <Description>This is an iron Ingot</Description>
+    <Item xsi:type="Material">
+      <ItemType>MATERIAL</ItemType>
+      <Quality>COMMON</Quality>
+      <SpriteNeutral>Materials/WoodNormal</SpriteNeutral>
+      <SpriteHighlighted>Materials/WoodHighlight</SpriteHighlighted>
+      <MaxSize>10</MaxSize>
+      <ItemName>Wood</ItemName>
+      <Description>This is a piece of wood</Description>
     </Item>
     <Item xsi:type="Material">
-    <ItemType>MATERIAL</ItemType>
-    <Quality>COMMON</Quality>
-    <SpriteNeutral>Materials/WoodNormal</SpriteNeutral>
-    <SpriteHighlighted>Materials/WoodHighlight</SpriteHighlighted>
-    <MaxSize>10</MaxSize>
-    <ItemName>Wood</ItemName>
-    <Description>This is an piece of wood</Description>
+      <ItemType>MATERIAL</ItemType>
+      <Quality>COMMON</Quality>
+      <SpriteNeutral>Materials/StoneNormal</SpriteNeutral>
+      <SpriteHighlighted>Materials/StoneHighlight</SpriteHighlighted>
+      <MaxSize>10</MaxSize>
+      <ItemName>Stone</ItemName>
+      <Description>This is a piece of stone</Description>
     </Item>
     <Item xsi:type="Material">
-    <ItemType>MATERIAL</ItemType>
-    <Quality>COMMON</Quality>
-    <SpriteNeutral>Materials/StoneNormal</SpriteNeutral>
-    <SpriteHighlighted>Materials/StoneHighlight</SpriteHighlighted>
-    <MaxSize>10</MaxSize>
-    <ItemName>Stone</ItemName>
-    <Description>This is an stone piece</Description>
+      <ItemType>MATERIAL</ItemType>
+      <Quality>COMMON</Quality>
+      <SpriteNeutral>Materials/IronNormal</SpriteNeutral>
+      <SpriteHighlighted>Materials/IronHighlight</SpriteHighlighted>
+      <MaxSize>10</MaxSize>
+      <ItemName>Iron</ItemName>
+      <Description>This is an iron ingot</Description>
     </Item>
   </Materials>
 </ItemContainer>
