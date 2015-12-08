@@ -82,6 +82,7 @@ public class AnimationTermite : MonoBehaviour {
                 animator.SetBool("TermSolAttackStart", true);
                 animator.SetBool("TermSolWalk", false);
                 agent.Stop();
+                transform.LookAt(player);
             }
             else
             {
