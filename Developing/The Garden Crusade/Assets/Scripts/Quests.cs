@@ -113,7 +113,7 @@ public class Quests : MonoBehaviour {
 					currentObjective += 1;
 					currentObjectiveText += 1;
 					LoopForBool ();
-					Destroy(rayHit.transform.gameObject);
+					Destroy(GameObject.FindWithTag("Mother"));
 				}
 			}
 			else{
