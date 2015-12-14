@@ -6,12 +6,9 @@ public class AnimationTermite : MonoBehaviour {
 
     private static AnimationTermite instance;
 
-    public static AnimationTermite Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
+    public static AnimationTermite Instance{
+        get{
+            if (instance == null) {
                 instance = FindObjectOfType<AnimationTermite>();
             }
             return instance;
@@ -41,51 +38,43 @@ public class AnimationTermite : MonoBehaviour {
     void Start () {
         agent = GetComponent<NavMeshAgent>();
 		player = GameObject.Find("Player").transform;
-        if(idle==false)
-        {
+
+        if(idle==false){
         navSpeed = GetComponent<NavMeshAgent>().speed;
         }
+
         attackRange = 6.6f;
 	}
 
-	
-
 	void Update () {
-        if (idle == false)
-        {
+        if (idle == false) {
         EnemyFollow();
         }
-
-		
 	}
 
 	void EnemyFollow (){
         if (player != null)
         {
             distance = Vector3.Distance(transform.position, player.position);
-            if (distance < range)
-            {
+            if (distance < range){
                 animator.SetBool("TermSolWalk", true);
                 animator.SetBool("TermSolWalkStop", false);
                 FollowPlayer();
             }
-            else
-            {
+            else {
                 animator.SetBool("TermSolWalk", false);
                 animator.SetBool("TermSolWalkStop", true);
                 Roam();
                 resetBool = true;
             }
 
-            if (distance < attackRange)
-            {
+            if (distance < attackRange){
                 animator.SetBool("TermSolAttackStart", true);
                 animator.SetBool("TermSolWalk", false);
                 agent.Stop();
                 transform.LookAt(player);
             }
-            else
-            {
+            else {
                 animator.SetBool("TermSolAttackStart", false);
                 animator.SetBool("TermSolWalk", true);
                 agent.Resume();

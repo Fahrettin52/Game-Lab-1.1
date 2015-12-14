@@ -19,7 +19,7 @@ public class Inventory : MonoBehaviour {
 	private bool fadingIn;
 	private bool fadingOut;
 	public 	float fadeTime;
-	private List<GameObject> allSlots; 
+	protected List<GameObject> allSlots; 
 	private bool isOpen;
 	public static bool mouseInside = false;
 
