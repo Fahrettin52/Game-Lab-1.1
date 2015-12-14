@@ -127,8 +127,8 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 	}
 
 	public ItemScript RemoveItem () {
+        ItemScript tmp;
         if (!IsEmpty) {
-            ItemScript tmp;
             tmp = items.Pop();
             stackTxt.text = items.Count > 1 ? items.Count.ToString() : string.Empty;
             if (IsEmpty) {

@@ -235,6 +235,9 @@ public class Inventory : MonoBehaviour {
                     {
                         tmp = InventoryManager.Instance.ItemContainer.Weapons.Find(item => item.ItemName == itemName);
                     }
+                    if (tmp == null) {
+                        tmp = InventoryManager.Instance.ItemContainer.Materials.Find(item => item.ItemName == itemName);
+                    }
 
                     loadedItem.AddComponent<ItemScript>();
                     loadedItem.GetComponent<ItemScript>().Item = tmp;
@@ -288,6 +291,10 @@ public class Inventory : MonoBehaviour {
 				slotRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize * InventoryManager.Instance.canvas.scaleFactor); // set the size of the slot
 
 				allSlots.Add(newSlot); // add the new slot to the slot lost
+
+                newSlot.GetComponent<Button>().onClick.AddListener(
+                    delegate { MoveItem(newSlot); }     
+                );
 			}
 		}
 	}
@@ -341,7 +348,7 @@ public class Inventory : MonoBehaviour {
 		return false;
 	}
 	// moves a item to another slot in the inventory
-	public void MoveItem(GameObject clicked){
+	public virtual void MoveItem(GameObject clicked){
             CanvasGroup cg = clicked.transform.parent.GetComponent<CanvasGroup>();
 
         if (cg != null && cg.alpha > 0 || clicked.transform.parent.parent.GetComponent<CanvasGroup>().alpha > 0)
@@ -382,6 +389,10 @@ public class Inventory : MonoBehaviour {
 				Destroy (GameObject.Find ("Hover"));
 			}
 		}
+
+        if (CraftingBench.Instance.isOpen) {
+            CraftingBench.Instance.UpdatePreview();
+        }
 	}
 
 	private void CreateHoverIcon () {

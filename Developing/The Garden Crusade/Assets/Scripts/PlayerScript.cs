@@ -19,6 +19,7 @@ public class PlayerScript : MonoBehaviour {
     public CanvasGroup characterBackgroundHolder;
     public CanvasGroup character;
     public float speed;
+    public Inventory Crafting;
 	public Inventory inventory;
 	public Inventory chest;
     public Inventory charPanel;
@@ -70,6 +71,14 @@ public class PlayerScript : MonoBehaviour {
             }
             if (inventory.GetComponent<CanvasGroup>().alpha == 0 || inventory.GetComponent<CanvasGroup>().alpha == 1) {
                 inventory.Open();
+            }
+            if (Crafting.GetComponent<CanvasGroup>().alpha < 1) {
+                Crafting.GetComponent<CanvasGroup>().blocksRaycasts = true;
+            } else {
+                Crafting.GetComponent<CanvasGroup>().blocksRaycasts = false;
+            }
+            if (Crafting.GetComponent<CanvasGroup>().alpha == 0 || inventory.GetComponent<CanvasGroup>().alpha == 1) {
+                Crafting.Open();
             }
         }
         if (Input.GetKeyDown(KeyCode.X)) {

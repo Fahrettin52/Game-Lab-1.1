@@ -49,7 +49,7 @@ public class CraftingBench : Inventory {
         previewSlot = Instantiate(InventoryManager.Instance.slotPrefab);
 
         RectTransform slotRect = previewSlot.GetComponent<RectTransform>();
-         
+
         previewSlot.name = "PreviewSlot";
 
         previewSlot.transform.SetParent(this.transform.parent);
@@ -60,7 +60,7 @@ public class CraftingBench : Inventory {
 
         slotRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize * InventoryManager.Instance.canvas.scaleFactor);
 
-        previewSlot.transform.SetParent(transform); 
+        previewSlot.transform.SetParent(transform);
     }
 
     public void CreateBlueprints() {
@@ -69,13 +69,12 @@ public class CraftingBench : Inventory {
 
     public void CraftItem() {
         string output = string.Empty;
-         
-        foreach (GameObject slot in allSlots) {  
+
+        foreach (GameObject slot in allSlots) {
             Slot tmp = slot.GetComponent<Slot>();
             if (tmp.IsEmpty) {
                 output += "EMPTY-";
-            }
-            else {
+            } else {
                 output += tmp.CurrentItem.Item.ItemName + "-";
             }
         }
@@ -97,6 +96,40 @@ public class CraftingBench : Inventory {
                 Destroy(tmpObj);
             }
         }
-        Debug.Log(output);
+        UpdatePreview(); 
+    }
+
+    public override void MoveItem(GameObject clicked) {
+        base.MoveItem(clicked);
+        UpdatePreview(); 
+    }
+
+    public void UpdatePreview() {
+        string output = string.Empty;
+
+        previewSlot.GetComponent<Slot>().ClearSlot();
+
+        foreach (GameObject slot in allSlots) {
+            Slot tmp = slot.GetComponent<Slot>();
+            if (tmp.IsEmpty) {
+                output += "EMPTY-";
+            } else {
+                output += tmp.CurrentItem.Item.ItemName + "-";
+            }
+        }
+
+        if (craftingItems.ContainsKey(output)) {
+            GameObject tmpObj = Instantiate(InventoryManager.Instance.itemObject);
+            tmpObj.AddComponent<ItemScript>();
+            ItemScript craftedItem = tmpObj.GetComponent<ItemScript>();
+            Item tmpItem;
+            craftingItems.TryGetValue(output, out tmpItem);
+
+            if (tmpItem != null) {
+                craftedItem.Item = tmpItem;
+                previewSlot.GetComponent<Slot>().AddItem(craftedItem);
+                Destroy(tmpObj);
+            }
+        }
     }
 }
