@@ -10,10 +10,10 @@ public class Inventory : MonoBehaviour {
 	public 	int slots;
     public int emptySlots;  
 	private float hoverYOffset;
-	private float inventoryWidth, inventoryHeight;
+	protected float inventoryWidth, inventoryHeight;
 	public 	float slotPaddingLeft, slotPaddingTop;
 	public 	float slotSize;
-	private	RectTransform inventoryRect; 
+	protected RectTransform inventoryRect; 
 	public CanvasGroup itemGroup;
     public CanvasGroup buttonGroup;
 	private bool fadingIn;
