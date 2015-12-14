@@ -38,7 +38,7 @@ public class Inventory : MonoBehaviour {
 		set { emptySlots = value; }
 	}
 
-	private static GameObject playerRef;
+	protected static GameObject playerRef;
 
 	void Start () {
         isOpen = false;
@@ -120,7 +120,7 @@ public class Inventory : MonoBehaviour {
         mouseInside = false;
     }
 
-    public void Open () {
+    public virtual void Open () {
         if (itemGroup.alpha > 0){
 			StartCoroutine("FadeOut");
 			PutItemBack();

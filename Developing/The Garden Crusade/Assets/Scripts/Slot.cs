@@ -15,6 +15,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 	public bool mayUseMana;
 	private CanvasGroup itemGroup;
     public ItemType canContain;
+    private bool clickAble = true;
 
 	public Stack<ItemScript> Items {
 		get { return items; }
@@ -33,7 +34,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 		get { return items.Peek (); }
 	}
 
-	void Awake () {
+    public bool ClickAble {
+        get { return clickAble;}
+        set { clickAble = value;}
+    }
+
+    void Awake () {
 		items = new Stack <ItemScript> (); 
 		player = GameObject.FindWithTag ("Player");
 	}
@@ -99,7 +105,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 	}
 	
 	private void UseItem () {
-		if (!IsEmpty) {
+		if (!IsEmpty && clickAble) {
 			items.Peek ().Use(this);
             stackTxt.text = items.Count > 1 ? items.Count.ToString() : string.Empty;
 

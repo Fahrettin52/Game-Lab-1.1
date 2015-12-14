@@ -61,6 +61,8 @@ public class CraftingBench : Inventory {
         slotRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize * InventoryManager.Instance.canvas.scaleFactor);
 
         previewSlot.transform.SetParent(transform);
+
+        previewSlot.GetComponent<Slot>().ClickAble = false;
     }
 
     public void CreateBlueprints() {
@@ -129,6 +131,33 @@ public class CraftingBench : Inventory {
                 craftedItem.Item = tmpItem;
                 previewSlot.GetComponent<Slot>().AddItem(craftedItem);
                 Destroy(tmpObj);
+            }
+        }
+    }
+
+    public override void LoadInventory() {
+        base.LoadInventory();
+        UpdatePreview();
+    }
+
+    public override void Open() {
+        base.Open();
+
+        foreach (GameObject slot in allSlots){
+            Slot tmpSlot = slot.GetComponent<Slot>();
+            int count = tmpSlot.Items.Count;
+
+            for (int i = 0; i <count; i++) {
+                ItemScript tmpItem = tmpSlot.RemoveItem();
+
+                if (!PlayerScript.Instance.inventory.AddItem(tmpItem)) {
+                    float angle = UnityEngine.Random.Range(0.0f, Mathf.PI * 2);
+                    Vector3 v = new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle));
+                    v *= 2;
+                    GameObject tmpDrp = (GameObject)GameObject.Instantiate(InventoryManager.Instance.dropItem, playerRef.transform.position - v, Quaternion.identity);
+                    tmpDrp.AddComponent<ItemScript>();
+                    tmpDrp.GetComponent<ItemScript>().Item = tmpItem.Item;
+                }
             }
         }
     }
