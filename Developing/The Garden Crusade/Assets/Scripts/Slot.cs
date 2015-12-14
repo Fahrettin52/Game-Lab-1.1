@@ -127,10 +127,16 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 	}
 
 	public ItemScript RemoveItem () {
-		ItemScript tmp;
-		tmp = items.Pop ();
-		stackTxt.text = items.Count > 1 ? items.Count.ToString() : string.Empty;
-		return tmp;
+        if (!IsEmpty) {
+            ItemScript tmp;
+            tmp = items.Pop();
+            stackTxt.text = items.Count > 1 ? items.Count.ToString() : string.Empty;
+            if (IsEmpty) {
+                ClearSlot();
+            }
+            return tmp;
+        }
+        return null;
 	}
 
 	public void OnPointerClick (PointerEventData eventData) { 

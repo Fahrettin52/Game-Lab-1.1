@@ -5,6 +5,17 @@ using UnityEngine.UI;
 
 public class CraftingBench : Inventory {
 
+    private static CraftingBench instance;
+
+    public static CraftingBench Instance {
+        get {
+            if (instance == null) {
+                instance = FindObjectOfType<CraftingBench>();
+            }
+            return instance;
+        }
+    }
+
     public GameObject prefabButton;
     private GameObject previewSlot;
     private Dictionary<string, Item> craftingItems = new Dictionary<string, Item>();
@@ -49,16 +60,16 @@ public class CraftingBench : Inventory {
 
         slotRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize * InventoryManager.Instance.canvas.scaleFactor);
 
-        previewSlot.transform.SetParent(transform);
+        previewSlot.transform.SetParent(transform); 
     }
 
     public void CreateBlueprints() {
-        craftingItems.Add("EMPTY-Iron-EMPTY-EMPTY-Iron-EMPTY-EMPTY-Wood-EMPTY-", InventoryManager.Instance.ItemContainer.Equipment.Find(x => x.ItemName == "Wooden Sword"));
+        craftingItems.Add("EMPTY-Iron-EMPTY-EMPTY-Iron-EMPTY-EMPTY-Wood-EMPTY-", InventoryManager.Instance.ItemContainer.Weapons.Find(x => x.ItemName == "Wooden Sword"));
     }
 
     public void CraftItem() {
         string output = string.Empty;
-
+         
         foreach (GameObject slot in allSlots) {  
             Slot tmp = slot.GetComponent<Slot>();
             if (tmp.IsEmpty) {
@@ -66,6 +77,24 @@ public class CraftingBench : Inventory {
             }
             else {
                 output += tmp.CurrentItem.Item.ItemName + "-";
+            }
+        }
+
+        if (craftingItems.ContainsKey(output)) {
+            GameObject tmpObj = Instantiate(InventoryManager.Instance.itemObject);
+            tmpObj.AddComponent<ItemScript>();
+            ItemScript craftedItem = tmpObj.GetComponent<ItemScript>();
+            Item tmpItem;
+            craftingItems.TryGetValue(output, out tmpItem);
+
+            if (tmpItem != null) {
+                craftedItem.Item = tmpItem;
+                if (PlayerScript.Instance.inventory.AddItem(craftedItem)) {
+                    foreach (GameObject slot in allSlots) {
+                        slot.GetComponent<Slot>().RemoveItem();
+                    }
+                }
+                Destroy(tmpObj);
             }
         }
         Debug.Log(output);
