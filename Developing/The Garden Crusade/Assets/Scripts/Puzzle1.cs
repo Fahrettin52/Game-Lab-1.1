@@ -12,6 +12,7 @@ public class Puzzle1 : MonoBehaviour {
     public int currentButton;
 	public bool completePuzzle;
     public GameObject enterTree;
+    public AudioClip puzzleDone;
 
 	void Start () {
         mouseImage = GameObject.Find("PuzzleMouse");
@@ -95,6 +96,7 @@ public class Puzzle1 : MonoBehaviour {
 
         if (checkPuzzle[0] == true && checkPuzzle[1] == true && checkPuzzle[2] == true && checkPuzzle[3] == true)
         {
+            
             completePuzzle = true;
             puzzleCanvas.SetActive(false);
             GetComponent<Movement>().enabled = true;
@@ -104,6 +106,7 @@ public class Puzzle1 : MonoBehaviour {
             GetComponent<Quests>().popupText.SetActive(true);
             GetComponent<Quests>().popupText.SetActive(false);
             enterTree.SetActive(true);
+            GetComponent<AudioSource>().PlayOneShot(puzzleDone);
         }
     }
 }

@@ -10,6 +10,7 @@ public class Experience : MonoBehaviour {
     public int currentLevel;
     public int maxLevel;
     public float expGet;
+    public AudioClip levelUp;
 
 	void Start () {
         
@@ -29,6 +30,7 @@ public class Experience : MonoBehaviour {
             currentExp = 0;
             expGet /= 1.25f;
             GameObject.Find("CharacterBackground").GetComponent<CharacterPanel>().CalculateStats();
+            GetComponent<AudioSource>().PlayOneShot(levelUp);
            // GetComponent<PlayerScript>().SetStats(0, 0, 0, 0);
         }
     }
