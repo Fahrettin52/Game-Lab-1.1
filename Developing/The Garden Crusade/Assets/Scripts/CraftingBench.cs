@@ -21,48 +21,53 @@ public class CraftingBench : Inventory {
     private Dictionary<string, Item> craftingItems = new Dictionary<string, Item>();
 
     public override void CreateLayout() {
-        base.CreateLayout();
 
-        GameObject craftBtn;
+        base.CreateLayout();
 
         inventoryRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, inventoryHeight + slotSize + slotPaddingTop);
 
-        craftBtn = Instantiate(prefabButton);
+        if (!GameObject.Find("CraftButton")) {
+            GameObject craftBtn;
 
-        RectTransform buttonRect = craftBtn.GetComponent<RectTransform>();
+            craftBtn = Instantiate(prefabButton);
 
-        craftBtn.name = "CraftButton";
+            RectTransform buttonRect = craftBtn.GetComponent<RectTransform>();
 
-        craftBtn.transform.SetParent(this.transform.parent);
+            craftBtn.name = "CraftButton";
 
-        buttonRect.localPosition = inventoryRect.localPosition + new Vector3(slotPaddingLeft, -slotPaddingTop * 4 - (slotSize * 3));
+            craftBtn.transform.SetParent(this.transform.parent);
 
-        buttonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, ((slotSize * 2) + slotPaddingLeft) * InventoryManager.Instance.canvas.scaleFactor);
+            buttonRect.localPosition = inventoryRect.localPosition + new Vector3(slotPaddingLeft, -slotPaddingTop * 4 - (slotSize * 3));
 
-        buttonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize * InventoryManager.Instance.canvas.scaleFactor);
+            buttonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, ((slotSize * 2) + slotPaddingLeft) * InventoryManager.Instance.canvas.scaleFactor);
 
-        craftBtn.transform.SetParent(transform);
+            buttonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize * InventoryManager.Instance.canvas.scaleFactor);
 
-        craftBtn.GetComponent<Button>().onClick.AddListener(CraftItem);
+            craftBtn.transform.SetParent(transform);
 
+            craftBtn.GetComponent<Button>().onClick.AddListener(CraftItem);
+        }
 
-        previewSlot = Instantiate(InventoryManager.Instance.slotPrefab);
+        if (!GameObject.Find("PreviewSlot")) {
 
-        RectTransform slotRect = previewSlot.GetComponent<RectTransform>();
+            previewSlot = Instantiate(InventoryManager.Instance.slotPrefab);
 
-        previewSlot.name = "PreviewSlot";
+            RectTransform slotRect = previewSlot.GetComponent<RectTransform>();
 
-        previewSlot.transform.SetParent(this.transform.parent);
+            previewSlot.name = "PreviewSlot";
 
-        slotRect.localPosition = inventoryRect.localPosition + new Vector3((slotPaddingLeft * 3) + (slotSize * 2), -slotPaddingTop * 4 - (slotSize * 3));
+            previewSlot.transform.SetParent(this.transform.parent);
 
-        slotRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, slotSize * InventoryManager.Instance.canvas.scaleFactor);
+            slotRect.localPosition = inventoryRect.localPosition + new Vector3((slotPaddingLeft * 3) + (slotSize * 2), -slotPaddingTop * 4 - (slotSize * 3));
 
-        slotRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize * InventoryManager.Instance.canvas.scaleFactor);
+            slotRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, slotSize * InventoryManager.Instance.canvas.scaleFactor);
 
-        previewSlot.transform.SetParent(transform);
+            slotRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize * InventoryManager.Instance.canvas.scaleFactor);
 
-        previewSlot.GetComponent<Slot>().ClickAble = false;
+            previewSlot.transform.SetParent(transform);
+
+            previewSlot.GetComponent<Slot>().ClickAble = false;
+        }
     }
 
     public void CreateBlueprints() {

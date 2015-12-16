@@ -146,7 +146,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 	}
 
 	public void OnPointerClick (PointerEventData eventData) { 
-		if (eventData.button == PointerEventData.InputButton.Right && !GameObject.Find ("Hover")&& itemGroup.alpha > 0) {
+		if (eventData.button == PointerEventData.InputButton.Right && !GameObject.Find ("Hover")&& itemGroup.alpha > 0) { // canvasgroup != null
             UseItem ();
         } 
 		else if (eventData.button == PointerEventData.InputButton.Left && Input.GetKey (KeyCode.LeftShift) && !IsEmpty && !GameObject.Find ("Hover")) { // if i click the left mouse button and the same time holding leftshift and the slot has items on it and im not moving any items 	
