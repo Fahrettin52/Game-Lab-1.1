@@ -24,6 +24,7 @@ public class Puzzle1 : MonoBehaviour {
         oldSprite = newSprite;
         //DeactivatePuzzle ();
         AlphaZero ();
+        puzzleDone = GameObject.Find("SoundSource").GetComponent<SoundSource>().puzzleComplete;
     }
 
 	public void ActivatePuzzle (){

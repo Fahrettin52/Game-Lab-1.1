@@ -19,8 +19,9 @@ public class Experience : MonoBehaviour {
 
 	void Update () {
         expBar.GetComponent<Image>().fillAmount = currentExp;
+        levelUp = GameObject.Find("SoundSource").GetComponent<SoundSource>().levelUp;
 
-        if(currentExp >= 1 && currentLevel <maxLevel)
+        if (currentExp >= 1 && currentLevel <maxLevel)
         {
             GetComponent<PlayerScript>().baseAgility += 5;
             GetComponent<PlayerScript>().baseIntellect += 5;
