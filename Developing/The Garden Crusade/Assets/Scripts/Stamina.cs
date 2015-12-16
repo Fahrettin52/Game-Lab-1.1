@@ -58,6 +58,7 @@ public class Stamina : MonoBehaviour {
             hitCooldown = true;
             ManaDrop();
             StartCoroutine(CoolDownDmg());
+            GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SoundSource").GetComponent<SoundSource>().playerDamageDealing);
 
             if (Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.forward, out rayHit, rayDistance) ||
                (Physics.Raycast(transform.position + new Vector3(0, 0, 0), transform.forward, out rayHit, rayDistance) ||
