@@ -13,7 +13,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 	public GameObject player;
 	public bool mayUseHealth;
 	public bool mayUseMana;
-	private CanvasGroup itemGroup;
+
+    [SerializeField]
+    private CanvasGroup itemGroup;
+
     public ItemType canContain;
     private bool clickAble = true;
 
@@ -60,16 +63,28 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 		txtRect.SetSizeWithCurrentAnchors (RectTransform.Axis.Horizontal, slotRect.sizeDelta.x); 
 		txtRect.SetSizeWithCurrentAnchors (RectTransform.Axis.Vertical, slotRect.sizeDelta.y);
 
-		if (transform.parent != null) {
+        if (transform.parent != null) {
 
-            Transform p = transform.parent;
-
-            while (itemGroup == null && p != null) {
-                itemGroup = p.GetComponent<CanvasGroup>();
-                p = p.parent;
+            if (itemGroup == null) {
+                itemGroup = transform.parent.GetComponent<CanvasGroup>();
             }
-		}
-	}
+            EventTrigger trigger = GetComponentInParent<EventTrigger>();
+            EventTrigger.Entry entry = new EventTrigger.Entry();
+            entry.eventID = EventTriggerType.PointerEnter;
+            entry.callback.AddListener((eventData) => { transform.parent.GetComponent<Inventory>().ShowToolTip(gameObject); });
+            trigger.triggers.Add(entry);
+        }
+
+        //if (transform.parent != null) {
+
+        //          Transform p = transform.parent;
+
+        //          while (itemGroup == null && p != null) {
+        //              itemGroup = p.GetComponent<CanvasGroup>();
+        //              p = p.parent;
+        //          }
+        //}
+    }
 	
 	public void AddItem (ItemScript item) {
         if (IsEmpty){
@@ -105,8 +120,14 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 	}
 	
 	private void UseItem () {
-		if (!IsEmpty && clickAble) {
-			items.Peek ().Use(this);
+        if (tag == "EquipmentSlot") {
+            PlayerScript.Instance.inventory.AddItem(items.Pop());
+            ClearSlot();
+            CharacterPanel.Instance.CalculateStats();
+        }
+
+        if (!IsEmpty && clickAble) {
+		    items.Peek ().Use(this);
             stackTxt.text = items.Count > 1 ? items.Count.ToString() : string.Empty;
 
             if (IsEmpty) {
