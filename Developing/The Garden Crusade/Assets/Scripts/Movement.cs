@@ -85,7 +85,6 @@ public class Movement : MonoBehaviour{
             }
 
             if (Input.GetAxis("Vertical") == 0) {
-                GetComponent<AudioSource>().Stop();
                 sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
                 sarah.GetComponent<AnimationSara>().animator.SetBool("cancelRun", true);
             }

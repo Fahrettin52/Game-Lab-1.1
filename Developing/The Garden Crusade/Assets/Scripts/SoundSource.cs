@@ -18,7 +18,7 @@ public class SoundSource : MonoBehaviour {
     public AudioClip equipingSound;
     #endregion
 
-#region player Sound
+    #region player Sound
     [Header("Player Sounds")]
     public AudioClip playerDamageDealing;
     public AudioClip playerDamageTaking;
@@ -31,7 +31,7 @@ public class SoundSource : MonoBehaviour {
     public AudioClip playerDied;
     #endregion
 
-#region enemy Sound
+    #region enemy Sound
     [Header("Enemy Sounds")]
     public AudioClip enemyDamageGiving;
     public AudioClip enemyDamageTaking;

@@ -200,11 +200,13 @@ public class PlayerScript : MonoBehaviour {
         }
 
         if (other.tag == "Generator" || other.tag == "DroppedItem") {
-			int randomType = UnityEngine.Random.Range(0,3);
+            GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SoundSource").GetComponent<SoundSource>().itemPickUp);
+            int randomType = UnityEngine.Random.Range(0,3);
 			GameObject tmp = Instantiate(InventoryManager.Instance.itemObject);
 			int randomItem;
             tmp.AddComponent<ItemScript>();
             ItemScript newitem = tmp.GetComponent<ItemScript>();
+
  
             switch (randomType){
 			case 0:
@@ -246,8 +248,10 @@ public class PlayerScript : MonoBehaviour {
     private void OnCollisionEnter(Collision collision){
         if (collision.gameObject.tag == "Item")
         {
+            GameObject.Find("SoundSource").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SoundSource").GetComponent<SoundSource>().itemPickUp);
             if (inventory.AddItem(collision.gameObject.GetComponent<ItemScript>()))
             {
+                
                 Destroy(collision.gameObject);
             }
         }
