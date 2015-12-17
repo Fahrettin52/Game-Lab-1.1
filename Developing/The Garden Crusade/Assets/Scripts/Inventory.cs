@@ -463,7 +463,7 @@ public class Inventory : MonoBehaviour {
 		}
 	}
 
-	private IEnumerator FadeOut () {
+	protected virtual  IEnumerator FadeOut () {
 		if (!fadingOut) {
 			fadingOut = true;
 			fadingIn = false ;

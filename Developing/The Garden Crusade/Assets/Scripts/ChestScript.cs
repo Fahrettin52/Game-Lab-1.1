@@ -6,7 +6,7 @@ public class ChestScript : MonoBehaviour {
 
 	public ChestInventory chestInventory;
 
-    public int row, slots, slotSize;
+    public int rows, slots;
 
     private List<Stack<ItemScript>> allSlots;
 
@@ -14,5 +14,11 @@ public class ChestScript : MonoBehaviour {
         allSlots = new List<Stack<ItemScript>>();
     }
 
+    private void OnTriggerEnter (Collider other) {
+        if (other.tag == "Player") {
+            chestInventory.UpdateLayOut(allSlots, rows, slots);
+            //chestInventory.MoveItemsToChest();
+        }
+    }
 }
  
