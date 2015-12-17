@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SoundSource : MonoBehaviour {
 
-#region general Sound
+    #region general Sound
     [Header("General Sounds")]
     public AudioClip puzzleComplete;
     public AudioClip questComplete;

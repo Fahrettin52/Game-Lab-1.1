@@ -53,6 +53,9 @@ public class Movement : MonoBehaviour{
         sarah.GetComponent<AnimationSara>().mayJump1(mayJump);
         if (Input.GetButton("Jump") && mayJump == true) {
             rb.velocity = new Vector3(0, jumpSpeed, 0);
+            if (!GetComponent<AudioSource>().isPlaying){
+                GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SoundSource").GetComponent<SoundSource>().playerJump);
+            }
         }
     }
 
