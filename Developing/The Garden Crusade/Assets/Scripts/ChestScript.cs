@@ -16,8 +16,11 @@ public class ChestScript : MonoBehaviour {
 
     private void OnTriggerEnter (Collider other) {
         if (other.tag == "Player") {
+            if (chestInventory.FadingOut) {
+                chestInventory.instantClose = true;
+                chestInventory.MoveItemsToChest();
+            }
             chestInventory.UpdateLayOut(allSlots, rows, slots);
-            //chestInventory.MoveItemsToChest();
         }
     }
 }

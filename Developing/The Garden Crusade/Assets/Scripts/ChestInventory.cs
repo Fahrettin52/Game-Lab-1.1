@@ -64,6 +64,14 @@ public class ChestInventory : Inventory {
         }
     }
 
+    public override void Open() {
+        base.Open();
+
+        if (IsOpen) {
+            MoveItemsFromChest();
+        }
+    }
+
     public void MoveItemsToChest() {
         chestItems.Clear();
 
@@ -83,6 +91,19 @@ public class ChestInventory : Inventory {
             if (!IsOpen) {
                 allSlots[i].SetActive(false);
             }
+        }
+    }
+
+    public void MoveItemsFromChest() {
+        for (int i = 0; i < chestItems.Count; i++) {
+            if (chestItems.Count != 0 && chestItems.Count >= i && chestItems[i] != null && chestItems[i].Count > 0) {
+                GameObject newSlow = allSlots[i];
+                newSlow.GetComponent<Slot>().AddItems(chestItems[i]);
+            }
+        }
+
+        for (int i = 0; i < chestSlots; i++) {
+            allSlots[i].SetActive(true);
         }
     }
 

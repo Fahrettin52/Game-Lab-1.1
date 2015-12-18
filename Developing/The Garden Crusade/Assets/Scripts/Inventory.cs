@@ -18,10 +18,16 @@ public class Inventory : MonoBehaviour {
     public CanvasGroup buttonGroup;
 	private bool fadingIn;
 	private bool fadingOut;
+
+    public bool FadingOut {
+        get { return fadingOut; }
+    }
+
 	public 	float fadeTime;
 	protected List<GameObject> allSlots; 
 	private bool isOpen;
 	public static bool mouseInside = false;
+    public bool instantClose = false;
 
     public bool MouseInside {
         get { return mouseInside; }
@@ -471,15 +477,21 @@ public class Inventory : MonoBehaviour {
 
 			float startAlpha = itemGroup.alpha; // current alpha
 			float rate = 1f / fadeTime;
-			float progress = 0.0f;
+			float progress = 0.0f; 
 
 			while (progress < 1.0) {
 				itemGroup.alpha = Mathf.Lerp(startAlpha, 0, progress);
 				progress += rate * Time.deltaTime;
+
+                if (instantClose) {
+                    break;
+                }
+
 				yield return null;
 			}
 
 			itemGroup.alpha = 0;
+            instantClose = false;
 			fadingOut = false;
 		}
 	}
