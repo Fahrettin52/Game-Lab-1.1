@@ -227,8 +227,8 @@ public class PlayerScript : MonoBehaviour {
             inventory.AddItem(newitem);
             Destroy(tmp);
         }
-		if (other.tag == "Chest") {
-			chest = other.GetComponent<ChestScript>().chestInventory;  
+		if (other.tag == "Chest" || other.tag == "Vendor") {
+			chest = other.GetComponent<InventoryLink>().linkedInventory;  
 		}
         Destroy(GameObject.FindGameObjectWithTag("DroppedItem"));
     }

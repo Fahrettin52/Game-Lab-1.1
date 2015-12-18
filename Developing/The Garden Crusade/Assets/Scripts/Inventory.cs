@@ -46,7 +46,7 @@ public class Inventory : MonoBehaviour {
 
 	protected static GameObject playerRef;
 
-	void Start () {
+	protected virtual void Start () {
         isOpen = false;
         playerRef = GameObject.Find("Player");
         itemGroup = GetComponent<CanvasGroup>();

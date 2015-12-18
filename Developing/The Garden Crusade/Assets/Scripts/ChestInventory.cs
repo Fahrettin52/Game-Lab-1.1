@@ -7,13 +7,12 @@ public class ChestInventory : Inventory {
 
     private List<Stack<ItemScript>> chestItems;
     private int chestSlots;
-    public int maxSlot;
 
     public override void CreateLayout() {
 
         allSlots = new List<GameObject>();
 
-        for (int i = 0; i < maxSlot; i++) {
+        for (int i = 0; i < slots; i++) {
             GameObject newSlot = Instantiate(InventoryManager.Instance.slotPrefab);
             newSlot.name = "Slot";
             newSlot.transform.SetParent(this.transform);
@@ -111,5 +110,16 @@ public class ChestInventory : Inventory {
         yield return StartCoroutine(base.FadeOut());
         MoveItemsToChest();
     }
+
+    public override void LoadInventory() {
+        foreach (GameObject slot in allSlots) {
+            slot.GetComponent<Slot>().ClearSlot();
+        }
+    }
+
+    public override void SaveInventory() {   
+    }
 }
+
+
   

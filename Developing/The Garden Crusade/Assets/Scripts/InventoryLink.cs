@@ -2,9 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class ChestScript : MonoBehaviour {
+public class InventoryLink : MonoBehaviour {
 
-	public ChestInventory chestInventory;
+	public ChestInventory linkedInventory;
 
     public int rows, slots;
 
@@ -16,11 +16,11 @@ public class ChestScript : MonoBehaviour {
 
     private void OnTriggerEnter (Collider other) {
         if (other.tag == "Player") {
-            if (chestInventory.FadingOut) {
-                chestInventory.instantClose = true;
-                chestInventory.MoveItemsToChest();
+            if (linkedInventory.FadingOut) {
+                linkedInventory.instantClose = true;
+                linkedInventory.MoveItemsToChest();
             }
-            chestInventory.UpdateLayOut(allSlots, rows, slots);
+            linkedInventory.UpdateLayOut(allSlots, rows, slots);
         }
     }
 }
