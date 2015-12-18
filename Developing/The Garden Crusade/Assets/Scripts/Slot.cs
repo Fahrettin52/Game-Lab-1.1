@@ -74,16 +74,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
             entry.callback.AddListener((eventData) => { transform.parent.GetComponent<Inventory>().ShowToolTip(gameObject); });
             trigger.triggers.Add(entry);
         }
-
-        //if (transform.parent != null) {
-
-        //          Transform p = transform.parent;
-
-        //          while (itemGroup == null && p != null) {
-        //              itemGroup = p.GetComponent<CanvasGroup>();
-        //              p = p.parent;
-        //          }
-        //}
     }
 	
 	public void AddItem (ItemScript item) {

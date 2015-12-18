@@ -2,6 +2,18 @@
 using System.Collections;
 
 public class VendorInventory : ChestInventory {
+
+    private static VendorInventory instance;
+
+    public static VendorInventory Instance {
+        get {
+            if (instance == null) {
+                instance = GameObject.FindObjectOfType<VendorInventory>();
+            }
+            return instance;
+        }
+    }
+
     protected override void Start() {
         EmptySlots = slots;
         base.Start();
@@ -28,7 +40,11 @@ public class VendorInventory : ChestInventory {
         if (newItem != null) {
             AddItem(newItem);
         }
-
+         
         Destroy(tmp);
+    }
+
+    public override void MoveItem(GameObject clicked) {
+         
     }
 }

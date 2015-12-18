@@ -23,7 +23,8 @@ public class ChestInventory : Inventory {
                 );
 
             newSlot.SetActive(false);
-        } 
+        }
+        hoverYOffset = slotSize * 0.1f;
     }
 
     public void UpdateLayOut (List<Stack<ItemScript>> items, int rows, int slots) {

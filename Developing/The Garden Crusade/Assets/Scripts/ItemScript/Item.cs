@@ -9,8 +9,10 @@ public abstract class Item {
 	public int 		MaxSize { get; set; }
 	public string 	ItemName { get; set; }
 	public string 	Description { get; set; }
+    public int      BuyPrice { get; set; }
+    public int      SellPrice { get; set; }
 
-	public Item () {
+    public Item () {
 	}
 
 	public Item (string itemName, string description, ItemType itemType, Quality quality, string spriteNeutral, string spriteHighlighted, int maxSize) {

@@ -28,6 +28,8 @@
       <Stamina>10</Stamina>
       <Strength>10</Strength>
       <AttackSpeed>10</AttackSpeed>
+      <SellPrice>5</SellPrice>
+      <BuyPrice>10</BuyPrice>
     </Item>
     <Item xsi:type="Weapon">
       <ItemType>OFFHAND</ItemType>
@@ -85,6 +87,8 @@
       <Agility>15</Agility>
       <Stamina>10</Stamina>
       <Strength>4</Strength>
+      <SellPrice>5</SellPrice>
+      <BuyPrice>10</BuyPrice>
     </Item>
     <Item xsi:type="Equipment">
       <ItemType>BRACES</ItemType>
@@ -204,8 +208,10 @@
       <Health>10</Health>
       <Mana>0</Mana>
       <Rage>0</Rage>
+      <SellPrice>1</SellPrice>
+      <BuyPrice>2</BuyPrice>
     </Item>
-    <Item xsi:type="Consumeable">
+    <Item xsi:type="Consumeable"> 
       <ItemType>CONSUMEABLE</ItemType>
       <Quality>COMMON</Quality>
       <SpriteNeutral>Consumeable/EnergyNormal</SpriteNeutral>
