@@ -12,6 +12,18 @@ public class Material : Item {
     public Material() {
     }
 
+    public override string GetToolTip(Inventory inv) {
+        string materialTip = base.GetToolTip(inv);
+        if (inv is VendorInventory) {
+            return string.Format("{0} \n<size=20><color=yellow>Price: {1}</color></size>", materialTip, BuyPrice);
+        } 
+        else if (VendorInventory.Instance.IsOpen) {
+            return string.Format("{0} \n<size=20><color=yellow>Price: {1}</color></size>", materialTip, SellPrice);
+        }
+
+        return materialTip;
+    }
+
     public override void Use(Slot slot, ItemScript item) {
     }
 }

@@ -29,8 +29,8 @@ public class ItemScript : MonoBehaviour {
         item.Use(slot, this);
     }
 
-    public string GetToolTip () {
-        return item.GetToolTip();
+    public string GetToolTip (Inventory inv) {
+        return item.GetToolTip(inv);
 	}
 }
 

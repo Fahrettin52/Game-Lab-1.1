@@ -18,10 +18,19 @@ public class Weapon : Equipment {
         CharacterPanel.Instance.EquipItem(slot, item);
     }
 
-    public override string GetToolTip () {
+    public override string GetToolTip (Inventory inv) {
 
-        string equipmentTip = base.GetToolTip();
+        string equipmentTip = base.GetToolTip(inv);
 
-        return string.Format("{0} \n <size=14> AttackSpeed: {1}</size>", equipmentTip, AttackSpeed);
+        if (inv is VendorInventory) {
+            //Adds the attackspeed to the tooltip
+            return string.Format("{0} \n <size=20>AttackSpeed: {1}\n<color=yellow>Price: {2}</color></size>", equipmentTip, AttackSpeed, BuyPrice);
+        } else if (VendorInventory.Instance.IsOpen) {
+            //Adds the attackspeed to the tooltip
+            return string.Format("{0} \n <size=20>AttackSpeed: {1}\n<color=yellow>Price: {2}</color></size>", equipmentTip, AttackSpeed, SellPrice);
+        } else {
+            //Adds the attackspeed to the tooltip
+            return string.Format("{0} \n <size=20>AttackSpeed: {1}</size>", equipmentTip, AttackSpeed);
+        }
     }
 }

@@ -32,7 +32,7 @@ public class CharacterPanel : Inventory {
     public override void CreateLayout() {  
     }
 
-    void Start () {
+    void Start() {
         itemGroup = GetComponentInParent<CanvasGroup>();
     }
 
@@ -49,7 +49,7 @@ public class CharacterPanel : Inventory {
     public override void ShowToolTip(GameObject slot){
         Slot tmpSlot = slot.GetComponent<Slot>();
         if (!tmpSlot.IsEmpty && InventoryManager.Instance.HoverObject == null && !InventoryManager.Instance.selectStackSize.activeSelf && slot.GetComponentInParent<Inventory>().IsOpen){
-            InventoryManager.Instance.visualTextObject.text = tmpSlot.CurrentItem.GetToolTip();
+            InventoryManager.Instance.visualTextObject.text = tmpSlot.CurrentItem.GetToolTip(this);
             InventoryManager.Instance.SizeTextObject.text = InventoryManager.Instance.visualTextObject.text;
             InventoryManager.Instance.tooltipObject.SetActive(true);
             float xPos = slot.transform.position.x + 1;

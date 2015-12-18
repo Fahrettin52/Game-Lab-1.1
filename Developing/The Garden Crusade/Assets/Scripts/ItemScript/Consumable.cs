@@ -43,23 +43,30 @@ public class Consumeable : Item {
         }
     }
 
-    public override string GetToolTip () {
+    public override string GetToolTip (Inventory inv) {
 
         string stats = string.Empty;
 
         if (Health > 0) {
-            stats += "\n Restores " + Health.ToString() + " health";
+            stats += "\nRestores " + Health.ToString() + " health";
         }
         if (Mana > 0)
         {
-            stats += "\n Restores " + Mana.ToString() + " energy";
+            stats += "\nRestores " + Mana.ToString() + " energy";
         }
         if (Rage > 0)
         {
-            stats += "\n Restores " + Rage.ToString() + " rage";
+            stats += "\nRestores " + Rage.ToString() + " rage";
         }
-        string itemTip = base.GetToolTip();
+        string itemTip = base.GetToolTip(inv);
 
-        return string.Format("{0}" + "<size=14>{1}</size>", itemTip, stats);
+        if (inv is VendorInventory) {
+            return string.Format("{0}" + "<size=20>{1}\n<color=yellow>Price: {2}</color></size>", itemTip, stats, BuyPrice);
+        } else if (VendorInventory.Instance.IsOpen) {
+            return string.Format("{0}" + "<size=20>{1}\n<color=yellow>Price: {2}</color></size>", itemTip, stats, SellPrice);
+        } else {
+            return string.Format("{0}" + "<size=20>{1}</size>", itemTip, stats);
+        }
+
     }
 }

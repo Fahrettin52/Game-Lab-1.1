@@ -27,7 +27,7 @@ public abstract class Item {
 
 	public abstract void Use (Slot slot, ItemScript item);
 
-    public virtual string GetToolTip () {
+    public virtual string GetToolTip (Inventory inv) {
         //string stats = string.Empty;
         string color = string.Empty;
         string newLine = string.Empty;

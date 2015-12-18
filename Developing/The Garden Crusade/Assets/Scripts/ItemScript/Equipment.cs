@@ -24,7 +24,7 @@ public class Equipment : Item {
         CharacterPanel.Instance.EquipItem(slot, item);
 	}
 
-	public override string GetToolTip () { 
+	public override string GetToolTip (Inventory inv) { 
 
         string stats = string.Empty;
 
@@ -41,8 +41,16 @@ public class Equipment : Item {
             stats += "\n+" + Stamina.ToString() + " Stamina";
         }
 
-        string itemTip = base.GetToolTip();
+        string itemTip = base.GetToolTip(inv);
 
-        return string.Format("{0}" + "<size=14>{1}</size>", itemTip, stats);
+        if (inv is VendorInventory && !(this is Weapon)) {
+            return string.Format("{0}" + "<size=14>{1}</size>\n<color=yellow>Price: {2}</color>", itemTip, stats, BuyPrice);
+        }
+        else if (VendorInventory.Instance.isActiveAndEnabled && !(this is Weapon)) {
+            return string.Format("{0}" + "<size=14>{1}</size>\n<color=yellow>Price: {2}</color>", itemTip, stats, SellPrice);
+        }
+        else {
+            return string.Format("{0}" + "<size=14>{1}</size>", itemTip, stats);
+        }
     }
 }
