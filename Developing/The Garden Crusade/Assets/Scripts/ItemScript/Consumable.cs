@@ -61,10 +61,12 @@ public class Consumeable : Item {
         string itemTip = base.GetToolTip(inv);
 
         if (inv is VendorInventory) {
-            return string.Format("{0}" + "<size=20>{1}\n<color=yellow>Price: {2}</color></size>", itemTip, stats, BuyPrice);
-        } else if (VendorInventory.Instance.IsOpen) {
-            return string.Format("{0}" + "<size=20>{1}\n<color=yellow>Price: {2}</color></size>", itemTip, stats, SellPrice);
-        } else {
+            return string.Format("{0}" + "<size=20>{1}\n<color=yellow>Buy Price: {2} Crumbs</color></size>", itemTip, stats, BuyPrice);
+        } 
+        else if (VendorInventory.Instance.IsOpen) {
+            return string.Format("{0}" + "<size=20>{1}\n<color=yellow>Sell Price: {2} Crumbs</color></size>", itemTip, stats, SellPrice);
+        } 
+        else {
             return string.Format("{0}" + "<size=20>{1}</size>", itemTip, stats);
         }
 

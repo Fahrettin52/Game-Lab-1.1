@@ -108,21 +108,31 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 		
 		GetComponent<Button> ().spriteState = st;
 	}
-	
-	private void UseItem () {
+
+    private void UseItem() {
+
         if (tag == "EquipmentSlot") {
             PlayerScript.Instance.inventory.AddItem(items.Pop());
             ClearSlot();
             CharacterPanel.Instance.CalculateStats();
         }
 
-        if (!IsEmpty && clickAble) {
-		    items.Peek ().Use(this);
-            stackTxt.text = items.Count > 1 ? items.Count.ToString() : string.Empty;
+        if (!IsEmpty) {
+            if (transform.parent.GetComponent<Inventory>() is VendorInventory) {
+                if (CurrentItem.Item.BuyPrice <= PlayerScript.Instance.Gold && PlayerScript.Instance.inventory.AddItem(CurrentItem)) {
+                    PlayerScript.Instance.Gold -= CurrentItem.Item.BuyPrice;
+                }
+            } else if (VendorInventory.Instance.IsOpen) {
+                PlayerScript.Instance.Gold += CurrentItem.Item.SellPrice;
+                RemoveItem();
+            } else if (clickAble) {
+                items.Peek().Use(this);
+                stackTxt.text = items.Count > 1 ? items.Count.ToString() : string.Empty;
 
-            if (IsEmpty) {
-                ChangeSprite(slotEmpty, slotHiglight);
-                transform.parent.GetComponent<Inventory>().EmptySlots++;
+                if (IsEmpty) {
+                    ChangeSprite(slotEmpty, slotHiglight);
+                    transform.parent.GetComponent<Inventory>().EmptySlots++;
+                }
             }
         }
 	}

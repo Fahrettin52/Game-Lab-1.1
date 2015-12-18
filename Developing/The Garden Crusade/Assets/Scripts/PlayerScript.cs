@@ -32,8 +32,19 @@ public class PlayerScript : MonoBehaviour {
 	public int healtPot;
     public GameObject sarah;
     public Text strengthStats, staminaStats, intellectStats, agilityStats;
+    [SerializeField]
+    private Text goldText;
     public int baseStrength, baseStamina, baseIntellect, baseAgility;
     public int strength, stamina, intellect, agility;
+    private int gold;
+
+    public int Gold {
+        get { return gold; }
+        set {
+            goldText.text = "Crumbs: " + value;
+            gold = value;
+        }
+    }
 
     private int CurrentHealth {
 		get	{ return currentHealth; }
@@ -43,13 +54,14 @@ public class PlayerScript : MonoBehaviour {
 		}
 	}
 
-	public int maxHealth; 
+    public int maxHealth; 
 	public Text healthText;
 	public Image visualHealth;
 	public float cooldown;
 	public bool onCooldown;
 	
 	void Start (){
+        Gold = 0;
         SetStats(0, 0, 0, 0);
         cachedY = healthTransform.position.y;
 		maxXValue = healthTransform.position.x;
@@ -237,7 +249,7 @@ public class PlayerScript : MonoBehaviour {
         if (other.gameObject.tag == "mayThrow") {
             GetComponent<ToThrow>().throwInfo.SetActive(false);
         }
-        if (other.gameObject.tag == "Chest") {
+        if (other.gameObject.tag == "Chest" || other.gameObject.tag == "Vendor") {
             if (chest.IsOpen) {
                 chest.Open();
             }

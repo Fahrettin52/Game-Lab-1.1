@@ -24,33 +24,36 @@ public class Equipment : Item {
         CharacterPanel.Instance.EquipItem(slot, item);
 	}
 
-	public override string GetToolTip (Inventory inv) { 
-
+    public override string GetToolTip (Inventory inv) {
         string stats = string.Empty;
 
-        if (Strength > 0){
+        if (Strength > 0) //Adds Strength to the tooltip if it is larger than 0
+        {
             stats += "\n+" + Strength.ToString() + " Strength";
         }
-        if (Intellect > 0){
+        if (Intellect > 0) //Adds Intellect to the tooltip if it is larger than 0
+        {
             stats += "\n+" + Intellect.ToString() + " Intellect";
         }
-        if (Agility > 0){
+        if (Agility > 0)//Adds Agility to the tooltip if it is larger than 0
+        {
             stats += "\n+" + Agility.ToString() + " Agility";
         }
-        if (Stamina > 0){
+        if (Stamina > 0)//Adds Stamina to the tooltip if it is larger than 0
+        {
             stats += "\n+" + Stamina.ToString() + " Stamina";
         }
 
-        string itemTip = base.GetToolTip(inv);
+        string itemTip = base.GetToolTip (inv);
 
         if (inv is VendorInventory && !(this is Weapon)) {
-            return string.Format("{0}" + "<size=14>{1}</size>\n<color=yellow>Price: {2}</color>", itemTip, stats, BuyPrice);
-        }
-        else if (VendorInventory.Instance.isActiveAndEnabled && !(this is Weapon)) {
-            return string.Format("{0}" + "<size=14>{1}</size>\n<color=yellow>Price: {2}</color>", itemTip, stats, SellPrice);
-        }
+            return string.Format("{0}" + "<size=20>{1}</size>\n<color=yellow>Buy Price: {2} Crumbs</color>", itemTip, stats, BuyPrice);
+        } 
+        else if (VendorInventory.Instance.IsOpen && !(this is Weapon)) {
+            return string.Format("{0}" + "<size=20>{1}</size>\n<color=yellow>Sell Price: {2} Crumbs</color>", itemTip, stats, SellPrice);
+        } 
         else {
-            return string.Format("{0}" + "<size=14>{1}</size>", itemTip, stats);
+            return string.Format("{0}" + "<size=20>{1}</size>", itemTip, stats);
         }
     }
 }

@@ -24,11 +24,13 @@ public class Weapon : Equipment {
 
         if (inv is VendorInventory) {
             //Adds the attackspeed to the tooltip
-            return string.Format("{0} \n <size=20>AttackSpeed: {1}\n<color=yellow>Price: {2}</color></size>", equipmentTip, AttackSpeed, BuyPrice);
-        } else if (VendorInventory.Instance.IsOpen) {
+            return string.Format("{0} \n <size=20>AttackSpeed: {1}\n<color=yellow>Buy Price: {2} Crumbs</color></size>", equipmentTip, AttackSpeed, BuyPrice);
+        } 
+        else if (VendorInventory.Instance.IsOpen) {
             //Adds the attackspeed to the tooltip
-            return string.Format("{0} \n <size=20>AttackSpeed: {1}\n<color=yellow>Price: {2}</color></size>", equipmentTip, AttackSpeed, SellPrice);
-        } else {
+            return string.Format("{0} \n <size=20>AttackSpeed: {1}\n<color=yellow>Sell Price: {2} Crumbs</color></size>", equipmentTip, AttackSpeed, SellPrice);
+        } 
+        else {
             //Adds the attackspeed to the tooltip
             return string.Format("{0} \n <size=20>AttackSpeed: {1}</size>", equipmentTip, AttackSpeed);
         }

@@ -14,6 +14,8 @@
       <Stamina>25</Stamina>
       <Strength>25</Strength>
       <AttackSpeed>5</AttackSpeed>
+      <SellPrice>5</SellPrice>
+      <BuyPrice>10</BuyPrice>
     </Item>
     <Item xsi:type="Weapon">
       <ItemType>MAINHAND</ItemType>
@@ -44,6 +46,8 @@
       <Stamina>20</Stamina>
       <Strength>5</Strength>
       <AttackSpeed>0</AttackSpeed>
+      <SellPrice>5</SellPrice>
+      <BuyPrice>10</BuyPrice>
     </Item>
     <Item xsi:type="Weapon">
       <ItemType>TWOHAND</ItemType>
@@ -58,6 +62,8 @@
       <Stamina>10</Stamina>
       <Strength>10</Strength>
       <AttackSpeed>10</AttackSpeed>
+      <SellPrice>5</SellPrice>
+      <BuyPrice>10</BuyPrice>
     </Item>
   </Weapons>
   
@@ -74,6 +80,8 @@
       <Agility>6</Agility>
       <Stamina>4</Stamina>
       <Strength>2</Strength>
+      <SellPrice>5</SellPrice>
+      <BuyPrice>10</BuyPrice>
     </Item>
     <Item xsi:type="Equipment">
       <ItemType>BOOTS</ItemType>
@@ -89,6 +97,8 @@
       <Strength>4</Strength>
       <SellPrice>5</SellPrice>
       <BuyPrice>10</BuyPrice>
+      <SellPrice>5</SellPrice>
+      <BuyPrice>10</BuyPrice>
     </Item>
     <Item xsi:type="Equipment">
       <ItemType>BRACES</ItemType>
@@ -102,6 +112,8 @@
       <Agility>6</Agility>
       <Stamina>12</Stamina>
       <Strength>6</Strength>
+      <SellPrice>5</SellPrice>
+      <BuyPrice>10</BuyPrice>
     </Item>
     <Item xsi:type="Equipment">
       <ItemType>CHEST</ItemType>
@@ -115,6 +127,8 @@
       <Agility>3</Agility>
       <Stamina>25</Stamina>
       <Strength>10</Strength>
+      <SellPrice>5</SellPrice>
+      <BuyPrice>10</BuyPrice>
     </Item>
     <Item xsi:type="Equipment">
       <ItemType>HEAD</ItemType>
@@ -128,6 +142,8 @@
       <Agility>2</Agility>
       <Stamina>30</Stamina>
       <Strength>15</Strength>
+      <SellPrice>5</SellPrice>
+      <BuyPrice>10</BuyPrice>
     </Item>
     <Item xsi:type="Equipment">
       <ItemType>NECK</ItemType>
@@ -141,6 +157,8 @@
       <Agility>2</Agility>
       <Stamina>3</Stamina>
       <Strength>1</Strength>
+      <SellPrice>5</SellPrice>
+      <BuyPrice>10</BuyPrice>
     </Item>
     <Item xsi:type="Equipment">
       <ItemType>PANTS</ItemType>
@@ -154,6 +172,8 @@
       <Agility>20</Agility>
       <Stamina>5</Stamina>
       <Strength>2</Strength>
+      <SellPrice>5</SellPrice>
+      <BuyPrice>10</BuyPrice>
     </Item>
     <Item xsi:type="Equipment">
       <ItemType>RING</ItemType>
@@ -167,6 +187,8 @@
       <Agility>3</Agility>
       <Stamina>1</Stamina>
       <Strength>25</Strength>
+      <SellPrice>5</SellPrice>
+      <BuyPrice>10</BuyPrice>
     </Item>
     <Item xsi:type="Equipment">
       <ItemType>SHOULDER</ItemType>
@@ -180,6 +202,8 @@
       <Agility>7</Agility>
       <Stamina>6</Stamina>
       <Strength>4</Strength>
+      <SellPrice>5</SellPrice>
+      <BuyPrice>10</BuyPrice>
     </Item>
     <Item xsi:type="Equipment">
       <ItemType>TRINKET</ItemType>
@@ -193,6 +217,8 @@
       <Agility>4</Agility>
       <Stamina>2</Stamina>
       <Strength>9</Strength>
+      <SellPrice>5</SellPrice>
+      <BuyPrice>10</BuyPrice>
     </Item>
   </Equipment>
   
@@ -222,6 +248,8 @@
       <Health>0</Health>
       <Mana>10</Mana>
       <Rage>0</Rage>
+      <SellPrice>1</SellPrice>
+      <BuyPrice>2</BuyPrice>
     </Item>
     <Item xsi:type="Consumeable">
       <ItemType>CONSUMEABLE</ItemType>
@@ -234,6 +262,8 @@
       <Health>0</Health>
       <Mana>0</Mana>
       <Rage>10</Rage>
+      <SellPrice>1</SellPrice>
+      <BuyPrice>2</BuyPrice>
     </Item>
   </Consumable>
 

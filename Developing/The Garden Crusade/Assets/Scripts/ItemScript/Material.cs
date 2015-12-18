@@ -15,12 +15,11 @@ public class Material : Item {
     public override string GetToolTip(Inventory inv) {
         string materialTip = base.GetToolTip(inv);
         if (inv is VendorInventory) {
-            return string.Format("{0} \n<size=20><color=yellow>Price: {1}</color></size>", materialTip, BuyPrice);
+            return string.Format("{0} \n<size=20><color=yellow>Buy Price: {1} Crumbs</color></size>", materialTip, BuyPrice);
         } 
         else if (VendorInventory.Instance.IsOpen) {
-            return string.Format("{0} \n<size=20><color=yellow>Price: {1}</color></size>", materialTip, SellPrice);
         }
-
+            return string.Format("{0} \n<size=20><color=yellow>Sell Price: {1} Crumbs</color></size>", materialTip, SellPrice);
         return materialTip;
     }
 
