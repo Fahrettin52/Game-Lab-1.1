@@ -84,7 +84,7 @@ public class InventoryManager : MonoBehaviour {
 		set { sizeTextObject = value; }
 	}
 
-	public void Start () {
+	public void Awake () {
 		Type[] itemTypes = { typeof(Equipment), typeof(Weapon), typeof(Consumeable), typeof(Material) };
 		XmlSerializer serializer = new XmlSerializer (typeof(ItemContainer), itemTypes);
 		TextReader textReader = new StreamReader (Application.streamingAssetsPath + "/Items.xml");
