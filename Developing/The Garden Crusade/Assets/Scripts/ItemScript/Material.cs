@@ -18,8 +18,8 @@ public class Material : Item {
             return string.Format("{0} \n<size=20><color=yellow>Buy Price: {1} Crumbs</color></size>", materialTip, BuyPrice);
         } 
         else if (VendorInventory.Instance.IsOpen) {
-        }
             return string.Format("{0} \n<size=20><color=yellow>Sell Price: {1} Crumbs</color></size>", materialTip, SellPrice);
+        }
         return materialTip;
     }
 
