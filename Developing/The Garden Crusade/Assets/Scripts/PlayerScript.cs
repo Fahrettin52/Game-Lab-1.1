@@ -76,6 +76,7 @@ public class PlayerScript : MonoBehaviour {
         HandleMovement();
 
         if (Input.GetKeyDown(KeyCode.I)){
+            CraftingBench.Instance.UpdatePreview();
             if (inventory.GetComponent<CanvasGroup>().alpha < 1) {
                 inventory.GetComponent<CanvasGroup>().blocksRaycasts = true;
             } else {

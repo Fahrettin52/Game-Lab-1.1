@@ -6,7 +6,18 @@ using System;
 
 public class Inventory : MonoBehaviour {
 
-	public 	int rows;
+    private static Inventory instance;
+
+    public static Inventory Instance {
+        get {
+            if (instance == null) {
+                instance = FindObjectOfType<Inventory>();
+            }
+            return instance;
+        }
+    }
+
+    public 	int rows;
 	public 	int slots;
     public int emptySlots;  
 	protected float hoverYOffset;
