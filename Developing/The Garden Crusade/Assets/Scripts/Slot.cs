@@ -110,11 +110,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 	}
 
     private void UseItem() {
-
-        if (tag == "EquipmentSlot") {
-            PlayerScript.Instance.inventory.AddItem(items.Pop());
-            ClearSlot();
-            CharacterPanel.Instance.CalculateStats();
+        if (!IsEmpty) {
+            if (tag == "EquipmentSlot") {
+                PlayerScript.Instance.inventory.AddItem(items.Pop());
+                ClearSlot();
+                CharacterPanel.Instance.CalculateStats();
+            }
         }
 
         if (!IsEmpty) {
