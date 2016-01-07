@@ -128,7 +128,6 @@ public class AnimationTermite : MonoBehaviour {
             }   
         }
     }
-
     
     public void Roam() {
         countToRoam -= 1 * Time.deltaTime;
@@ -138,7 +137,5 @@ public class AnimationTermite : MonoBehaviour {
             agent.Resume();
             countToRoam = countToRoamMax;
         }   
-
-
     }
 }

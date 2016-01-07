@@ -8,6 +8,7 @@ public class GivePlayerDamage : MonoBehaviour
     public GameObject sarah;
     public bool hitCooldown;
     public float cooldown;
+    public Animator animator;
 
     void Start()
     {
@@ -15,10 +16,20 @@ public class GivePlayerDamage : MonoBehaviour
         sarah = GameObject.Find("Player");
     }
 
+    void OnCollisionEnter(Collision col) {
+        animator.SetBool("TermSolAttackStart",true);
+    }
+
+    void OnCollisionExit(Collision col) {
+        animator.SetBool("TermSolAttackStart", false);
+        animator.SetBool("MayAttackPlayer", false);
+    }
+
     void OnCollisionStay(Collision col)
     {
-        if(col.transform.tag == "Player" && hitCooldown == false)
+        if (col.transform.tag == "Player" && hitCooldown == false && Input.GetButtonDown("Fire1"))
         {
+            animator.SetBool("MayAttackPlayer", true);
             StartCoroutine(CoolDownDmgTaken());
         }
     }
