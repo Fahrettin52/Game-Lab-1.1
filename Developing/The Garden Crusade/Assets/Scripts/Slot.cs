@@ -91,8 +91,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 	}
 	
 	public void AddItems (Stack <ItemScript> items) {
-		
-		this.items = new Stack <ItemScript> (items);
+        if (IsEmpty) //if the slot is empty
+ {
+            transform.parent.GetComponent<Inventory>().EmptySlots--; //Reduce the number of empty slots
+        }
+        this.items = new Stack <ItemScript> (items);
 		
 		stackTxt.text = items.Count > 1 ? items.Count.ToString() : string.Empty;
 		
@@ -197,11 +200,11 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 
                 to.AddItems(from.Items); //Stores the items in the "from" slot in the "to" slot
 
-                if (tmpTo.Count == 0) //If "to" slot if 0 then we dont need to move anything to the "from " slot.
-                {
-                    to.transform.parent.GetComponent<Inventory>().EmptySlots--;
+                if (tmpTo.Count == 0) { //If "to" slot if 0 then we dont need to move anything to the "from " slot.                       
+                    //FIX REMOVED SLOTS MINUSMINUS
                     from.ClearSlot(); //clears the from slot
-                } else {
+                } 
+                else {
                     from.AddItems(tmpTo); //If the "to" slot contains items thne we need to move the to the "from" slot
                 }
 

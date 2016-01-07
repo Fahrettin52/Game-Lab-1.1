@@ -474,11 +474,12 @@ public class Inventory : MonoBehaviour {
 			destination.AddItem(source.RemoveItem());
 			InventoryManager.Instance.HoverObject.transform.GetChild (0).GetComponent<Text> ().text = InventoryManager.Instance.MovingSlot.Items.Count.ToString();	
 		}
-		if (source.Items.Count == 0) {
-			source.ClearSlot();
-			Destroy(GameObject.Find("Hover")); 	
-		}
-	}
+        if (source.Items.Count == 0) //We ont have more items to merge with
+        {
+            //FIX REMOVES SOURCE.CLEAR
+            Destroy(GameObject.Find("Hover"));
+        }
+    }
 
 	protected virtual  IEnumerator FadeOut () {
 		if (!fadingOut) {
