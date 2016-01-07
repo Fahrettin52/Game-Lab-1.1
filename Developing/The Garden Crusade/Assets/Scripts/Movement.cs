@@ -68,9 +68,9 @@ public class Movement : MonoBehaviour{
                 
                 if (!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.forward, rayDistance)) {
                     transform.Translate(Vector3.forward * forwardSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
-                    if (!GetComponent<AudioSource>().isPlaying){
+                   /* if (!GetComponent<AudioSource>().isPlaying){
                         GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SoundSource").GetComponent<SoundSource>().playerWalk);
-                    }
+                    }*/
                 }
             }
 
