@@ -123,17 +123,19 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
                 if (CurrentItem.Item.BuyPrice <= PlayerScript.Instance.Gold && PlayerScript.Instance.inventory.AddItem(CurrentItem)) {
                     PlayerScript.Instance.Gold -= CurrentItem.Item.BuyPrice;
                 }
-            } else if (VendorInventory.Instance.IsOpen) {
+            } 
+            else if (VendorInventory.Instance.IsOpen) {
                 PlayerScript.Instance.Gold += CurrentItem.Item.SellPrice;
                 RemoveItem();
-            } else if (clickAble) {
+            } 
+            else if (clickAble) {
                 items.Peek().Use(this);
                 stackTxt.text = items.Count > 1 ? items.Count.ToString() : string.Empty;
 
-                if (IsEmpty) {
-                    ChangeSprite(slotEmpty, slotHiglight);
-                    transform.parent.GetComponent<Inventory>().EmptySlots++;
-                }
+                //if (IsEmpty) {
+                //    ChangeSprite(slotEmpty, slotHiglight);
+                //    transform.parent.GetComponent<Inventory>().EmptySlots++;
+                //}
             }
         }
 	}
@@ -142,6 +144,9 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 		items.Clear (); 
 		ChangeSprite (slotEmpty, slotHiglight); 
 		stackTxt.text = string.Empty;
+        if (transform.parent != null) {
+            transform.parent.GetComponent<Inventory>().EmptySlots++;
+        }
     }
 	 
 	public Stack<ItemScript> RemoveItems(int amount){
@@ -182,23 +187,28 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 		}
 	}
 
-    public static void SwapItems(Slot from, Slot to){
-        if ( to != null && from != null ){
-            bool calculateStats = from.transform.parent == CharacterPanel.Instance.transform || to.transform.parent == CharacterPanel.Instance.transform;
+    public static void SwapItems(Slot from, Slot to) {
 
-            if (CanSwap(from,to)) {
-                    Stack<ItemScript> tmpTo = new Stack<ItemScript>(to.Items);
-                    to.AddItems(from.Items);
+        if (to != null && from != null) {
+            bool calcStats = from.transform.parent == CharacterPanel.Instance.transform || to.transform.parent == CharacterPanel.Instance.transform;
 
-                    if (tmpTo.Count == 0) {
-                        to.transform.parent.GetComponent<Inventory>().EmptySlots--;
-                        from.ClearSlot();
-                    } 
-                    else {
-                        from.AddItems(tmpTo);
-                    }
+            if (CanSwap(from, to)) {
+                Stack<ItemScript> tmpTo = new Stack<ItemScript>(to.Items); //Stores the items from the to slot, so that we can do a swap
+
+                to.AddItems(from.Items); //Stores the items in the "from" slot in the "to" slot
+
+                if (tmpTo.Count == 0) //If "to" slot if 0 then we dont need to move anything to the "from " slot.
+                {
+                    to.transform.parent.GetComponent<Inventory>().EmptySlots--;
+                    from.ClearSlot(); //clears the from slot
+                } else {
+                    from.AddItems(tmpTo); //If the "to" slot contains items thne we need to move the to the "from" slot
+                }
+
             }
-            if (calculateStats) {
+
+            if (calcStats) //Calculates the stats if we need to
+            {
                 CharacterPanel.Instance.CalculateStats();
             }
         }
