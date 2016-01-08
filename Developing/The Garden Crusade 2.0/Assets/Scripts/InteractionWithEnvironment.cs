@@ -6,8 +6,6 @@ public class InteractionWithEnvironment : MonoBehaviour {
 	public float rayDis;
 	public RaycastHit rayHit;
 	public int interactInt;
-	public bool convoActive;
-    public Animator sarah;
 	
 	void Start () {
 
@@ -21,14 +19,15 @@ public class InteractionWithEnvironment : MonoBehaviour {
 		CountInteract = interactInt;
 		switch(CountInteract){
 			case 1:
-                print("Puzzle Level 1");
+				print("Puzzle Level 1");
 				break;
 			case 2:
-				convoActive = true;
-				GetComponent<ConversationSystem>().StartConvo(convoActive);
+				GetComponent<ConversationSystem>().startConvo =! GetComponent<ConversationSystem>().startConvo;
+				GetComponent<ConversationSystem>().currentUnit = 0;
 				break;
 			case 3:
-				print("NPC");
+				GetComponent<ConversationSystem>().startConvo =! GetComponent<ConversationSystem>().startConvo;
+				GetComponent<ConversationSystem>().currentUnit = 3;
 				break;
 			case 4:
 				print("Shrink ray");
@@ -43,9 +42,7 @@ public class InteractionWithEnvironment : MonoBehaviour {
 		if(Physics.Raycast(transform.position, transform.forward, out rayHit, rayDis)){
 			if(rayHit.transform.tag == "Tutorial Puzzle"){
 				if(Input.GetButtonDown("Use")){
-                    sarah.GetComponent<Animator>().SetBool("RunToIdle 0", true);
-                    sarah.GetComponent<Animator>().SetFloat("idleToRun 0", 0);
-                    interactInt = 1;
+					interactInt = 1;
 					Interaction (interactInt);
 				}
 			}
