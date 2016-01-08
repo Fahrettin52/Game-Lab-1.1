@@ -1,0 +1,238 @@
+fileFormatVersion: 2
+guid: 01a3e08f0adcba84198efa33388a7911
+timeCreated: 1452243773
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Bone001
+    100002: Bone002
+    100004: Bone003
+    100006: Bone004
+    100008: Bone005
+    100010: Bone006
+    100012: Bone007
+    100014: Bone008
+    100016: Bone009
+    100018: Bone010
+    100020: Bone011
+    100022: Bone012
+    100024: Bone013
+    100026: Bone014
+    100028: Bone015
+    100030: Bone016
+    100032: Bone017
+    100034: Bone018
+    100036: Bone019
+    100038: Bone020
+    100040: Bone021
+    100042: Bone022
+    100044: Bone023
+    100046: Bone024
+    100048: Bone025
+    100050: Bone026
+    100052: Bone027
+    100054: Bone028
+    100056: Bone029
+    100058: Bone031
+    100060: Bone032
+    100062: Bone033
+    100064: Bone034
+    100066: Bone037
+    100068: Bone038
+    100070: Bone039
+    100072: Bone040
+    100074: Bone041
+    100076: Bone042
+    100078: Bone043
+    100080: Bone044
+    100082: Bone045
+    100084: Bone046
+    100086: Bone047
+    100088: Bone048
+    100090: Bone049
+    100092: Bone050
+    100094: BoneRoot001
+    100096: Circle001
+    100098: Circle002
+    100100: Circle003
+    100102: Circle004
+    100104: connectBone002
+    100106: connectBone003
+    100108: connectBone004
+    100110: connectBone005
+    100112: connectBone006
+    100114: connectBone007
+    100116: connectBone008
+    100118: connectBone009
+    100120: connectBone010
+    100122: connectBone011
+    100124: connectBone012
+    100126: connectBone013
+    100128: connectBone014
+    100130: connectBone015
+    100132: connectBone016
+    100134: connectBone017
+    100136: Dummy001
+    100138: Dummy002
+    100140: Dummy003
+    100142: Dummy004
+    100144: IK Chain001
+    100146: IK Chain002
+    100148: IK Chain003
+    100150: IK Chain004
+    100152: Rectangle001
+    100154: Soldierant001
+    100156: //RootNode
+    100158: Spear
+    400000: Bone001
+    400002: Bone002
+    400004: Bone003
+    400006: Bone004
+    400008: Bone005
+    400010: Bone006
+    400012: Bone007
+    400014: Bone008
+    400016: Bone009
+    400018: Bone010
+    400020: Bone011
+    400022: Bone012
+    400024: Bone013
+    400026: Bone014
+    400028: Bone015
+    400030: Bone016
+    400032: Bone017
+    400034: Bone018
+    400036: Bone019
+    400038: Bone020
+    400040: Bone021
+    400042: Bone022
+    400044: Bone023
+    400046: Bone024
+    400048: Bone025
+    400050: Bone026
+    400052: Bone027
+    400054: Bone028
+    400056: Bone029
+    400058: Bone031
+    400060: Bone032
+    400062: Bone033
+    400064: Bone034
+    400066: Bone037
+    400068: Bone038
+    400070: Bone039
+    400072: Bone040
+    400074: Bone041
+    400076: Bone042
+    400078: Bone043
+    400080: Bone044
+    400082: Bone045
+    400084: Bone046
+    400086: Bone047
+    400088: Bone048
+    400090: Bone049
+    400092: Bone050
+    400094: BoneRoot001
+    400096: Circle001
+    400098: Circle002
+    400100: Circle003
+    400102: Circle004
+    400104: connectBone002
+    400106: connectBone003
+    400108: connectBone004
+    400110: connectBone005
+    400112: connectBone006
+    400114: connectBone007
+    400116: connectBone008
+    400118: connectBone009
+    400120: connectBone010
+    400122: connectBone011
+    400124: connectBone012
+    400126: connectBone013
+    400128: connectBone014
+    400130: connectBone015
+    400132: connectBone016
+    400134: connectBone017
+    400136: Dummy001
+    400138: Dummy002
+    400140: Dummy003
+    400142: Dummy004
+    400144: IK Chain001
+    400146: IK Chain002
+    400148: IK Chain003
+    400150: IK Chain004
+    400152: Rectangle001
+    400154: Soldierant001
+    400156: //RootNode
+    400158: Spear
+    2300000: Spear
+    3300000: Spear
+    4300000: Soldierant001
+    4300002: Spear
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Soldierant001
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
