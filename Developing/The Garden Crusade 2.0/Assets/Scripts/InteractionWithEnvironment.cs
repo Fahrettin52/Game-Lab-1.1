@@ -15,7 +15,7 @@ public class InteractionWithEnvironment : MonoBehaviour {
 		ShootRay ();
 	}
 
-	void Interaction (int CountInteract) {
+	public void Interaction (int CountInteract) {
 		CountInteract = interactInt;
 		switch(CountInteract){
 			case 1:

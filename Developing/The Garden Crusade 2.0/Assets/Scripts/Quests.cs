@@ -115,8 +115,10 @@ public class Quests : MonoBehaviour {
 					currentObjective += 1;
 					currentObjectiveText += 1;
 					LoopForBool ();
-					Destroy(GameObject.FindWithTag("Mother"));
-				}
+                    GetComponent<InteractionWithEnvironment>().interactInt = 2;
+                    GetComponent<InteractionWithEnvironment>().Interaction(2);
+                    //Destroy(GameObject.FindWithTag("Mother"));
+                }
 			}
 			else{
 				popupText.SetActive(false);

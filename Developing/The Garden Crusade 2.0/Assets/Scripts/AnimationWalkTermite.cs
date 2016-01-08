@@ -48,7 +48,8 @@ public class AnimationWalkTermite : MonoBehaviour {
 
 	void Update () {
         if (idle == false) {
-        EnemyFollow();
+            //Roam();
+            EnemyFollow();
         }
 	}
 
