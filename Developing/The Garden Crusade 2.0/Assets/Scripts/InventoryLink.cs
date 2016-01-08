@@ -11,6 +11,7 @@ public class InventoryLink : MonoBehaviour {
     private List<Stack<ItemScript>> allSlots;
 
     void Start() {
+        linkedInventory = GameObject.Find("VendorBackground").GetComponent<VendorInventory>();
         allSlots = new List<Stack<ItemScript>>();
     }
 

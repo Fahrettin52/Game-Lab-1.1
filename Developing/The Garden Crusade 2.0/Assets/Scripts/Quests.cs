@@ -66,20 +66,21 @@ public class Quests : MonoBehaviour {
 		LevelThreeQuests ();
 		TutorialQuests ();
 
-	}
+    }
 
 	void TutorialQuests () {
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
 
-		Vector3 fwd = transform.TransformDirection(Vector3.forward);
 		if(Physics.Raycast(transform.position, fwd, out rayHit, rayDis)){
 			if(rayHit.transform.tag == "Tutorial Puzzle" && quest1[5] == true){
 				popupText.SetActive(true);
-				if(Input.GetButtonDown("Use")){
+                if (Input.GetButtonDown("Use")){
                     puzzleHelper.SetActive(true);
                     questText.SetActive(false);
                     popupText.SetActive(false);
 					print("ActivatePuzzle");
-					GetComponent<Puzzle1>().ActivatePuzzle ();
+                    //puzzleCanvas.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                    GetComponent<Puzzle1>().ActivatePuzzle ();
 					currentObjective += 1;
 					currentObjectiveText += 1;
 					LoopForBool ();
@@ -187,7 +188,7 @@ public class Quests : MonoBehaviour {
 		if(trigger.transform.tag == "Start Boomstronk"	&& quest1[7] == true){
             GetComponent<Puzzle1>().enabled = false;
             GetComponent<Quests>().boomstronkLevel = GameObject.Find("Boomstronk Level");
-            GetComponent<Stamina>().enabled = true;
+            //GetComponent<Stamina>().enabled = true;
             boomstronkLevel.SetActive(true);
 		}
 

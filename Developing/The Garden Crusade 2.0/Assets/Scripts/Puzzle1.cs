@@ -13,8 +13,9 @@ public class Puzzle1 : MonoBehaviour {
 	public bool completePuzzle;
     public GameObject enterTree;
     public AudioClip puzzleDone;
+    public Animator sarahAnimator;
 
-	void Start () {
+    void Start () {
         mouseImage = GameObject.Find("PuzzleMouse");
         puzzleCanvas = GameObject.Find("PuzzleActivateCanvas");
 		puzzleCanvas.SetActive(false);
@@ -31,7 +32,7 @@ public class Puzzle1 : MonoBehaviour {
 		puzzleCanvas.SetActive(true);
 		GetComponent<Movement>().enabled = false;
 		GetComponent<Quests>().enabled = false;
-		GetComponent<Stamina>().enabled = false;
+		//GetComponent<Stamina>().enabled = false;
 	}
 
 	//void DeactivatePuzzle (){
@@ -97,7 +98,8 @@ public class Puzzle1 : MonoBehaviour {
 
         if (checkPuzzle[0] == true && checkPuzzle[1] == true && checkPuzzle[2] == true && checkPuzzle[3] == true)
         {
-            
+            sarahAnimator.GetComponent<Animator>().SetBool("RunToIdle 0", false);
+            //puzzleCanvas.GetComponent<CanvasGroup>().blocksRaycasts = false;
             completePuzzle = true;
             puzzleCanvas.SetActive(false);
             GetComponent<Movement>().enabled = true;
