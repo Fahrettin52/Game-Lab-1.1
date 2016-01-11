@@ -1,0 +1,355 @@
+fileFormatVersion: 2
+guid: f15f223835d48ab4ebd5248b4a016094
+timeCreated: 1452506008
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: achtergrond
+    100002: boek1
+    100004: boekplank
+    100006: boekplank2
+    100008: boekplank3
+    100010: boekplank4
+    100012: bordje
+    100014: bovenste shard
+    100016: conveyerbelt
+    100018: conveyerbelt2
+    100020: conveyerplank
+    100022: conveyerplank2
+    100024: conveyerplank3
+    100026: conveyerplank4
+    100028: conveyerplank5
+    100030: conveyerplank6
+    100032: conveyerplatformpje
+    100034: conveyerplatformpje2
+    100036: conveyerplatformpje3
+    100038: conveyerplatformpje4
+    100040: eena bovenste shard
+    100042: eena middelste shard
+    100044: gum
+    100046: gumplank
+    100048: gumplank2
+    100050: //RootNode
+    100052: middelste shard
+    100054: muurtje
+    100056: onderste plank
+    100058: onderste plank 2
+    100060: onderste plank 3
+    100062: Onderste shard
+    100064: potlood
+    100066: potlood001
+    100068: potloodplank
+    100070: potloodplank2
+    100072: potloodplank3
+    100074: scharnier
+    100076: scharnier2
+    100078: scharnierplank
+    100080: schroef007
+    100082: schroef008
+    100084: schroef1
+    100086: schroef2
+    100088: schroef3
+    100090: schroef4
+    100092: schroef5
+    100094: schroef6
+    100096: schroefplank
+    100098: schroefplank2
+    100100: spijker005
+    100102: spijker006
+    100104: spijker007
+    100106: spijker1
+    100108: spijker2
+    100110: spijker3
+    100112: spijker4
+    400000: achtergrond
+    400002: boek1
+    400004: boekplank
+    400006: boekplank2
+    400008: boekplank3
+    400010: boekplank4
+    400012: bordje
+    400014: bovenste shard
+    400016: conveyerbelt
+    400018: conveyerbelt2
+    400020: conveyerplank
+    400022: conveyerplank2
+    400024: conveyerplank3
+    400026: conveyerplank4
+    400028: conveyerplank5
+    400030: conveyerplank6
+    400032: conveyerplatformpje
+    400034: conveyerplatformpje2
+    400036: conveyerplatformpje3
+    400038: conveyerplatformpje4
+    400040: eena bovenste shard
+    400042: eena middelste shard
+    400044: gum
+    400046: gumplank
+    400048: gumplank2
+    400050: //RootNode
+    400052: middelste shard
+    400054: muurtje
+    400056: onderste plank
+    400058: onderste plank 2
+    400060: onderste plank 3
+    400062: Onderste shard
+    400064: potlood
+    400066: potlood001
+    400068: potloodplank
+    400070: potloodplank2
+    400072: potloodplank3
+    400074: scharnier
+    400076: scharnier2
+    400078: scharnierplank
+    400080: schroef007
+    400082: schroef008
+    400084: schroef1
+    400086: schroef2
+    400088: schroef3
+    400090: schroef4
+    400092: schroef5
+    400094: schroef6
+    400096: schroefplank
+    400098: schroefplank2
+    400100: spijker005
+    400102: spijker006
+    400104: spijker007
+    400106: spijker1
+    400108: spijker2
+    400110: spijker3
+    400112: spijker4
+    2300000: achtergrond
+    2300002: boek1
+    2300004: boekplank
+    2300006: boekplank2
+    2300008: boekplank3
+    2300010: boekplank4
+    2300012: bordje
+    2300014: bovenste shard
+    2300016: conveyerbelt
+    2300018: conveyerbelt2
+    2300020: conveyerplank
+    2300022: conveyerplank2
+    2300024: conveyerplank3
+    2300026: conveyerplank4
+    2300028: conveyerplank5
+    2300030: conveyerplank6
+    2300032: conveyerplatformpje
+    2300034: conveyerplatformpje2
+    2300036: conveyerplatformpje3
+    2300038: conveyerplatformpje4
+    2300040: eena bovenste shard
+    2300042: eena middelste shard
+    2300044: gum
+    2300046: gumplank
+    2300048: gumplank2
+    2300050: middelste shard
+    2300052: muurtje
+    2300054: onderste plank
+    2300056: onderste plank 2
+    2300058: onderste plank 3
+    2300060: Onderste shard
+    2300062: potlood
+    2300064: potlood001
+    2300066: potloodplank
+    2300068: potloodplank2
+    2300070: potloodplank3
+    2300072: scharnier
+    2300074: scharnier2
+    2300076: scharnierplank
+    2300078: schroef007
+    2300080: schroef008
+    2300082: schroef1
+    2300084: schroef2
+    2300086: schroef3
+    2300088: schroef4
+    2300090: schroef5
+    2300092: schroef6
+    2300094: schroefplank
+    2300096: schroefplank2
+    2300098: spijker005
+    2300100: spijker006
+    2300102: spijker007
+    2300104: spijker1
+    2300106: spijker2
+    2300108: spijker3
+    2300110: spijker4
+    3300000: achtergrond
+    3300002: boek1
+    3300004: boekplank
+    3300006: boekplank2
+    3300008: boekplank3
+    3300010: boekplank4
+    3300012: bordje
+    3300014: bovenste shard
+    3300016: conveyerbelt
+    3300018: conveyerbelt2
+    3300020: conveyerplank
+    3300022: conveyerplank2
+    3300024: conveyerplank3
+    3300026: conveyerplank4
+    3300028: conveyerplank5
+    3300030: conveyerplank6
+    3300032: conveyerplatformpje
+    3300034: conveyerplatformpje2
+    3300036: conveyerplatformpje3
+    3300038: conveyerplatformpje4
+    3300040: eena bovenste shard
+    3300042: eena middelste shard
+    3300044: gum
+    3300046: gumplank
+    3300048: gumplank2
+    3300050: middelste shard
+    3300052: muurtje
+    3300054: onderste plank
+    3300056: onderste plank 2
+    3300058: onderste plank 3
+    3300060: Onderste shard
+    3300062: potlood
+    3300064: potlood001
+    3300066: potloodplank
+    3300068: potloodplank2
+    3300070: potloodplank3
+    3300072: scharnier
+    3300074: scharnier2
+    3300076: scharnierplank
+    3300078: schroef007
+    3300080: schroef008
+    3300082: schroef1
+    3300084: schroef2
+    3300086: schroef3
+    3300088: schroef4
+    3300090: schroef5
+    3300092: schroef6
+    3300094: schroefplank
+    3300096: schroefplank2
+    3300098: spijker005
+    3300100: spijker006
+    3300102: spijker007
+    3300104: spijker1
+    3300106: spijker2
+    3300108: spijker3
+    3300110: spijker4
+    4300000: onderste plank
+    4300002: onderste plank 2
+    4300004: onderste plank 3
+    4300006: boekplank
+    4300008: boekplank2
+    4300010: scharnierplank
+    4300012: boekplank3
+    4300014: boekplank4
+    4300016: muurtje
+    4300018: schroefplank
+    4300020: potloodplank2
+    4300022: gumplank
+    4300024: gumplank2
+    4300026: potlood
+    4300028: conveyerplatformpje
+    4300030: conveyerplank
+    4300032: bordje
+    4300034: conveyerplank2
+    4300036: conveyerplank5
+    4300038: conveyerplank4
+    4300040: potloodplank3
+    4300042: schroefplank2
+    4300044: conveyerplatformpje2
+    4300046: conveyerplatformpje3
+    4300048: conveyerplatformpje4
+    4300050: achtergrond
+    4300052: conveyerbelt
+    4300054: conveyerbelt2
+    4300056: schroef1
+    4300058: schroef2
+    4300060: schroef3
+    4300062: schroef4
+    4300064: schroef5
+    4300066: schroef6
+    4300068: boek1
+    4300070: spijker1
+    4300072: spijker2
+    4300074: spijker3
+    4300076: spijker4
+    4300078: spijker005
+    4300080: scharnier
+    4300082: spijker006
+    4300084: spijker007
+    4300086: potlood001
+    4300088: scharnier2
+    4300090: gum
+    4300092: Onderste shard
+    4300094: eena middelste shard
+    4300096: middelste shard
+    4300098: eena bovenste shard
+    4300100: bovenste shard
+    4300102: schroef007
+    4300104: schroef008
+    4300106: potloodplank
+    4300108: conveyerplank3
+    4300110: conveyerplank6
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
