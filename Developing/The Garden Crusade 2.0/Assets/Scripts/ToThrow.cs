@@ -16,7 +16,7 @@ public class ToThrow : MonoBehaviour {
 
     void Start() {
         throwInfo.SetActive(false);
-        rb = GameObject.Find("testThrow").GetComponent<Rigidbody>();
+        rb = GameObject.Find("Kruimels").GetComponent<Rigidbody>();
         mayPickUp = 3f;
     }
 
@@ -38,7 +38,7 @@ public class ToThrow : MonoBehaviour {
             }
         if (canThrow == true && Input.GetButtonDown("G")) {
             Instantiate(throwPrefab, trowPos.transform.position + transform.forward, Quaternion.identity);
-            rb = GameObject.Find("testThrow(Clone)").GetComponent<Rigidbody>();
+            rb = GameObject.Find("Kruimels(Clone)").GetComponent<Rigidbody>();
             rb.velocity = new Vector3(0, 0, 0) + transform.forward * throwSpeed;
             throwInfo.SetActive(false);
             canThrow = false;
