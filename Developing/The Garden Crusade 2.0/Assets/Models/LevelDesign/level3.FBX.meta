@@ -308,7 +308,147 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: achtergrond
+        weight: 1
+      - path: boek1
+        weight: 1
+      - path: boekplank
+        weight: 1
+      - path: boekplank2
+        weight: 1
+      - path: boekplank3
+        weight: 1
+      - path: boekplank4
+        weight: 1
+      - path: bordje
+        weight: 1
+      - path: bovenste shard
+        weight: 1
+      - path: conveyerbelt
+        weight: 1
+      - path: conveyerbelt2
+        weight: 1
+      - path: conveyerplank
+        weight: 1
+      - path: conveyerplank2
+        weight: 1
+      - path: conveyerplank3
+        weight: 1
+      - path: conveyerplank4
+        weight: 1
+      - path: conveyerplank5
+        weight: 1
+      - path: conveyerplank6
+        weight: 1
+      - path: conveyerplatformpje
+        weight: 1
+      - path: conveyerplatformpje2
+        weight: 1
+      - path: conveyerplatformpje3
+        weight: 1
+      - path: conveyerplatformpje4
+        weight: 1
+      - path: eena bovenste shard
+        weight: 1
+      - path: eena middelste shard
+        weight: 1
+      - path: gum
+        weight: 1
+      - path: gumplank
+        weight: 1
+      - path: gumplank2
+        weight: 1
+      - path: middelste shard
+        weight: 1
+      - path: muurtje
+        weight: 1
+      - path: onderste plank
+        weight: 1
+      - path: onderste plank 2
+        weight: 1
+      - path: onderste plank 3
+        weight: 1
+      - path: Onderste shard
+        weight: 1
+      - path: potlood
+        weight: 1
+      - path: potlood001
+        weight: 1
+      - path: potloodplank
+        weight: 1
+      - path: potloodplank2
+        weight: 1
+      - path: potloodplank3
+        weight: 1
+      - path: scharnier
+        weight: 1
+      - path: scharnier2
+        weight: 1
+      - path: scharnierplank
+        weight: 1
+      - path: schroef1
+        weight: 1
+      - path: schroef2
+        weight: 1
+      - path: schroef3
+        weight: 1
+      - path: schroef4
+        weight: 1
+      - path: schroef5
+        weight: 1
+      - path: schroef6
+        weight: 1
+      - path: schroef007
+        weight: 1
+      - path: schroef008
+        weight: 1
+      - path: schroefplank
+        weight: 1
+      - path: schroefplank2
+        weight: 1
+      - path: spijker1
+        weight: 1
+      - path: spijker2
+        weight: 1
+      - path: spijker3
+        weight: 1
+      - path: spijker4
+        weight: 1
+      - path: spijker005
+        weight: 1
+      - path: spijker006
+        weight: 1
+      - path: spijker007
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
