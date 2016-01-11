@@ -1,0 +1,205 @@
+fileFormatVersion: 2
+guid: e7b25c06f22447b46a6798f9c214959b
+timeCreated: 1452503887
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Box002
+    100002: Cylinder001
+    100004: Cylinder002
+    100006: Cylinder003
+    100008: Cylinder004
+    100010: Cylinder005
+    100012: Cylinder006
+    100014: Cylinder007
+    100016: Cylinder008
+    100018: Cylinder009
+    100020: Cylinder010
+    100022: Cylinder011
+    100024: Cylinder012
+    100026: Cylinder013
+    100028: //RootNode
+    100030: omheining achter
+    100032: omheining lang links
+    100034: omheining lang rechts
+    100036: omheining linksachter
+    100038: omheining linksvoor
+    100040: omheining linksvoorder
+    100042: omheining linksvoorst
+    100044: omheining rechtsachter
+    100046: omheining rechtsvoor
+    100048: omheining rechtsvoorder
+    100050: omheining rechtsvoorst
+    100052: Tube002
+    400000: Box002
+    400002: Cylinder001
+    400004: Cylinder002
+    400006: Cylinder003
+    400008: Cylinder004
+    400010: Cylinder005
+    400012: Cylinder006
+    400014: Cylinder007
+    400016: Cylinder008
+    400018: Cylinder009
+    400020: Cylinder010
+    400022: Cylinder011
+    400024: Cylinder012
+    400026: Cylinder013
+    400028: //RootNode
+    400030: omheining achter
+    400032: omheining lang links
+    400034: omheining lang rechts
+    400036: omheining linksachter
+    400038: omheining linksvoor
+    400040: omheining linksvoorder
+    400042: omheining linksvoorst
+    400044: omheining rechtsachter
+    400046: omheining rechtsvoor
+    400048: omheining rechtsvoorder
+    400050: omheining rechtsvoorst
+    400052: Tube002
+    2300000: Box002
+    2300002: Cylinder001
+    2300004: Cylinder002
+    2300006: Cylinder003
+    2300008: Cylinder004
+    2300010: Cylinder005
+    2300012: Cylinder006
+    2300014: Cylinder007
+    2300016: Cylinder008
+    2300018: Cylinder009
+    2300020: Cylinder010
+    2300022: Cylinder011
+    2300024: Cylinder012
+    2300026: Cylinder013
+    2300028: omheining achter
+    2300030: omheining lang links
+    2300032: omheining lang rechts
+    2300034: omheining linksachter
+    2300036: omheining linksvoor
+    2300038: omheining linksvoorder
+    2300040: omheining linksvoorst
+    2300042: omheining rechtsachter
+    2300044: omheining rechtsvoor
+    2300046: omheining rechtsvoorder
+    2300048: omheining rechtsvoorst
+    2300050: Tube002
+    3300000: Box002
+    3300002: Cylinder001
+    3300004: Cylinder002
+    3300006: Cylinder003
+    3300008: Cylinder004
+    3300010: Cylinder005
+    3300012: Cylinder006
+    3300014: Cylinder007
+    3300016: Cylinder008
+    3300018: Cylinder009
+    3300020: Cylinder010
+    3300022: Cylinder011
+    3300024: Cylinder012
+    3300026: Cylinder013
+    3300028: omheining achter
+    3300030: omheining lang links
+    3300032: omheining lang rechts
+    3300034: omheining linksachter
+    3300036: omheining linksvoor
+    3300038: omheining linksvoorder
+    3300040: omheining linksvoorst
+    3300042: omheining rechtsachter
+    3300044: omheining rechtsvoor
+    3300046: omheining rechtsvoorder
+    3300048: omheining rechtsvoorst
+    3300050: Tube002
+    4300000: Tube002
+    4300002: Box002
+    4300004: Cylinder001
+    4300006: Cylinder002
+    4300008: Cylinder003
+    4300010: Cylinder004
+    4300012: Cylinder005
+    4300014: Cylinder006
+    4300016: Cylinder007
+    4300018: Cylinder008
+    4300020: Cylinder009
+    4300022: Cylinder010
+    4300024: Cylinder011
+    4300026: Cylinder012
+    4300028: Cylinder013
+    4300030: omheining lang rechts
+    4300032: omheining achter
+    4300034: omheining linksachter
+    4300036: omheining linksvoor
+    4300038: omheining linksvoorder
+    4300040: omheining linksvoorst
+    4300042: omheining rechtsvoorst
+    4300044: omheining rechtsvoorder
+    4300046: omheining rechtsvoor
+    4300048: omheining lang links
+    4300050: omheining rechtsachter
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
