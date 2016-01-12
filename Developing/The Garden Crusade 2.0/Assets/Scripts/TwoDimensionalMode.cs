@@ -9,7 +9,8 @@ public class TwoDimensionalMode : MonoBehaviour {
 			GameObject.Find("MainCamera").SetActive(false);
 		}
 		else{
-			GameObject.Find("2DCamera").SetActive(false);
+            GetComponent<Movement>().secondMode = false;
+            GameObject.Find("2DCamera").SetActive(false);
 		}
 	}
 	

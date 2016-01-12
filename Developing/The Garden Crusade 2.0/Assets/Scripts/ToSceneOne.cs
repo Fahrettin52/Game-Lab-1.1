@@ -33,7 +33,7 @@ public class ToSceneOne : MonoBehaviour {
         loadingScreen.SetActive(false);
     }
 
-    public void Update() {
+    public void FixedUpdate() {
         if (loadingBar.fillAmount < 1) {
             loadingBar.fillAmount += 1 * Time.deltaTime / 4f;           
         } 
