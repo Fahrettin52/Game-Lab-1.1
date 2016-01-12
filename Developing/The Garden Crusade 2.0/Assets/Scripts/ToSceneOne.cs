@@ -40,7 +40,6 @@ public class ToSceneOne : MonoBehaviour {
     }
 
     public void OnLevelWasLoaded(int level) {
-        print(level);
         switch (level) {
             case 0:
             background.SetActive(true);
@@ -130,7 +129,6 @@ public class ToSceneOne : MonoBehaviour {
     }
 
     IEnumerator Loading() {
-        print("1234");
         StartCoroutine("FadeIn");
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = false; 
         yield return new WaitForSeconds(3);
