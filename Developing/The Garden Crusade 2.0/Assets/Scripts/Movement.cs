@@ -19,6 +19,7 @@ public class Movement : MonoBehaviour{
     public int dubbleJump;
     public int maxJump;
     public bool mayMove = true;
+    public bool secondMode;
 
     void Start() {
         grondDisJump = transform.localScale.y / 2f;
@@ -61,7 +62,10 @@ public class Movement : MonoBehaviour{
 
     void MoveAndRotate(bool mayMove){
         if (mayMove == true) {
-            transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed, 0);
+
+        	if(secondMode == false){
+           		transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed, 0);
+           	}
 
             if (Input.GetAxis("Vertical") > 0) {
                 sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
