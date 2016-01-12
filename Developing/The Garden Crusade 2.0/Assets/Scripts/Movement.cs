@@ -20,6 +20,8 @@ public class Movement : MonoBehaviour{
     public int maxJump;
     public bool mayMove = true;
     public bool secondMode;
+    public float backRotSpeed;
+    public Transform rot1,rot2;
 
     void Start() {
         grondDisJump = transform.localScale.y / 2f;
@@ -66,10 +68,12 @@ public class Movement : MonoBehaviour{
         	if(secondMode == false){
            		transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed, 0);
            	}
-
+           	else if(Input.GetButtonDown("S")){
+           			
+           	}
+           	
             if (Input.GetAxis("Vertical") > 0) {
                 sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
-                
                 if (!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.forward, rayDistance)) {
                     transform.Translate(Vector3.forward * forwardSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
                     if (!GetComponent<AudioSource>().isPlaying){
@@ -78,7 +82,7 @@ public class Movement : MonoBehaviour{
                 }
             }
 
-            if (Input.GetAxis("Vertical") < 0) {
+            if (Input.GetAxis("Vertical") < 0  && secondMode == false) {	
                 sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
                 if (!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), -transform.forward, rayDistance)){
                     transform.Translate(Vector3.forward * forwardSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
