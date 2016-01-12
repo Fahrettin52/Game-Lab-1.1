@@ -21,7 +21,8 @@ public class Movement : MonoBehaviour{
     public bool mayMove = true;
     public bool secondMode;
     public float backRotSpeed;
-    public Transform rot1,rot2;
+    public float eulerangle = 90;
+    public bool rotate;
 
     void Start() {
         grondDisJump = transform.localScale.y / 2f;
@@ -63,15 +64,26 @@ public class Movement : MonoBehaviour{
     }
 
     void MoveAndRotate(bool mayMove){
+
         if (mayMove == true) {
 
         	if(secondMode == false){
            		transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed, 0);
            	}
-           	else if(Input.GetButtonDown("S")){
-           			
-           	}
-           	
+
+           	if(secondMode == true){
+	           	if(Input.GetButtonDown("S")){
+	           		rotate =! rotate;
+	           		print(rotate);
+	           		if(rotate == true){
+	           			transform.eulerAngles = new Vector3(0, eulerangle, 0);
+	           		}
+	           		if(rotate == false){
+	           			transform.eulerAngles = new Vector3(0, -eulerangle, 0);
+	           		}
+	           	}
+	        }
+	           	
             if (Input.GetAxis("Vertical") > 0) {
                 sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
                 if (!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.forward, rayDistance)) {
