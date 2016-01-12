@@ -20,6 +20,9 @@ public class ToSceneOne : MonoBehaviour {
     private float time = 5;
     public CanvasGroup loadGroup;
     public float fadeSpeed;
+    public float fadeSpeedOut;
+    public Animator loading;
+    public Animator loadingR;
 
     public Transform startPosition;
 
@@ -35,7 +38,7 @@ public class ToSceneOne : MonoBehaviour {
 
     public void FixedUpdate() {
         if (loadingBar.fillAmount < 1) {
-            loadingBar.fillAmount += 1 * Time.deltaTime / 4f;           
+            loadingBar.fillAmount += 1 * Time.deltaTime / 3;           
         } 
     }
 
@@ -61,6 +64,7 @@ public class ToSceneOne : MonoBehaviour {
 
     public void ChangeToScene() {
         Application.LoadLevel(1);
+        loadingBar.fillAmount = 0;
     }
 
     public void ClickExit() {
@@ -130,20 +134,25 @@ public class ToSceneOne : MonoBehaviour {
 
     IEnumerator Loading() {
         StartCoroutine("FadeIn");
-        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = false; 
-        yield return new WaitForSeconds(3);
-        StartCoroutine("FadeOut");
-        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
+        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = false;
+        GameObject.Find("Canvas1").GetComponent<Canvas>().enabled = false;
         StartScreen.SetActive(false);
-        background.SetActive(false);
+        yield return new WaitForSeconds(3f);
+        loading.SetBool("Loading", true);
+        loadingR.SetBool("Loading", true);
         MenuButton.SetActive(true);
         ExitToMenu.SetActive(true);
-        loadingScreen.SetActive(false);
+        StartCoroutine("FadeOut");
+        background.SetActive(false);
+        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
+        GameObject.Find("Canvas1").GetComponent<Canvas>().enabled = true;
+        yield return new WaitForSeconds(2f);
+        loadingScreen.SetActive(false); 
     }
 
     private IEnumerator FadeOut() {
 
-        StopCoroutine("FadeIn");
+        //StopCoroutine("FadeIn");
 
         while (loadGroup.alpha > 0f) {
 
@@ -160,11 +169,11 @@ public class ToSceneOne : MonoBehaviour {
 
     private IEnumerator FadeIn() {
 
-        StopCoroutine("FadeOut");
+        //StopCoroutine("FadeOut");
 
         while (loadGroup.alpha < 1f) {
 
-            float newValue = fadeSpeed * Time.deltaTime;
+            float newValue = fadeSpeedOut * Time.deltaTime;
 
             if ((loadGroup.alpha + newValue) < 1f) {
                 loadGroup.alpha += newValue;
