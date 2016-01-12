@@ -15,6 +15,11 @@ public class ToSceneOne : MonoBehaviour {
     public GameObject ExitToMenu;
     public GameObject deadScreen;
     public GameObject background;
+    public GameObject loadingScreen;
+    public Image loadingBar;
+    private float time = 5;
+    public CanvasGroup loadGroup;
+    public float fadeSpeed;
 
     public Transform startPosition;
 
@@ -25,14 +30,22 @@ public class ToSceneOne : MonoBehaviour {
         QuestScreen.SetActive(false);
         KeybindScreen.SetActive(false);
         ActivateCanvas = false;
+        loadingScreen.SetActive(false);
     }
+
+    public void Update() {
+        if (loadingBar.fillAmount < 1) {
+            loadingBar.fillAmount += 1 * Time.deltaTime / 4f;           
+        } 
+    }
+
     public void OnLevelWasLoaded(int level) {
+        print(level);
         switch (level) {
             case 0:
-                background.SetActive(true);
-                ActivateCanvas = false;
+            background.SetActive(true);
+            ActivateCanvas = false;
             OptionScreen.SetActive(false);
-            //StartScreen = GameObject.Find("StartScreen");
             MenuButton.SetActive(false);
             ExitToMenu.SetActive(false);
             StartScreen.SetActive(true);
@@ -41,21 +54,14 @@ public class ToSceneOne : MonoBehaviour {
                 break;
 
             case 1:
-            MenuButton.SetActive(true);
-            StartScreen.SetActive(false);
-            //StartScreen = GameObject.Find("Filler");
-            ExitToMenu.SetActive(true);
-            background.SetActive(false);
-                // 1 stuff
-               // startPosition = GameObject.Find("StartPosition").transform;
-              //  PlayerScript.Instance.transform.position = startPosition.position;
-                break;
+            loadingScreen.SetActive(true);
+            StartCoroutine(Loading());
+            break;
         }
     }
 
     public void ChangeToScene() {
         Application.LoadLevel(1);
-        OnLevelWasLoaded(1);
     }
 
     public void ClickExit() {
@@ -121,6 +127,54 @@ public class ToSceneOne : MonoBehaviour {
     public void ExitToStart() {
         Application.LoadLevel(0);
         OnLevelWasLoaded(0);
+    }
+
+    IEnumerator Loading() {
+        print("1234");
+        StartCoroutine("FadeIn");
+        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = false; 
+        yield return new WaitForSeconds(3);
+        StartCoroutine("FadeOut");
+        GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
+        StartScreen.SetActive(false);
+        background.SetActive(false);
+        MenuButton.SetActive(true);
+        ExitToMenu.SetActive(true);
+        loadingScreen.SetActive(false);
+    }
+
+    private IEnumerator FadeOut() {
+
+        StopCoroutine("FadeIn");
+
+        while (loadGroup.alpha > 0f) {
+
+            float newValue = fadeSpeed * Time.deltaTime;
+
+            if ((loadGroup.alpha - newValue) > 0f) {
+                loadGroup.alpha -= newValue;
+            } else {
+                loadGroup.alpha = 0;
+            }
+            yield return null;
+        }
+    }
+
+    private IEnumerator FadeIn() {
+
+        StopCoroutine("FadeOut");
+
+        while (loadGroup.alpha < 1f) {
+
+            float newValue = fadeSpeed * Time.deltaTime;
+
+            if ((loadGroup.alpha + newValue) < 1f) {
+                loadGroup.alpha += newValue;
+            } else {
+                loadGroup.alpha = 1;
+            }
+            yield return null;
+        }
     }
 }
 
