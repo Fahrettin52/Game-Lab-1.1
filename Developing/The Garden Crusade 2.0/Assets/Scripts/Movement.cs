@@ -36,6 +36,12 @@ public class Movement : MonoBehaviour{
         Crouch();
     }
 
+    void Update () {
+    	if(mayMove == true){
+    		Rotate2D ();
+    	}
+    }
+
     public void jump(){
         if (Physics.Raycast(transform.position + new Vector3(0, 0, 0), -transform.up, grondDis) ||
            (Physics.Raycast(transform.position + new Vector3(-0.45f, 0, 0), -transform.up, grondDis) ||
@@ -66,23 +72,6 @@ public class Movement : MonoBehaviour{
     void MoveAndRotate(bool mayMove){
 
         if (mayMove == true) {
-
-        	if(secondMode == false){
-           		transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed, 0);
-           	}
-
-           	if(secondMode == true){
-	           	if(Input.GetButtonDown("S")){
-	           		rotate =! rotate;
-	           		print(rotate);
-	           		if(rotate == true){
-	           			transform.eulerAngles = new Vector3(0, eulerangle, 0);
-	           		}
-	           		if(rotate == false){
-	           			transform.eulerAngles = new Vector3(0, -eulerangle, 0);
-	           		}
-	           	}
-	        }
 	           	
             if (Input.GetAxis("Vertical") > 0) {
                 sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
@@ -134,6 +123,7 @@ public class Movement : MonoBehaviour{
             GetComponent<CapsuleCollider>().center = new Vector3(0, 1.2f, 0);
         }
     }
+
     public void Run() {
         if (Input.GetButton("Run")) {
             forwardSpeed = runSpeed;
@@ -142,6 +132,26 @@ public class Movement : MonoBehaviour{
             forwardSpeed = normalSpeed;
         }
     }
+
+    public void Rotate2D () {
+
+	 if(secondMode == false){
+       		transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed, 0);
+       	}
+
+       	if(secondMode == true){
+           	if(Input.GetButtonDown("S")){
+           		rotate =! rotate;
+           		print(rotate);
+           		if(rotate == true){
+           			transform.eulerAngles = new Vector3(0, eulerangle, 0);
+           		}
+           		if(rotate == false){
+           			transform.eulerAngles = new Vector3(0, -eulerangle, 0);
+           		}
+           	}
+        }
+	}
 }
 
 
