@@ -23,27 +23,16 @@ public class Puzzle1 : MonoBehaviour {
 	
 	void Update () {
         oldSprite = newSprite;
-        //DeactivatePuzzle ();
         AlphaZero ();
-        //puzzleDone = GameObject.Find("SoundSource").GetComponent<SoundSource>().puzzleComplete;
     }
 
-	public void ActivatePuzzle (){
+	public void ActivatePuzzle () {
 		puzzleCanvas.SetActive(true);
 		GetComponent<Movement>().enabled = false;
 		GetComponent<Quests>().enabled = false;
-		//GetComponent<Stamina>().enabled = false;
 	}
 
-	//void DeactivatePuzzle (){
-	//	if(Input.GetButtonDown("Use")){
-	//		puzzleCanvas.SetActive(false);
-	//		GetComponent<Movement>().enabled = true;
-	//		GetComponent<Quests>().enabled = true;
-	//	}
-	//}
-
-	void AlphaZero (){
+	void AlphaZero () {
 		if(mouseImage.GetComponent<Image>().sprite == null){
 			mouseImage.GetComponent<Image>().color = new Color(255f, 255f, 255f, 0f);
 		}
@@ -52,8 +41,7 @@ public class Puzzle1 : MonoBehaviour {
 		}
 	}
 
-    public void PlaceImage(int curA)
-    {
+    public void PlaceImage (int curA) {
         currentButton = curA;
         newSprite = buttons[currentButton].GetComponent<Image>().sprite;
         mouseImage.GetComponent<Image>().sprite = newSprite;
@@ -62,44 +50,33 @@ public class Puzzle1 : MonoBehaviour {
         PuzzleCompleted();
     }
 
-    public void PuzzleCompleted(){
-        if (buttons[0].GetComponent<Image>().sprite.name == "LadyBug5")
-        {
+    public void PuzzleCompleted () {
+        if (buttons[0].GetComponent<Image>().sprite.name == "LadyBug5") {
             checkPuzzle[0] = true;
         }
-        else
-        {
+        else{
             checkPuzzle[0] = false;
         }
-        if (buttons[1].GetComponent<Image>().sprite.name == "LadyBug3")
-        {
+        if (buttons[1].GetComponent<Image>().sprite.name == "LadyBug3") {
             checkPuzzle[1] = true;
         }
-        else
-        {
+        else{
             checkPuzzle[1] = false;
         }
-        if (buttons[2].GetComponent<Image>().sprite.name == "LadyBug8")
-        {
+        if (buttons[2].GetComponent<Image>().sprite.name == "LadyBug8") {
             checkPuzzle[2] = true;
         }
-        else
-        {
+        else {
             checkPuzzle[2] = false;
         }
-        if (buttons[3].GetComponent<Image>().sprite.name == "LadyBug10")
-        {
+        if (buttons[3].GetComponent<Image>().sprite.name == "LadyBug10") {
             checkPuzzle[3] = true;
         }
-        else
-        {
+        else{
             checkPuzzle[3] = false;
         }
 
-        if (checkPuzzle[0] == true && checkPuzzle[1] == true && checkPuzzle[2] == true && checkPuzzle[3] == true)
-        {
-            sarahAnimator.GetComponent<Animator>().SetBool("RunToIdle 0", false);
-            //puzzleCanvas.GetComponent<CanvasGroup>().blocksRaycasts = false;
+        if (checkPuzzle[0] == true && checkPuzzle[1] == true && checkPuzzle[2] == true && checkPuzzle[3] == true) {
             completePuzzle = true;
             puzzleCanvas.SetActive(false);
             GetComponent<Movement>().enabled = true;

@@ -4,7 +4,8 @@ using UnityEngine.UI;
 
 public class Quests : MonoBehaviour {
 
-	public int quest1_1;
+    public Animator sarahAnimator;
+    public int quest1_1;
 	public int currentObjective;
 	public int currentObjectiveText = 0;
 	public int currentTag = 0;
@@ -51,11 +52,6 @@ public class Quests : MonoBehaviour {
 			schuurLevel = GameObject.Find("Schuur Level");
 			schuurLevel.SetActive(false);
 		}
-
-		/*if(Application.loadedLevel == 0){
-			tutLevel = GameObject.Find("Tutorial Level");
-			tutLevel.SetActive(false);
-		}*/
 	}
 	
 	
@@ -75,6 +71,7 @@ public class Quests : MonoBehaviour {
 			if(rayHit.transform.tag == "Tutorial Puzzle" && quest1[5] == true){
 				popupText.SetActive(true);
                 if (Input.GetButtonDown("Use")){
+                    sarahAnimator.GetComponent<Animator>().SetFloat("idleToRun 0", 0f);
                     puzzleHelper.SetActive(true);
                     questText.SetActive(false);
                     popupText.SetActive(false);

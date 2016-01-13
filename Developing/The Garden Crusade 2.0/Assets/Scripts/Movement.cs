@@ -131,7 +131,7 @@ public class Movement : MonoBehaviour{
         }
         else{
             GetComponent<CapsuleCollider>().height = 2.62f;
-            GetComponent<CapsuleCollider>().center = new Vector3(0, 1.14f, 0);
+            GetComponent<CapsuleCollider>().center = new Vector3(0, 1.2f, 0);
         }
     }
     public void Run() {
