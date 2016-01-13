@@ -13,6 +13,8 @@ public class ToThrow : MonoBehaviour {
     public string[] changeText;
     public GameObject trowPos;
     public float mayPickUp;
+    public int currentHold;
+    public int maxHold;
 
     void Start() {
         throwInfo.SetActive(false);
@@ -30,19 +32,24 @@ public class ToThrow : MonoBehaviour {
                (Physics.Raycast(transform.position + new Vector3(0, 0, 0), transform.forward, out rayHit, rayDis) ||
                (Physics.Raycast(transform.position + new Vector3(0, 2.6f, 0), transform.forward, out rayHit, rayDis)))) {
                 if (rayHit.transform.tag == "mayThrow" && mayPickUp == 0){
-                    Destroy(GameObject.FindWithTag("mayThrow"));
+                    currentHold++;
+                    Destroy(rayHit.transform.gameObject);
                     throwInfo.SetActive(true);
-                    canThrow = true;
+                    //canThrow = true;
                     throwInfo.GetComponent<Text>().text = changeText[1];
+                    mayPickUp = 1;
                 }
             }
-        if (canThrow == true && Input.GetButtonDown("G")) {
+        if (Input.GetButtonDown("F") && currentHold <=maxHold && currentHold>0) {
+            currentHold--;
             Instantiate(throwPrefab, trowPos.transform.position + transform.forward, Quaternion.identity);
-            rb = GameObject.Find("Kruimels(Clone)").GetComponent<Rigidbody>();
+            rb = throwPrefab.GetComponent<Rigidbody>();
             rb.velocity = new Vector3(0, 0, 0) + transform.forward * throwSpeed;
-            throwInfo.SetActive(false);
-            canThrow = false;
-            mayPickUp = 3;
+            if (currentHold == 0) {
+                throwInfo.SetActive(false);
+            }
+            //canThrow = false;
+            mayPickUp = 1;
         }
     }
 }

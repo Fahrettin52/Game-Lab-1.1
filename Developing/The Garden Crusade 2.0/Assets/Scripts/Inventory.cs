@@ -29,6 +29,7 @@ public class Inventory : MonoBehaviour {
     public CanvasGroup buttonGroup;
 	private bool fadingIn;
 	private bool fadingOut;
+    public GameObject SoundToOpen;
 
     public bool FadingOut {
         get { return fadingOut; }
@@ -528,6 +529,10 @@ public class Inventory : MonoBehaviour {
 			fadingIn = false;
 		}
 	}
+
+    public void OpenInventorySound() {
+        Instantiate(SoundToOpen, transform.position, transform.rotation);
+    }
 }
 
 
