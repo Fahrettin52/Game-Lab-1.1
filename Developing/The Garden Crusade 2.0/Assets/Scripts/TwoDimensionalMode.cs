@@ -32,7 +32,7 @@ public class TwoDimensionalMode : MonoBehaviour {
 			mainCam.SetActive(true);
 			twoDCam.SetActive(false);
 		}
-		if(col.transform.tag == "Elevator"){
+		if(col.transform.name == "ElevatorTrigger"){
 			GetComponent<Movement>().mayJump = false;
 		}
 	}
