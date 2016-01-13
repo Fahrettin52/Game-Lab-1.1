@@ -136,7 +136,7 @@ public class Movement : MonoBehaviour{
     public void Rotate2D () {
 
 	 if(secondMode == false){
-       		transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed, 0);
+       		transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed * Time.deltaTime, 0);
        	}
 
        	if(secondMode == true){
