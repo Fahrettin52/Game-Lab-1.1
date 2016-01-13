@@ -1,7 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class SoundSource : MonoBehaviour {
+
+    #region menu Sound
+    [Header("Menu Sounds")]
+    public AudioClip mouseOver;
+    #endregion
 
     #region general Sound
     [Header("General Sounds")]
@@ -39,8 +45,4 @@ public class SoundSource : MonoBehaviour {
     public AudioClip radiusSound;
     #endregion
 	
-
-	void Update () {
-	
-	}
 }
