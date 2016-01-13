@@ -7,6 +7,7 @@ public class SoundSource : MonoBehaviour {
     #region menu Sound
     [Header("Menu Sounds")]
     public AudioClip mouseOver;
+    public AudioClip mouseClick;
     #endregion
 
     #region general Sound
@@ -44,5 +45,15 @@ public class SoundSource : MonoBehaviour {
     public AudioClip enemyDied;
     public AudioClip radiusSound;
     #endregion
-	
+
+    public AudioSource menu;
+    public AudioSource click;
+
+    public void Over() {
+        menu.PlayOneShot(mouseOver);
+    }
+
+    public void MouseClick() {
+        menu.PlayOneShot(mouseClick);
+    }
 }
