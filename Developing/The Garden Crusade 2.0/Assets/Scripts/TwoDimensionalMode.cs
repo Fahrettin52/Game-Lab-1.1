@@ -21,7 +21,8 @@ public class TwoDimensionalMode : MonoBehaviour {
 	}
 	
 	void Update () {
-	
+
+
 	}
 
 	void OnTriggerEnter (Collider col) {
@@ -30,6 +31,9 @@ public class TwoDimensionalMode : MonoBehaviour {
 			GetComponent<Movement>().secondMode = false;
 			mainCam.SetActive(true);
 			twoDCam.SetActive(false);
+		}
+		if(col.transform.name == "ElevatorTrigger"){
+			GetComponent<Movement>().mayJump = false;
 		}
 	}
 }

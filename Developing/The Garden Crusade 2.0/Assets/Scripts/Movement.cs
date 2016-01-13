@@ -23,7 +23,7 @@ public class Movement : MonoBehaviour{
     public float backRotSpeed;
     public float eulerangle = 90;
     public bool rotate;
-
+ 
     void Start() {
         grondDisJump = transform.localScale.y / 2f;
         rb = GetComponent<Rigidbody>();
