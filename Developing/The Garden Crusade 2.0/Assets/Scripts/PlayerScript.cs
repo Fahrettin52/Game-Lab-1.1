@@ -70,18 +70,23 @@ public class PlayerScript : MonoBehaviour {
 		onCooldown = false;
 	}
 
-    void Update() {
-        if (Input.GetButtonDown("Escape")) {
-            GameObject.Find("_Manager").GetComponent<ToSceneOne>().OpenOptionsInGame();
-            GameObject.Find("_Manager").GetComponent<SoundSource>().MouseClick();
-            if (Time.timeScale == 1.0F) {
-                Time.timeScale = 0f;
-            } else {
-                if(Time.timeScale == 0f) {
-                    Time.timeScale = 1.0f;
-                }
+    public void PauseGame() {        
+        GameObject.Find("_Manager").GetComponent<ToSceneOne>().OpenOptionsInGame();
+        GameObject.Find("_Manager").GetComponent<SoundSource>().MouseClick();
+        if (Time.timeScale == 1.0F) {
+            Time.timeScale = 0f;
+        } 
+        else {
+            if (Time.timeScale == 0f) {
+                Time.timeScale = 1.0f;
             }
         }
+    }
+
+    void Update() {
+    if (Input.GetButtonDown("Escape")) {
+        PauseGame();
+    }
         visualHealth.fillAmount = currentHealth / 100f;
         HandleHealth();
         HandleMovement();

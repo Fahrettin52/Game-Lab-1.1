@@ -199,10 +199,10 @@ public class Quests : MonoBehaviour {
 			schuurLevel.SetActive(true);
 		}
 
-		if(trigger.transform.tag == "Enemy"){
-			quest1_1 += 1;
-			Destroy(trigger.gameObject);
-		}
+		//if(trigger.transform.tag == "Enemy"){
+		//	quest1_1 += 1;
+		//	Destroy(trigger.gameObject);
+		//}
 
 		if(trigger.transform.tag == "Energy Shard" && quest1[19] == true){
 			energyShards += 1;

@@ -22,6 +22,10 @@ public class ToSceneOne : MonoBehaviour {
     public Animator loading;
     public Animator loadingR;
     public Image bar;
+    public Image loadingL;
+    public Image loadingRR;
+    public Sprite L;
+    public Sprite R;
 
     public Transform startPosition;
 
@@ -37,7 +41,7 @@ public class ToSceneOne : MonoBehaviour {
 
     public void FixedUpdate() {
         if (loadingBar.fillAmount < 1) {
-            loadingBar.fillAmount += 1 * Time.deltaTime / 3f;           
+            loadingBar.fillAmount += 1 * Time.deltaTime / 2.5f;           
         } 
     }
 
@@ -82,14 +86,20 @@ public class ToSceneOne : MonoBehaviour {
     public void Return() {
         if (Application.loadedLevel == 0) {
             Start();
-        } 
-        else {
+        } else {
             StartScreen.SetActive(false);
             OptionScreen.SetActive(false);
             CreditsScreen.SetActive(false);
             QuestScreen.SetActive(false);
             KeybindScreen.SetActive(false);
             ActivateCanvas = false;
+        }
+        if (Time.timeScale == 1.0F) {
+            Time.timeScale = 0f;
+        } else {
+            if (Time.timeScale == 0f) {
+                Time.timeScale = 1.0f;
+            }
         }
     }
 
@@ -135,13 +145,18 @@ public class ToSceneOne : MonoBehaviour {
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = false;
         GameObject.Find("Canvas1").GetComponent<Canvas>().enabled = false;
         StartScreen.SetActive(false);
-        yield return new WaitForSeconds(3f);
+
+        yield return new WaitForSeconds(2.5f);
+
+        bar.enabled = false;
+        background.SetActive(false);
+        loadingL.GetComponent<Image>().sprite = L;
+        loadingRR.GetComponent<Image>().sprite = R;
         loading.SetBool("Loading", true);
         loadingR.SetBool("Loading", true);
-        background.SetActive(false);
-        yield return new WaitForSeconds(0.5f);
-        bar.enabled = false;
-        yield return new WaitForSeconds(0.5f);       
+
+        yield return new WaitForSeconds(1f);  
+           
         MenuButton.SetActive(true);
         ExitToMenu.SetActive(true);   
         loadingScreen.SetActive(false);

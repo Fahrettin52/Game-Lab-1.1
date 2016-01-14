@@ -15,6 +15,7 @@ public class GiveDamage : MonoBehaviour {
 
 	public void GivePunch (){
 		if(Input.GetButtonDown("Fire1")){
+            print("hit");
 			Debug.DrawRay(transform.position, transform.forward, Color.green, rayDistance);
 			if(Time.time > nextSec){
 				nextSec = Time.time + secRate;

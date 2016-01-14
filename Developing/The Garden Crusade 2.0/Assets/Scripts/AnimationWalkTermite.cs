@@ -103,6 +103,7 @@ public class AnimationWalkTermite : MonoBehaviour {
             mayDie = true;
         }
         if (livesEnemy == 0 && mayDie == true && mayDrop == true){
+            print("Dead2");
             mayDie = false;  
             GameObject.Find("Player").GetComponent<Experience>().currentExp += GameObject.Find("Player").GetComponent<Experience>().expGet;
             GameObject.Find("Spawn").GetComponent<SpawnEnemy>().spawned -= 1;

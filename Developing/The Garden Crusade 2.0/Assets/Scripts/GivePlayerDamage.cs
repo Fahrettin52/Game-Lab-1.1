@@ -9,6 +9,8 @@ public class GivePlayerDamage : MonoBehaviour
     public bool hitCooldown;
     public float cooldown;
     public Animator animator;
+    public int rockDamage;
+    public bool continueAttack;
 
     void Start()
     {
@@ -16,21 +18,36 @@ public class GivePlayerDamage : MonoBehaviour
         sarah = GameObject.Find("Player");
     }
 
-    void OnCollisionEnter(Collision col) {
-        animator.SetBool("TermSolAttackStart",true);
+    void OnTriggerEnter(Collider col) {
+        if (col.transform.tag == "Player") {
+            animator.SetBool("TermSolAttackStart", true);
+        }
+        if (col.transform.tag == "mayThrow") {
+            animator.SetBool("TermSolAttackStart", true);
+            GetComponentInParent <AnimationTermite>().DropDead(rockDamage);
+        }
     }
 
-    void OnCollisionExit(Collision col) {
-        animator.SetBool("TermSolAttackStart", false);
-        animator.SetBool("MayAttackPlayer", false);
+    void OnTriggerExit(Collider col) {
+        animator.SetBool("TermSolAttackStart", true);
+        Invoke("AggresiveStateCooldown", 1f);
+        if (col.transform.tag == "Player") {
+            continueAttack = false;
+            animator.SetBool("TermSolAttackStart", false);
+            animator.SetBool("MayAttackPlayer", false);
+        }
     }
 
-    void OnCollisionStay(Collision col)
-    {
-        if (col.transform.tag == "Player" && hitCooldown == false && Input.GetButtonDown("Fire1"))
-        {
+    void OnTriggerStay(Collider col) {
+        if (Input.GetButtonDown("Fire1")){
+            continueAttack = true;
+        }
+        if (col.transform.tag == "Player" && hitCooldown == false && continueAttack == true) {
             animator.SetBool("MayAttackPlayer", true);
             StartCoroutine(CoolDownDmgTaken());
+        }
+        if (col.transform.tag == "mayThrow") {
+            Invoke("AggresiveStateCooldown", 1f);
         }
     }
 
@@ -42,5 +59,9 @@ public class GivePlayerDamage : MonoBehaviour
         hitCooldown = true;
         yield return new WaitForSeconds(cooldown);
         hitCooldown = false;
+    }
+
+    void AggresiveStateCooldown() {
+        animator.SetBool("TermSolAttackStart", false);
     }
 }
