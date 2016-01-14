@@ -25,12 +25,13 @@ public class GivePlayerDamage : MonoBehaviour
         if (col.transform.tag == "mayThrow") {
             animator.SetBool("TermSolAttackStart", true);
             GetComponentInParent <AnimationTermite>().DropDead(rockDamage);
+            Invoke("AggresiveStateCooldown", 1f);
         }
     }
 
     void OnTriggerExit(Collider col) {
-        animator.SetBool("TermSolAttackStart", true);
-        Invoke("AggresiveStateCooldown", 1f);
+        //animator.SetBool("TermSolAttackStart", true);
+        //Invoke("AggresiveStateCooldown", 1f);
         if (col.transform.tag == "Player") {
             continueAttack = false;
             animator.SetBool("TermSolAttackStart", false);
@@ -46,13 +47,9 @@ public class GivePlayerDamage : MonoBehaviour
             animator.SetBool("MayAttackPlayer", true);
             StartCoroutine(CoolDownDmgTaken());
         }
-        if (col.transform.tag == "mayThrow") {
-            Invoke("AggresiveStateCooldown", 1f);
-        }
     }
 
-    IEnumerator CoolDownDmgTaken()
-    {
+    IEnumerator CoolDownDmgTaken() {
         sarah.GetComponent<Stamina>().RageBar();
         sarah.GetComponent<PlayerScript>().currentHealth -= damageForPlayer;
         sarah.GetComponent<PlayerScript>().HandleHealth();
