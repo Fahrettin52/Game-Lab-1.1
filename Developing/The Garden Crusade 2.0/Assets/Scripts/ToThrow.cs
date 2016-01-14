@@ -17,7 +17,7 @@ public class ToThrow : MonoBehaviour {
     public int maxHold;
 
     void Start() {
-        throwInfo.SetActive(false);
+        //throwInfo.SetActive(false);
         rb = GameObject.Find("Kruimels").GetComponent<Rigidbody>();
         mayPickUp = 1f;
     }
@@ -34,19 +34,16 @@ public class ToThrow : MonoBehaviour {
                 if (rayHit.transform.tag == "mayThrow" && mayPickUp == 0 && currentHold < 10){
                     currentHold++;
                     Destroy(rayHit.transform.gameObject);
-                    throwInfo.SetActive(true);
-                    throwInfo.GetComponent<Text>().text = changeText[1];
                     mayPickUp = 1;
+                    throwInfo.GetComponent<Text>().text = "Rocks: " + currentHold.ToString("F0");              
                 }
             }
         if (Input.GetButtonDown("F") && currentHold <=maxHold && currentHold>0) {
             currentHold--;
             GameObject tempPrefab = Instantiate(throwPrefab, trowPos.transform.position + transform.forward, Quaternion.identity) as GameObject;
             tempPrefab.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0) + transform.forward * throwSpeed;
-            if (currentHold == 0) {
-                throwInfo.SetActive(false);
-            }
             mayPickUp = 1;
+            throwInfo.GetComponent<Text>().text = "Rocks: " + currentHold.ToString("F0");
         }
     }
 }

@@ -139,9 +139,9 @@ public class ToSceneOne : MonoBehaviour {
         loading.SetBool("Loading", true);
         loadingR.SetBool("Loading", true);
         background.SetActive(false);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         bar.enabled = false;
-        yield return new WaitForSeconds(0.25f);       
+        yield return new WaitForSeconds(0.5f);       
         MenuButton.SetActive(true);
         ExitToMenu.SetActive(true);   
         loadingScreen.SetActive(false);
