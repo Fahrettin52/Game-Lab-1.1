@@ -30,6 +30,7 @@ public class Inventory : MonoBehaviour {
 	private bool fadingIn;
 	private bool fadingOut;
     public GameObject SoundToOpen;
+    public float lifeTimeSound;
 
     public bool FadingOut {
         get { return fadingOut; }
@@ -509,29 +510,30 @@ public class Inventory : MonoBehaviour {
 		}
 	}
 
-	private IEnumerator FadeIn () {
-		if (!fadingIn) {
-			fadingOut = false;
-			fadingIn = true;
-			StopCoroutine ("FadeOut");
-			
-			float startAlpha = itemGroup.alpha; // current alpha
-			float rate = 1f / fadeTime;
-			float progress = 0.0f;
-			
-			while (progress < 1.0) {
-				itemGroup.alpha = Mathf.Lerp(startAlpha, 1, progress);
-				progress += rate * Time.deltaTime;
-				yield return null;
-			}
-			
-			itemGroup.alpha = 1;
-			fadingIn = false;
-		}
-	}
+    private IEnumerator FadeIn() {
+        if (!fadingIn) {
+            fadingOut = false;
+            fadingIn = true;
+            StopCoroutine("FadeOut");
+
+            float startAlpha = itemGroup.alpha; // current alpha
+            float rate = 1f / fadeTime;
+            float progress = 0.0f;
+
+            while (progress < 1.0) {
+                itemGroup.alpha = Mathf.Lerp(startAlpha, 1, progress);
+                progress += rate * Time.deltaTime;
+                yield return null;
+            }
+
+            itemGroup.alpha = 1;
+            fadingIn = false;
+        }
+    }
 
     public void OpenInventorySound() {
         Instantiate(SoundToOpen, transform.position, transform.rotation);
+        Destroy(GameObject.Find("OpenInventorySound(Clone)"), lifeTimeSound);
     }
 }
 
