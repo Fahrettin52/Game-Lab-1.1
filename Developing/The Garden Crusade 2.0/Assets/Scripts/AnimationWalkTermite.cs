@@ -43,7 +43,7 @@ public class AnimationWalkTermite : MonoBehaviour {
         navSpeed = GetComponent<NavMeshAgent>().speed;
         }
 
-        attackRange = 3.3f;
+        attackRange = 5f;
 	}
 
 	void Update () {

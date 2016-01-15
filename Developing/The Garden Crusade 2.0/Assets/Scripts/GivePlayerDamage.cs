@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GivePlayerDamage : MonoBehaviour
-{
-
+public class GivePlayerDamage : MonoBehaviour{
     public int damageForPlayer;
     public GameObject sarah;
     public bool hitCooldown;
@@ -12,8 +10,7 @@ public class GivePlayerDamage : MonoBehaviour
     public int rockDamage;
     public bool continueAttack;
 
-    void Start()
-    {
+    void Start() {
         hitCooldown = false;
         sarah = GameObject.Find("Player");
     }

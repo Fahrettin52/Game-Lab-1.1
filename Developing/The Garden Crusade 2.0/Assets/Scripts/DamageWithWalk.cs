@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DamageWithWalk : MonoBehaviour
-{
+public class DamageWithWalk : MonoBehaviour{
     public int damageForPlayer;
     public GameObject sarah;
     public bool hitCooldown;
@@ -18,6 +17,7 @@ public class DamageWithWalk : MonoBehaviour
 
     void OnTriggerEnter(Collider col) {
         if (col.transform.tag == "Player") {
+            animator.SetBool("MayAttackPlayer", true);
             animator.SetBool("TermSolAttackStart", true);
         }
         if (col.transform.tag == "mayThrow") {
@@ -38,10 +38,10 @@ public class DamageWithWalk : MonoBehaviour
     }
 
     void OnTriggerStay(Collider col) {
-        if (Input.GetButtonDown("Fire1")) {
-            continueAttack = true;
-        }
-        if (col.transform.tag == "Player" && hitCooldown == false && continueAttack == true) {
+        //if (Input.GetButtonDown("Fire1")) {
+        //    continueAttack = true;
+        //}
+        if (col.transform.tag == "Player" && hitCooldown == false) {
             animator.SetBool("MayAttackPlayer", true);
             StartCoroutine(CoolDownDmgTaken());
         }
