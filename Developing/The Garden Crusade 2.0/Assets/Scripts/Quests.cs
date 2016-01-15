@@ -32,6 +32,8 @@ public class Quests : MonoBehaviour {
     public RaycastHit rayHit;
 	public float rayDis;
 
+    public Transform grotlevelPos;
+
 	void Start () {
 
 		if(Application.loadedLevel == 2){
@@ -51,8 +53,11 @@ public class Quests : MonoBehaviour {
 		if(Application.loadedLevel == 4){
 			schuurLevel = GameObject.Find("Schuur Level");
 			schuurLevel.SetActive(false);
-		}
-	}
+            grotlevelPos = GameObject.Find("Player Position").GetComponent<Transform>();
+
+        }
+
+    }
 	
 	
 	void Update () {
@@ -122,7 +127,16 @@ public class Quests : MonoBehaviour {
 			}
 		}
 
-	}
+        if (quest1[11] == true) {
+            Application.LoadLevel("Level 2");
+        }
+
+        if (Application.loadedLevel == 4) {
+            grotlevelPos = GameObject.Find("Player Position").GetComponent<Transform>();
+            transform.position = grotlevelPos.position;
+            quest1[11] = false;
+        }
+     }
 
 	void LevelTwoQuests () {
 
