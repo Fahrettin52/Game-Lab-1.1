@@ -3,13 +3,33 @@ using System.Collections;
 
 public class SummoningInsects : MonoBehaviour {
 
-	// Use this for initialization
+	public GameObject fireFly;
+
+	public bool switchLight;
+
+	public int  newIntensity;
+	public int  oldIntensity;
+
 	void Start () {
-	
+		fireFly = GameObject.Find("FireFly Trigger");
 	}
 	
-	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	void OnTriggerEnter (Collider col){
+		if(col.transform.tag == "FireFlyTrigger"){
+			 switchLight =! switchLight;
+		}
+	}
+
+	void MaxIntensity () {
+		if(switchLight == true){
+			fireFly.GetComponent<Light>().intensity = newIntensity;
+		}
+		else{
+			fireFly.GetComponent<Light>().intensity = oldIntensity;
+		}
 	}
 }
