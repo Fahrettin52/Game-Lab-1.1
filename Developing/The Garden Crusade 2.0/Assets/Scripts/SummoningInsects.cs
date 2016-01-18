@@ -10,12 +10,16 @@ public class SummoningInsects : MonoBehaviour {
 	public int  newIntensity;
 	public int  oldIntensity;
 
+	public float oldRange;
+	public float newRange;
+
 	void Start () {
-		fireFly = GameObject.Find("FireFly Trigger");
+
 	}
 	
 	void Update () {
-	
+		print(switchLight);
+		MaxIntensity ();
 	}
 
 	void OnTriggerEnter (Collider col){
@@ -27,9 +31,11 @@ public class SummoningInsects : MonoBehaviour {
 	void MaxIntensity () {
 		if(switchLight == true){
 			fireFly.GetComponent<Light>().intensity = newIntensity;
+			fireFly.GetComponent<Light>().range = newRange;
 		}
 		else{
 			fireFly.GetComponent<Light>().intensity = oldIntensity;
+			fireFly.GetComponent<Light>().range = oldRange;
 		}
 	}
 }
