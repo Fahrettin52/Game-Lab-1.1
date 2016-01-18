@@ -18,3 +18,28 @@ fight stance start =	182 tm 187
 Fight stance = 		188 tm 196 (Loop)
 punch = 		189 tm 203
 death =			204 tm 231
+
+sidestep R = 251 tm 267
+sidestep L = 267 tm 282
+Throw = 282 tm 302
+
+crouch start = 302 tm 320
+crouch = 326 tm 358
+crouch end = 358 tm 367
+
+heal = 367 tm 390
+walk backwards = 395 tm 419
+walk           = 430 tm 459
+
+		467 tm 480
+
+spin start = 480 tm 498
+spin (loop) = 498 tm 543
+spin End = 444 tm 580
+
+single attack Sword = 580 tm 608
+double attack Sword = 609 tm 663
+triple attack Sword = 663 tm 781
+
+block = 781 tm 788
+block end 788 tm 796

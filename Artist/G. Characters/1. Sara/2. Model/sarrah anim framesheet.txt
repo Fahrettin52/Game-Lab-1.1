@@ -1,19 +1,45 @@
 sarrah
 
 run = 70 tm 102(loop)
-idle = 10 tm 30 (loop)
+idle = 12 tm 30 (loop)
 idle to run = 31 tm 69
+run = 71 tm 102
 run to idle = 103 tm 116
 
-jump start = 117 tm 126
-jump UP =  		126 tm 130 (loop)
+jump start = 117 tm 128
+jump UP =  		129 tm 130 (loop)
 
-jumpDown =		start 131 tm 136
+jumpDownstart = 131 tm 136
 jump Down = 		137 tm 150 (loop)
 
 jump Land = 		151 tm 182
 
 fight stance start =	182 tm 187
 Fight stance = 		188 tm 196 (Loop)
-punch = 		196 tm 203
+punch = 		189 tm 203
 death =			204 tm 231
+
+sidestep R = 251 tm 267
+sidestep L = 267 tm 282
+Throw = 282 tm 302
+
+crouch start = 302 tm 320
+crouch = 326 tm 358
+crouch end = 358 tm 367
+
+heal = 367 tm 390
+walk backwards = 395 tm 419
+walk           = 430 tm 459
+
+		467 tm 480
+
+spin start = 480 tm 498
+spin (loop) = 498 tm 543
+spin End = 444 tm 580
+
+single attack Sword = 580 tm 608
+double attack Sword = 609 tm 663
+triple attack Sword = 663 tm 781
+
+block = 781 tm 788
+block end 788 tm 796
