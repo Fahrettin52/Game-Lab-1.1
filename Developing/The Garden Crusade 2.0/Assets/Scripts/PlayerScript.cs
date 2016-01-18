@@ -1,4 +1,4 @@
- using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -275,15 +275,16 @@ public class PlayerScript : MonoBehaviour {
         }
 	}
 
-    private void OnCollisionEnter(Collision collision){
-        if (collision.gameObject.tag == "Item")
-        {
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.tag == "Item") {
             GameObject.Find("SoundSource").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SoundSource").GetComponent<SoundSource>().itemPickUp);
-            if (inventory.AddItem(collision.gameObject.GetComponent<ItemScript>()))
-            {
-                
+            if (inventory.AddItem(collision.gameObject.GetComponent<ItemScript>())) {
+
                 Destroy(collision.gameObject);
             }
+        }
+        if (collision.transform.tag == "Vendor") {
+            chest = collision.transform.GetComponent<InventoryLink>().linkedInventory;
         }
     }
 

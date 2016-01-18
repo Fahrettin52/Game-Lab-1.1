@@ -17,7 +17,6 @@ public class ToSceneOne : MonoBehaviour {
     public GameObject background;
     public GameObject loadingScreen;
     public Image loadingBar;
-    private float time = 5;
     public CanvasGroup loadGroup;
     public Animator loading;
     public Animator loadingR;
