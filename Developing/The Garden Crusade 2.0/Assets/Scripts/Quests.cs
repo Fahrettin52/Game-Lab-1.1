@@ -43,18 +43,22 @@ public class Quests : MonoBehaviour {
         }
 
 		if(Application.loadedLevel == 3){
-			undergroundLevel = GameObject.Find("Underground Level");
-			undergroundLevel.SetActive(false);
+			schuurLevel = GameObject.Find("Schuur Level");
+			schuurLevel.SetActive(false);
 		}
 
 		popupText = GameObject.Find("Canvas1/Pop up text");
 		popupText.SetActive(false);
 
 		if(Application.loadedLevel == 4){
-			schuurLevel = GameObject.Find("Schuur Level");
-			schuurLevel.SetActive(false);
+			GetComponent<SummoningInsects>().enabled = true;
+			undergroundLevel = GameObject.Find("Underground Level");
+			undergroundLevel.SetActive(false);
             grotlevelPos = GameObject.Find("Player Position").GetComponent<Transform>();
 
+        }
+        else{
+        	GetComponent<SummoningInsects>().enabled = false;
         }
 
     }
