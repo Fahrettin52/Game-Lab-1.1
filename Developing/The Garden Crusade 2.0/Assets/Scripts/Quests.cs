@@ -52,16 +52,9 @@ public class Quests : MonoBehaviour {
 		popupText.SetActive(false);
 
 		if(Application.loadedLevel == 4){
-			GetComponent<SummoningInsects>().enabled = true;
 			undergroundLevel = GameObject.Find("Underground Level");
 			undergroundLevel.SetActive(false);
-            grotlevelPos = GameObject.Find("Player Position").GetComponent<Transform>();
-
         }
-        else{
-        	GetComponent<SummoningInsects>().enabled = false;
-        }
-
     }
 	
 	
@@ -151,7 +144,7 @@ public class Quests : MonoBehaviour {
 			popupText.SetActive(false);
 		}
 
-		
+
         if (quest1[11] == true) {
             Application.LoadLevel("Level 2");
         }
@@ -159,7 +152,9 @@ public class Quests : MonoBehaviour {
         if (Application.loadedLevel == 4 && levelLoaded == false) {
             grotlevelPos = GameObject.Find("Player Position").GetComponent<Transform>();
             transform.position = grotlevelPos.position;
+            GetComponent<SummoningInsects>().enabled = true;
             levelLoaded = true;
+            print(levelLoaded);
             quest1[11] = false;
         }
 	}

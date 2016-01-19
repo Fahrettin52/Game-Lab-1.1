@@ -4,6 +4,7 @@ using System.Collections;
 public class SummoningInsects : MonoBehaviour {
 
 	public GameObject fireFly;
+	public GameObject fireFly2;
 
 	public bool switchLight;
 
@@ -27,10 +28,10 @@ public class SummoningInsects : MonoBehaviour {
 		MaxIntensity ();
 
 		if(Application.loadedLevel == 4){
-			fireFly.SetActive(true);
+			fireFly2.SetActive(true);
 		}
 		else{
-			fireFly.SetActive(false);
+			fireFly2.SetActive(false);
 		}
 	}
 
@@ -44,12 +45,12 @@ public class SummoningInsects : MonoBehaviour {
 		if(switchLight == true){
 			fireFly.GetComponent<Light>().intensity = newIntensity;
 			fireFly.GetComponent<Light>().range = newRange;
-			fireFly.transform.position = Vector3.MoveTowards(fireFly.transform.position, newLightPos.position, moveSpeed * Time.deltaTime);
+			fireFly2.transform.position = Vector3.MoveTowards(fireFly2.transform.position, newLightPos.position, moveSpeed * Time.deltaTime);
 		}
 		else{
 			fireFly.GetComponent<Light>().intensity = oldIntensity;
 			fireFly.GetComponent<Light>().range = oldRange;
-			fireFly.transform.position = oldLightPos.position;
+			fireFly2.transform.position = oldLightPos.position;
 		}
 	}
 }
