@@ -33,6 +33,7 @@ public class CastingBar : MonoBehaviour {
     public float useSpeedReset;
     public int damage;
     public bool maySpell = true;
+    public Animator sarah;
 
     void Start () {
 
@@ -84,6 +85,7 @@ public class CastingBar : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Alpha3) && player != null) {
             if (maySpell == true) {
                 if (GetComponent<Stamina>().currentRage >= 30) {
+                    sarah.GetComponent<Animator>().SetTrigger("Spin");
                     StartCoroutine(SpellCooldown(3f));
                     GetComponent<Stamina>().currentRage -= 30f;
                     GetComponent<Stamina>().RageBarLose(3);
@@ -95,6 +97,7 @@ public class CastingBar : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Alpha4) && player != null) {
             if (maySpell == true) {
                 if (GetComponent<Stamina>().currentRage >= 10 && GetComponent<PlayerScript>().currentHealth < GetComponent<PlayerScript>().maxHealth) {
+                    sarah.GetComponent<Animator>().SetTrigger("Heal");
                     StartCoroutine(SpellCooldown(1f));
                     GetComponent<Stamina>().currentRage -= 10f;
                     GetComponent<Stamina>().RageBarLose(1);

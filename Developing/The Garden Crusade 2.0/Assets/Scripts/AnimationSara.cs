@@ -37,5 +37,9 @@ public class AnimationSara : MonoBehaviour
     {
         animator.SetTrigger("fightToIdle");
     }
+
+    public void SarahTurn(float i) {
+        animator.SetFloat("Turn", i);
+    }
 }
 

@@ -117,19 +117,23 @@ public class Movement : MonoBehaviour{
         if (Input.GetButton("Crouch")) {
             GetComponent<CapsuleCollider>().height = 0.5f;
             GetComponent<CapsuleCollider>().center = new Vector3(0, 0.4f, 0);
+            sarah.GetComponent<Animator>().SetBool("MayCrouch", true);
         }
         else{
             GetComponent<CapsuleCollider>().height = 2.62f;
             GetComponent<CapsuleCollider>().center = new Vector3(0, 1.2f, 0);
+            sarah.GetComponent<Animator>().SetBool("MayCrouch", false);
         }
     }
 
     public void Run() {
         if (Input.GetButton("Run")) {
+            sarah.GetComponent<Animator>().SetBool("MayRun", true);
             forwardSpeed = runSpeed;
         } 
         else {
             forwardSpeed = normalSpeed;
+            sarah.GetComponent<Animator>().SetBool("MayRun", false);
         }
     }
 
@@ -137,7 +141,8 @@ public class Movement : MonoBehaviour{
 
 	 if(secondMode == false){
        		transform.Rotate(0, Input.GetAxis("Horizontal") * rotateSpeed * Time.deltaTime, 0);
-       	}
+            sarah.GetComponent<AnimationSara>().SarahTurn(Input.GetAxis("Horizontal"));
+        }
 
        	if(secondMode == true){
            	if(Input.GetButtonDown("S")){

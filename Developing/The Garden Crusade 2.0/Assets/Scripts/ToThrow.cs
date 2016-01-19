@@ -15,6 +15,7 @@ public class ToThrow : MonoBehaviour {
     public float mayPickUp;
     public int currentHold;
     public int maxHold;
+    public Animator sarah;
 
     void Start() {
         //throwInfo.SetActive(false);
@@ -44,6 +45,7 @@ public class ToThrow : MonoBehaviour {
             tempPrefab.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0) + transform.forward * throwSpeed;
             mayPickUp = 1;
             throwInfo.GetComponent<Text>().text = "Rocks: " + currentHold.ToString("F0");
+            sarah.GetComponent<Animator>().SetTrigger("MayThrow");
         }
     }
 }
