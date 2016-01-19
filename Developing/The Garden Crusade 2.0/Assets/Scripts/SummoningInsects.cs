@@ -29,6 +29,7 @@ public class SummoningInsects : MonoBehaviour {
 
 		if(Application.loadedLevel == 4){
 			fireFly2.SetActive(true);
+			newLightPos = GameObject.Find("NewFireFlyPos").GetComponent<Transform>();
 		}
 		else{
 			fireFly2.SetActive(false);

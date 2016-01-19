@@ -157,6 +157,10 @@ public class Quests : MonoBehaviour {
             print(levelLoaded);
             quest1[11] = false;
         }
+
+        if(Application.loadedLevel != 4){
+        	 GetComponent<SummoningInsects>().enabled = false;
+        }
 	}
 
 	void LevelThreeQuests () {
