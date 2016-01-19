@@ -25,6 +25,13 @@ public class SummoningInsects : MonoBehaviour {
 	void Update () {
 		print(switchLight);
 		MaxIntensity ();
+
+		if(Application.loadedLevel == 4){
+			fireFly.SetActive(true);
+		}
+		else{
+			fireFly.SetActive(false);
+		}
 	}
 
 	void OnTriggerEnter (Collider col){

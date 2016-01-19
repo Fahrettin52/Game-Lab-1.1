@@ -15,6 +15,7 @@ public class Quests : MonoBehaviour {
 	public int oldValuesText;
 
 	public bool [] quest1;
+	private bool levelLoaded;
 	public string [] quest1Text;
 	public string [] tagManagerQuest1;
 
@@ -130,16 +131,6 @@ public class Quests : MonoBehaviour {
 				popupText.SetActive(false);
 			}
 		}
-
-        if (quest1[11] == true) {
-            Application.LoadLevel("Level 2");
-        }
-
-        if (Application.loadedLevel == 4) {
-            grotlevelPos = GameObject.Find("Player Position").GetComponent<Transform>();
-            transform.position = grotlevelPos.position;
-            quest1[11] = false;
-        }
      }
 
 	void LevelTwoQuests () {
@@ -159,6 +150,18 @@ public class Quests : MonoBehaviour {
 		else{
 			popupText.SetActive(false);
 		}
+
+		
+        if (quest1[11] == true) {
+            Application.LoadLevel("Level 2");
+        }
+
+        if (Application.loadedLevel == 4 && levelLoaded == false) {
+            grotlevelPos = GameObject.Find("Player Position").GetComponent<Transform>();
+            transform.position = grotlevelPos.position;
+            levelLoaded = true;
+            quest1[11] = false;
+        }
 	}
 
 	void LevelThreeQuests () {
