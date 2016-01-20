@@ -41,13 +41,12 @@ public class TermiteGeneral : MonoBehaviour {
         if(idle==false){
         navSpeed = GetComponent<NavMeshAgent>().speed;
         }
-
-        attackRange = 5f;
 	}
 
 	void Update () {
+		transform.position = new Vector3(transform.position.x, 469.3f, transform.position.z);
         if (idle == false) {
-            //Roam();
+            Roam();
             EnemyFollow();
         }
 	}
@@ -106,7 +105,7 @@ public class TermiteGeneral : MonoBehaviour {
     public void Roam() {
         countToRoam -= 1 * Time.deltaTime;
         if(countToRoam<=0) {
-            toRoam = new Vector3(Random.Range(maxHor, minHor), transform.position.y, Random.Range(maxVert, minVert));
+            toRoam = new Vector3(Random.Range(maxHor, minHor), transform.position.y + 4.5f, Random.Range(maxVert, minVert));
             agent.SetDestination(toRoam);
             agent.Resume();
             countToRoam = countToRoamMax;
