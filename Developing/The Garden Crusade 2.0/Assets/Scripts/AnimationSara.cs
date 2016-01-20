@@ -41,5 +41,9 @@ public class AnimationSara : MonoBehaviour
     public void SarahTurn(float i) {
         animator.SetFloat("Turn", i);
     }
+
+    public void Strave(float i) {
+        animator.SetFloat("Strave", i);
+    }
 }
 

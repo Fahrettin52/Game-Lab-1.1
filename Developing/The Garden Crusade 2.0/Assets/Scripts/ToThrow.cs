@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ToThrow : MonoBehaviour {
     public float rayDis;
     public RaycastHit rayHit;
-    public bool canThrow;
+    public bool canThrow = false;
     public GameObject throwPrefab;
     public GameObject throwInfo;
     public Rigidbody rb;
@@ -36,22 +36,30 @@ public class ToThrow : MonoBehaviour {
                     currentHold++;
                     Destroy(rayHit.transform.gameObject);
                     mayPickUp = 1;
-                    throwInfo.GetComponent<Text>().text = "Rocks: " + currentHold.ToString("F0");              
+                    throwInfo.GetComponent<Text>().text = "Rocks: " + currentHold.ToString("F0");
+                    canThrow = true;
                 }
             }
-        if (Input.GetButtonDown("F") && currentHold <=maxHold && currentHold>0) {
-            sarah.GetComponent<Animator>().SetTrigger("MayThrow");
-            Invoke("ThrowRock", 0.25f);
 
+        if (Input.GetButtonDown("F") && currentHold <=maxHold && currentHold >0 && canThrow == true) {
+            sarah.GetComponent<Animator>().SetTrigger("MayThrow");
+            currentHold--;
+            Invoke("ThrowRock", 0.25f);
+            canThrow = false;
         }
     }
 
     public void ThrowRock() {
-        currentHold--;
+        StartCoroutine(ThrowCooldown());
+    }
+
+    IEnumerator ThrowCooldown() {
         GameObject tempPrefab = Instantiate(throwPrefab, trowPos.transform.position + transform.forward, Quaternion.identity) as GameObject;
         tempPrefab.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0) + transform.forward * throwSpeed;
         mayPickUp = 1;
         throwInfo.GetComponent<Text>().text = "Rocks: " + currentHold.ToString("F0");
+        yield return new WaitForSeconds(1f);
+        canThrow = true;
     }
 }
 

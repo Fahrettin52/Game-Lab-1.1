@@ -101,15 +101,22 @@ public class Movement : MonoBehaviour{
                 sarah.GetComponent<AnimationSara>().animator.SetBool("cancelRun", true);
             }
 
-            if (Input.GetButton("Q")) {
+            if (Input.GetAxis("Strave") == 0) {
+                sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
+                sarah.GetComponent<AnimationSara>().animator.SetBool("cancelRun", true);
+            }
+
+            if (Input.GetAxis("Strave") < 0) {
+                sarah.GetComponent<AnimationSara>().Strave(Input.GetAxis("Strave"));
                 if (!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), -transform.right, rayDistance)) {
-                    transform.Translate(Vector3.left * strafeSpeed * Time.deltaTime);
+                    transform.Translate(Vector3.right * forwardSpeed * Input.GetAxis("Strave") * Time.deltaTime);
                 }
             }
 
-            if (Input.GetButton("E")) {
+            if (Input.GetAxis("Strave") > 0) {
+                sarah.GetComponent<AnimationSara>().Strave(Input.GetAxis("Strave"));
                 if (!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.right, rayDistance)) {
-                    transform.Translate(Vector3.right * strafeSpeed * Time.deltaTime);
+                    transform.Translate(Vector3.right * forwardSpeed * Input.GetAxis("Strave") * Time.deltaTime);
                 }
             }
         }
