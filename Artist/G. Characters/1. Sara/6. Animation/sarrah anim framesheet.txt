@@ -19,8 +19,9 @@ Fight stance = 		188 tm 196 (Loop)
 punch = 		189 tm 203
 death =			204 tm 231
 
-sidestep R = 251 tm 267
-sidestep L = 267 tm 282
+Turnstep R = 251 tm 267
+Turnstep L = 267 tm 282
+
 Throw = 282 tm 302
 
 crouch start = 302 tm 320
@@ -46,3 +47,11 @@ triple attack Sword = 663 tm 781
 
 block = 781 tm 788
 block end 788 tm 796
+
+lookLeft = 855 tm 860
+Sidestep Left = 860 tm 880 (Loop)
+lookLeft to front = 880 tm 890
+LookRight =890 tm 900
+sideStepRight = 900 tm 924 (loop)
+LookRight to front =  924 tm 943
+
