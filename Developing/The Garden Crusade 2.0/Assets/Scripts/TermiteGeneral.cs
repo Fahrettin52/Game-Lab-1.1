@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class TermiteGeneral : MonoBehaviour {
 
@@ -19,7 +20,7 @@ public class TermiteGeneral : MonoBehaviour {
 	public float range;
 	public float attackRange;
 	public float moveSpeed;
-    public int livesEnemy = 100;
+    public int livesEnemy;
     public GameObject dropRandomItem;
     public Image fill;
     public NavMeshAgent agent;
@@ -29,6 +30,7 @@ public class TermiteGeneral : MonoBehaviour {
     public float countToRoam, countToRoamMax;
     public bool mayRoam;
     public Vector3 toRoam;
+    public bool idle;
     public bool mayDie = false;
     private bool mayDrop = true;
 
