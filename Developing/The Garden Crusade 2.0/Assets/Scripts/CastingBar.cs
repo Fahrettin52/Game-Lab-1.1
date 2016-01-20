@@ -48,6 +48,7 @@ public class CastingBar : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Alpha1) && player != null) {
             if (maySpell == true) {
+                sarah.GetComponent<Animator>().SetTrigger("DubbleAttack");
                 if (GetComponent<Stamina>().currentRage >= 10) {
                     StartCoroutine(SpellCooldown(1f));
                     GetComponent<Stamina>().currentRage -= 10f;
@@ -66,6 +67,7 @@ public class CastingBar : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Alpha2) && player != null) {
             if (maySpell == true) {
+                sarah.GetComponent<Animator>().SetTrigger("TrippleAttack");
                 if (GetComponent<Stamina>().currentRage >= 20) {
                     StartCoroutine(SpellCooldown(1.5f));
                     GetComponent<Stamina>().currentRage -= 20f;

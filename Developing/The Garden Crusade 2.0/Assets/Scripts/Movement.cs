@@ -4,6 +4,7 @@ using System.Collections;
 public class Movement : MonoBehaviour{
 
     public float forwardSpeed;
+    public int crouchSpeed = 2;
     public int normalSpeed;
     public int runSpeed;
     public float rotateSpeed;
@@ -118,6 +119,8 @@ public class Movement : MonoBehaviour{
             GetComponent<CapsuleCollider>().height = 0.5f;
             GetComponent<CapsuleCollider>().center = new Vector3(0, 0.4f, 0);
             sarah.GetComponent<Animator>().SetBool("MayCrouch", true);
+            sarah.GetComponent<Animator>().SetTrigger("MayCrouchWalk 0");
+            forwardSpeed = crouchSpeed;
         }
         else{
             GetComponent<CapsuleCollider>().height = 2.62f;
