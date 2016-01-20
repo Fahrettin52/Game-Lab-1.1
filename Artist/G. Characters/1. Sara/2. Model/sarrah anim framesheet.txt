@@ -28,6 +28,9 @@ crouch = 326 tm 358
 crouch end = 358 tm 367
 
 heal = 367 tm 390
+
+Sidestep1 = 804 tm 829
+Sidestep2 = 829 tm 850
 walk backwards = 395 tm 419
 walk           = 430 tm 459
 
