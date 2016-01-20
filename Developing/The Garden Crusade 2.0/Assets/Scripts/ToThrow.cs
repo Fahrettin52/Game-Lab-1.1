@@ -41,12 +41,17 @@ public class ToThrow : MonoBehaviour {
             }
         if (Input.GetButtonDown("F") && currentHold <=maxHold && currentHold>0) {
             sarah.GetComponent<Animator>().SetTrigger("MayThrow");
-            currentHold--;
-            GameObject tempPrefab = Instantiate(throwPrefab, trowPos.transform.position + transform.forward, Quaternion.identity) as GameObject;
-            tempPrefab.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0) + transform.forward * throwSpeed;
-            mayPickUp = 1;
-            throwInfo.GetComponent<Text>().text = "Rocks: " + currentHold.ToString("F0");
+            Invoke("ThrowRock", 0.25f);
+
         }
+    }
+
+    public void ThrowRock() {
+        currentHold--;
+        GameObject tempPrefab = Instantiate(throwPrefab, trowPos.transform.position + transform.forward, Quaternion.identity) as GameObject;
+        tempPrefab.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0) + transform.forward * throwSpeed;
+        mayPickUp = 1;
+        throwInfo.GetComponent<Text>().text = "Rocks: " + currentHold.ToString("F0");
     }
 }
 

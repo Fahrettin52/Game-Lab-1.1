@@ -4,7 +4,8 @@ using System.Collections;
 public class Movement : MonoBehaviour{
 
     public float forwardSpeed;
-    public int crouchSpeed = 2;
+    public int backwardSpeed;
+    public int crouchSpeed;
     public int normalSpeed;
     public int runSpeed;
     public float rotateSpeed;
@@ -84,7 +85,8 @@ public class Movement : MonoBehaviour{
                 }
             }
 
-            if (Input.GetAxis("Vertical") < 0  && secondMode == false) {	
+            if (Input.GetAxis("Vertical") < 0  && secondMode == false) {
+                forwardSpeed = backwardSpeed;
                 sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
                 if (!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), -transform.forward, rayDistance)){
                     transform.Translate(Vector3.forward * forwardSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
