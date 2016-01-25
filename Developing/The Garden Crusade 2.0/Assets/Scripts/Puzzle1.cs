@@ -14,6 +14,8 @@ public class Puzzle1 : MonoBehaviour {
     public GameObject enterTree;
     public AudioClip puzzleDone;
     public Animator sarahAnimator;
+    public GameObject soundToOpenPuzzle;
+    public int lifeTimeSound;
 
     void Start () {
         mouseImage = GameObject.Find("PuzzleMouse");
@@ -86,8 +88,12 @@ public class Puzzle1 : MonoBehaviour {
             GetComponent<Quests>().popupText.SetActive(true);
             GetComponent<Quests>().popupText.SetActive(false);
             enterTree.SetActive(true);
-            GetComponent<AudioSource>().PlayOneShot(puzzleDone);
+            PuzzleSound();
         }
+    }
+    public void PuzzleSound(){
+        Instantiate(soundToOpenPuzzle, transform.position, transform.rotation);
+        Destroy(GameObject.Find("PuzzleCompleteSound(Clone)"), lifeTimeSound);
     }
 }
 

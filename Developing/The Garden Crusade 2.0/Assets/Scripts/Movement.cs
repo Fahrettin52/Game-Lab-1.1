@@ -31,12 +31,17 @@ public class Movement : MonoBehaviour{
     public float lifeTimeSound;
     public bool maySoundMove;
     public int walkCooldown;
+    public int runCooldown;
+    public int walkTime;
+    public int crouchCooldown;
  
     void Start() {
         grondDisJump = transform.localScale.y / 2f;
         rb = GetComponent<Rigidbody>();
         soundToOpenMove = GameObject.Find("PlayerWalkingSound");
         soundToOpenMove.SetActive(false);
+        soundToOpenCrouch = GameObject.Find("PlayerCrouchingSound");
+        soundToOpenCrouch.SetActive(false);
     }
 
     void FixedUpdate (){
@@ -60,6 +65,7 @@ public class Movement : MonoBehaviour{
            (Physics.Raycast(transform.position + new Vector3(0, 0, 0.45f), -transform.up, grondDis) ||
            (Physics.Raycast(transform.position + new Vector3(0, 0, -0.45f), -transform.up, grondDis)))))){
             mayMove = true;
+
         } 
         if (Physics.Raycast(transform.position + new Vector3(0, 0, 0), -transform.up, grondDisJump) ||
            (Physics.Raycast(transform.position + new Vector3(-0.45f, 0, 0), -transform.up, grondDisJump) ||
@@ -72,7 +78,8 @@ public class Movement : MonoBehaviour{
             mayJump = false;
         }
         sarah.GetComponent<AnimationSara>().mayJump1(mayJump);
-        if (Input.GetButton("Jump") && mayJump == true) {
+        if (Input.GetButtonDown("Jump") && mayJump == true) {
+            JumpSound();
             rb.velocity = new Vector3(0, jumpSpeed, 0);
 
             }
@@ -128,17 +135,18 @@ public class Movement : MonoBehaviour{
     public void Crouch()
     {
         if (Input.GetButton("Crouch")) {
-            CrouchSound();
             GetComponent<CapsuleCollider>().height = 0.5f;
             GetComponent<CapsuleCollider>().center = new Vector3(0, 0.4f, 0);
             sarah.GetComponent<Animator>().SetBool("MayCrouch", true);
             sarah.GetComponent<Animator>().SetTrigger("MayCrouchWalk 0");
             forwardSpeed = crouchSpeed;
+            CrouchSound();
         }
         else{
             GetComponent<CapsuleCollider>().height = 2.62f;
             GetComponent<CapsuleCollider>().center = new Vector3(0, 1.2f, 0);
             sarah.GetComponent<Animator>().SetBool("MayCrouch", false);
+            soundToOpenCrouch.SetActive(false);
         }
     }
 
@@ -146,10 +154,12 @@ public class Movement : MonoBehaviour{
         if (Input.GetButton("Run")) {
             sarah.GetComponent<Animator>().SetBool("MayRun", true);
             forwardSpeed = runSpeed;
+            walkTime = runCooldown;
         } 
         else {
             forwardSpeed = normalSpeed;
             sarah.GetComponent<Animator>().SetBool("MayRun", false);
+            walkTime = walkCooldown;
         }
     }
 
@@ -174,13 +184,14 @@ public class Movement : MonoBehaviour{
         }
 	}
     public void CrouchSound() {
-        Instantiate(soundToOpenCrouch, transform.position, transform.rotation);
-        Destroy(GameObject.Find("OpenInventorySound(Clone)"), lifeTimeSound);
+        if (soundToOpenCrouch.activeInHierarchy == false) {
+            StartCoroutine(SoundCrouchStart());
+        }
     }
 
     public void JumpSound() {
         Instantiate(soundToOpenJump, transform.position, transform.rotation);
-        Destroy(GameObject.Find("OpenInventorySound(Clone)"), lifeTimeSound);
+        Destroy(GameObject.Find("PlayerJumpingSound(Clone)"), lifeTimeSound);
     }
 
     public void MoveSound() {
@@ -192,9 +203,14 @@ public class Movement : MonoBehaviour{
     IEnumerator SoundMoveStart() {
         soundToOpenMove.SetActive(true);
         soundToOpenMove.GetComponent<AudioSource>().Play();
-        yield return new WaitForSeconds(walkCooldown * Time.deltaTime);
+        yield return new WaitForSeconds(walkTime * Time.deltaTime);
         soundToOpenMove.SetActive(false);
+    }
 
+    IEnumerator SoundCrouchStart(){
+        soundToOpenCrouch.SetActive(true);
+        soundToOpenCrouch.GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(crouchCooldown * Time.deltaTime);
     }
 }
 

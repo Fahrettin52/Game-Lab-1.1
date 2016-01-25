@@ -38,6 +38,7 @@ public class PlayerScript : MonoBehaviour {
     public int strength, stamina, intellect, agility;
     private int gold;
 
+
     public int Gold {
         get { return gold; }
         set {
@@ -59,8 +60,11 @@ public class PlayerScript : MonoBehaviour {
 	public Image visualHealth;
 	public float cooldown;
 	public bool onCooldown;
-	
-	void Start (){
+
+    public GameObject soundToOpenPickUp;
+    public int lifeTimeSound;
+
+    void Start (){
         Gold = 0;
         SetStats(0, 0, 0, 0);
         cachedY = healthTransform.position.y;
@@ -230,7 +234,7 @@ public class PlayerScript : MonoBehaviour {
         }
 
         if (other.tag == "Generator" || other.tag == "DroppedItem") {
-            GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SoundSource").GetComponent<SoundSource>().itemPickUp);
+            PickupSound();
             int randomType = UnityEngine.Random.Range(0,3);
 			GameObject tmp = Instantiate(InventoryManager.Instance.itemObject);
 			int randomItem;
@@ -277,7 +281,7 @@ public class PlayerScript : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Item") {
-            GameObject.Find("SoundSource").GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SoundSource").GetComponent<SoundSource>().itemPickUp);
+            PickupSound();
             if (inventory.AddItem(collision.gameObject.GetComponent<ItemScript>())) {
 
                 Destroy(collision.gameObject);
@@ -309,7 +313,12 @@ public class PlayerScript : MonoBehaviour {
         intellectStats.text = string.Format("Intellect: {0}", this.intellect);
         agilityStats.text   = string.Format("Agility: {0}", this.agility);
     }
-} 
+    public void PickupSound()
+    {
+        Instantiate(soundToOpenPickUp, transform.position, transform.rotation);
+        Destroy(GameObject.Find("ItemPickupSound(Clone)"), lifeTimeSound);
+    }
+}
 
 
 
