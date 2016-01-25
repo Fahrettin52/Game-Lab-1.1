@@ -25,10 +25,18 @@ public class Movement : MonoBehaviour{
     public float backRotSpeed;
     public float eulerangle = 90;
     public bool rotate;
+    public GameObject soundToOpenCrouch;
+    public GameObject soundToOpenJump;
+    public GameObject soundToOpenMove;
+    public float lifeTimeSound;
+    public bool maySoundMove;
+    public int walkCooldown;
  
     void Start() {
         grondDisJump = transform.localScale.y / 2f;
         rb = GetComponent<Rigidbody>();
+        soundToOpenMove = GameObject.Find("PlayerWalkingSound");
+        soundToOpenMove.SetActive(false);
     }
 
     void FixedUpdate (){
@@ -42,6 +50,7 @@ public class Movement : MonoBehaviour{
     	if(mayMove == true){
     		Rotate2D ();
     	}
+        MoveSound();
     }
 
     public void jump(){
@@ -65,11 +74,9 @@ public class Movement : MonoBehaviour{
         sarah.GetComponent<AnimationSara>().mayJump1(mayJump);
         if (Input.GetButton("Jump") && mayJump == true) {
             rb.velocity = new Vector3(0, jumpSpeed, 0);
-            if (!GetComponent<AudioSource>().isPlaying){
-                GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SoundSource").GetComponent<SoundSource>().playerJump);
+
             }
         }
-    }
 
     void MoveAndRotate(bool mayMove){
 
@@ -79,22 +86,18 @@ public class Movement : MonoBehaviour{
                 sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
                 if (!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.forward, rayDistance)) {
                     transform.Translate(Vector3.forward * forwardSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
-                    if (!GetComponent<AudioSource>().isPlaying){
-                        GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SoundSource").GetComponent<SoundSource>().playerWalk);
+                    //MoveSound();
                     }
                 }
-            }
 
             if (Input.GetAxis("Vertical") < 0  && secondMode == false) {
                 forwardSpeed = backwardSpeed;
                 sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
                 if (!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), -transform.forward, rayDistance)){
                     transform.Translate(Vector3.forward * forwardSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
-                    if (!GetComponent<AudioSource>().isPlaying){
-                        GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SoundSource").GetComponent<SoundSource>().playerWalk);
+                    //MoveSound();
                     }
                 }
-            }
 
             if (Input.GetAxis("Vertical") == 0) {
                 sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
@@ -125,6 +128,7 @@ public class Movement : MonoBehaviour{
     public void Crouch()
     {
         if (Input.GetButton("Crouch")) {
+            CrouchSound();
             GetComponent<CapsuleCollider>().height = 0.5f;
             GetComponent<CapsuleCollider>().center = new Vector3(0, 0.4f, 0);
             sarah.GetComponent<Animator>().SetBool("MayCrouch", true);
@@ -169,6 +173,29 @@ public class Movement : MonoBehaviour{
            	}
         }
 	}
+    public void CrouchSound() {
+        Instantiate(soundToOpenCrouch, transform.position, transform.rotation);
+        Destroy(GameObject.Find("OpenInventorySound(Clone)"), lifeTimeSound);
+    }
+
+    public void JumpSound() {
+        Instantiate(soundToOpenJump, transform.position, transform.rotation);
+        Destroy(GameObject.Find("OpenInventorySound(Clone)"), lifeTimeSound);
+    }
+
+    public void MoveSound() {
+        if (Input.GetButton("Vertical") && soundToOpenMove.activeInHierarchy == false) {
+            StartCoroutine(SoundMoveStart());
+        }
+    }
+
+    IEnumerator SoundMoveStart() {
+        soundToOpenMove.SetActive(true);
+        soundToOpenMove.GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(walkCooldown * Time.deltaTime);
+        soundToOpenMove.SetActive(false);
+
+    }
 }
 
 

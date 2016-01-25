@@ -34,6 +34,11 @@ public class CastingBar : MonoBehaviour {
     public int damage;
     public bool maySpell = true;
     public Animator sarah;
+    public GameObject abilitySound1;
+    public GameObject abilitySound2;
+    public GameObject abilitySound3;
+    public float lifeTimeSound;
+    
 
     void Start () {
 
@@ -48,8 +53,9 @@ public class CastingBar : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Alpha1) && player != null) {
             if (maySpell == true) {
-                sarah.GetComponent<Animator>().SetTrigger("DubbleAttack");
                 if (GetComponent<Stamina>().currentRage >= 10) {
+                    sarah.GetComponent<Animator>().SetTrigger("DubbleAttack");
+                    Ability1Sound();
                     StartCoroutine(SpellCooldown(1f));
                     GetComponent<Stamina>().currentRage -= 10f;
                     GetComponent<Stamina>().RageBarLose(1);
@@ -67,8 +73,9 @@ public class CastingBar : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.Alpha2) && player != null) {
             if (maySpell == true) {
-                sarah.GetComponent<Animator>().SetTrigger("TrippleAttack");
                 if (GetComponent<Stamina>().currentRage >= 20) {
+                    Ability2Sound();
+                    sarah.GetComponent<Animator>().SetTrigger("TrippleAttack");
                     StartCoroutine(SpellCooldown(1.5f));
                     GetComponent<Stamina>().currentRage -= 20f;
                     GetComponent<Stamina>().RageBarLose(2);
@@ -85,8 +92,9 @@ public class CastingBar : MonoBehaviour {
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha3) && player != null) {
-            if (maySpell == true) {
+            if (maySpell == true) { 
                 if (GetComponent<Stamina>().currentRage >= 30) {
+                    Ability3Sound();
                     sarah.GetComponent<Animator>().SetTrigger("Spin");
                     StartCoroutine(SpellCooldown(3f));
                     GetComponent<Stamina>().currentRage -= 30f;
@@ -198,5 +206,18 @@ public class CastingBar : MonoBehaviour {
         maySpell = false;
         yield return new WaitForSeconds(cooldown);
         maySpell = true;
+    }
+
+    public void Ability1Sound() {
+        Instantiate(abilitySound1, transform.position, transform.rotation);
+        Destroy(GameObject.Find("Ability1Sound(Clone)"), lifeTimeSound);
+    }
+    public void Ability2Sound() {
+        Instantiate(abilitySound2, transform.position, transform.rotation);
+        Destroy(GameObject.Find("Ability2Sound(Clone)"), lifeTimeSound);
+    }
+    public void Ability3Sound() {
+        Instantiate(abilitySound3, transform.position, transform.rotation);
+        Destroy(GameObject.Find("Ability3Sound(Clone)"), lifeTimeSound);
     }
 }

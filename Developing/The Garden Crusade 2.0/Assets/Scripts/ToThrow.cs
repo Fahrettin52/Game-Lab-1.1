@@ -16,6 +16,8 @@ public class ToThrow : MonoBehaviour {
     public int currentHold;
     public int maxHold;
     public Animator sarah;
+    public GameObject soundToOpen;
+    public float lifeTimeSound;
 
     void Start() {
         //throwInfo.SetActive(false);
@@ -55,11 +57,17 @@ public class ToThrow : MonoBehaviour {
 
     IEnumerator ThrowCooldown() {
         GameObject tempPrefab = Instantiate(throwPrefab, trowPos.transform.position + transform.forward, Quaternion.identity) as GameObject;
+        ThrowRockSound();
         tempPrefab.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0) + transform.forward * throwSpeed;
         mayPickUp = 1;
         throwInfo.GetComponent<Text>().text = "Rocks: " + currentHold.ToString("F0");
         yield return new WaitForSeconds(1f);
         canThrow = true;
+        
+    }
+    public void ThrowRockSound() {
+        Instantiate(soundToOpen, throwPrefab.transform.position, transform.rotation);
+        Destroy(GameObject.Find("ThrowingSound(Clone)"), lifeTimeSound);
     }
 }
 
