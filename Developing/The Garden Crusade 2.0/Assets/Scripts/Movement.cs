@@ -32,7 +32,7 @@ public class Movement : MonoBehaviour{
     public bool maySoundMove;
     public int walkCooldown;
     public int runCooldown;
-    public int walkTime;
+    public float walkTime;
     public int crouchCooldown;
 
     void Start() {
@@ -56,6 +56,7 @@ public class Movement : MonoBehaviour{
     		Rotate2D ();
     	}
         MoveSound();
+        RunSound();
     }
 
     public void jump(){
@@ -157,12 +158,12 @@ public class Movement : MonoBehaviour{
         if (Input.GetButton("Run")) {
             sarah.GetComponent<Animator>().SetBool("MayRun", true);
             forwardSpeed = runSpeed;
-            walkTime = runCooldown;
+            //walkTime = runCooldown;     
         } 
         else {
             forwardSpeed = normalSpeed;
             sarah.GetComponent<Animator>().SetBool("MayRun", false);
-            walkTime = walkCooldown;
+            //walkTime = walkCooldown;
         }
     }
 
@@ -198,7 +199,17 @@ public class Movement : MonoBehaviour{
     }
 
     public void MoveSound() {
-        if (Input.GetButton("Vertical") && soundToOpenMove.activeInHierarchy == false) {
+        if (Input.GetButton("Vertical") && soundToOpenMove.activeInHierarchy == false && !Input.GetButton("Run")){
+            print("walk");
+            walkTime = 0.5f;
+            StartCoroutine(SoundMoveStart());
+        }
+    }
+
+    public void RunSound() {
+        if (Input.GetButton("Vertical") && soundToOpenMove.activeInHierarchy == false && Input.GetButton("Run")) {
+            print("run");
+            walkTime = 0.5f;
             StartCoroutine(SoundMoveStart());
         }
     }
@@ -206,7 +217,7 @@ public class Movement : MonoBehaviour{
     IEnumerator SoundMoveStart() {
         soundToOpenMove.SetActive(true);
         soundToOpenMove.GetComponent<AudioSource>().Play();
-        yield return new WaitForSeconds(walkTime * Time.deltaTime);
+        yield return new WaitForSeconds(walkTime);
         soundToOpenMove.SetActive(false);
     }
 

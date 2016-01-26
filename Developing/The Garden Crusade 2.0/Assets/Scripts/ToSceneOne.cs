@@ -47,7 +47,8 @@ public class ToSceneOne : MonoBehaviour {
     public void OnLevelWasLoaded(int level) {
         switch (level) {
             case 0:
-            background.SetActive(true);
+                print("4");
+                background.SetActive(true);
             ActivateCanvas = false;
             OptionScreen.SetActive(false);
             MenuButton.SetActive(false);
@@ -58,13 +59,15 @@ public class ToSceneOne : MonoBehaviour {
                 break;
 
             case 1:
-            loadingScreen.SetActive(true);
+                print("5");
+                loadingScreen.SetActive(true);
             StartCoroutine(Loading());
             break;
         }
     }
 
     public void ChangeToScene() {
+        print("3");
         Application.LoadLevel(1);
         loadingBar.fillAmount = 0;
     }
@@ -85,7 +88,13 @@ public class ToSceneOne : MonoBehaviour {
     public void Return() {
         if (Application.loadedLevel == 0) {
             print("1");
-            Start();
+            StartScreen.SetActive(true);
+            OptionScreen.SetActive(false);
+            CreditsScreen.SetActive(false);
+            QuestScreen.SetActive(false);
+            KeybindScreen.SetActive(false);
+            ActivateCanvas = false;
+            loadingScreen.SetActive(false);
         }
         if (Application.loadedLevel == 1) {
             print("2");
@@ -95,13 +104,12 @@ public class ToSceneOne : MonoBehaviour {
             QuestScreen.SetActive(false);
             KeybindScreen.SetActive(false);
             ActivateCanvas = false;
-        }
-        if (Time.timeScale == 1.0F) {
-            Time.timeScale = 0f;
-        } 
-        else {
-            if (Time.timeScale == 0f) {
-                Time.timeScale = 1.0f;
+            if (Time.timeScale == 1.0F) {
+                Time.timeScale = 0f;
+            } else {
+                if (Time.timeScale == 0f) {
+                    Time.timeScale = 1.0f;
+                }
             }
         }
     }
