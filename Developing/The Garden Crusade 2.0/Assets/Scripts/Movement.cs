@@ -204,7 +204,6 @@ public class Movement : MonoBehaviour{
 
     public void MoveSound() {
         if (Input.GetButton("Vertical") && soundToOpenMove.activeInHierarchy == false && !Input.GetButton("Run")){
-            print("walk");
             walkTime = 0.5f;
             StartCoroutine(SoundMoveStart());
         }
@@ -212,7 +211,6 @@ public class Movement : MonoBehaviour{
 
     public void RunSound() {
         if (Input.GetButton("Vertical") && soundToOpenMove.activeInHierarchy == false && Input.GetButton("Run")) {
-            print("run");
             walkTime = 0.5f;
             StartCoroutine(SoundMoveStart());
         }

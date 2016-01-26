@@ -60,7 +60,6 @@ public class ToSceneOne : MonoBehaviour {
                 break;
 
             case 1:
-                print("5");
                 loadingScreen.SetActive(true);
             StartCoroutine(Loading());
             break;
@@ -73,7 +72,6 @@ public class ToSceneOne : MonoBehaviour {
     }
 
     public void ChangeToScene() {
-        print("3");
         Application.LoadLevel(1);
         loadingBar.fillAmount = 0;
     }

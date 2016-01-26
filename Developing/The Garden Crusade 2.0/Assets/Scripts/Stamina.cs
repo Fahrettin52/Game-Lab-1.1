@@ -140,8 +140,7 @@ public class Stamina : MonoBehaviour {
             currentRage += 15f;
         }
         if (currentRage >= maxRage) {
-            currentRage = maxRage;
-            RageBarFullSound();
+            currentRage = maxRage;           
         }
         rageFillAmount.fillAmount += 1.5f / 10f;
 
