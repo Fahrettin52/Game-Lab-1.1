@@ -57,7 +57,7 @@ public class ToThrow : MonoBehaviour {
 
     IEnumerator ThrowCooldown() {
         GameObject tempPrefab = Instantiate(throwPrefab, trowPos.transform.position + transform.forward, Quaternion.identity) as GameObject;
-        ThrowRockSound();
+        //ThrowRockSound();
         tempPrefab.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0) + transform.forward * throwSpeed;
         mayPickUp = 1;
         throwInfo.GetComponent<Text>().text = "Rocks: " + currentHold.ToString("F0");
@@ -66,8 +66,8 @@ public class ToThrow : MonoBehaviour {
         
     }
     public void ThrowRockSound() {
-        Instantiate(soundToOpen, throwPrefab.transform.position, transform.rotation);
-        Destroy(GameObject.Find("ThrowingSound(Clone)"), lifeTimeSound);
+        //Instantiate(soundToOpen, transform.position, transform.rotation);
+        //Destroy(GameObject.Find("ThrowingSound(Clone)"), lifeTimeSound);
     }
 }
 
