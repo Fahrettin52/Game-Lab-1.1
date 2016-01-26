@@ -532,7 +532,7 @@ public class Inventory : MonoBehaviour {
     }
 
     public void OpenInventorySound() {
-        Instantiate(soundToOpen, transform.position, transform.rotation);
+        //Instantiate(soundToOpen, transform.position, transform.rotation);
         Destroy(GameObject.Find("OpenInventorySound(Clone)"), lifeTimeSound);
     }
 }

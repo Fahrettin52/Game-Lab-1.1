@@ -92,19 +92,21 @@ public class Movement : MonoBehaviour{
 	           	
             if (Input.GetAxis("Vertical") > 0) {
                 sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
-                if (!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.forward, rayDistance)) {
+                if (!Physics.Raycast(transform.position + new Vector3(0, 1f, 0), transform.forward, rayDistance)) {
                     transform.Translate(Vector3.forward * forwardSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
+                    Debug.DrawRay(transform.position, transform.forward, Color.green);
                     //MoveSound();
-                    }
+                }
                 }
 
             if (Input.GetAxis("Vertical") < 0  && secondMode == false) {
                 forwardSpeed = backwardSpeed;
                 sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
-                if (!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), -transform.forward, rayDistance)){
+                if (!Physics.Raycast(transform.position + new Vector3(0, 1f, 0), -transform.forward, rayDistance)){
                     transform.Translate(Vector3.forward * forwardSpeed * Input.GetAxis("Vertical") * Time.deltaTime);
+                    Debug.DrawRay(transform.position, transform.forward, Color.green);
                     //MoveSound();
-                    }
+                }
                 }
 
             if (Input.GetAxis("Vertical") == 0) {
