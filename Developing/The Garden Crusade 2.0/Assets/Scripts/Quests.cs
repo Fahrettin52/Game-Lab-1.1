@@ -132,6 +132,7 @@ public class Quests : MonoBehaviour {
 
 		if(quest1[10] == true){
 			GameObject.Find("_Manager").GetComponent<ToSceneOne>().general.SetActive(true);
+			quest1[10] = false;
 		}
      }
 
@@ -139,7 +140,7 @@ public class Quests : MonoBehaviour {
 
 		Vector3 fwd = transform.TransformDirection(Vector3.forward);
 		if(Physics.Raycast(transform.position, fwd, out rayHit, rayDis)){
-			if(rayHit.transform.tag == "NPC" && quest1[13] == true){
+			if(rayHit.transform.tag == "NPC" && quest1[14] == true){
 				popupText.SetActive(true);
 				if(Input.GetButtonDown("Use")){
 					currentObjective += 1;
@@ -154,8 +155,9 @@ public class Quests : MonoBehaviour {
 		}
 
 
-        if (quest1[11] == true) {
+        if (quest1[12] == true) {
             Application.LoadLevel("Level 2");
+            print(quest1[12]);
         }
 
         if (Application.loadedLevel == 4 && levelLoaded == false) {
@@ -164,7 +166,7 @@ public class Quests : MonoBehaviour {
             GetComponent<SummoningInsects>().enabled = true;
             levelLoaded = true;
             print(levelLoaded);
-            quest1[11] = false;
+            quest1[12] = false;
         }
 
         if(Application.loadedLevel != 4){
@@ -176,13 +178,13 @@ public class Quests : MonoBehaviour {
 
 		Vector3 fwd = transform.TransformDirection(Vector3.forward);
 		if(Physics.Raycast(transform.position, fwd, out rayHit, rayDis)){
-			if(rayHit.transform.tag == "Shrink ray" && quest1[18] == true){
+			if(rayHit.transform.tag == "Shrink ray" && quest1[19] == true){
 				popupText.SetActive(true);
 				if(Input.GetButtonDown("Use")){
 					currentObjective += 1;
 					currentObjectiveText += 1;
 					shrinkRayActivate += 1;
-					quest1[18] = false;
+					quest1[19] = false;
 					LoopForBool ();
 					if(shrinkRayActivate == 3){
 						Destroy(rayHit.transform.gameObject);
@@ -220,11 +222,11 @@ public class Quests : MonoBehaviour {
             boomstronkLevel.SetActive(true);
 		}
 
-		if(trigger.transform.tag == "Start Underground" && quest1[11] == true){
+		if(trigger.transform.tag == "Start Underground" && quest1[12] == true){
 			undergroundLevel.SetActive(true);
 		}
 
-		if(trigger.transform.tag == "StartSchuur" && quest1[17] == true){
+		if(trigger.transform.tag == "StartSchuur" && quest1[18] == true){
 			schuurLevel.SetActive(true);
 		}
 
@@ -233,11 +235,11 @@ public class Quests : MonoBehaviour {
 		//	Destroy(trigger.gameObject);
 		//}
 
-		if(trigger.transform.tag == "Energy Shard" && quest1[19] == true){
+		if(trigger.transform.tag == "Energy Shard" && quest1[20] == true){
 			energyShards += 1;
 			Destroy(trigger.gameObject);
 			if(energyShards == 3){
-				quest1[18] = true;
+				quest1[19] = true;
 				currentObjective += 1;
 				currentObjectiveText += 1;
 				LoopForBool ();
@@ -245,7 +247,7 @@ public class Quests : MonoBehaviour {
 		}
 
 		if(trigger.transform.tag == "Black Widow"){
-			quest1[18] = true;
+			quest1[19] = true;
 		}
 	}
 	

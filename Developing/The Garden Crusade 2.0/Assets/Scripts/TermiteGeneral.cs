@@ -94,6 +94,7 @@ public class TermiteGeneral : MonoBehaviour {
         }
         if (livesEnemy == 0 && mayDie == true && mayDrop == true){
             mayDie = false;  
+            GameObject.Find("_Manager").GetComponent<ToSceneOne>().general = null;
             GameObject.Find("Player").GetComponent<Quests>().currentObjective += 1;
 			GameObject.Find("Player").GetComponent<Quests>().currentObjectiveText += 1;
 			GameObject.Find("Player").GetComponent<Quests>().LoopForBool ();
