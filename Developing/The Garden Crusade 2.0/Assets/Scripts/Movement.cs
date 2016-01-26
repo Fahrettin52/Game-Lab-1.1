@@ -139,6 +139,7 @@ public class Movement : MonoBehaviour{
             sarah.transform.localPosition = new Vector3(0, -0.41f, 0);
             GetComponent<CapsuleCollider>().direction = 2;
             GetComponent<CapsuleCollider>().center = new Vector3(0, 0, 0);
+            GetComponent<CapsuleCollider>().radius = 0.2f;
             sarah.GetComponent<Animator>().SetBool("MayCrouch", true);
             sarah.GetComponent<Animator>().SetTrigger("MayCrouchWalk 0");
             forwardSpeed = crouchSpeed;
@@ -148,6 +149,7 @@ public class Movement : MonoBehaviour{
             sarah.transform.localPosition = new Vector3(0, -0.082f, 0);
             GetComponent<CapsuleCollider>().direction = 1;
             GetComponent<CapsuleCollider>().height = 2.62f;
+            GetComponent<CapsuleCollider>().radius = 0.45f;
             GetComponent<CapsuleCollider>().center = new Vector3(0, 1.2f, 0);
             sarah.GetComponent<Animator>().SetBool("MayCrouch", false);
             soundToOpenCrouch.SetActive(false);
