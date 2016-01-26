@@ -140,6 +140,7 @@ public class Inventory : MonoBehaviour {
     }
 
     public virtual void Open () {
+        OpenInventorySound();
         if (itemGroup.alpha > 0){
 			StartCoroutine("FadeOut");
 			PutItemBack();

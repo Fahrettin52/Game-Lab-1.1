@@ -19,7 +19,6 @@ public class InteractionWithEnvironment : MonoBehaviour {
 		CountInteract = interactInt;
 		switch(CountInteract){
 			case 1:
-				print("Puzzle Level 1");
 				break;
 			case 2:
 				GetComponent<ConversationSystem>().startConvo =! GetComponent<ConversationSystem>().startConvo;

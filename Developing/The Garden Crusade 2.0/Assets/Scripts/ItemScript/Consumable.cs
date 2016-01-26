@@ -36,7 +36,6 @@ public class Consumeable : Item {
             slot.RemoveItem();
         }
         if (ItemName == "Rage Potion" && Stamina.Instance.currentRage < Stamina.Instance.maxRage) {
-            Debug.Log(ItemName);
             Stamina.Instance.RagePotion();
             slot.RemoveItem();
         }

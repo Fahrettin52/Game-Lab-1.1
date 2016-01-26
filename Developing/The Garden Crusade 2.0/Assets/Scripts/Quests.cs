@@ -36,7 +36,10 @@ public class Quests : MonoBehaviour {
 
     public Transform grotlevelPos;
 
-	void Awake () {
+    public GameObject soundToOpen;
+    public float lifeTimeSound;
+
+    void Awake () {
 
 		if(Application.loadedLevel == 2){
             teller = 7;
@@ -82,14 +85,13 @@ public class Quests : MonoBehaviour {
                     puzzleHelper.SetActive(true);
                     questText.SetActive(false);
                     popupText.SetActive(false);
-					print("ActivatePuzzle");
                     //puzzleCanvas.GetComponent<CanvasGroup>().blocksRaycasts = true;
                     GetComponent<Puzzle1>().ActivatePuzzle ();
 					currentObjective += 1;
 					currentObjectiveText += 1;
 					LoopForBool ();
 					GameObject.Find("Puzzle").GetComponent<Renderer>().material.mainTexture = puzzleSwap;
-					quest1[5] = false;
+                    quest1[5] = false;
 				}
 			}
 			else{
@@ -97,6 +99,7 @@ public class Quests : MonoBehaviour {
 			}
 		}
         if(quest1[5] == true) {
+            QuestCompleteSound();
             quest1[3] = false;
             quest1[4] = false;
         }
@@ -258,4 +261,10 @@ public class Quests : MonoBehaviour {
 			}
 		}
 	}
+
+    public void QuestCompleteSound() {
+        Instantiate(soundToOpen, transform.position, transform.rotation);
+        Destroy(GameObject.Find("RageBarFullSound(Clone)"), lifeTimeSound);
+    }
 }
+
