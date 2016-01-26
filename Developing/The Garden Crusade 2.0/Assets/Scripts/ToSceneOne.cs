@@ -16,6 +16,7 @@ public class ToSceneOne : MonoBehaviour {
     public GameObject deadScreen;
     public GameObject background;
     public GameObject loadingScreen;
+    public GameObject general;
     public Image loadingBar;
     public CanvasGroup loadGroup;
     public Animator loading;
@@ -62,6 +63,11 @@ public class ToSceneOne : MonoBehaviour {
                 print("5");
                 loadingScreen.SetActive(true);
             StartCoroutine(Loading());
+            break;
+
+            case 2:
+                general = GameObject.Find("Termiet Generaal");
+                general.SetActive(false);
             break;
         }
     }

@@ -15,7 +15,7 @@ public class Quests : MonoBehaviour {
 	public int oldValuesText;
 
 	public bool [] quest1;
-	private bool levelLoaded;
+	private bool levelLoaded, levelLoaded2;
 	public string [] quest1Text;
 	public string [] tagManagerQuest1;
 
@@ -29,7 +29,6 @@ public class Quests : MonoBehaviour {
     public int teller;
     public GameObject questText;
     public GameObject puzzleHelper;
-    public GameObject general;
 
     public RaycastHit rayHit;
 	public float rayDis;
@@ -42,6 +41,7 @@ public class Quests : MonoBehaviour {
             teller = 7;
             boomstronkLevel = GameObject.Find("Boomstronk Level");
 			boomstronkLevel.SetActive(false);
+			print("Level 666");
 			
         }
 
@@ -67,10 +67,7 @@ public class Quests : MonoBehaviour {
 		LevelThreeQuests ();
 		TutorialQuests ();
 
-		if(Application.loadedLevel == 2){
-			general = GameObject.Find("Termiet Generaal");
-			general.SetActive(false);
-		}
+
     }
 
 	void TutorialQuests () {
@@ -90,7 +87,7 @@ public class Quests : MonoBehaviour {
 					currentObjective += 1;
 					currentObjectiveText += 1;
 					LoopForBool ();
-                    Destroy(rayHit.transform.gameObject);
+					quest1[5] = false;
 				}
 			}
 			else{
@@ -132,7 +129,7 @@ public class Quests : MonoBehaviour {
 		}
 
 		if(quest1[10] == true){
-			general.SetActive(true);
+			GameObject.Find("_Manager").GetComponent<ToSceneOne>().general.SetActive(true);
 		}
      }
 
