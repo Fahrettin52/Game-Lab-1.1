@@ -46,7 +46,6 @@ public class Movement : MonoBehaviour{
 
     void FixedUpdate (){
         MoveAndRotate(mayMove);
-        jump();
         Run();
         Crouch();
     }
@@ -57,6 +56,10 @@ public class Movement : MonoBehaviour{
     	}
         MoveSound();
         RunSound();
+
+        if (Input.GetButtonDown("Jump")){
+            jump();
+        }
     }
 
     public void jump(){
@@ -79,10 +82,9 @@ public class Movement : MonoBehaviour{
             mayJump = false;
         }
         sarah.GetComponent<AnimationSara>().mayJump1(mayJump);
-        if (Input.GetButtonDown("Jump") && mayJump == true) {
+        if (mayJump == true) {
             JumpSound();
             rb.velocity = new Vector3(0, jumpSpeed, 0);
-
             }
         }
 

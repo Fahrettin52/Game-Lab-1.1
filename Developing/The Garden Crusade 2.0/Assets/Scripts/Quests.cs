@@ -36,9 +36,6 @@ public class Quests : MonoBehaviour {
 
     public Transform grotlevelPos;
 
-    public GameObject soundToOpen;
-    public float lifeTimeSound;
-
     void Awake () {
 
 		if(Application.loadedLevel == 2){
@@ -99,7 +96,6 @@ public class Quests : MonoBehaviour {
 			}
 		}
         if(quest1[5] == true) {
-            QuestCompleteSound();
             quest1[3] = false;
             quest1[4] = false;
         }
@@ -261,10 +257,5 @@ public class Quests : MonoBehaviour {
 			}
 		}
 	}
-
-    public void QuestCompleteSound() {
-        Instantiate(soundToOpen, transform.position, transform.rotation);
-        Destroy(GameObject.Find("RageBarFullSound(Clone)"), lifeTimeSound);
-    }
 }
 
