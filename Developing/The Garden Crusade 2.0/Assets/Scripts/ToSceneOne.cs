@@ -84,8 +84,11 @@ public class ToSceneOne : MonoBehaviour {
 
     public void Return() {
         if (Application.loadedLevel == 0) {
+            print("1");
             Start();
-        } else {
+        }
+        if (Application.loadedLevel == 1) {
+            print("2");
             StartScreen.SetActive(false);
             OptionScreen.SetActive(false);
             CreditsScreen.SetActive(false);
@@ -95,7 +98,8 @@ public class ToSceneOne : MonoBehaviour {
         }
         if (Time.timeScale == 1.0F) {
             Time.timeScale = 0f;
-        } else {
+        } 
+        else {
             if (Time.timeScale == 0f) {
                 Time.timeScale = 1.0f;
             }

@@ -24,7 +24,6 @@ public class SummoningInsects : MonoBehaviour {
 	}
 	
 	void Update () {
-		print(switchLight);
 		MaxIntensity ();
 
 		if(Application.loadedLevel == 4){

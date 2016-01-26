@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour{
     public int runCooldown;
     public int walkTime;
     public int crouchCooldown;
- 
+
     void Start() {
         grondDisJump = transform.localScale.y / 2f;
         rb = GetComponent<Rigidbody>();
@@ -108,12 +108,12 @@ public class Movement : MonoBehaviour{
 
             if (Input.GetAxis("Vertical") == 0) {
                 sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
-                sarah.GetComponent<AnimationSara>().animator.SetBool("cancelRun", true);
+                //sarah.GetComponent<AnimationSara>().animator.SetBool("cancelRun", true);
             }
 
             if (Input.GetAxis("Strave") == 0) {
                 sarah.GetComponent<AnimationSara>().SarahRun(Input.GetAxis("Vertical"));
-                sarah.GetComponent<AnimationSara>().animator.SetBool("cancelRun", true);
+                //sarah.GetComponent<AnimationSara>().animator.SetBool("cancelRun", true);
             }
 
             if (Input.GetAxis("Strave") < 0) {
@@ -135,14 +135,17 @@ public class Movement : MonoBehaviour{
     public void Crouch()
     {
         if (Input.GetButton("Crouch")) {
-            GetComponent<CapsuleCollider>().height = 0.5f;
-            GetComponent<CapsuleCollider>().center = new Vector3(0, 0.4f, 0);
+            sarah.transform.localPosition = new Vector3(0, -0.41f, 0);
+            GetComponent<CapsuleCollider>().direction = 2;
+            GetComponent<CapsuleCollider>().center = new Vector3(0, 0, 0);
             sarah.GetComponent<Animator>().SetBool("MayCrouch", true);
             sarah.GetComponent<Animator>().SetTrigger("MayCrouchWalk 0");
             forwardSpeed = crouchSpeed;
             CrouchSound();
         }
         else{
+            sarah.transform.localPosition = new Vector3(0, -0.082f, 0);
+            GetComponent<CapsuleCollider>().direction = 1;
             GetComponent<CapsuleCollider>().height = 2.62f;
             GetComponent<CapsuleCollider>().center = new Vector3(0, 1.2f, 0);
             sarah.GetComponent<Animator>().SetBool("MayCrouch", false);
