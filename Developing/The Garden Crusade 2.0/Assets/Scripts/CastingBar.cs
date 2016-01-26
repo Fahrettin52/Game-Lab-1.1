@@ -38,6 +38,7 @@ public class CastingBar : MonoBehaviour {
     public GameObject abilitySound2;
     public GameObject abilitySound3;
     public float lifeTimeSound;
+    public bool[] skillActivate;
     
 
     void Start () {
@@ -51,7 +52,7 @@ public class CastingBar : MonoBehaviour {
 	}
 
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Alpha1) && player != null) {
+        if (Input.GetKeyDown(KeyCode.Alpha1) && player != null && skillActivate[0] == true ) {
             if (maySpell == true) {
                 if (GetComponent<Stamina>().currentRage >= 10) {
                     sarah.GetComponent<Animator>().SetTrigger("DubbleAttack");
@@ -71,7 +72,7 @@ public class CastingBar : MonoBehaviour {
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && player != null) {
+        if (Input.GetKeyDown(KeyCode.Alpha2) && player != null && skillActivate[1] == true) {
             if (maySpell == true) {
                 if (GetComponent<Stamina>().currentRage >= 20) {
                     Ability2Sound();
@@ -91,7 +92,7 @@ public class CastingBar : MonoBehaviour {
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3) && player != null) {
+        if (Input.GetKeyDown(KeyCode.Alpha3) && player != null && skillActivate[2] == true) {
             if (maySpell == true) { 
                 if (GetComponent<Stamina>().currentRage >= 30) {
                     Ability3Sound();
@@ -104,7 +105,7 @@ public class CastingBar : MonoBehaviour {
                 }
             }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4) && player != null) {
+        if (Input.GetKeyDown(KeyCode.Alpha4) && player != null && skillActivate[3] == true) {
             if (maySpell == true) {
                 if (GetComponent<Stamina>().currentRage >= 10 && GetComponent<PlayerScript>().currentHealth < GetComponent<PlayerScript>().maxHealth) {
                     sarah.GetComponent<Animator>().SetTrigger("Heal");
