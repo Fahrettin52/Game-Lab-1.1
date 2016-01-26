@@ -93,8 +93,10 @@ public class TermiteGeneral : MonoBehaviour {
             mayDie = true;
         }
         if (livesEnemy == 0 && mayDie == true && mayDrop == true){
-            print("Dead2");
             mayDie = false;  
+            GameObject.Find("Player").GetComponent<Quests>().currentObjective += 1;
+			GameObject.Find("Player").GetComponent<Quests>().currentObjectiveText += 1;
+			GameObject.Find("Player").GetComponent<Quests>().LoopForBool ();
             GameObject.Find("Player").GetComponent<Experience>().currentExp += GameObject.Find("Player").GetComponent<Experience>().expGet;
             Destroy(gameObject, 1f);
             GameObject.Instantiate(dropRandomItem).transform.position = transform.position;
