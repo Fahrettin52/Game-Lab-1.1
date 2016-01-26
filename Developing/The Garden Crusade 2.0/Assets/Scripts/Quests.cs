@@ -29,18 +29,20 @@ public class Quests : MonoBehaviour {
     public int teller;
     public GameObject questText;
     public GameObject puzzleHelper;
+    public GameObject general;
 
     public RaycastHit rayHit;
 	public float rayDis;
 
     public Transform grotlevelPos;
 
-	void Start () {
+	void Awake () {
 
 		if(Application.loadedLevel == 2){
             teller = 7;
             boomstronkLevel = GameObject.Find("Boomstronk Level");
 			boomstronkLevel.SetActive(false);
+			
         }
 
 		if(Application.loadedLevel == 3){
@@ -65,6 +67,10 @@ public class Quests : MonoBehaviour {
 		LevelThreeQuests ();
 		TutorialQuests ();
 
+		if(Application.loadedLevel == 2){
+			general = GameObject.Find("Termiet Generaal");
+			general.SetActive(false);
+		}
     }
 
 	void TutorialQuests () {
@@ -123,6 +129,10 @@ public class Quests : MonoBehaviour {
 			else{
 				popupText.SetActive(false);
 			}
+		}
+
+		if(quest1[10] == true){
+			general.SetActive(true);
 		}
      }
 
