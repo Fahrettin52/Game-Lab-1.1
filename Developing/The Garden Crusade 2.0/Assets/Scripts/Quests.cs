@@ -33,7 +33,7 @@ public class Quests : MonoBehaviour {
 
     public RaycastHit rayHit;
 	public float rayDis;
-
+    public GameObject scrollHeal;
     public Transform grotlevelPos;
 
     void Awake () {
@@ -62,13 +62,10 @@ public class Quests : MonoBehaviour {
 	
 	
 	void Update () {
-
 		LevelOneQuests ();
 		LevelTwoQuests ();
 		LevelThreeQuests ();
 		TutorialQuests ();
-
-
     }
 
 	void TutorialQuests () {
@@ -89,7 +86,8 @@ public class Quests : MonoBehaviour {
 					LoopForBool ();
 					GameObject.Find("Puzzle").GetComponent<Renderer>().material.mainTexture = puzzleSwap;
                     quest1[5] = false;
-				}
+                    scrollHeal.SetActive(true);
+                }
 			}
 			else{
 				popupText.SetActive(false);

@@ -15,6 +15,9 @@ public class PlayerScript : MonoBehaviour {
         }
     }
 
+    public int scrollCounter;
+    public Image[] skills;
+    public int skillCounter;
     public CanvasGroup inventoryGroup;
     public CanvasGroup characterBackgroundHolder;
     public CanvasGroup character;
@@ -198,6 +201,14 @@ public class PlayerScript : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider other) {
+
+        if (other.tag == "Scroll") {
+            ActiveSkill(scrollCounter);
+            GetComponent<CastingBar>().skillActivate[skillCounter] = true;
+            scrollCounter++;
+            skillCounter++;
+        }
+
         if (other.tag == "Material"){
             for (int i = 0; i < 5; i++) {
                 for (int x = 0; x < 3; x++) {
@@ -214,7 +225,7 @@ public class PlayerScript : MonoBehaviour {
                     Destroy(tmp);
                 }
             }
-        }
+    }
 
         if (other.gameObject.tag == "mayThrow") {
         GetComponent<ToThrow>().throwInfo.SetActive(true);
@@ -316,6 +327,25 @@ public class PlayerScript : MonoBehaviour {
     {
         Instantiate(soundToOpenPickUp, transform.position, transform.rotation);
         Destroy(GameObject.Find("ItemPickupSound(Clone)"), lifeTimeSound);
+    }
+
+    public void ActiveSkill(int counter) {
+        switch (counter) {
+            case 0:
+                skills[0].enabled = true;
+                Destroy(GameObject.Find("ScrollDubbleAttack"));
+                break;
+            case 1:
+                skills[3].enabled = true;
+                Destroy(GameObject.Find("ScrollHeal"));
+                break;
+            case 2:
+                skills[1].enabled = true;
+                break;
+            case 3:
+                skills[2].enabled = true;
+                break;
+        }
     }
 }
 
