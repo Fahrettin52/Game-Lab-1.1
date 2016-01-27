@@ -1,0 +1,11 @@
+
+
+Black widow
+
+Idle01 = 5 tm 20 (loop)
+
+Attack 20 tm 46
+
+walk/run = 51 tm 79
+
+Death = 84 tm 112
