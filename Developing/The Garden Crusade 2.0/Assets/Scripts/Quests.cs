@@ -253,10 +253,11 @@ public class Quests : MonoBehaviour {
 	public void LoopForBool (){
 		for(int i = teller; i < quest1.Length; i ++){
 			if(i == currentObjective){
-                InfoPauseGame();
-                QuestCompleteSound();
-
-                    quest1[i] = true;
+                quest1[i] = true;
+                if ( currentObjective < 6) {
+                    QuestCompleteSound();
+                    InfoPauseGame();
+                }
 			}
 		}
 	}
