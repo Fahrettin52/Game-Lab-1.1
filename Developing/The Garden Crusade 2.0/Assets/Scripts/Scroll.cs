@@ -25,4 +25,8 @@ public class Scroll : MonoBehaviour {
     public void ActiveSkill(int counter) {
         skills[counter].enabled = true;
     }
+
+    public void ActivateHeal() {
+        skills[3].enabled = true;
+    }
 }

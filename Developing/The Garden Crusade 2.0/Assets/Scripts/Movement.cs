@@ -42,12 +42,14 @@ public class Movement : MonoBehaviour{
         soundToOpenMove.SetActive(false);
         soundToOpenCrouch = GameObject.Find("PlayerCrouchingSound");
         soundToOpenCrouch.SetActive(false);
+        jump();
     }
 
     void FixedUpdate (){
         MoveAndRotate(mayMove);
         Run();
         Crouch();
+         
     }
 
     void Update () {
@@ -56,10 +58,10 @@ public class Movement : MonoBehaviour{
     	}
         MoveSound();
         RunSound();
-
         if (Input.GetButtonDown("Jump")){
             jump();
         }
+       
     }
 
     public void jump(){
@@ -85,6 +87,7 @@ public class Movement : MonoBehaviour{
         if (mayJump == true) {
             JumpSound();
             rb.velocity = new Vector3(0, jumpSpeed, 0);
+
             }
         }
 
