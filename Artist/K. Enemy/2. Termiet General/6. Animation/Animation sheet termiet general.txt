@@ -1,0 +1,6 @@
+0-10 Attack
+15-50 Walk
+50 - 110 Idle
+120-160 Threat
+170-190 take damage
+200-210 Dead
