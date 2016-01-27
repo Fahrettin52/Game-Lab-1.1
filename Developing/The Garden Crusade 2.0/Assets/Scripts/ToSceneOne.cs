@@ -17,6 +17,7 @@ public class ToSceneOne : MonoBehaviour {
     public GameObject background;
     public GameObject loadingScreen;
     public GameObject general;
+    public GameObject beetle;
     public Image loadingBar;
     public CanvasGroup loadGroup;
     public Animator loading;
@@ -69,6 +70,11 @@ public class ToSceneOne : MonoBehaviour {
             case 2:
                 general = GameObject.Find("Termiet Generaal");
                 general.SetActive(false);
+            break;
+
+            case 3:
+                beetle = GameObject.Find("Vliegend Hert");
+                beetle.SetActive(false);
             break;
         }
     }
