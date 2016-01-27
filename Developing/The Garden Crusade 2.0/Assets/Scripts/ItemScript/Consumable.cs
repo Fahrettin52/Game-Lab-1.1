@@ -30,7 +30,6 @@ public class Consumeable : Item {
             slot.RemoveItem();
         }
         if (ItemName == "Health Potion" && PlayerScript.Instance.currentHealth < PlayerScript.Instance.maxHealth) {
-            Debug.Log(ItemName);
             PlayerScript.Instance.GetHealth();
             PlayerScript.Instance.HandleHealth();
             slot.RemoveItem();

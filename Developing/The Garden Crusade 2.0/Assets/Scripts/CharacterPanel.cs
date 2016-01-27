@@ -78,7 +78,6 @@ public class CharacterPanel : Inventory {
     }
 
     public override void SaveInventory() {
-        print("Stats Save");
         string content = string.Empty;
 
         for (int i = 0; i < equipmentSlots.Length; i++) {
@@ -92,7 +91,6 @@ public class CharacterPanel : Inventory {
 
     public override void LoadInventory()
     {
-        print("Stats Load");
         foreach (Slot slot in equipmentSlots){
             slot.ClearSlot();
         }

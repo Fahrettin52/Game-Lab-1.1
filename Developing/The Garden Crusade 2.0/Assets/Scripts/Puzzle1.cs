@@ -18,6 +18,7 @@ public class Puzzle1 : MonoBehaviour {
     public int lifeTimeSound;
 
     void Start () {
+        AlphaZero();
         mouseImage = GameObject.Find("PuzzleMouse");
         puzzleCanvas = GameObject.Find("PuzzleActivateCanvas");
 		puzzleCanvas.SetActive(false);
@@ -25,7 +26,6 @@ public class Puzzle1 : MonoBehaviour {
 	
 	void Update () {
         oldSprite = newSprite;
-        AlphaZero ();
     }
 
 	public void ActivatePuzzle () {
@@ -49,6 +49,7 @@ public class Puzzle1 : MonoBehaviour {
         mouseImage.GetComponent<Image>().sprite = newSprite;
         buttons[currentButton].GetComponent<Image>().sprite = null;
         buttons[currentButton].GetComponent<Image>().sprite = oldSprite;
+        AlphaZero();
         PuzzleCompleted();
     }
 
