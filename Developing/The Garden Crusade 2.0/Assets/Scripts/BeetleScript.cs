@@ -44,6 +44,7 @@ public class BeetleScript : MonoBehaviour {
 	}
 
 	void Update () {
+		transform.position = new Vector3(transform.position.x, 342.36f, transform.position.z);
         if (idle == false) {
             Roam();
             EnemyFollow();
