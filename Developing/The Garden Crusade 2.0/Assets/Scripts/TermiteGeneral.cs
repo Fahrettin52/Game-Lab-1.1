@@ -76,7 +76,7 @@ public class TermiteGeneral : MonoBehaviour {
             if (distance < attackRange){
                 animator.SetTrigger("MayAttack");
                 agent.Stop();
-                transform.LookAt(player);
+                transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
                 //GameObject.Find("Player").GetComponent<AudioSource>().PlayOneShot(GetComponent<SoundSource>().playerDamageTaking);
             }
             else {

@@ -73,7 +73,7 @@ public class AnimationWalkTermite : MonoBehaviour {
                 animator.SetBool("TermSolAttackStart", true);
                 animator.SetBool("TermSolWalk", false);
                 agent.Stop();
-                transform.LookAt(player);
+                transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
                 //GameObject.Find("Player").GetComponent<AudioSource>().PlayOneShot(GetComponent<SoundSource>().playerDamageTaking);
             }
             else {
