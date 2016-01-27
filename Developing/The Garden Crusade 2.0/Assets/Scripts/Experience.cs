@@ -10,16 +10,11 @@ public class Experience : MonoBehaviour {
     public int currentLevel;
     public int maxLevel;
     public float expGet;
-    public AudioClip levelUp;
+    public GameObject soundToOpen;
+    public int lifeTimeSound;
 
-	void Start () {
-        
-	}
-	
-
-	void Update () {
+    void Update () {
         expBar.GetComponent<Image>().fillAmount = currentExp;
-        levelUp = GameObject.Find("SoundSource").GetComponent<SoundSource>().levelUp;
 
         if (currentExp >= 1 && currentLevel <maxLevel)
         {
@@ -31,9 +26,12 @@ public class Experience : MonoBehaviour {
             currentExp = 0;
             expGet /= 1.25f;
             GameObject.Find("CharacterBackground").GetComponent<CharacterPanel>().CalculateStats();
-            GetComponent<AudioSource>().PlayOneShot(levelUp);
-           // GetComponent<PlayerScript>().SetStats(0, 0, 0, 0);
+            LevelUpSound();
         }
     }
 
+    public void LevelUpSound() {
+        Instantiate(soundToOpen, transform.position, transform.rotation);
+        Destroy(GameObject.Find("LevelUpSound(Clone)"), lifeTimeSound);
+    }
 }

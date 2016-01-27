@@ -27,6 +27,7 @@ public class ToSceneOne : MonoBehaviour {
     public Image loadingRR;
     public Sprite L;
     public Sprite R;
+    public AudioClip backgroundSound;
 
     public Transform startPosition;
     public GameObject player;
@@ -64,7 +65,9 @@ public class ToSceneOne : MonoBehaviour {
 
             case 1:
                 loadingScreen.SetActive(true);
-            StartCoroutine(Loading());
+                StartCoroutine(Loading());
+                GetComponent<AudioSource>().clip = backgroundSound;
+                GetComponent<AudioSource>().Play();
             break;
 
             case 2:
@@ -184,7 +187,6 @@ public class ToSceneOne : MonoBehaviour {
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
         GameObject.Find("Canvas1").GetComponent<Canvas>().enabled = true;
         player.GetComponent<Quests>().InfoPauseGame();
-
     }
 }
 
