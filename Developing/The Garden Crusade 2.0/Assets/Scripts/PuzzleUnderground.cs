@@ -17,7 +17,9 @@ public class PuzzleUnderground : MonoBehaviour {
 
 	public void PuzzleDone (){
 		if(puzzleCounter == 4){
-			print("Puzzle Done");
+			GameObject.Find("Player").GetComponent<Quests>().currentObjective += 1;
+			GameObject.Find("Player").GetComponent<Quests>().currentObjectiveText += 1;
+			GameObject.Find("Player").GetComponent<Quests>().LoopForBool ();
 		}
 	}
 }
