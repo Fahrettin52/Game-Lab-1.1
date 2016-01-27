@@ -1,0 +1,227 @@
+fileFormatVersion: 2
+guid: f07081c661844964f99f8f914ef1b9cb
+timeCreated: 1453888777
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: connectBone001
+    100002: connectBone002
+    100004: mandible_left
+    100006: mandible_right
+    100008: spiderbody
+    100010: SpiderRig09
+    100012: SpiderRig10
+    100014: SpiderRig11
+    100016: SpiderRig12
+    100018: SpiderRig13
+    100020: SpiderRig14
+    100022: SpiderRig15
+    100024: SpiderRig16
+    100026: SpiderRig17
+    100028: SpiderRig18
+    100030: SpiderRig19
+    100032: SpiderRig20
+    100034: SpiderRig21
+    100036: SpiderRig22
+    100038: SpiderRig23
+    100040: SpiderRig24
+    100042: SpiderRig25
+    100044: SpiderRig26
+    100046: SpiderRig27
+    100048: SpiderRig28
+    100050: SpiderRig29
+    100052: SpiderRig30
+    100054: SpiderRig31
+    100056: SpiderRig32
+    100058: SpiderRig33
+    100060: SpiderRig34
+    100062: SpiderRig35
+    100064: SpiderRig36
+    100066: SpiderRig37
+    100068: SpiderRig38
+    100070: SpiderRig39
+    100072: SpiderRig40
+    100074: SpiderRig41
+    100076: SpiderRig42
+    100078: SpiderRig43
+    100080: SpiderRig44
+    100082: SpiderRig45
+    100084: SpiderRig46
+    100086: SpiderRig47
+    100088: SpiderRig48
+    100090: SpiderRig49
+    100092: SpiderRig50
+    100094: SpiderRig51
+    100096: SpiderRig52
+    100098: SpiderRig53
+    100100: SpiderRig54
+    100102: SpiderRig55
+    100104: SpiderRig56
+    100106: SpiderRig57
+    100108: SpiderRig58
+    100110: SpiderRig59
+    100112: SpiderRig60
+    100114: SpiderRig61
+    100116: SpiderRig62
+    100118: SpiderRig63
+    100120: SpiderRig64
+    100122: SpiderRig65
+    100124: SpiderRig66
+    100126: SpiderRig67
+    100128: SpiderRig68
+    100130: SpiderRig69
+    100132: SpiderRig70
+    100134: SpiderRig71
+    100136: SpiderRig72
+    100138: SpiderRig73
+    100140: SpiderRig74
+    100142: spinnepoten
+    100144: //RootNode
+    400000: connectBone001
+    400002: connectBone002
+    400004: mandible_left
+    400006: mandible_right
+    400008: spiderbody
+    400010: SpiderRig09
+    400012: SpiderRig10
+    400014: SpiderRig11
+    400016: SpiderRig12
+    400018: SpiderRig13
+    400020: SpiderRig14
+    400022: SpiderRig15
+    400024: SpiderRig16
+    400026: SpiderRig17
+    400028: SpiderRig18
+    400030: SpiderRig19
+    400032: SpiderRig20
+    400034: SpiderRig21
+    400036: SpiderRig22
+    400038: SpiderRig23
+    400040: SpiderRig24
+    400042: SpiderRig25
+    400044: SpiderRig26
+    400046: SpiderRig27
+    400048: SpiderRig28
+    400050: SpiderRig29
+    400052: SpiderRig30
+    400054: SpiderRig31
+    400056: SpiderRig32
+    400058: SpiderRig33
+    400060: SpiderRig34
+    400062: SpiderRig35
+    400064: SpiderRig36
+    400066: SpiderRig37
+    400068: SpiderRig38
+    400070: SpiderRig39
+    400072: SpiderRig40
+    400074: SpiderRig41
+    400076: SpiderRig42
+    400078: SpiderRig43
+    400080: SpiderRig44
+    400082: SpiderRig45
+    400084: SpiderRig46
+    400086: SpiderRig47
+    400088: SpiderRig48
+    400090: SpiderRig49
+    400092: SpiderRig50
+    400094: SpiderRig51
+    400096: SpiderRig52
+    400098: SpiderRig53
+    400100: SpiderRig54
+    400102: SpiderRig55
+    400104: SpiderRig56
+    400106: SpiderRig57
+    400108: SpiderRig58
+    400110: SpiderRig59
+    400112: SpiderRig60
+    400114: SpiderRig61
+    400116: SpiderRig62
+    400118: SpiderRig63
+    400120: SpiderRig64
+    400122: SpiderRig65
+    400124: SpiderRig66
+    400126: SpiderRig67
+    400128: SpiderRig68
+    400130: SpiderRig69
+    400132: SpiderRig70
+    400134: SpiderRig71
+    400136: SpiderRig72
+    400138: SpiderRig73
+    400140: SpiderRig74
+    400142: spinnepoten
+    400144: //RootNode
+    4300000: spiderbody
+    4300002: spinnepoten
+    4300004: mandible_left
+    4300006: mandible_right
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: mandible_left
+    13700002: mandible_right
+    13700004: spiderbody
+    13700006: spinnepoten
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
