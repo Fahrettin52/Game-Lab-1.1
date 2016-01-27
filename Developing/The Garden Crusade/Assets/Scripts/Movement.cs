@@ -32,7 +32,7 @@ public class Movement : MonoBehaviour{
         Crouch();
     }
 
-    public void jump(){
+    public void jump() {
         if (Physics.Raycast(transform.position + new Vector3(0, 0, 0), -transform.up, grondDis) ||
            (Physics.Raycast(transform.position + new Vector3(-0.45f, 0, 0), -transform.up, grondDis) ||
            (Physics.Raycast(transform.position + new Vector3(0.45f, 0, 0), -transform.up, grondDis) ||

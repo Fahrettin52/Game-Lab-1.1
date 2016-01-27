@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Movement : MonoBehaviour{
+public class Movement : MonoBehaviour {
 
     public float forwardSpeed;
     public int backwardSpeed;
@@ -42,37 +42,31 @@ public class Movement : MonoBehaviour{
         soundToOpenMove.SetActive(false);
         soundToOpenCrouch = GameObject.Find("PlayerCrouchingSound");
         soundToOpenCrouch.SetActive(false);
-        jump();
     }
 
-    void FixedUpdate (){
+    void FixedUpdate() {
         MoveAndRotate(mayMove);
         Run();
         Crouch();
-         
     }
 
-    void Update () {
-    	if(mayMove == true){
-    		Rotate2D ();
-    	}
+    void Update() {
+        if (mayMove == true) {
+            Rotate2D();
+        }
         MoveSound();
         RunSound();
-        if (Input.GetButtonDown("Jump")){
-            jump();
-        }
-       
+        jump();
     }
 
-    public void jump(){
+    public void jump() {
         if (Physics.Raycast(transform.position + new Vector3(0, 0, 0), -transform.up, grondDis) ||
            (Physics.Raycast(transform.position + new Vector3(-0.45f, 0, 0), -transform.up, grondDis) ||
            (Physics.Raycast(transform.position + new Vector3(0.45f, 0, 0), -transform.up, grondDis) ||
            (Physics.Raycast(transform.position + new Vector3(0, 0, 0.45f), -transform.up, grondDis) ||
-           (Physics.Raycast(transform.position + new Vector3(0, 0, -0.45f), -transform.up, grondDis)))))){
+           (Physics.Raycast(transform.position + new Vector3(0, 0, -0.45f), -transform.up, grondDis)))))) {
             mayMove = true;
-
-        } 
+        }
         if (Physics.Raycast(transform.position + new Vector3(0, 0, 0), -transform.up, grondDisJump) ||
            (Physics.Raycast(transform.position + new Vector3(-0.45f, 0, 0), -transform.up, grondDisJump) ||
            (Physics.Raycast(transform.position + new Vector3(0.45f, 0, 0), -transform.up, grondDisJump) ||
@@ -84,12 +78,11 @@ public class Movement : MonoBehaviour{
             mayJump = false;
         }
         sarah.GetComponent<AnimationSara>().mayJump1(mayJump);
-        if (mayJump == true) {
-            JumpSound();
+        if (Input.GetButtonDown("Jump") && mayJump == true) {
             rb.velocity = new Vector3(0, jumpSpeed, 0);
-
-            }
+            JumpSound();
         }
+    }
 
     void MoveAndRotate(bool mayMove){
 
