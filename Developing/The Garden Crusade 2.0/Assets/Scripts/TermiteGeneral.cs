@@ -15,7 +15,8 @@ public class TermiteGeneral : MonoBehaviour {
         }
     }
 
-	public Transform player;
+    public Animator animator;
+    public Transform player;
 	public float distance;
 	public float range;
 	public float attackRange;
@@ -55,6 +56,15 @@ public class TermiteGeneral : MonoBehaviour {
         if (player != null)
         {
             distance = Vector3.Distance(transform.position, player.position);
+            if (distance < 35) {
+                animator.SetBool("Threat", true);
+                agent.Stop();
+            }
+            else {
+                animator.SetBool("Threat", false);
+                agent.Resume();
+            }
+
             if (distance < range){
                 FollowPlayer();
             }
@@ -64,6 +74,7 @@ public class TermiteGeneral : MonoBehaviour {
             }
 
             if (distance < attackRange){
+                animator.SetTrigger("MayAttack");
                 agent.Stop();
                 transform.LookAt(player);
                 //GameObject.Find("Player").GetComponent<AudioSource>().PlayOneShot(GetComponent<SoundSource>().playerDamageTaking);
@@ -99,6 +110,7 @@ public class TermiteGeneral : MonoBehaviour {
 			GameObject.Find("Player").GetComponent<Quests>().currentObjectiveText += 1;
 			GameObject.Find("Player").GetComponent<Quests>().LoopForBool ();
             GameObject.Find("Player").GetComponent<Experience>().currentExp += GameObject.Find("Player").GetComponent<Experience>().expGet;
+            animator.SetTrigger("MayDie");
             Destroy(gameObject, 1f);
             GameObject.Instantiate(dropRandomItem).transform.position = transform.position;
             mayDrop = false;

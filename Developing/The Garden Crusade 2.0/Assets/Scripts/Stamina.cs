@@ -39,6 +39,7 @@ public class Stamina : MonoBehaviour {
     public Text rageText;
     public GameObject soundToOpen;
     public float lifeTimeSound;
+    public GameObject soundToOpenDamage;
 
 
     void Start() {
@@ -57,8 +58,7 @@ public class Stamina : MonoBehaviour {
             hitCooldown = true;
             ManaDrop();
             StartCoroutine(CoolDownDmg());
-            GetComponent<AudioSource>().PlayOneShot(GameObject.Find("SoundSource").GetComponent<SoundSource>().playerDamageDealing);
-
+            DamageGivesound();
 
             if (Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.forward, out rayHit, rayDistance) ||
                (Physics.Raycast(transform.position + new Vector3(0, 0, 0), transform.forward, out rayHit, rayDistance) ||
@@ -178,6 +178,11 @@ public class Stamina : MonoBehaviour {
     public void RageBarFullSound() {
         Instantiate(soundToOpen, transform.position, transform.rotation);
         Destroy(GameObject.Find("RageBarFullSound(Clone)"), lifeTimeSound);
+    }
+
+    public void DamageGivesound() {
+        Instantiate(soundToOpenDamage, transform.position, transform.rotation);
+        Destroy(GameObject.Find("PlayerDealingDamageSound(Clone)"), lifeTimeSound);
     }
 }
 

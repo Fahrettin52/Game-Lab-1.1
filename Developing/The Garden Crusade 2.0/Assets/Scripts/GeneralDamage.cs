@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GeneralDamage : MonoBehaviour {
 
-public int damageForPlayer;
+    public int damageForPlayer;
     public GameObject sarah;
     public bool hitCooldown;
     public float cooldown;
