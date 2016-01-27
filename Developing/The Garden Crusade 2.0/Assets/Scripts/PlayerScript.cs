@@ -91,7 +91,7 @@ public class PlayerScript : MonoBehaviour {
     }
 
     void Update() {
-    if (Input.GetButtonDown("Escape")) {
+        if (Input.GetButtonDown("Escape") && GameObject.Find("ContinueButton").GetComponent<Image>().enabled == false) {
         PauseGame();
     }
         visualHealth.fillAmount = currentHealth / 100f;

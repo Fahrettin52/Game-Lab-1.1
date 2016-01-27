@@ -28,6 +28,7 @@ public class ToSceneOne : MonoBehaviour {
     public Sprite R;
 
     public Transform startPosition;
+    public GameObject player;
 
     public void Start() {
         StartScreen.SetActive(true);
@@ -42,7 +43,8 @@ public class ToSceneOne : MonoBehaviour {
     public void FixedUpdate() {
         if (loadingBar.fillAmount < 1) {
             loadingBar.fillAmount += 1 * Time.deltaTime / 2.5f;           
-        } 
+        }
+        player = GameObject.Find("Player");
     }
 
     public void OnLevelWasLoaded(int level) {
@@ -175,6 +177,7 @@ public class ToSceneOne : MonoBehaviour {
         loadingScreen.SetActive(false);
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
         GameObject.Find("Canvas1").GetComponent<Canvas>().enabled = true;
+        player.GetComponent<Quests>().InfoPauseGame();
 
     }
 }

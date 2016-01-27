@@ -196,21 +196,27 @@ public class Movement : MonoBehaviour {
     }
 
     public void JumpSound() {
-        Instantiate(soundToOpenJump, transform.position, transform.rotation);
-        Destroy(GameObject.Find("PlayerJumpingSound(Clone)"), lifeTimeSound);
+        if (Time.timeScale == 1f) {
+            Instantiate(soundToOpenJump, transform.position, transform.rotation);
+            Destroy(GameObject.Find("PlayerJumpingSound(Clone)"), lifeTimeSound);
+        }
     }
 
     public void MoveSound() {
-        if (Input.GetButton("Vertical") && soundToOpenMove.activeInHierarchy == false && !Input.GetButton("Run")){
-            walkTime = 0.5f;
-            StartCoroutine(SoundMoveStart());
+        if (Time.timeScale == 1f) {
+            if (Input.GetButton("Vertical") && soundToOpenMove.activeInHierarchy == false && !Input.GetButton("Run") && !Input.GetButton("Crouch")) {
+                walkTime = 0.5f;
+                StartCoroutine(SoundMoveStart());
+            }
         }
     }
 
     public void RunSound() {
-        if (Input.GetButton("Vertical") && soundToOpenMove.activeInHierarchy == false && Input.GetButton("Run")) {
-            walkTime = 0.5f;
-            StartCoroutine(SoundMoveStart());
+        if (Time.timeScale == 1f) {
+            if (Input.GetButton("Vertical") && soundToOpenMove.activeInHierarchy == false && Input.GetButton("Run")) {
+                walkTime = 0.5f;
+                StartCoroutine(SoundMoveStart());
+            }
         }
     }
 
@@ -221,10 +227,12 @@ public class Movement : MonoBehaviour {
         soundToOpenMove.SetActive(false);
     }
 
-    IEnumerator SoundCrouchStart(){
-        soundToOpenCrouch.SetActive(true);
-        soundToOpenCrouch.GetComponent<AudioSource>().Play();
-        yield return new WaitForSeconds(crouchCooldown * Time.deltaTime);
+    IEnumerator SoundCrouchStart() {
+        if (Time.timeScale == 1f) {
+            soundToOpenCrouch.SetActive(true);
+            soundToOpenCrouch.GetComponent<AudioSource>().Play();
+            yield return new WaitForSeconds(crouchCooldown * Time.deltaTime);
+        }
     }
 }
 

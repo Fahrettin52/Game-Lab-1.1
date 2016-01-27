@@ -253,6 +253,7 @@ public class Quests : MonoBehaviour {
 	public void LoopForBool (){
 		for(int i = teller; i < quest1.Length; i ++){
 			if(i == currentObjective){
+                InfoPauseGame();
                 QuestCompleteSound();
 
                     quest1[i] = true;
@@ -262,6 +263,17 @@ public class Quests : MonoBehaviour {
     public void QuestCompleteSound() {
         Instantiate(soundToOpenQuest, transform.position, transform.rotation);
         Destroy(GameObject.Find("QuestCompleteSound(Clone)"), lifeTimeSound);
+    }
+    
+    public void InfoPauseGame() {
+        GameObject.Find("ContinueButton").GetComponent<Image>().enabled = true;
+        GameObject.Find("ContinueText").GetComponent<Text>().enabled = true;
+        Time.timeScale = 0f;
+    }
+    public void UnPauseClick() {
+        GameObject.Find("ContinueButton").GetComponent<Image>().enabled = false;
+        GameObject.Find("ContinueText").GetComponent<Text>().enabled = false;
+        Time.timeScale = 1f;
     }
 }
 
