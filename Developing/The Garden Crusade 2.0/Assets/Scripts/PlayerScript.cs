@@ -254,7 +254,7 @@ public class PlayerScript : MonoBehaviour {
 
         if (other.tag == "Generator" || other.tag == "DroppedItem") {
             PickupSound();
-            int randomType = UnityEngine.Random.Range(0,3);
+            int randomType = UnityEngine.Random.Range(0,2);
 			GameObject tmp = Instantiate(InventoryManager.Instance.itemObject);
 			int randomItem;
             tmp.AddComponent<ItemScript>();

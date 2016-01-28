@@ -18,11 +18,11 @@ public class CharacterPanel : Inventory {
     }
 
     public Slot WeaponSlot{
-        get { return equipmentSlots[9]; }
+        get { return equipmentSlots[0]; }
     }
 
     public Slot OffhandSlot{
-        get { return equipmentSlots[10]; }
+        get { return equipmentSlots[1]; }
     }
 
     void Awake() {
