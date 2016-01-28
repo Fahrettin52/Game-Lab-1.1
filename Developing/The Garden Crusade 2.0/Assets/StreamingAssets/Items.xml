@@ -50,6 +50,54 @@
       <BuyPrice>10</BuyPrice>
     </Item>
     <Item xsi:type="Weapon">
+      <ItemType>OFFHAND</ItemType>
+      <Quality>RARE</Quality>
+      <SpriteNeutral>Weapons/GoudenShieldNormal</SpriteNeutral>
+      <SpriteHighlighted>Weapons/GoudenShieldHighlight</SpriteHighlighted>
+      <MaxSize>1</MaxSize>
+      <ItemName>Golden Shield</ItemName>
+      <Description>Shield Made Of Gold</Description>
+      <Intellect>20</Intellect>
+      <Agility>14</Agility>
+      <Stamina>23</Stamina>
+      <Strength>12</Strength>
+      <AttackSpeed>0</AttackSpeed>
+      <SellPrice>5</SellPrice>
+      <BuyPrice>10</BuyPrice>
+    </Item>
+    <Item xsi:type="Weapon">
+      <ItemType>OFFHAND</ItemType>
+      <Quality>RARE</Quality>
+      <SpriteNeutral>Weapons/WoodShieldNormal</SpriteNeutral>
+      <SpriteHighlighted>Weapons/WoodShieldHighlight</SpriteHighlighted>
+      <MaxSize>1</MaxSize>
+      <ItemName>Wooden Shield</ItemName>
+      <Description>Shield Made Of Tree Bark</Description>
+      <Intellect>7</Intellect>
+      <Agility>3</Agility>
+      <Stamina>11</Stamina>
+      <Strength>4</Strength>
+      <AttackSpeed>0</AttackSpeed>
+      <SellPrice>5</SellPrice>
+      <BuyPrice>10</BuyPrice>
+    </Item>
+    <Item xsi:type="Weapon">
+      <ItemType>OFFHAND</ItemType>
+      <Quality>RARE</Quality>
+      <SpriteNeutral>Weapons/StoneShieldNormal</SpriteNeutral>
+      <SpriteHighlighted>Weapons/StoneShieldHighlight</SpriteHighlighted>
+      <MaxSize>1</MaxSize>
+      <ItemName>Stone Shield</ItemName>
+      <Description>Shield Made Of Stone</Description>
+      <Intellect>23</Intellect>
+      <Agility>9</Agility>
+      <Stamina>33</Stamina>
+      <Strength>45Strength>
+      <AttackSpeed>0</AttackSpeed>
+      <SellPrice>5</SellPrice>
+      <BuyPrice>10</BuyPrice>
+    </Item>
+    <Item xsi:type="Weapon">
       <ItemType>TWOHAND</ItemType>
       <Quality>UNCOMMON</Quality>
       <SpriteNeutral>Weapons/WoodSpearNormal</SpriteNeutral>
