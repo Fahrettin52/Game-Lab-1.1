@@ -47,13 +47,15 @@ public class Stamina : MonoBehaviour {
         hitCooldown = false;
     }
 
-    void Update() {
+    void Update()
+    {
         ManaText();
         ManaRegen();
         ManaColor();
 
 
-        if (Input.GetButtonDown("Fire1") && !hitCooldown && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject() && currentStamina >= 10) {
+        if (Input.GetButtonDown("Fire1") && !hitCooldown && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject() && currentStamina >= 10)
+        {
             StartCoroutine(FightToIdle());
             hitCooldown = true;
             ManaDrop();
@@ -62,19 +64,23 @@ public class Stamina : MonoBehaviour {
 
             if (Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.forward, out rayHit, rayDistance) ||
                (Physics.Raycast(transform.position + new Vector3(0, 0, 0), transform.forward, out rayHit, rayDistance) ||
-               (Physics.Raycast(transform.position + new Vector3(0, 2.6f, 0), transform.forward, out rayHit, rayDistance)))) {
+               (Physics.Raycast(transform.position + new Vector3(0, 2.6f, 0), transform.forward, out rayHit, rayDistance))))
+            {
                 Debug.DrawRay(transform.position + new Vector3(0, 1.3f, 0), transform.forward, Color.green, rayDistance);
-                if (rayHit.transform.tag == "Enemy") {
+                if (rayHit.transform.tag == "Enemy"){
                     rayHit.transform.GetComponent<AnimationTermite>().DropDead(damagePunch);
                 }
-                 if (rayHit.transform.tag == "Generaal") {
+                if (rayHit.transform.tag == "Generaal"){
                     rayHit.transform.GetComponent<TermiteGeneral>().DropDead(damagePunch);
                 }
-                 if (rayHit.transform.tag == "Vliegend Hert") {
+                if (rayHit.transform.tag == "Vliegend Hert"){
                     rayHit.transform.GetComponent<BeetleScript>().DropDead(damagePunch);
                 }
-                if (rayHit.transform.tag == "EnemyWalk") {
+                if (rayHit.transform.tag == "EnemyWalk"){
                     rayHit.transform.GetComponent<AnimationWalkTermite>().DropDead(damagePunch);
+                }
+                if (rayHit.transform.tag == "ZwarteWeduwe"){
+                    rayHit.transform.GetComponent<ZwarteWeduwe>().DropDead(damagePunch);
                 }
             }
         }
