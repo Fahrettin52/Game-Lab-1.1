@@ -77,12 +77,19 @@ public class ToSceneOne : MonoBehaviour {
             break;
 
             case 3:
-                print("case 3");
-                beetle = GameObject.Find("Vliegend Hert");
-                player.transform.position = spawn.transform.position;
+               print("case 3");
+               player.transform.position = spawn.transform.position;
                 spawn = GameObject.Find("SarahSpawn");
-                beetle.SetActive(false);
+                player.GetComponent<Movement>().secondMode = true;
+                player.GetComponent<TwoDimensionalMode>().mainCam.SetActive(false);
+                player.GetComponent<SummoningInsects>().fireFly2.SetActive(false);
+                player.GetComponent<SummoningInsects>().enabled = false;
+            break;
 
+            case 4: 
+                print("case 4");
+                 beetle = GameObject.Find("Vliegend Hert");
+                beetle.SetActive(false);
             break;
         }
     }

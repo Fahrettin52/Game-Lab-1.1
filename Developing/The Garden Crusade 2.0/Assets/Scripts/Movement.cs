@@ -116,14 +116,14 @@ public class Movement : MonoBehaviour {
                 //sarah.GetComponent<AnimationSara>().animator.SetBool("cancelRun", true);
             }
 
-            if (Input.GetAxis("Strave") < 0) {
+            if (Input.GetAxis("Strave") < 0  && secondMode == false) {
                 sarah.GetComponent<AnimationSara>().Strave(Input.GetAxis("Strave"));
                 if (!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), -transform.right, rayDistance)) {
                     transform.Translate(Vector3.right * forwardSpeed * Input.GetAxis("Strave") * Time.deltaTime);
                 }
             }
 
-            if (Input.GetAxis("Strave") > 0) {
+            if (Input.GetAxis("Strave") > 0 && secondMode == false) {
                 sarah.GetComponent<AnimationSara>().Strave(Input.GetAxis("Strave"));
                 if (!Physics.Raycast(transform.position + new Vector3(0, 1.3f, 0), transform.right, rayDistance)) {
                     transform.Translate(Vector3.right * forwardSpeed * Input.GetAxis("Strave") * Time.deltaTime);

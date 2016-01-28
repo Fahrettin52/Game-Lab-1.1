@@ -19,7 +19,10 @@ public class HPZwarteWeduwe : MonoBehaviour
 
     void Update()
     {
-        mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
+        if(GameObject.Find("Player").GetComponent<Movement>().secondMode == false){
+         mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
+        }
+        
         player = GameObject.Find("Player").GetComponent<Transform>();
         if (player != null)
         {
