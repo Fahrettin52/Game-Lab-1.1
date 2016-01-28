@@ -214,9 +214,9 @@ public class Quests : MonoBehaviour {
             boomstronkLevel.SetActive(true);
 		}
 
-		if(trigger.transform.tag == "Start Underground" && quest1[12] == true){
+		/*if(trigger.transform.tag == "Start Underground" && quest1[12] == true){
 			undergroundLevel.SetActive(true);
-		}
+		}*/
 
 		if(trigger.transform.tag == "StartSchuur" && quest1[18] == true){
 			schuurLevel.SetActive(true);
