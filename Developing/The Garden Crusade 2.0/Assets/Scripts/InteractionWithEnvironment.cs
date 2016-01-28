@@ -8,7 +8,6 @@ public class InteractionWithEnvironment : MonoBehaviour
     public RaycastHit rayHit;
     public int interactInt;
     public bool weduweDood;
-    public GameObject endCanvas;
 
     void Start()
     {
@@ -18,7 +17,6 @@ public class InteractionWithEnvironment : MonoBehaviour
     void Update()
     {
         ShootRay();
-        endCanvas = GameObject.Find("EndGameScreen");
     }
 
     public void Interaction(int CountInteract)
@@ -108,7 +106,7 @@ public class InteractionWithEnvironment : MonoBehaviour
                 {
                     if (Input.GetButtonDown("Use"))
                     {
-                        endCanvas.SetActive(true);
+                        GameObject.Find("_Manager").GetComponent<ToSceneOne>().endCanvas.SetActive(true);
                     }
                 }
             }

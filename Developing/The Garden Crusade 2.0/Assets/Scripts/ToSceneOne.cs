@@ -31,6 +31,7 @@ public class ToSceneOne : MonoBehaviour {
     public Transform startPosition;
     public GameObject player;
     public GameObject spawn;
+    public GameObject endCanvas;
 
     public void Start() {
         StartScreen.SetActive(true);
@@ -59,7 +60,9 @@ public class ToSceneOne : MonoBehaviour {
             ExitToMenu.SetActive(false);
             StartScreen.SetActive(true);
             deadScreen.SetActive(false);
+            endCanvas.SetActive(false);
             GetComponent<AudioSource>().enabled = true;
+            
                 break;
 
             case 1:
@@ -67,8 +70,8 @@ public class ToSceneOne : MonoBehaviour {
                 loadingScreen.SetActive(true);
                 StartCoroutine(Loading());
                 GetComponent<AudioSource>().clip = backgroundSound;
-                GetComponent<AudioSource>().Play();
-            break;
+                endCanvas.SetActive(false);
+                break;
 
             case 2:
                 print("case 2");
