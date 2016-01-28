@@ -34,6 +34,7 @@ public class ZwarteWeduwe : MonoBehaviour
     public bool idle;
     public bool mayDie = false;
     private bool mayDrop = true;
+    public MovieTexture movie;
 
     void Start()
     {
@@ -128,6 +129,10 @@ public class ZwarteWeduwe : MonoBehaviour
             GameObject.Instantiate(dropRandomItem).transform.position = transform.position;
             mayDrop = false;
         }
+    }
+    public void Play()
+    {
+        movie.Play();
     }
 }
 
