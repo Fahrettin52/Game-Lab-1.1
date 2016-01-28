@@ -63,6 +63,8 @@ public class PlayerScript : MonoBehaviour {
 	public Image visualHealth;
 	public float cooldown;
 	public bool onCooldown;
+    public Text shards;
+    public int currentShards;
 
     public GameObject soundToOpenPickUp;
 
@@ -227,9 +229,16 @@ public class PlayerScript : MonoBehaviour {
     }
 
         if (other.gameObject.tag == "mayThrow") {
-        GetComponent<ToThrow>().throwInfo.SetActive(true);
-        GetComponent<ToThrow>().throwInfo.GetComponent<Text>().text = GetComponent<ToThrow>().changeText[0];
+          GetComponent<ToThrow>().throwInfo.SetActive(true);
+          GetComponent<ToThrow>().throwInfo.GetComponent<Text>().text = GetComponent<ToThrow>().changeText[0];
         }
+
+        if (other.gameObject.tag == "Shards") {
+            currentShards++;
+            Destroy(other.transform.gameObject);
+            shards.GetComponent<Text>().text = "Shards: " + currentShards.ToString("F0");
+        }
+
         if (other.gameObject.name == "ToBoomstronk" && GetComponent<Quests>().quest1[6] == true)
         {
             InventoryManager.Instance.Save();
