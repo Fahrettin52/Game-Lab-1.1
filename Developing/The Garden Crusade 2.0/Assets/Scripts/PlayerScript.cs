@@ -208,6 +208,7 @@ public class PlayerScript : MonoBehaviour {
             GetComponent<CastingBar>().skillActivate[skillCounter] = true;
             scrollCounter++;
             skillCounter++;
+
         }
 
         if (other.tag == "Material"){
@@ -348,9 +349,11 @@ public class PlayerScript : MonoBehaviour {
                 break;
             case 2:
                 skills[1].enabled = true;
+                Destroy(GameObject.Find("ScrollTrippleAttack"));
                 break;
             case 3:
                 skills[2].enabled = true;
+                Destroy(GameObject.Find("ScrollSpinning"));
                 break;
         }
     }

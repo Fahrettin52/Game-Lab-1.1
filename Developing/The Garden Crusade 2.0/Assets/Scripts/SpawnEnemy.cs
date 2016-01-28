@@ -16,6 +16,7 @@ public class SpawnEnemy : MonoBehaviour {
     public int spawned;
     public int totalSpawned;
     public int totalMax;
+    public GameObject trippleAttackScroll;
     //public GameObject walkTo;
     //public Vector3 resetWalkTo;
 
@@ -51,4 +52,8 @@ public class SpawnEnemy : MonoBehaviour {
             spawned = 0;
         }
 	}
+
+    public void SpawnTrippleAttack() {
+        trippleAttackScroll.SetActive(true);
+    }
 }
