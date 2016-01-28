@@ -284,6 +284,10 @@ public class PlayerScript : MonoBehaviour {
 			chest = other.GetComponent<InventoryLink>().linkedInventory;  
 		}
         Destroy(GameObject.FindGameObjectWithTag("DroppedItem"));
+
+        if(other.transform.tag == "Dead"){
+        	currentHealth = 0;
+        }
     }
 
 	private void OnTriggerExit (Collider other) {
