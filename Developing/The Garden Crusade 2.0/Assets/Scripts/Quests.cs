@@ -170,13 +170,13 @@ public class Quests : MonoBehaviour {
 
 		Vector3 fwd = transform.TransformDirection(Vector3.forward);
 		if(Physics.Raycast(transform.position, fwd, out rayHit, rayDis)){
-			if(rayHit.transform.tag == "Shrink ray" && quest1[19] == true){
+			if(rayHit.transform.tag == "Shrink ray" && quest1[20] == true || quest1[21] == true || quest1[22] == true || quest1[23] == true || quest1[24] == true){
 				popupText.SetActive(true);
 				if(Input.GetButtonDown("Use")){
 					currentObjective += 1;
 					currentObjectiveText += 1;
 					shrinkRayActivate += 1;
-					quest1[19] = false;
+					quest1[20] = false;
 					LoopForBool ();
 					if(shrinkRayActivate == 3){
 						Destroy(rayHit.transform.gameObject);
@@ -186,6 +186,16 @@ public class Quests : MonoBehaviour {
 		}
 		else{
 			popupText.SetActive(false);
+		}
+
+		if(quest1[20] == true){
+			if(energyShards == 3){
+				quest1[21] = true;
+				currentObjective += 1;
+				currentObjectiveText += 1;
+				LoopForBool ();
+				energyShards = 4;
+			}
 		}
 	}
 
@@ -232,15 +242,10 @@ public class Quests : MonoBehaviour {
 		//	Destroy(trigger.gameObject);
 		//}
 
-		if(trigger.transform.tag == "Energy Shard" && quest1[20] == true){
+		if(trigger.transform.tag == "Shards"){
 			energyShards += 1;
 			Destroy(trigger.gameObject);
-			if(energyShards == 3){
-				quest1[19] = true;
-				currentObjective += 1;
-				currentObjectiveText += 1;
-				LoopForBool ();
-			}
+			
 		}
 
 		if(trigger.transform.tag == "Black Widow"){

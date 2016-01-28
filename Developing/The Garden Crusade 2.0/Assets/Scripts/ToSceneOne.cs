@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -81,6 +81,7 @@ public class ToSceneOne : MonoBehaviour {
                player.transform.position = spawn.transform.position;
                 spawn = GameObject.Find("SarahSpawn");
                 player.GetComponent<Movement>().secondMode = true;
+                player.GetComponent<Movement>().jumpSpeed = 10f;
                 player.GetComponent<TwoDimensionalMode>().mainCam.SetActive(false);
                 player.GetComponent<SummoningInsects>().fireFly2.SetActive(false);
                 player.GetComponent<SummoningInsects>().enabled = false;
@@ -88,7 +89,7 @@ public class ToSceneOne : MonoBehaviour {
 
             case 4: 
                 print("case 4");
-                 beetle = GameObject.Find("Vliegend Hert");
+                beetle = GameObject.Find("Vliegend Hert");
                 beetle.SetActive(false);
             break;
         }
