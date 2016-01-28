@@ -16,6 +16,8 @@ public class Puzzle1 : MonoBehaviour {
     public Animator sarahAnimator;
     public GameObject soundToOpenPuzzle;
     public int lifeTimeSound;
+    public Texture puzzleSwap;
+    public GameObject scrollHeal;
 
     void Start () {
         AlphaZero();
@@ -90,6 +92,8 @@ public class Puzzle1 : MonoBehaviour {
             GetComponent<Quests>().popupText.SetActive(false);
             enterTree.SetActive(true);
             PuzzleSound();
+            GameObject.Find("Puzzle").GetComponent<Renderer>().material.mainTexture = puzzleSwap;
+            scrollHeal.SetActive(true);
         }
     }
     public void PuzzleSound(){

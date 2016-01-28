@@ -9,7 +9,6 @@ public class ToSceneOne : MonoBehaviour {
     public GameObject StartScreen;
     public GameObject OptionScreen;
     public GameObject CreditsScreen;
-    public GameObject QuestScreen;
     public GameObject KeybindScreen;
     public GameObject MenuButton;
     public GameObject ExitToMenu;
@@ -36,7 +35,6 @@ public class ToSceneOne : MonoBehaviour {
         StartScreen.SetActive(true);
         OptionScreen.SetActive(false);
         CreditsScreen.SetActive(false);
-        QuestScreen.SetActive(false);
         KeybindScreen.SetActive(false);
         ActivateCanvas = false;
         loadingScreen.SetActive(false);
@@ -95,7 +93,6 @@ public class ToSceneOne : MonoBehaviour {
         StartScreen.SetActive(false);
         OptionScreen.SetActive(true);
         CreditsScreen.SetActive(false);
-        QuestScreen.SetActive(false);
         KeybindScreen.SetActive(false);
         ActivateCanvas = true;
     }
@@ -105,7 +102,6 @@ public class ToSceneOne : MonoBehaviour {
             StartScreen.SetActive(true);
             OptionScreen.SetActive(false);
             CreditsScreen.SetActive(false);
-            QuestScreen.SetActive(false);
             KeybindScreen.SetActive(false);
             ActivateCanvas = false;
             loadingScreen.SetActive(false);
@@ -114,7 +110,6 @@ public class ToSceneOne : MonoBehaviour {
             StartScreen.SetActive(false);
             OptionScreen.SetActive(false);
             CreditsScreen.SetActive(false);
-            QuestScreen.SetActive(false);
             KeybindScreen.SetActive(false);
             ActivateCanvas = false;
             if (Time.timeScale == 1.0F) {
@@ -142,7 +137,6 @@ public class ToSceneOne : MonoBehaviour {
     }
     public void OpenQuest() {
         OptionScreen.SetActive(false);
-        QuestScreen.SetActive(true);
         if (ActivateCanvas) {
             ActivateCanvas = true;
         } else {

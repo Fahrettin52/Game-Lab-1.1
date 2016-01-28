@@ -29,7 +29,7 @@ public class Quests : MonoBehaviour {
     public int teller;
     public GameObject questText;
     public GameObject puzzleHelper;
-    public Texture puzzleSwap;
+    //public Texture puzzleSwap;
 
     public RaycastHit rayHit;
 	public float rayDis;
@@ -86,9 +86,9 @@ public class Quests : MonoBehaviour {
 					currentObjective += 1;
 					currentObjectiveText += 1;
 					LoopForBool ();
-					GameObject.Find("Puzzle").GetComponent<Renderer>().material.mainTexture = puzzleSwap;
+                    //GameObject.Find("Puzzle").GetComponent<Renderer>().material.mainTexture = puzzleSwap;
+                    //scrollHeal.SetActive(true);
                     quest1[5] = false;
-                    scrollHeal.SetActive(true);
                 }
 			}
 			else{
@@ -254,7 +254,7 @@ public class Quests : MonoBehaviour {
 		for(int i = teller; i < quest1.Length; i ++){
 			if(i == currentObjective){
                 quest1[i] = true;
-                if ( currentObjective < 6) {
+                if ( currentObjective < 8) {
                     QuestCompleteSound();
                     InfoPauseGame();
                 }
