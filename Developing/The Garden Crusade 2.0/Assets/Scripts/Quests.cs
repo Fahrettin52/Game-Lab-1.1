@@ -228,9 +228,9 @@ public class Quests : MonoBehaviour {
 			undergroundLevel.SetActive(true);
 		}*/
 
-		if(trigger.transform.tag == "StartSchuur" && quest1[18] == true){
+		/*if(trigger.transform.tag == "StartSchuur" && quest1[18] == true){
 			schuurLevel.SetActive(true);
-		}
+		}*/
 
 		if(trigger.transform.tag == "Exit City" && quest1[11] == true){
 			Application.LoadLevel("Level 2");
