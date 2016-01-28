@@ -254,37 +254,65 @@ public class PlayerScript : MonoBehaviour {
 
         if (other.tag == "Generator" || other.tag == "DroppedItem") {
             PickupSound();
-            int randomType = UnityEngine.Random.Range(0,2);
+            int randomType = 0;
 			GameObject tmp = Instantiate(InventoryManager.Instance.itemObject);
 			int randomItem;
             tmp.AddComponent<ItemScript>();
             ItemScript newitem = tmp.GetComponent<ItemScript>();
 
  
-            switch (randomType){
+            switch (randomType){					
 			case 0:
-					randomItem = UnityEngine.Random.Range(0, InventoryManager.Instance.ItemContainer.Consumable.Count);
-                    newitem.Item = InventoryManager.Instance.ItemContainer.Consumable[randomItem];
-					break;
-					
-			case 1:
 					randomItem = UnityEngine.Random.Range(0, InventoryManager.Instance.ItemContainer.Weapons.Count);
                     newitem.Item = InventoryManager.Instance.ItemContainer.Weapons[randomItem];
-					break;
-
-			case 2:
-					randomItem = UnityEngine.Random.Range(0, InventoryManager.Instance.ItemContainer.Equipment.Count);
-                    newitem.Item = InventoryManager.Instance.ItemContainer.Equipment[randomItem];
 					break;
 			}
             inventory.AddItem(newitem);
             Destroy(tmp);
+            Destroy(GameObject.FindGameObjectWithTag("DroppedItem"));
         }
-		if (other.tag == "Chest" || other.tag == "Vendor") {
+
+        if (other.tag == "HoutenZwaard") {
+            PickupSound();
+            int randomType = 0;
+            GameObject tmp = Instantiate(InventoryManager.Instance.itemObject);
+            int randomItem;
+            tmp.AddComponent<ItemScript>();
+            ItemScript newitem = tmp.GetComponent<ItemScript>();
+
+
+            switch (randomType) {
+                case 0:
+                    randomItem = 1;
+                    newitem.Item = InventoryManager.Instance.ItemContainer.Weapons[randomItem];
+                    break;
+            }
+            inventory.AddItem(newitem);
+            Destroy(tmp);
+            Destroy(GameObject.FindGameObjectWithTag("HoutenZwaard"));
+        }
+        if (other.tag == "Knuffel") {
+            PickupSound();
+            int randomType = 0;
+            GameObject tmp = Instantiate(InventoryManager.Instance.itemObject);
+            int randomItem;
+            tmp.AddComponent<ItemScript>();
+            ItemScript newitem = tmp.GetComponent<ItemScript>();
+
+
+            switch (randomType) {
+                case 0:
+                    randomItem = 2;
+                    newitem.Item = InventoryManager.Instance.ItemContainer.Weapons[randomItem];
+                    break;
+            }
+            inventory.AddItem(newitem);
+            Destroy(tmp);
+            Destroy(GameObject.FindGameObjectWithTag("Knuffel"));
+        }
+        if (other.tag == "Chest" || other.tag == "Vendor") {
 			chest = other.GetComponent<InventoryLink>().linkedInventory;  
 		}
-        Destroy(GameObject.FindGameObjectWithTag("DroppedItem"));
-
         if(other.transform.tag == "Dead"){
         	currentHealth = 0;
         }

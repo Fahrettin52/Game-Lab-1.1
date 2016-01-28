@@ -118,6 +118,14 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
                 PlayerScript.Instance.inventory.AddItem(items.Pop());
                 ClearSlot();
                 CharacterPanel.Instance.CalculateStats();
+                GameObject.Find("Houten Zwaard").GetComponent<MeshRenderer>().enabled = false;
+            }
+            if (tag == "1") {
+                PlayerScript.Instance.inventory.AddItem(items.Pop());
+                ClearSlot();
+                CharacterPanel.Instance.CalculateStats();
+                GameObject.Find("Houten Zwaard").GetComponent<MeshRenderer>().enabled = false;
+                GameObject.Find("BunnyMesh").GetComponent<SkinnedMeshRenderer>().enabled = false;
             }
         }
 
@@ -134,11 +142,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
             else if (clickAble) {
                 items.Peek().Use(this);
                 stackTxt.text = items.Count > 1 ? items.Count.ToString() : string.Empty;
-
-                //if (IsEmpty) {
-                //    ChangeSprite(slotEmpty, slotHiglight);
-                //    transform.parent.GetComponent<Inventory>().EmptySlots++;
-                //}
             }
         }
 	}
@@ -230,12 +233,14 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
             return true;
         }
         if (fromType == ItemType.MAINHAND && to.canContain == ItemType.GENERICWEAPON) {
+            GameObject.Find("Houten Zwaard").GetComponent<MeshRenderer>().enabled = true;
             return true;
         }
         if (fromType == ItemType.TWOHAND && to.canContain == ItemType.GENERICWEAPON && CharacterPanel.Instance.OffhandSlot.IsEmpty) {
             return true;
         }
         if (fromType == ItemType.OFFHAND && (to.IsEmpty || to.CurrentItem.Item.ItemType == ItemType.OFFHAND ) && (CharacterPanel.Instance.WeaponSlot.IsEmpty || CharacterPanel.Instance.WeaponSlot.CurrentItem.Item.ItemType != ItemType.TWOHAND)) {
+            GameObject.Find("BunnyMesh").GetComponent<SkinnedMeshRenderer>().enabled = true;
             return true;
         }
         return false;
