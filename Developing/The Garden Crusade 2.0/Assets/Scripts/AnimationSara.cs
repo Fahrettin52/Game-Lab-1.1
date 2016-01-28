@@ -19,7 +19,7 @@ public class AnimationSara : MonoBehaviour
 
     public void SaraPunch()
     {
-        animator.SetTrigger("Punch");
+        animator.SetTrigger("SwordAttack");
         animator.SetBool("idleCombat", true);
     }
 
