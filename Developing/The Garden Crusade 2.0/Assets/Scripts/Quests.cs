@@ -153,19 +153,12 @@ public class Quests : MonoBehaviour {
 			popupText.SetActive(false);
 		}
 
-
-        if (quest1[12] == true) {
-            Application.LoadLevel("Level 2");
-            print(quest1[12]);
-        }
-
         if (Application.loadedLevel == 4 && levelLoaded == false) {
             grotlevelPos = GameObject.Find("Player Position").GetComponent<Transform>();
             transform.position = grotlevelPos.position;
             GetComponent<SummoningInsects>().enabled = true;
             levelLoaded = true;
             print(levelLoaded);
-            quest1[12] = false;
         }
 
         if(Application.loadedLevel != 4){
@@ -227,6 +220,11 @@ public class Quests : MonoBehaviour {
 
 		if(trigger.transform.tag == "StartSchuur" && quest1[18] == true){
 			schuurLevel.SetActive(true);
+		}
+
+		if(trigger.transform.tag == "Exit City" && quest1[11] == true){
+			Application.LoadLevel("Level 2");
+			quest1[11] = false;
 		}
 
 		//if(trigger.transform.tag == "Enemy"){
