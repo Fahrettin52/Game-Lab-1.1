@@ -21,7 +21,7 @@ public class TwoDimensionalMode : MonoBehaviour {
 	}
 	
 	void Update () {
-
+        twoDCam = GameObject.Find("2DCamera");
 
 	}
 

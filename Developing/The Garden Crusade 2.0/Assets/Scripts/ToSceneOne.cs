@@ -30,6 +30,7 @@ public class ToSceneOne : MonoBehaviour {
 
     public Transform startPosition;
     public GameObject player;
+    public GameObject spawn;
 
     public void Start() {
         StartScreen.SetActive(true);
@@ -62,6 +63,7 @@ public class ToSceneOne : MonoBehaviour {
                 break;
 
             case 1:
+                print("case 1");
                 loadingScreen.SetActive(true);
                 StartCoroutine(Loading());
                 GetComponent<AudioSource>().clip = backgroundSound;
@@ -69,13 +71,18 @@ public class ToSceneOne : MonoBehaviour {
             break;
 
             case 2:
+                print("case 2");
                 general = GameObject.Find("Termiet Generaal");
                 general.SetActive(false);
             break;
 
             case 3:
+                print("case 3");
                 beetle = GameObject.Find("Vliegend Hert");
+                player.transform.position = spawn.transform.position;
+                spawn = GameObject.Find("SarahSpawn");
                 beetle.SetActive(false);
+
             break;
         }
     }

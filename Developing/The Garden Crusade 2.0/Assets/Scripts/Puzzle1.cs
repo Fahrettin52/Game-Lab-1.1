@@ -90,9 +90,9 @@ public class Puzzle1 : MonoBehaviour {
             GetComponent<Quests>().popupText.SetActive(true);
             GetComponent<Quests>().popupText.SetActive(false);
             enterTree.SetActive(true);
-            PuzzleSound();
             GameObject.Find("Puzzle").GetComponent<Renderer>().material.mainTexture = puzzleSwap;
             scrollHeal.SetActive(true);
+            PuzzleSound();
         }
     }
     public void PuzzleSound(){
