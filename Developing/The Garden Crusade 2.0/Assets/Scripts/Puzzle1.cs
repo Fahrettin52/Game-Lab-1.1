@@ -15,7 +15,6 @@ public class Puzzle1 : MonoBehaviour {
     public AudioClip puzzleDone;
     public Animator sarahAnimator;
     public GameObject soundToOpenPuzzle;
-    public int lifeTimeSound;
     public Texture puzzleSwap;
     public GameObject scrollHeal;
 
@@ -98,7 +97,6 @@ public class Puzzle1 : MonoBehaviour {
     }
     public void PuzzleSound(){
         Instantiate(soundToOpenPuzzle, transform.position, transform.rotation);
-        Destroy(GameObject.Find("PuzzleCompleteSound(Clone)"), lifeTimeSound);
     }
 }
 

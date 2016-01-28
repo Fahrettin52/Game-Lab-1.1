@@ -28,7 +28,6 @@ public class Movement : MonoBehaviour {
     public GameObject soundToOpenCrouch;
     public GameObject soundToOpenJump;
     public GameObject soundToOpenMove;
-    public float lifeTimeSound;
     public bool maySoundMove;
     public int walkCooldown;
     public int runCooldown;
@@ -198,7 +197,6 @@ public class Movement : MonoBehaviour {
     public void JumpSound() {
         if (Time.timeScale == 1f) {
             Instantiate(soundToOpenJump, transform.position, transform.rotation);
-            Destroy(GameObject.Find("PlayerJumpingSound(Clone)"), lifeTimeSound);
         }
     }
 

@@ -65,7 +65,6 @@ public class PlayerScript : MonoBehaviour {
 	public bool onCooldown;
 
     public GameObject soundToOpenPickUp;
-    public int lifeTimeSound;
 
     void Start (){
         Gold = 0;
@@ -326,7 +325,6 @@ public class PlayerScript : MonoBehaviour {
     public void PickupSound()
     {
         Instantiate(soundToOpenPickUp, transform.position, transform.rotation);
-        Destroy(GameObject.Find("ItemPickupSound(Clone)"), lifeTimeSound);
     }
 
     public void ActiveSkill(int counter) {

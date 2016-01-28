@@ -11,7 +11,6 @@ public class InventoryLink : MonoBehaviour {
     private List<Stack<ItemScript>> allSlots;
 
     public GameObject soundToOpenShop;
-    public int lifeTimeSound;
 
     void Start() {
         linkedInventory = GameObject.Find("VendorBackground").GetComponent<VendorInventory>();
@@ -31,7 +30,6 @@ public class InventoryLink : MonoBehaviour {
     public void ShopSound()
     {
         Instantiate(soundToOpenShop, transform.position, transform.rotation);
-        Destroy(GameObject.Find("OpenShopSound(Clone)"), lifeTimeSound);
     }
 }
  

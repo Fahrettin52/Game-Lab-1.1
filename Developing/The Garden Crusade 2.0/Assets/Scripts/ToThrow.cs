@@ -17,7 +17,6 @@ public class ToThrow : MonoBehaviour {
     public int maxHold;
     public Animator sarah;
     public GameObject soundToOpen;
-    public float lifeTimeSound;
 
     void Start() {
         //throwInfo.SetActive(false);
@@ -67,7 +66,6 @@ public class ToThrow : MonoBehaviour {
     }
     public void ThrowRockSound() {
         Instantiate(soundToOpen, transform.position, transform.rotation);
-        Destroy(GameObject.Find("ThrowingSound(Clone)"), lifeTimeSound);
     }
 }
 

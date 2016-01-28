@@ -38,7 +38,6 @@ public class Stamina : MonoBehaviour {
     public Image rageFillAmount;
     public Text rageText;
     public GameObject soundToOpen;
-    public float lifeTimeSound;
     public GameObject soundToOpenDamage;
 
 
@@ -52,6 +51,7 @@ public class Stamina : MonoBehaviour {
         ManaText();
         ManaRegen();
         ManaColor();
+
 
         if (Input.GetButtonDown("Fire1") && !hitCooldown && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject() && currentStamina >= 10) {
             StartCoroutine(FightToIdle());
@@ -177,12 +177,10 @@ public class Stamina : MonoBehaviour {
     }
     public void RageBarFullSound() {
         Instantiate(soundToOpen, transform.position, transform.rotation);
-        Destroy(GameObject.Find("RageBarFullSound(Clone)"), lifeTimeSound);
     }
 
     public void DamageGivesound() {
         Instantiate(soundToOpenDamage, transform.position, transform.rotation);
-        Destroy(GameObject.Find("PlayerDealingDamageSound(Clone)"), lifeTimeSound);
     }
 }
 

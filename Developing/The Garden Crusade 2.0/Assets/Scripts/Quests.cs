@@ -36,7 +36,6 @@ public class Quests : MonoBehaviour {
     public GameObject scrollHeal;
     public Transform grotlevelPos;
     public GameObject soundToOpenQuest;
-    public int lifeTimeSound;
 
     void Awake () {
 
@@ -263,7 +262,6 @@ public class Quests : MonoBehaviour {
 	}
     public void QuestCompleteSound() {
         Instantiate(soundToOpenQuest, transform.position, transform.rotation);
-        Destroy(GameObject.Find("QuestCompleteSound(Clone)"), lifeTimeSound);
     }
     
     public void InfoPauseGame() {

@@ -11,7 +11,6 @@ public class Experience : MonoBehaviour {
     public int maxLevel;
     public float expGet;
     public GameObject soundToOpen;
-    public int lifeTimeSound;
 
     void Update () {
         expBar.GetComponent<Image>().fillAmount = currentExp;
@@ -32,6 +31,5 @@ public class Experience : MonoBehaviour {
 
     public void LevelUpSound() {
         Instantiate(soundToOpen, transform.position, transform.rotation);
-        Destroy(GameObject.Find("LevelUpSound(Clone)"), lifeTimeSound);
     }
 }

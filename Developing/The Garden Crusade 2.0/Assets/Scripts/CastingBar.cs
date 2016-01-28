@@ -37,7 +37,6 @@ public class CastingBar : MonoBehaviour {
     public GameObject abilitySound1;
     public GameObject abilitySound2;
     public GameObject abilitySound3;
-    public float lifeTimeSound;
     public bool[] skillActivate;
     
 
@@ -211,14 +210,11 @@ public class CastingBar : MonoBehaviour {
 
     public void Ability1Sound() {
         Instantiate(abilitySound1, transform.position, transform.rotation);
-        Destroy(GameObject.Find("Ability1Sound(Clone)"), lifeTimeSound);
     }
     public void Ability2Sound() {
         Instantiate(abilitySound2, transform.position, transform.rotation);
-        Destroy(GameObject.Find("Ability2Sound(Clone)"), lifeTimeSound);
     }
     public void Ability3Sound() {
         Instantiate(abilitySound3, transform.position, transform.rotation);
-        Destroy(GameObject.Find("Ability3Sound(Clone)"), lifeTimeSound);
     }
 }

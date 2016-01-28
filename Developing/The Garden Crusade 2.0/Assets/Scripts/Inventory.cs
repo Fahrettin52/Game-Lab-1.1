@@ -30,7 +30,6 @@ public class Inventory : MonoBehaviour {
 	private bool fadingIn;
 	private bool fadingOut;
     public GameObject soundToOpen;
-    public float lifeTimeSound;
 
     public bool FadingOut {
         get { return fadingOut; }
@@ -534,7 +533,6 @@ public class Inventory : MonoBehaviour {
 
     public void OpenInventorySound() {
         Instantiate(soundToOpen, transform.position, transform.rotation);
-        Destroy(GameObject.Find("OpenInventorySound(Clone)"), lifeTimeSound);
     }
 }
 
