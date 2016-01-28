@@ -103,6 +103,7 @@ public class TermiteGeneral : MonoBehaviour {
         }
         if (livesEnemy == 0) {
             mayDie = true;
+            spinning.SetActive(true);
         }
         if (livesEnemy == 0 && mayDie == true && mayDrop == true){
             mayDie = false;  
@@ -115,7 +116,6 @@ public class TermiteGeneral : MonoBehaviour {
             Destroy(gameObject, 1f);
             GameObject.Instantiate(dropRandomItem).transform.position = transform.position;
             mayDrop = false;
-            spinning.SetActive(true);
         }
     }
     
