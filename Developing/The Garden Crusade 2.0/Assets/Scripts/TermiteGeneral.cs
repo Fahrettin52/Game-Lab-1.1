@@ -57,7 +57,7 @@ public class TermiteGeneral : MonoBehaviour {
         if (player != null)
         {
             distance = Vector3.Distance(transform.position, player.position);
-            if (distance < 35) {
+            if (distance <= 35 && distance > attackRange) {
                 animator.SetBool("Threat", true);
                 agent.Stop();
             }
@@ -78,7 +78,6 @@ public class TermiteGeneral : MonoBehaviour {
                 animator.SetTrigger("MayAttack");
                 agent.Stop();
                 transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
-                //GameObject.Find("Player").GetComponent<AudioSource>().PlayOneShot(GetComponent<SoundSource>().playerDamageTaking);
             }
             else {
                 agent.Resume();
