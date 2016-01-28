@@ -125,6 +125,7 @@ public class ZwarteWeduwe : MonoBehaviour
             GameObject.Find("Player").GetComponent<Quests>().LoopForBool();
             GameObject.Find("Player").GetComponent<Experience>().currentExp += GameObject.Find("Player").GetComponent<Experience>().expGet;
             //animator.SetTrigger("MayDie");
+            GameObject.Find("Player").GetComponent<InteractionWithEnvironment>().weduweDood = true;
             Destroy(gameObject, 1f);
             GameObject.Instantiate(dropRandomItem).transform.position = transform.position;
             mayDrop = false;
