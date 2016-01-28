@@ -36,6 +36,7 @@ public class Quests : MonoBehaviour {
     public GameObject scrollHeal;
     public Transform grotlevelPos;
     public GameObject soundToOpenQuest;
+    public GameObject trippleAttackScroll;
 
     void Awake () {
 
@@ -120,6 +121,7 @@ public class Quests : MonoBehaviour {
 					LoopForBool ();
                     GetComponent<InteractionWithEnvironment>().interactInt = 2;
                     GetComponent<InteractionWithEnvironment>().Interaction(2);
+                    trippleAttackScroll = GameObject.Find("ScrollTrippleAttack");
                     //Destroy(GameObject.FindWithTag("Mother"));
                 }
 			}
@@ -129,6 +131,7 @@ public class Quests : MonoBehaviour {
 		}
 
 		if(quest1[10] == true){
+            trippleAttackScroll.SetActive(true);
 			GameObject.Find("_Manager").GetComponent<ToSceneOne>().general.SetActive(true);
 			quest1[10] = false;
 		}

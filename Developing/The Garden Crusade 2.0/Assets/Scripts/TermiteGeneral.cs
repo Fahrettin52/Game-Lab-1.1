@@ -34,6 +34,7 @@ public class TermiteGeneral : MonoBehaviour {
     public bool idle;
     public bool mayDie = false;
     private bool mayDrop = true;
+    public GameObject spinning;
 
     void Start () {
         agent = GetComponent<NavMeshAgent>();
@@ -114,6 +115,7 @@ public class TermiteGeneral : MonoBehaviour {
             Destroy(gameObject, 1f);
             GameObject.Instantiate(dropRandomItem).transform.position = transform.position;
             mayDrop = false;
+            spinning.SetActive(true);
         }
     }
     
