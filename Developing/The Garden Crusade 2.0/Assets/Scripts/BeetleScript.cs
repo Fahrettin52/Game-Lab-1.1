@@ -33,6 +33,7 @@ public class BeetleScript : MonoBehaviour {
     public bool idle;
     public bool mayDie = false;
     private bool mayDrop = true;
+    public Animator animator;
 
     void Start () {
         agent = GetComponent<NavMeshAgent>();
@@ -56,20 +57,25 @@ public class BeetleScript : MonoBehaviour {
         {
             distance = Vector3.Distance(transform.position, player.position);
             if (distance < range){
+                animator.SetBool("mayWalk", true);
                 FollowPlayer();
             }
             else {
                 Roam();
+                animator.SetBool("mayWalk", false);
                 resetBool = true;
             }
 
             if (distance < attackRange){
                 agent.Stop();
                 transform.LookAt(player);
-                //GameObject.Find("Player").GetComponent<AudioSource>().PlayOneShot(GetComponent<SoundSource>().playerDamageTaking);
+                animator.SetBool("mayAttack", true);
+                animator.SetBool("mayWalk", false);
             }
             else {
                 agent.Resume();
+                animator.SetBool("mayAttack", false);
+                animator.SetBool("mayWalk", true);
             }
         }
 	}
@@ -99,6 +105,9 @@ public class BeetleScript : MonoBehaviour {
 			GameObject.Find("Player").GetComponent<Quests>().currentObjectiveText += 1;
 			GameObject.Find("Player").GetComponent<Quests>().LoopForBool ();
             GameObject.Find("Player").GetComponent<Experience>().currentExp += GameObject.Find("Player").GetComponent<Experience>().expGet;
+            animator.SetBool("mayDie", true);
+            animator.SetBool("mayAttack", false);
+            animator.SetBool("mayWalk", false);
             Destroy(gameObject, 1f);
             GameObject.Instantiate(dropRandomItem).transform.position = transform.position;
             mayDrop = false;
