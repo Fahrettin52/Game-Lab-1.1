@@ -123,6 +123,7 @@ public class Quests : MonoBehaviour {
 					LoopForBool ();
                     GetComponent<InteractionWithEnvironment>().interactInt = 2;
                     GetComponent<InteractionWithEnvironment>().Interaction(2);
+                    quest1[9] = false;
                     //Destroy(GameObject.FindWithTag("Mother"));
                 }
 			}
