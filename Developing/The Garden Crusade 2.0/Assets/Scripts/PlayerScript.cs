@@ -166,8 +166,6 @@ public class PlayerScript : MonoBehaviour {
         Destroy(gameObject);
         Destroy(GameObject.Find("Canvas"));
         GameObject.Find("_Manager").GetComponent<ToSceneOne>().deadScreen.SetActive(true);
-        GameObject.Find("Canvas1").SetActive(false);
-        GameObject.Find("_Manager").GetComponent<ToSceneOne>().MenuButton.SetActive(false);
         GameObject.Find("_Manager").GetComponent<AudioSource>().enabled = false;
     }
 	
@@ -245,7 +243,7 @@ public class PlayerScript : MonoBehaviour {
         if (other.gameObject.name == "ToBoomstronk" && GetComponent<Quests>().quest1[6] == true)
         {
             InventoryManager.Instance.Save();
-            Application.LoadLevel("Level 3");
+            Application.LoadLevel("BoomStronk");
         }
 
         if (other.gameObject.tag == "Load")
