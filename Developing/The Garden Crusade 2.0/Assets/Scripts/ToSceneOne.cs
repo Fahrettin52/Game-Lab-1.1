@@ -7,6 +7,7 @@ public class ToSceneOne : MonoBehaviour {
 
     public bool ActivateCanvas;
 
+    public GameObject camera;
     public GameObject StartScreen;
     public GameObject OptionScreen;
     public GameObject CreditsScreen;
@@ -28,6 +29,8 @@ public class ToSceneOne : MonoBehaviour {
     public Image loadingRR;
     public Sprite L;
     public Sprite R;
+    public Sprite LL;
+    public Sprite RR;
     public AudioClip backgroundSound;
 
     public Transform startPosition;
@@ -35,6 +38,7 @@ public class ToSceneOne : MonoBehaviour {
     public GameObject spawn;
     public GameObject endCanvas;
     public AudioSource backgroundPlayer;
+    public bool mayLoad = true;
 
     public void Start() {
         StartScreen.SetActive(true);
@@ -46,9 +50,14 @@ public class ToSceneOne : MonoBehaviour {
     }
 
     public void FixedUpdate() {
-        if (loadingBar.fillAmount < 1) {
+        if (loadingBar.fillAmount < 1 && mayLoad == true) {
             loadingBar.fillAmount += 1 * Time.deltaTime / 2.5f;           
         }
+        if (loadingBar.fillAmount >= 1) {
+            loadingBar.fillAmount = 0;
+            mayLoad = false;
+        }
+
         player = GameObject.Find("Player");
     }
 
@@ -57,18 +66,18 @@ public class ToSceneOne : MonoBehaviour {
             case 0:
                 print("4");
                 background.SetActive(true);
-            ActivateCanvas = false;
-            OptionScreen.SetActive(false);
-            MenuButton.SetActive(false);
-            ExitToMenu.SetActive(false);
-            StartScreen.SetActive(true);
-            deadScreen.SetActive(false);
-            endCanvas.SetActive(false);
-            GetComponent<AudioSource>().enabled = true;
-            
+                ActivateCanvas = false;
+                OptionScreen.SetActive(false);
+                MenuButton.SetActive(false);
+                ExitToMenu.SetActive(false);
+                StartScreen.SetActive(true);
+                deadScreen.SetActive(false);
+                endCanvas.SetActive(false);
+                GetComponent<AudioSource>().enabled = true;           
                 break;
 
             case 1:
+                mayLoad = true;
                 print("case 1");
                 loadingScreen.SetActive(true);
                 StartCoroutine(Loading());
@@ -78,14 +87,22 @@ public class ToSceneOne : MonoBehaviour {
                 break;
 
             case 2:
+                mayLoad = true;
+                StartCoroutine(Loading());
+                loadingScreen.SetActive(true);
                 print("case 2");
+                GameObject.Find("MainCamera").GetComponent<CameraRotation>().SetShafts();
                 general = GameObject.Find("Termiet Generaal");
                 general.SetActive(false);
             break;
 
             case 3:
-               print("case 3");
-               player.transform.position = spawn.transform.position;
+                mayLoad = true;
+                StartCoroutine(Loading());
+                loadingScreen.SetActive(true);
+                print("case 3");
+                GameObject.Find("MainCamera").GetComponent<CameraRotation>().SetShafts();
+                player.transform.position = spawn.transform.position;
                 spawn = GameObject.Find("SarahSpawn");
                 player.GetComponent<Movement>().secondMode = true;
                 player.GetComponent<Movement>().jumpSpeed = 10f;
@@ -94,7 +111,11 @@ public class ToSceneOne : MonoBehaviour {
                 player.GetComponent<SummoningInsects>().enabled = false;
             break;
 
-            case 4: 
+            case 4:
+                mayLoad = true;
+                StartCoroutine(Loading());
+                loadingScreen.SetActive(true);
+                GameObject.Find("MainCamera").GetComponent<CameraRotation>().SetShafts();
                 print("case 4");
                 beetle = GameObject.Find("Vliegend Hert");
                 beetle.SetActive(false);
@@ -182,6 +203,11 @@ public class ToSceneOne : MonoBehaviour {
     }
 
     IEnumerator Loading() {
+        loadingL.transform.localPosition = new Vector3(0, 0, 0);
+        loadingRR.transform.localPosition = new Vector3(0, 0, 0);
+        loadingL.GetComponent<Image>().sprite = LL;
+        loadingRR.GetComponent<Image>().sprite = RR;
+
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = false;
         GameObject.Find("Canvas1").GetComponent<Canvas>().enabled = false;
         StartScreen.SetActive(false);
@@ -192,17 +218,20 @@ public class ToSceneOne : MonoBehaviour {
         background.SetActive(false);
         loadingL.GetComponent<Image>().sprite = L;
         loadingRR.GetComponent<Image>().sprite = R;
-        loading.SetBool("Loading", true);
-        loadingR.SetBool("Loading", true);
+        loading.SetTrigger("Loadingg");
+        loadingR.SetTrigger("Loadingg");
 
         yield return new WaitForSeconds(1f);
 
-        MenuButton.SetActive(true);
         ExitToMenu.SetActive(true);   
         loadingScreen.SetActive(false);
         GameObject.Find("Canvas").GetComponent<Canvas>().enabled = true;
         GameObject.Find("Canvas1").GetComponent<Canvas>().enabled = true;
         player.GetComponent<Quests>().InfoPauseGame();
+
+        yield return new WaitForSeconds(0.5f);
+        bar.enabled = true;
+        MenuButton.SetActive(true);
     }
 }
 

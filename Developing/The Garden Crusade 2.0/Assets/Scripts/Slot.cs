@@ -234,7 +234,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
         if (fromType == ItemType.MAINHAND && to.canContain == ItemType.GENERICWEAPON) {
             print(1);
             GameObject.Find("Houten Zwaard").GetComponent<MeshRenderer>().enabled = true;
-            //Stamina.Instance.damagePunch = PlayerScript.Instance.strength;
             return true;
         }
         if (fromType == ItemType.TWOHAND && to.canContain == ItemType.GENERICWEAPON && CharacterPanel.Instance.OffhandSlot.IsEmpty) {
@@ -243,7 +242,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
         if (fromType == ItemType.OFFHAND && (to.IsEmpty || to.CurrentItem.Item.ItemType == ItemType.OFFHAND ) && (CharacterPanel.Instance.WeaponSlot.IsEmpty || CharacterPanel.Instance.WeaponSlot.CurrentItem.Item.ItemType != ItemType.TWOHAND)) {
             print(2);
             GameObject.Find("BunnyMesh").GetComponent<SkinnedMeshRenderer>().enabled = true;
-            //Stamina.Instance.damagePunch = PlayerScript.Instance.strength;
             return true;
         }
         return false;

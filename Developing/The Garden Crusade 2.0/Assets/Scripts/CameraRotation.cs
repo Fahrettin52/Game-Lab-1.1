@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.ImageEffects;
 
 public class CameraRotation : MonoBehaviour {
 
@@ -85,4 +86,8 @@ public class CameraRotation : MonoBehaviour {
 		}
 		return Mathf.Clamp(angle, min , max);
 	}
+
+    public void SetShafts() {
+        GetComponent<SunShafts>().sunTransform = GameObject.Find("Directional Light").transform;
+    }
 }
