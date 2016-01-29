@@ -46,7 +46,6 @@ public class ConversationSystem : MonoBehaviour {
 		}
 
 	if(GetComponent<InteractionWithEnvironment>().interactInt == 2){
-            GameObject.Find("Moeder001FBX").GetComponent<Animator>().SetBool("idleToTalk", true);
         if (currentUnit < 2 ){
 		currentUnit += 1;
 		}
@@ -55,5 +54,9 @@ public class ConversationSystem : MonoBehaviour {
 			startConvo = false;
 		}
 		}
+
+        if (GetComponent<InteractionWithEnvironment>().interactInt == 5) {
+            GameObject.Find("Moeder001FBX").GetComponent<Animator>().SetBool("idleToTalk", false);
+        }
 	}
 }
