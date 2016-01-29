@@ -286,5 +286,9 @@ public class Quests : MonoBehaviour {
         GameObject.Find("ContinueText").GetComponent<Text>().enabled = false;
         Time.timeScale = 1f;
     }
+
+    public void ResetValues() {
+        quest1_1 = 0;
+    }
 }
 

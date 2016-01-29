@@ -205,59 +205,43 @@ public class Inventory : MonoBehaviour {
         //Loads all the inventory's data from the playerprefs
         string content = PlayerPrefs.GetString(gameObject.name + "content");
 
-        if (content != string.Empty)
-        {
+        if (content != string.Empty) {
             slots = PlayerPrefs.GetInt(gameObject.name + "slots");
             rows = PlayerPrefs.GetInt(gameObject.name + "rows");
             slotPaddingLeft = PlayerPrefs.GetFloat(gameObject.name + "slotPaddingLeft");
             slotPaddingTop = PlayerPrefs.GetFloat(gameObject.name + "slotPaddingTop");
             slotSize = PlayerPrefs.GetFloat(gameObject.name + "slotSize");
-
             //Sets the inventorys position
             inventoryRect.position = new Vector3(PlayerPrefs.GetFloat(gameObject.name + "xPos"), PlayerPrefs.GetFloat(gameObject.name + "yPos"), inventoryRect.position.z);
-
             //Recreates the inventory's layout
             CreateLayout();
-
             //Splits the loaded content string into segments, so that each index inthe splitContent array contains information about a single slot
             //e.g[0]0-MANA-3
             string[] splitContent = content.Split(';');
-
             //Runs through every single slot we have infor about -1 is to avoid an empty string error
-            for (int x = 0; x < splitContent.Length - 1; x++)
-            {
+            for (int x = 0; x < splitContent.Length - 1; x++) {
                 //Splits the slot's information into single values, so that each index in the splitValues array contains info about a value
                 //E.g[0]InventorIndex [1]ITEMTYPE [2]Amount of items
                 string[] splitValues = splitContent[x].Split('-');
-
                 int index = Int32.Parse(splitValues[0]); //InventorIndex 
-
                 string itemName = splitValues[1]; //ITEMTYPE
-
                 int amount = Int32.Parse(splitValues[2]); //Amount of items
-
                 Item tmp = null;
-
-                for (int i = 0; i < amount; i++) //Adds the correct amount of items to the inventory
-                {
+                for (int i = 0; i < amount; i++) { //Adds the correct amount of items to the inventory {
                     GameObject loadedItem = Instantiate(InventoryManager.Instance.itemObject);
 
-                    if (tmp == null)
-                    {
+                    if (tmp == null) {
                         tmp = InventoryManager.Instance.ItemContainer.Consumable.Find(item => item.ItemName == itemName);
                     }
-                    if (tmp == null)
-                    {
+                    if (tmp == null) {
                         tmp = InventoryManager.Instance.ItemContainer.Equipment.Find(item => item.ItemName == itemName);
                     }
-                    if (tmp == null)
-                    {
+                    if (tmp == null) {
                         tmp = InventoryManager.Instance.ItemContainer.Weapons.Find(item => item.ItemName == itemName);
                     }
                     if (tmp == null) {
                         tmp = InventoryManager.Instance.ItemContainer.Materials.Find(item => item.ItemName == itemName);
                     }
-
                     loadedItem.AddComponent<ItemScript>();
                     loadedItem.GetComponent<ItemScript>().Item = tmp;
                     allSlots[index].GetComponent<Slot>().AddItem(loadedItem.GetComponent<ItemScript>());
@@ -265,9 +249,6 @@ public class Inventory : MonoBehaviour {
                 }
             }
         }
-
-
-
     }
 
     public virtual void CreateLayout(){ // creates inventory layout
