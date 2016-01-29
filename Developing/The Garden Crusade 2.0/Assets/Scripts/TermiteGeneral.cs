@@ -97,7 +97,7 @@ public class TermiteGeneral : MonoBehaviour {
 
 	public void DropDead (int damage){
         livesEnemy -= damage;
-        fill.fillAmount -= (damage / 100f);
+        fill.fillAmount -= (damage / 500f);
         if( livesEnemy < 1) {
             livesEnemy = 0; 
         }
