@@ -7,6 +7,7 @@ public class GeneralDamage : MonoBehaviour {
     public GameObject sarah;
     public bool hitCooldown;
     public float cooldown;
+    public Animator animator;
     public int rockDamage;
     public bool continueAttack;
 
@@ -21,10 +22,10 @@ public class GeneralDamage : MonoBehaviour {
 
     void OnTriggerEnter(Collider col) {
         if (col.transform.tag == "Player") {
-           
+            animator.SetBool("MayAttack", true);
         }
         if (col.transform.tag == "mayThrow") {
-            
+            GetComponentInParent<TermiteGeneral>().DropDead(rockDamage);
         }
     }
 
@@ -33,7 +34,7 @@ public class GeneralDamage : MonoBehaviour {
         //Invoke("AggresiveStateCooldown", 1f);
         if (col.transform.tag == "Player") {
             continueAttack = false;
-           
+            animator.SetBool("Idle", true);
         }
     }
 

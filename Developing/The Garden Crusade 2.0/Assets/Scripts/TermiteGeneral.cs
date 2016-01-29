@@ -80,6 +80,7 @@ public class TermiteGeneral : MonoBehaviour {
                 transform.LookAt(new Vector3(player.position.x, transform.position.y, player.position.z));
             }
             else {
+                animator.SetBool("Idle", true);
                 agent.Resume();
             }
         }

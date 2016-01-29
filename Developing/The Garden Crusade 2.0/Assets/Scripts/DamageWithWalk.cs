@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class DamageWithWalk : MonoBehaviour{
+
     public int damageForPlayer;
     public GameObject sarah;
     public bool hitCooldown;
