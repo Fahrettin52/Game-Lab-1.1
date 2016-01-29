@@ -45,7 +45,7 @@ public class PlayerScript : MonoBehaviour {
     public int Gold {
         get { return gold; }
         set {
-            goldText.text = "Crumbs: " + value;
+            goldText.text = "Bread Crumbs: " + value;
             gold = value;
         }
     }
@@ -238,7 +238,7 @@ public class PlayerScript : MonoBehaviour {
         if (other.gameObject.tag == "Shards") {
             currentShards++;
             Destroy(other.transform.gameObject);
-            shards.GetComponent<Text>().text = "Shards: " + currentShards.ToString("F0");
+            shards.GetComponent<Text>().text = "Energy Shards: " + currentShards.ToString("F0");
         }
 
         if (other.gameObject.name == "ToBoomstronk" && GetComponent<Quests>().quest1[6] == true)

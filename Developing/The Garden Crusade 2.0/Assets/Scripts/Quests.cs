@@ -232,9 +232,14 @@ public class Quests : MonoBehaviour {
 			schuurLevel.SetActive(true);
 		}*/
 
-		if(trigger.transform.tag == "Exit City" && quest1[11] == true){
-			Application.LoadLevel("Level 2");
-			quest1[11] = false;
+		if(trigger.transform.tag == "Exit City" == true){
+            if ( quest1[11] == true) {
+                Application.LoadLevel("Level 2");
+                quest1[11] = false;
+            }
+            else {
+                GameObject.Find("Player").GetComponent<PlayerScript>().currentHealth = 0;
+            }
 		}
 
 		//if(trigger.transform.tag == "Enemy"){

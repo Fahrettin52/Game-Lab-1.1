@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityStandardAssets.ImageEffects;
 
 public class ToSceneOne : MonoBehaviour {
 
@@ -12,7 +13,8 @@ public class ToSceneOne : MonoBehaviour {
     public GameObject KeybindScreen;
     public GameObject MenuButton;
     public GameObject ExitToMenu;
-    public GameObject deadScreen;
+    public GameObject 
+        Screen;
     public GameObject background;
     public GameObject loadingScreen;
     public GameObject general;

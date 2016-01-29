@@ -73,6 +73,9 @@ public class CastingBar : MonoBehaviour {
                         if (rayHit.transform.tag == "Generaal") {
                             rayHit.transform.GetComponent<TermiteGeneral>().DropDead(damageSpell1);
                         }
+                        if (rayHit.transform.tag == "ZwarteWeduwe") {
+                            rayHit.transform.GetComponent<ZwarteWeduwe>().DropDead(damageSpell1);
+                        }
                     }
                 }
             }
@@ -96,6 +99,9 @@ public class CastingBar : MonoBehaviour {
                         if (rayHit.transform.tag == "Generaal") {
                             rayHit.transform.GetComponent<TermiteGeneral>().DropDead(damageSpell2);
                         }
+                        if (rayHit.transform.tag == "ZwarteWeduwe") {
+                            rayHit.transform.GetComponent<ZwarteWeduwe>().DropDead(damageSpell2);
+                        }
                     }
                 }
             }
@@ -118,6 +124,9 @@ public class CastingBar : MonoBehaviour {
                     }
                     if (rayHit.transform.tag == "Generaal") {
                         rayHit.transform.GetComponent<TermiteGeneral>().DropDead(areaDamge);
+                    }
+                    if (rayHit.transform.tag == "ZwarteWeduwe") {
+                        rayHit.transform.GetComponent<ZwarteWeduwe>().DropDead(areaDamge);
                     }
                 }
             }

@@ -18,8 +18,12 @@ public class VendorInventory : ChestInventory {
         EmptySlots = slots;
         base.Start();
         GiveItem("Health Potion");
+        GiveItem("Energy Potion");
+        GiveItem("Rage Potion");
         GiveItem("Wooden Sword");
-        GiveItem("Leather Boots");
+        GiveItem("Wooden Spear"); 
+        GiveItem("Golden Shield");
+
     }
 
     protected void GiveItem (string itemName) {
