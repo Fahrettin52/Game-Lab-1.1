@@ -101,7 +101,7 @@ public class InteractionWithEnvironment : MonoBehaviour
             }
         }
         if (Physics.Raycast(transform.position, transform.forward, out rayHit, rayDis)){
-            if(GetComponent<PlayerScript>().currentShards == 5 && weduweDood == true) {
+            if(GetComponent<PlayerScript>().currentShards >= 5 && weduweDood == true) {
                 if (rayHit.transform.tag == "Shrink ray")
                 {
                     if (Input.GetButtonDown("Use"))

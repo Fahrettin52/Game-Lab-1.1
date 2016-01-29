@@ -259,7 +259,10 @@ ModelImporter:
     4300026: spinnepoten
     4300028: mandible_left
     4300030: mandible_right
-    7400000: Take 001
+    7400000: Idle
+    7400002: Attack
+    7400004: Walk
+    7400006: Dead
     9500000: //RootNode
     13700000: mandible_left
     13700002: mandible_right
@@ -284,7 +287,967 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 5
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Circle001
+        weight: 1
+      - path: Circle002
+        weight: 1
+      - path: Circle003
+        weight: 1
+      - path: Circle004
+        weight: 1
+      - path: Circle005
+        weight: 1
+      - path: Circle006
+        weight: 1
+      - path: Circle007
+        weight: 1
+      - path: Circle008
+        weight: 1
+      - path: connectBone001
+        weight: 1
+      - path: connectBone001/connectBone002
+        weight: 1
+      - path: connectBone001/SpiderRig74
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09/SpiderRig22
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09/SpiderRig22/SpiderRig26
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09/SpiderRig22/SpiderRig26/SpiderRig23
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09/SpiderRig22/SpiderRig26/SpiderRig23/SpiderRig24
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09/SpiderRig22/SpiderRig26/SpiderRig23/SpiderRig24/SpiderRig25
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10/SpiderRig28
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10/SpiderRig28/SpiderRig27
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10/SpiderRig28/SpiderRig27/SpiderRig36
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10/SpiderRig28/SpiderRig27/SpiderRig36/SpiderRig29
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10/SpiderRig28/SpiderRig27/SpiderRig36/SpiderRig29/SpiderRig30
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11/SpiderRig33
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11/SpiderRig33/SpiderRig34
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11/SpiderRig33/SpiderRig34/SpiderRig35
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11/SpiderRig33/SpiderRig34/SpiderRig35/SpiderRig32
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11/SpiderRig33/SpiderRig34/SpiderRig35/SpiderRig32/SpiderRig31
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12/SpiderRig41
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12/SpiderRig41/SpiderRig37
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12/SpiderRig41/SpiderRig37/SpiderRig38
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12/SpiderRig41/SpiderRig37/SpiderRig38/SpiderRig40
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12/SpiderRig41/SpiderRig37/SpiderRig38/SpiderRig40/SpiderRig39
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13/SpiderRig61
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13/SpiderRig61/SpiderRig60
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13/SpiderRig61/SpiderRig60/SpiderRig59
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13/SpiderRig61/SpiderRig60/SpiderRig59/SpiderRig58
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13/SpiderRig61/SpiderRig60/SpiderRig59/SpiderRig58/SpiderRig57
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14/SpiderRig56
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14/SpiderRig56/SpiderRig55
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14/SpiderRig56/SpiderRig55/SpiderRig52
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14/SpiderRig56/SpiderRig55/SpiderRig52/SpiderRig53
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14/SpiderRig56/SpiderRig55/SpiderRig52/SpiderRig53/SpiderRig54
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15/SpiderRig49
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15/SpiderRig49/SpiderRig50
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15/SpiderRig49/SpiderRig50/SpiderRig51
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15/SpiderRig49/SpiderRig50/SpiderRig51/SpiderRig47
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15/SpiderRig49/SpiderRig50/SpiderRig51/SpiderRig47/SpiderRig48
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16/SpiderRig43
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16/SpiderRig43/SpiderRig45
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16/SpiderRig43/SpiderRig45/SpiderRig44
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16/SpiderRig43/SpiderRig45/SpiderRig44/SpiderRig46
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16/SpiderRig43/SpiderRig45/SpiderRig44/SpiderRig46/SpiderRig42
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig17
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig17/SpiderRig67
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig17/SpiderRig67/SpiderRig66
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig17/SpiderRig67/SpiderRig66/SpiderRig65
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig18
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig18/SpiderRig64
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig18/SpiderRig64/SpiderRig63
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig18/SpiderRig64/SpiderRig63/SpiderRig62
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig19
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig19/SpiderRig70
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig19/SpiderRig70/SpiderRig69
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig19/SpiderRig70/SpiderRig69/SpiderRig68
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig20
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig20/SpiderRig73
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig20/SpiderRig73/SpiderRig72
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig20/SpiderRig73/SpiderRig72/SpiderRig71
+        weight: 1
+      - path: eye1
+        weight: 1
+      - path: eye2
+        weight: 1
+      - path: Face01
+        weight: 1
+      - path: Haar001
+        weight: 1
+      - path: IK Chain001
+        weight: 1
+      - path: IK Chain002
+        weight: 1
+      - path: IK Chain003
+        weight: 1
+      - path: IK Chain004
+        weight: 1
+      - path: IK Chain005
+        weight: 1
+      - path: IK Chain006
+        weight: 1
+      - path: IK Chain007
+        weight: 1
+      - path: IK Chain008
+        weight: 1
+      - path: IK Chain009
+        weight: 1
+      - path: IK Chain010
+        weight: 1
+      - path: kraag
+        weight: 1
+      - path: Left_shoe
+        weight: 1
+      - path: Line001
+        weight: 1
+      - path: mandible_left
+        weight: 1
+      - path: mandible_right
+        weight: 1
+      - path: Plane001
+        weight: 1
+      - path: Plane002
+        weight: 1
+      - path: Rectangle001
+        weight: 1
+      - path: Ribbon001
+        weight: 1
+      - path: Right_shoe
+        weight: 1
+      - path: Skirt
+        weight: 1
+      - path: spiderbody
+        weight: 1
+      - path: spinnepoten
+        weight: 1
+      - path: Star001
+        weight: 1
+      - path: Star002
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Attack
+      takeName: Take 001
+      firstFrame: 20
+      lastFrame: 46
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Circle001
+        weight: 1
+      - path: Circle002
+        weight: 1
+      - path: Circle003
+        weight: 1
+      - path: Circle004
+        weight: 1
+      - path: Circle005
+        weight: 1
+      - path: Circle006
+        weight: 1
+      - path: Circle007
+        weight: 1
+      - path: Circle008
+        weight: 1
+      - path: connectBone001
+        weight: 1
+      - path: connectBone001/connectBone002
+        weight: 1
+      - path: connectBone001/SpiderRig74
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09/SpiderRig22
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09/SpiderRig22/SpiderRig26
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09/SpiderRig22/SpiderRig26/SpiderRig23
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09/SpiderRig22/SpiderRig26/SpiderRig23/SpiderRig24
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09/SpiderRig22/SpiderRig26/SpiderRig23/SpiderRig24/SpiderRig25
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10/SpiderRig28
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10/SpiderRig28/SpiderRig27
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10/SpiderRig28/SpiderRig27/SpiderRig36
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10/SpiderRig28/SpiderRig27/SpiderRig36/SpiderRig29
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10/SpiderRig28/SpiderRig27/SpiderRig36/SpiderRig29/SpiderRig30
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11/SpiderRig33
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11/SpiderRig33/SpiderRig34
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11/SpiderRig33/SpiderRig34/SpiderRig35
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11/SpiderRig33/SpiderRig34/SpiderRig35/SpiderRig32
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11/SpiderRig33/SpiderRig34/SpiderRig35/SpiderRig32/SpiderRig31
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12/SpiderRig41
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12/SpiderRig41/SpiderRig37
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12/SpiderRig41/SpiderRig37/SpiderRig38
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12/SpiderRig41/SpiderRig37/SpiderRig38/SpiderRig40
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12/SpiderRig41/SpiderRig37/SpiderRig38/SpiderRig40/SpiderRig39
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13/SpiderRig61
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13/SpiderRig61/SpiderRig60
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13/SpiderRig61/SpiderRig60/SpiderRig59
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13/SpiderRig61/SpiderRig60/SpiderRig59/SpiderRig58
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13/SpiderRig61/SpiderRig60/SpiderRig59/SpiderRig58/SpiderRig57
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14/SpiderRig56
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14/SpiderRig56/SpiderRig55
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14/SpiderRig56/SpiderRig55/SpiderRig52
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14/SpiderRig56/SpiderRig55/SpiderRig52/SpiderRig53
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14/SpiderRig56/SpiderRig55/SpiderRig52/SpiderRig53/SpiderRig54
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15/SpiderRig49
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15/SpiderRig49/SpiderRig50
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15/SpiderRig49/SpiderRig50/SpiderRig51
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15/SpiderRig49/SpiderRig50/SpiderRig51/SpiderRig47
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15/SpiderRig49/SpiderRig50/SpiderRig51/SpiderRig47/SpiderRig48
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16/SpiderRig43
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16/SpiderRig43/SpiderRig45
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16/SpiderRig43/SpiderRig45/SpiderRig44
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16/SpiderRig43/SpiderRig45/SpiderRig44/SpiderRig46
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16/SpiderRig43/SpiderRig45/SpiderRig44/SpiderRig46/SpiderRig42
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig17
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig17/SpiderRig67
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig17/SpiderRig67/SpiderRig66
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig17/SpiderRig67/SpiderRig66/SpiderRig65
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig18
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig18/SpiderRig64
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig18/SpiderRig64/SpiderRig63
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig18/SpiderRig64/SpiderRig63/SpiderRig62
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig19
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig19/SpiderRig70
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig19/SpiderRig70/SpiderRig69
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig19/SpiderRig70/SpiderRig69/SpiderRig68
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig20
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig20/SpiderRig73
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig20/SpiderRig73/SpiderRig72
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig20/SpiderRig73/SpiderRig72/SpiderRig71
+        weight: 1
+      - path: eye1
+        weight: 1
+      - path: eye2
+        weight: 1
+      - path: Face01
+        weight: 1
+      - path: Haar001
+        weight: 1
+      - path: IK Chain001
+        weight: 1
+      - path: IK Chain002
+        weight: 1
+      - path: IK Chain003
+        weight: 1
+      - path: IK Chain004
+        weight: 1
+      - path: IK Chain005
+        weight: 1
+      - path: IK Chain006
+        weight: 1
+      - path: IK Chain007
+        weight: 1
+      - path: IK Chain008
+        weight: 1
+      - path: IK Chain009
+        weight: 1
+      - path: IK Chain010
+        weight: 1
+      - path: kraag
+        weight: 1
+      - path: Left_shoe
+        weight: 1
+      - path: Line001
+        weight: 1
+      - path: mandible_left
+        weight: 1
+      - path: mandible_right
+        weight: 1
+      - path: Plane001
+        weight: 1
+      - path: Plane002
+        weight: 1
+      - path: Rectangle001
+        weight: 1
+      - path: Ribbon001
+        weight: 1
+      - path: Right_shoe
+        weight: 1
+      - path: Skirt
+        weight: 1
+      - path: spiderbody
+        weight: 1
+      - path: spinnepoten
+        weight: 1
+      - path: Star001
+        weight: 1
+      - path: Star002
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 51
+      lastFrame: 79
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Circle001
+        weight: 1
+      - path: Circle002
+        weight: 1
+      - path: Circle003
+        weight: 1
+      - path: Circle004
+        weight: 1
+      - path: Circle005
+        weight: 1
+      - path: Circle006
+        weight: 1
+      - path: Circle007
+        weight: 1
+      - path: Circle008
+        weight: 1
+      - path: connectBone001
+        weight: 1
+      - path: connectBone001/connectBone002
+        weight: 1
+      - path: connectBone001/SpiderRig74
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09/SpiderRig22
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09/SpiderRig22/SpiderRig26
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09/SpiderRig22/SpiderRig26/SpiderRig23
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09/SpiderRig22/SpiderRig26/SpiderRig23/SpiderRig24
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09/SpiderRig22/SpiderRig26/SpiderRig23/SpiderRig24/SpiderRig25
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10/SpiderRig28
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10/SpiderRig28/SpiderRig27
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10/SpiderRig28/SpiderRig27/SpiderRig36
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10/SpiderRig28/SpiderRig27/SpiderRig36/SpiderRig29
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10/SpiderRig28/SpiderRig27/SpiderRig36/SpiderRig29/SpiderRig30
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11/SpiderRig33
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11/SpiderRig33/SpiderRig34
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11/SpiderRig33/SpiderRig34/SpiderRig35
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11/SpiderRig33/SpiderRig34/SpiderRig35/SpiderRig32
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11/SpiderRig33/SpiderRig34/SpiderRig35/SpiderRig32/SpiderRig31
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12/SpiderRig41
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12/SpiderRig41/SpiderRig37
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12/SpiderRig41/SpiderRig37/SpiderRig38
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12/SpiderRig41/SpiderRig37/SpiderRig38/SpiderRig40
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12/SpiderRig41/SpiderRig37/SpiderRig38/SpiderRig40/SpiderRig39
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13/SpiderRig61
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13/SpiderRig61/SpiderRig60
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13/SpiderRig61/SpiderRig60/SpiderRig59
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13/SpiderRig61/SpiderRig60/SpiderRig59/SpiderRig58
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13/SpiderRig61/SpiderRig60/SpiderRig59/SpiderRig58/SpiderRig57
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14/SpiderRig56
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14/SpiderRig56/SpiderRig55
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14/SpiderRig56/SpiderRig55/SpiderRig52
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14/SpiderRig56/SpiderRig55/SpiderRig52/SpiderRig53
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14/SpiderRig56/SpiderRig55/SpiderRig52/SpiderRig53/SpiderRig54
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15/SpiderRig49
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15/SpiderRig49/SpiderRig50
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15/SpiderRig49/SpiderRig50/SpiderRig51
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15/SpiderRig49/SpiderRig50/SpiderRig51/SpiderRig47
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15/SpiderRig49/SpiderRig50/SpiderRig51/SpiderRig47/SpiderRig48
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16/SpiderRig43
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16/SpiderRig43/SpiderRig45
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16/SpiderRig43/SpiderRig45/SpiderRig44
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16/SpiderRig43/SpiderRig45/SpiderRig44/SpiderRig46
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16/SpiderRig43/SpiderRig45/SpiderRig44/SpiderRig46/SpiderRig42
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig17
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig17/SpiderRig67
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig17/SpiderRig67/SpiderRig66
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig17/SpiderRig67/SpiderRig66/SpiderRig65
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig18
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig18/SpiderRig64
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig18/SpiderRig64/SpiderRig63
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig18/SpiderRig64/SpiderRig63/SpiderRig62
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig19
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig19/SpiderRig70
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig19/SpiderRig70/SpiderRig69
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig19/SpiderRig70/SpiderRig69/SpiderRig68
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig20
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig20/SpiderRig73
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig20/SpiderRig73/SpiderRig72
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig20/SpiderRig73/SpiderRig72/SpiderRig71
+        weight: 1
+      - path: eye1
+        weight: 1
+      - path: eye2
+        weight: 1
+      - path: Face01
+        weight: 1
+      - path: Haar001
+        weight: 1
+      - path: IK Chain001
+        weight: 1
+      - path: IK Chain002
+        weight: 1
+      - path: IK Chain003
+        weight: 1
+      - path: IK Chain004
+        weight: 1
+      - path: IK Chain005
+        weight: 1
+      - path: IK Chain006
+        weight: 1
+      - path: IK Chain007
+        weight: 1
+      - path: IK Chain008
+        weight: 1
+      - path: IK Chain009
+        weight: 1
+      - path: IK Chain010
+        weight: 1
+      - path: kraag
+        weight: 1
+      - path: Left_shoe
+        weight: 1
+      - path: Line001
+        weight: 1
+      - path: mandible_left
+        weight: 1
+      - path: mandible_right
+        weight: 1
+      - path: Plane001
+        weight: 1
+      - path: Plane002
+        weight: 1
+      - path: Rectangle001
+        weight: 1
+      - path: Ribbon001
+        weight: 1
+      - path: Right_shoe
+        weight: 1
+      - path: Skirt
+        weight: 1
+      - path: spiderbody
+        weight: 1
+      - path: spinnepoten
+        weight: 1
+      - path: Star001
+        weight: 1
+      - path: Star002
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Dead
+      takeName: Take 001
+      firstFrame: 84
+      lastFrame: 112
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Circle001
+        weight: 1
+      - path: Circle002
+        weight: 1
+      - path: Circle003
+        weight: 1
+      - path: Circle004
+        weight: 1
+      - path: Circle005
+        weight: 1
+      - path: Circle006
+        weight: 1
+      - path: Circle007
+        weight: 1
+      - path: Circle008
+        weight: 1
+      - path: connectBone001
+        weight: 1
+      - path: connectBone001/connectBone002
+        weight: 1
+      - path: connectBone001/SpiderRig74
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09/SpiderRig22
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09/SpiderRig22/SpiderRig26
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09/SpiderRig22/SpiderRig26/SpiderRig23
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09/SpiderRig22/SpiderRig26/SpiderRig23/SpiderRig24
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig09/SpiderRig22/SpiderRig26/SpiderRig23/SpiderRig24/SpiderRig25
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10/SpiderRig28
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10/SpiderRig28/SpiderRig27
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10/SpiderRig28/SpiderRig27/SpiderRig36
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10/SpiderRig28/SpiderRig27/SpiderRig36/SpiderRig29
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig10/SpiderRig28/SpiderRig27/SpiderRig36/SpiderRig29/SpiderRig30
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11/SpiderRig33
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11/SpiderRig33/SpiderRig34
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11/SpiderRig33/SpiderRig34/SpiderRig35
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11/SpiderRig33/SpiderRig34/SpiderRig35/SpiderRig32
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig11/SpiderRig33/SpiderRig34/SpiderRig35/SpiderRig32/SpiderRig31
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12/SpiderRig41
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12/SpiderRig41/SpiderRig37
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12/SpiderRig41/SpiderRig37/SpiderRig38
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12/SpiderRig41/SpiderRig37/SpiderRig38/SpiderRig40
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig12/SpiderRig41/SpiderRig37/SpiderRig38/SpiderRig40/SpiderRig39
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13/SpiderRig61
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13/SpiderRig61/SpiderRig60
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13/SpiderRig61/SpiderRig60/SpiderRig59
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13/SpiderRig61/SpiderRig60/SpiderRig59/SpiderRig58
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig13/SpiderRig61/SpiderRig60/SpiderRig59/SpiderRig58/SpiderRig57
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14/SpiderRig56
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14/SpiderRig56/SpiderRig55
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14/SpiderRig56/SpiderRig55/SpiderRig52
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14/SpiderRig56/SpiderRig55/SpiderRig52/SpiderRig53
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig14/SpiderRig56/SpiderRig55/SpiderRig52/SpiderRig53/SpiderRig54
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15/SpiderRig49
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15/SpiderRig49/SpiderRig50
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15/SpiderRig49/SpiderRig50/SpiderRig51
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15/SpiderRig49/SpiderRig50/SpiderRig51/SpiderRig47
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig15/SpiderRig49/SpiderRig50/SpiderRig51/SpiderRig47/SpiderRig48
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16/SpiderRig43
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16/SpiderRig43/SpiderRig45
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16/SpiderRig43/SpiderRig45/SpiderRig44
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16/SpiderRig43/SpiderRig45/SpiderRig44/SpiderRig46
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig16/SpiderRig43/SpiderRig45/SpiderRig44/SpiderRig46/SpiderRig42
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig17
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig17/SpiderRig67
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig17/SpiderRig67/SpiderRig66
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig17/SpiderRig67/SpiderRig66/SpiderRig65
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig18
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig18/SpiderRig64
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig18/SpiderRig64/SpiderRig63
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig18/SpiderRig64/SpiderRig63/SpiderRig62
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig19
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig19/SpiderRig70
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig19/SpiderRig70/SpiderRig69
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig19/SpiderRig70/SpiderRig69/SpiderRig68
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig20
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig20/SpiderRig73
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig20/SpiderRig73/SpiderRig72
+        weight: 1
+      - path: connectBone001/SpiderRig74/SpiderRig21/SpiderRig20/SpiderRig73/SpiderRig72/SpiderRig71
+        weight: 1
+      - path: eye1
+        weight: 1
+      - path: eye2
+        weight: 1
+      - path: Face01
+        weight: 1
+      - path: Haar001
+        weight: 1
+      - path: IK Chain001
+        weight: 1
+      - path: IK Chain002
+        weight: 1
+      - path: IK Chain003
+        weight: 1
+      - path: IK Chain004
+        weight: 1
+      - path: IK Chain005
+        weight: 1
+      - path: IK Chain006
+        weight: 1
+      - path: IK Chain007
+        weight: 1
+      - path: IK Chain008
+        weight: 1
+      - path: IK Chain009
+        weight: 1
+      - path: IK Chain010
+        weight: 1
+      - path: kraag
+        weight: 1
+      - path: Left_shoe
+        weight: 1
+      - path: Line001
+        weight: 1
+      - path: mandible_left
+        weight: 1
+      - path: mandible_right
+        weight: 1
+      - path: Plane001
+        weight: 1
+      - path: Plane002
+        weight: 1
+      - path: Rectangle001
+        weight: 1
+      - path: Ribbon001
+        weight: 1
+      - path: Right_shoe
+        weight: 1
+      - path: Skirt
+        weight: 1
+      - path: spiderbody
+        weight: 1
+      - path: spinnepoten
+        weight: 1
+      - path: Star001
+        weight: 1
+      - path: Star002
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []

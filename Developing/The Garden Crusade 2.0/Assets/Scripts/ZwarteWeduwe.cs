@@ -62,33 +62,38 @@ public class ZwarteWeduwe : MonoBehaviour
             distance = Vector3.Distance(transform.position, player.position);
             if (distance < 35)
             {
-                //animator.SetBool("Threat", true);
                 agent.Stop();
             }
             else
             {
-                //animator.SetBool("Threat", false);
                 agent.Resume();
             }
 
             if (distance < range)
             {
                 FollowPlayer();
+                animator.SetBool("idleToWalk", true);
+                animator.SetBool("walkToAttack", false);
             }
             else
             {
                 resetBool = true;
+                animator.SetBool("idleToWalk", true);
             }
 
             if (distance < attackRange)
             {
-                //animator.SetTrigger("MayAttack");
+                animator.SetBool("MayAttack", true);
+                animator.SetBool("idleToWalk", true);
+                animator.SetBool("walkToAttack", false);
                 agent.Stop();
                 transform.LookAt(player);
             }
             else
             {
                 agent.Resume();
+                animator.SetBool("MayAttack", false);
+                animator.SetBool("walkToAttack", true);
             }
         }
     }
