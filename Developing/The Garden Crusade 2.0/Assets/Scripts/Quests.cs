@@ -37,6 +37,7 @@ public class Quests : MonoBehaviour {
     public GameObject scrollHeal;
     public Transform grotlevelPos;
     public GameObject soundToOpenQuest;
+    public GameObject [] destroyTags;
 
     void Awake () {
 
@@ -260,6 +261,13 @@ public class Quests : MonoBehaviour {
 		if(trigger.transform.tag == "Black Widow"){
 			quest1[19] = true;
 		}
+
+        if (trigger.transform.tag == "Exit Underground") {
+                destroyTags = GameObject.FindGameObjectsWithTag("Exit Underground");
+
+            for (var i = 0; i < destroyTags.Length; i++)
+                Destroy(destroyTags[i]);
+        }
 	}
 	
 	public void LoopForBool (){

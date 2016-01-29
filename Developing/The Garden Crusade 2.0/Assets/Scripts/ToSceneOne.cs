@@ -102,6 +102,7 @@ public class ToSceneOne : MonoBehaviour {
                 loadingScreen.SetActive(true);
                 GameObject.Find("MainCamera").GetComponent<CameraRotation>().SetShafts();
                 player.transform.position = spawn.transform.position;
+                player.transform.rotation = spawn.transform.rotation; 
                 spawn = GameObject.Find("SarahSpawn");
                 player.GetComponent<Movement>().secondMode = true;
                 player.GetComponent<Movement>().jumpSpeed = 10f;
