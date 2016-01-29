@@ -42,17 +42,18 @@ public class ConversationSystem : MonoBehaviour {
 			else{
 				currentUnit = 0;
 				startConvo = false;
-			}
+            }
 		}
 
 	if(GetComponent<InteractionWithEnvironment>().interactInt == 2){
-		if(currentUnit < 2 ){
-			currentUnit += 1;
-			}
-			else{
-				currentUnit = 0;
-				startConvo = false;
-			}
+            GameObject.Find("Moeder001FBX").GetComponent<Animator>().SetBool("idleToTalk", true);
+        if (currentUnit < 2 ){
+		currentUnit += 1;
+		}
+		else{
+			currentUnit = 0;
+			startConvo = false;
+		}
 		}
 	}
 }

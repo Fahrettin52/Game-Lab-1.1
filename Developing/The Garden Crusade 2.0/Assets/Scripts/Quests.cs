@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class Quests : MonoBehaviour {
 
+    public Animator motherAnimator;
     public Animator sarahAnimator;
     public int quest1_1;
 	public int currentObjective;
@@ -77,6 +78,7 @@ public class Quests : MonoBehaviour {
 				popupText.SetActive(true);
                 if (Input.GetButtonDown("Use")){
                     sarahAnimator.GetComponent<Animator>().SetFloat("idleToRun 0", 0f);
+                    sarahAnimator.GetComponent<Animator>().SetFloat("Turn", 0f);
                     puzzleHelper.SetActive(true);
                     questText.SetActive(false);
                     popupText.SetActive(false);
@@ -115,7 +117,8 @@ public class Quests : MonoBehaviour {
                 Debug.DrawRay(transform.position, transform.forward);
 				popupText.SetActive(true);
 				if(Input.GetButtonDown("Use")){
-					currentObjective += 1;
+                    GameObject.Find("Moeder001FBX").GetComponent<Animator>().SetBool("idleToTalk", true);
+                    currentObjective += 1;
 					currentObjectiveText += 1;
 					LoopForBool ();
                     GetComponent<InteractionWithEnvironment>().interactInt = 2;

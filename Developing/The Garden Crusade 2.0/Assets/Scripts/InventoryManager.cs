@@ -90,7 +90,7 @@ public class InventoryManager : MonoBehaviour {
 		TextReader textReader = new StreamReader (Application.streamingAssetsPath + "/Items.xml");
 		itemContainer = (ItemContainer)serializer.Deserialize (textReader);
 		textReader.Close ();
-        CraftingBench.Instance.CreateBlueprints();
+        //CraftingBench.Instance.CreateBlueprints();
 	}
 
 	public void SetStackInfo (int maxStackCount) {

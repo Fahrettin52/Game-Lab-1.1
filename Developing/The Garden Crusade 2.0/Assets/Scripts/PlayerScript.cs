@@ -92,6 +92,8 @@ public class PlayerScript : MonoBehaviour {
     }
 
     void Update() {
+        healtPot = intellect;
+
         if (Input.GetButtonDown("Escape") && GameObject.Find("ContinueButton").GetComponent<Image>().enabled == false) {
         PauseGame();
     }
@@ -100,7 +102,7 @@ public class PlayerScript : MonoBehaviour {
         HandleMovement();
 
         if (Input.GetKeyDown(KeyCode.I)){
-            CraftingBench.Instance.UpdatePreview();
+            //CraftingBench.Instance.UpdatePreview();
             if (inventory.GetComponent<CanvasGroup>().alpha < 1) {
                 inventory.GetComponent<CanvasGroup>().blocksRaycasts = true;
             } else {
@@ -109,14 +111,14 @@ public class PlayerScript : MonoBehaviour {
             if (inventory.GetComponent<CanvasGroup>().alpha == 0 || inventory.GetComponent<CanvasGroup>().alpha == 1) {
                 inventory.Open();
             }
-            if (Crafting.GetComponent<CanvasGroup>().alpha < 1) {
-                Crafting.GetComponent<CanvasGroup>().blocksRaycasts = true;
-            } else {
-                Crafting.GetComponent<CanvasGroup>().blocksRaycasts = false;
-            }
-            if (Crafting.GetComponent<CanvasGroup>().alpha == 0 || inventory.GetComponent<CanvasGroup>().alpha == 1) {
-                Crafting.Open();
-            }
+            //if (Crafting.GetComponent<CanvasGroup>().alpha < 1) {
+            //    Crafting.GetComponent<CanvasGroup>().blocksRaycasts = true;
+            //} else {
+            //    Crafting.GetComponent<CanvasGroup>().blocksRaycasts = false;
+            //}
+            //if (Crafting.GetComponent<CanvasGroup>().alpha == 0 || inventory.GetComponent<CanvasGroup>().alpha == 1) {
+            //    Crafting.Open();
+            //}
         }
         if (Input.GetKeyDown(KeyCode.X)) {
             if (chest != null) {

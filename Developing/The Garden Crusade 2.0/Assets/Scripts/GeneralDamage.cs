@@ -10,6 +10,10 @@ public class GeneralDamage : MonoBehaviour {
     public int rockDamage;
     public bool continueAttack;
 
+    void Update() {
+        rockDamage = PlayerScript.Instance.agility;
+    }
+
     void Start() {
         hitCooldown = false;
         sarah = GameObject.Find("Player");

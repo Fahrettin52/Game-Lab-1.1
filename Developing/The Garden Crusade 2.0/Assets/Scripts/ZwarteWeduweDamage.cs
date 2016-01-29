@@ -11,49 +11,44 @@ public class ZwarteWeduweDamage : MonoBehaviour
     public int rockDamage;
     public bool continueAttack;
 
-    void Start()
-    {
+    void Update() {
+        rockDamage = PlayerScript.Instance.agility;
+    }
+
+    void Start() {
         hitCooldown = false;
         sarah = GameObject.Find("Player");
     }
 
-    void OnTriggerEnter(Collider col)
-    {
-        if (col.transform.tag == "Player")
-        {
+    void OnTriggerEnter(Collider col){
+        if (col.transform.tag == "Player") {
 
         }
-        if (col.transform.tag == "mayThrow")
-        {
+        if (col.transform.tag == "mayThrow")  {
 
         }
     }
 
-    void OnTriggerExit(Collider col)
-    {
+    void OnTriggerExit(Collider col){
         //animator.SetBool("TermSolAttackStart", true);
         //Invoke("AggresiveStateCooldown", 1f);
-        if (col.transform.tag == "Player")
-        {
+        if (col.transform.tag == "Player"){
             continueAttack = false;
 
         }
     }
 
-    void OnTriggerStay(Collider col)
-    {
+    void OnTriggerStay(Collider col) {
         //if (Input.GetButtonDown("Fire1")) {
         //    continueAttack = true;
         //}
-        if (col.transform.tag == "Player" && hitCooldown == false)
-        {
+        if (col.transform.tag == "Player" && hitCooldown == false)  {
 
             StartCoroutine(CoolDownDmgTaken());
         }
     }
 
-    IEnumerator CoolDownDmgTaken()
-    {
+    IEnumerator CoolDownDmgTaken() {
         sarah.GetComponent<Stamina>().RageBar();
         sarah.GetComponent<PlayerScript>().currentHealth -= damageForPlayer;
         sarah.GetComponent<PlayerScript>().HandleHealth();
@@ -62,8 +57,7 @@ public class ZwarteWeduweDamage : MonoBehaviour
         hitCooldown = false;
     }
 
-    void AggresiveStateCooldown()
-    {
+    void AggresiveStateCooldown() {
 
     }
 }

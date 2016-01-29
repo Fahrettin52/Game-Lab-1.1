@@ -13,12 +13,12 @@ public class ToSceneOne : MonoBehaviour {
     public GameObject KeybindScreen;
     public GameObject MenuButton;
     public GameObject ExitToMenu;
-    public GameObject 
-        Screen;
+    public GameObject Screen;
     public GameObject background;
     public GameObject loadingScreen;
     public GameObject general;
     public GameObject beetle;
+    public GameObject deadScreen;
     public Image loadingBar;
     public CanvasGroup loadGroup;
     public Animator loading;
