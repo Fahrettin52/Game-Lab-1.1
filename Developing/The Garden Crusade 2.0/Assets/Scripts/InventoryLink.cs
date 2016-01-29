@@ -19,7 +19,6 @@ public class InventoryLink : MonoBehaviour {
 
     private void OnTriggerEnter (Collider other) {
         if (other.tag == "Player") {
-            ShopSound();
             if (linkedInventory.FadingOut) {
                 linkedInventory.instantClose = true;
                 linkedInventory.MoveItemsToChest();

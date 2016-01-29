@@ -22,7 +22,7 @@ public class AnimationWalkTermite : MonoBehaviour {
 	public float attackRange;
 	public float moveSpeed;
     public int livesEnemy = 100;
-    public GameObject dropRandomItem;
+    public GameObject [] dropRandomItem;
     public Image fill;
     public NavMeshAgent agent;
     private bool resetBool;
@@ -123,7 +123,7 @@ public class AnimationWalkTermite : MonoBehaviour {
                 }
             }
             Destroy(gameObject, 1f);
-            GameObject.Instantiate(dropRandomItem).transform.position = transform.position;
+            GameObject.Instantiate(dropRandomItem[Random.Range(0,4)]).transform.position = transform.position;
             mayDrop = false;
             if(GameObject.Find("Player").GetComponent<Quests>().quest1[8] == true){
                 GameObject.Find("Player").GetComponent<Quests>().quest1_1 += 1;

@@ -18,6 +18,7 @@ public class CastingBar : MonoBehaviour {
     public RaycastHit rayHit;
     public int damageSpell1;
     public int damageSpell2;
+    public int areaDamge;
     private bool casting;
 
 	public Text castTime;
@@ -51,6 +52,8 @@ public class CastingBar : MonoBehaviour {
 	}
 
 	void Update () {
+        damageSpell1 = GetComponent<PlayerScript>().strength * 2;
+        damageSpell2 = GetComponent<PlayerScript>().strength * 3;
         if (Input.GetKeyDown(KeyCode.Alpha1) && player != null && skillActivate[0] == true ) {
             if (maySpell == true) {
                 if (GetComponent<Stamina>().currentRage >= 10) {
@@ -66,6 +69,9 @@ public class CastingBar : MonoBehaviour {
                         }
                         if (rayHit.transform.tag == "EnemyWalk") {
                             rayHit.transform.GetComponent<AnimationWalkTermite>().DropDead(damageSpell1);
+                        }
+                        if (rayHit.transform.tag == "Generaal") {
+                            rayHit.transform.GetComponent<TermiteGeneral>().DropDead(damageSpell1);
                         }
                     }
                 }
@@ -87,6 +93,9 @@ public class CastingBar : MonoBehaviour {
                         if (rayHit.transform.tag == "EnemyWalk") {
                             rayHit.transform.GetComponent<AnimationWalkTermite>().DropDead(damageSpell2);
                         }
+                        if (rayHit.transform.tag == "Generaal") {
+                            rayHit.transform.GetComponent<TermiteGeneral>().DropDead(damageSpell2);
+                        }
                     }
                 }
             }
@@ -101,6 +110,15 @@ public class CastingBar : MonoBehaviour {
                     GetComponent<Stamina>().RageBarLose(3);
                     AreaDamage();
                     StartCoroutine(CastSpell(spinningCombo));
+                    if (rayHit.transform.tag == "Enemy") {
+                        rayHit.transform.GetComponent<AnimationTermite>().DropDead(areaDamge);
+                    }
+                    if (rayHit.transform.tag == "EnemyWalk") {
+                        rayHit.transform.GetComponent<AnimationWalkTermite>().DropDead(areaDamge);
+                    }
+                    if (rayHit.transform.tag == "Generaal") {
+                        rayHit.transform.GetComponent<TermiteGeneral>().DropDead(areaDamge);
+                    }
                 }
             }
         }

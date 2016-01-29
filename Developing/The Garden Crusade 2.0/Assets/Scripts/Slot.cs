@@ -124,7 +124,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
                 PlayerScript.Instance.inventory.AddItem(items.Pop());
                 ClearSlot();
                 CharacterPanel.Instance.CalculateStats();
-                GameObject.Find("Houten Zwaard").GetComponent<MeshRenderer>().enabled = false;
                 GameObject.Find("BunnyMesh").GetComponent<SkinnedMeshRenderer>().enabled = false;
             }
         }
@@ -233,14 +232,18 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
             return true;
         }
         if (fromType == ItemType.MAINHAND && to.canContain == ItemType.GENERICWEAPON) {
+            print(1);
             GameObject.Find("Houten Zwaard").GetComponent<MeshRenderer>().enabled = true;
+            //Stamina.Instance.damagePunch = PlayerScript.Instance.strength;
             return true;
         }
         if (fromType == ItemType.TWOHAND && to.canContain == ItemType.GENERICWEAPON && CharacterPanel.Instance.OffhandSlot.IsEmpty) {
             return true;
         }
         if (fromType == ItemType.OFFHAND && (to.IsEmpty || to.CurrentItem.Item.ItemType == ItemType.OFFHAND ) && (CharacterPanel.Instance.WeaponSlot.IsEmpty || CharacterPanel.Instance.WeaponSlot.CurrentItem.Item.ItemType != ItemType.TWOHAND)) {
+            print(2);
             GameObject.Find("BunnyMesh").GetComponent<SkinnedMeshRenderer>().enabled = true;
+            //Stamina.Instance.damagePunch = PlayerScript.Instance.strength;
             return true;
         }
         return false;

@@ -22,7 +22,7 @@ public class TermiteGeneral : MonoBehaviour {
 	public float attackRange;
 	public float moveSpeed;
     public int livesEnemy;
-    public GameObject dropRandomItem;
+    public GameObject[] dropRandomItem;
     public Image fill;
     public NavMeshAgent agent;
     private bool resetBool;
@@ -113,7 +113,7 @@ public class TermiteGeneral : MonoBehaviour {
             GameObject.Find("Player").GetComponent<Experience>().currentExp += GameObject.Find("Player").GetComponent<Experience>().expGet;
             animator.SetTrigger("MayDie");
             Destroy(gameObject, 1f);
-            GameObject.Instantiate(dropRandomItem).transform.position = transform.position;
+            GameObject.Instantiate(dropRandomItem[Random.Range(0, 4)]).transform.position = transform.position;
             mayDrop = false;
         }
     }

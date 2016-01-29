@@ -158,18 +158,19 @@ public class PlayerScript : MonoBehaviour {
         }
 	}
 
-    IEnumerator Dead()
-    {
+    IEnumerator Dead() {
         sarah.GetComponent<AnimationSara>().mayDie();
         GetComponent<Movement>().enabled = false;
         yield return new WaitForSeconds(3);
         Destroy(gameObject);
         Destroy(GameObject.Find("Canvas"));
         GameObject.Find("_Manager").GetComponent<ToSceneOne>().deadScreen.SetActive(true);
+        GameObject.Find("Canvas1").SetActive(false);
+        GameObject.Find("_Manager").GetComponent<ToSceneOne>().MenuButton.SetActive(false);
         GameObject.Find("_Manager").GetComponent<AudioSource>().enabled = false;
     }
-	
-	private float MapValues(float curHealth, float minValue, float maxValue, float outMin, float outMax){
+
+    private float MapValues(float curHealth, float minValue, float maxValue, float outMin, float outMax){
 		return (curHealth - minValue) * (outMax - outMin) / (maxValue - minValue) + outMin; 
 	}
 
@@ -310,7 +311,46 @@ public class PlayerScript : MonoBehaviour {
             Destroy(tmp);
             Destroy(GameObject.FindGameObjectWithTag("Knuffel"));
         }
+        if (other.tag == "HoutenSchild") {
+            PickupSound();
+            int randomType = 0;
+            GameObject tmp = Instantiate(InventoryManager.Instance.itemObject);
+            int randomItem;
+            tmp.AddComponent<ItemScript>();
+            ItemScript newitem = tmp.GetComponent<ItemScript>();
+
+
+            switch (randomType) {
+                case 0:
+                    randomItem = 4;
+                    newitem.Item = InventoryManager.Instance.ItemContainer.Weapons[randomItem];
+                    break;
+            }
+            inventory.AddItem(newitem);
+            Destroy(tmp);
+            Destroy(GameObject.FindGameObjectWithTag("HoutenSchild"));
+        }
+        if (other.tag == "SteenSchild") {
+            PickupSound();
+            int randomType = 0;
+            GameObject tmp = Instantiate(InventoryManager.Instance.itemObject);
+            int randomItem;
+            tmp.AddComponent<ItemScript>();
+            ItemScript newitem = tmp.GetComponent<ItemScript>();
+
+
+            switch (randomType) {
+                case 0:
+                    randomItem = 5;
+                    newitem.Item = InventoryManager.Instance.ItemContainer.Weapons[randomItem];
+                    break;
+            }
+            inventory.AddItem(newitem);
+            Destroy(tmp);
+            Destroy(GameObject.FindGameObjectWithTag("SteenSchild"));
+        }
         if (other.tag == "Chest" || other.tag == "Vendor") {
+            print(1);
 			chest = other.GetComponent<InventoryLink>().linkedInventory;  
 		}
         if(other.transform.tag == "Dead"){

@@ -52,6 +52,7 @@ public class Stamina : MonoBehaviour {
         ManaText();
         ManaRegen();
         ManaColor();
+        damagePunch = GetComponent<PlayerScript>().strength;
 
 
         if (Input.GetButtonDown("Fire1") && !hitCooldown && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject() && currentStamina >= 10)
