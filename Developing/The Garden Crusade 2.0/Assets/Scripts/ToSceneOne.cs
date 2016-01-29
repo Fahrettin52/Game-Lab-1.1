@@ -64,7 +64,9 @@ public class ToSceneOne : MonoBehaviour {
     public void OnLevelWasLoaded(int level) {
         switch (level) {
             case 0:
-                print("4");
+                //mayLoad = true;
+                //loadingScreen.SetActive(true);
+                //StartCoroutine(Loading());
                 background.SetActive(true);
                 ActivateCanvas = false;
                 OptionScreen.SetActive(false);
@@ -78,7 +80,6 @@ public class ToSceneOne : MonoBehaviour {
 
             case 1:
                 mayLoad = true;
-                print("case 1");
                 loadingScreen.SetActive(true);
                 StartCoroutine(Loading());
                 backgroundPlayer.clip = backgroundSound;
@@ -90,7 +91,6 @@ public class ToSceneOne : MonoBehaviour {
                 mayLoad = true;
                 StartCoroutine(Loading());
                 loadingScreen.SetActive(true);
-                print("case 2");
                 GameObject.Find("MainCamera").GetComponent<CameraRotation>().SetShafts();
                 general = GameObject.Find("Termiet Generaal");
                 general.SetActive(false);
@@ -100,7 +100,6 @@ public class ToSceneOne : MonoBehaviour {
                 mayLoad = true;
                 StartCoroutine(Loading());
                 loadingScreen.SetActive(true);
-                print("case 3");
                 GameObject.Find("MainCamera").GetComponent<CameraRotation>().SetShafts();
                 player.transform.position = spawn.transform.position;
                 spawn = GameObject.Find("SarahSpawn");

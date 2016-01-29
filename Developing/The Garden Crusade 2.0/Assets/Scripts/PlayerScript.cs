@@ -155,15 +155,14 @@ public class PlayerScript : MonoBehaviour {
 			visualHealth.color = new Color32 (255, (byte)MapValues (currentHealth, 0, maxHealth / 2 , 0, 255), 0, 255);
 		}
 		if (currentHealth <= 0) {
-            StartCoroutine(Dead());
-            
+            StartCoroutine(Dead());         
         }
 	}
 
     IEnumerator Dead() {
         sarah.GetComponent<AnimationSara>().mayDie();
         GetComponent<Movement>().enabled = false;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1.75f);
         Destroy(gameObject);
         Destroy(GameObject.Find("Canvas"));
         GameObject.Find("_Manager").GetComponent<ToSceneOne>().deadScreen.SetActive(true);

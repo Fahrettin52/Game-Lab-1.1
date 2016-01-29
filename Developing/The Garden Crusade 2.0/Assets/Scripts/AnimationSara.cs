@@ -30,7 +30,7 @@ public class AnimationSara : MonoBehaviour
 
     public void mayDie()
     {
-        animator.SetTrigger("mayDie");
+        animator.SetBool("Death", true);
     }
 
     public void fightToIdle()
