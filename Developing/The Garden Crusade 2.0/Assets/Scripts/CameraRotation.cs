@@ -24,7 +24,7 @@ public class CameraRotation : MonoBehaviour {
     public CanvasGroup chestCanvas;
     public CanvasGroup characterCanvas;
     public float startPosX;
-    public float startPosF; 
+    public float startPosF;
 
     void Start () {
 		Vector3 angles = transform.eulerAngles;
