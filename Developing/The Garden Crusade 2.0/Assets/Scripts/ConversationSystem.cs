@@ -48,15 +48,14 @@ public class ConversationSystem : MonoBehaviour {
 	if(GetComponent<InteractionWithEnvironment>().interactInt == 2){
         if (currentUnit < 2 ){
 		currentUnit += 1;
-		}
+                if (GetComponent<InteractionWithEnvironment>().interactInt == 2) {
+                    GameObject.Find("Moeder001FBX").GetComponent<Animator>().SetBool("idleToTalk", false);
+                }
+            }
 		else{
 			currentUnit = 0;
 			startConvo = false;
 		}
 		}
-
-        if (GetComponent<InteractionWithEnvironment>().interactInt == 5) {
-            GameObject.Find("Moeder001FBX").GetComponent<Animator>().SetBool("idleToTalk", false);
-        }
 	}
 }

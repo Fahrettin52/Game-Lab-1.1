@@ -163,10 +163,10 @@ public class PlayerScript : MonoBehaviour {
         sarah.GetComponent<AnimationSara>().mayDie();
         GetComponent<Movement>().enabled = false;
         yield return new WaitForSeconds(1.75f);
+        GameObject.Find("Canvas1").SetActive(false);
         Destroy(gameObject);
         Destroy(GameObject.Find("Canvas"));
-        GameObject.Find("_Manager").GetComponent<ToSceneOne>().deadScreen.SetActive(true);
-        GameObject.Find("Canvas1").SetActive(false);
+        GameObject.Find("_Manager").GetComponent<ToSceneOne>().deadScreen.SetActive(true);       
         GameObject.Find("_Manager").GetComponent<ToSceneOne>().MenuButton.SetActive(false);
         GameObject.Find("_Manager").GetComponent<AudioSource>().enabled = false;
     }
