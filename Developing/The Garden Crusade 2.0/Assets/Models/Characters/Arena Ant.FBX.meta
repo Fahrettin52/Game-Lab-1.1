@@ -98,7 +98,7 @@ ModelImporter:
     400088: Bone015
     400090: CivilianAnt001
     4300000: CivilianAnt001
-    7400000: Take 001
+    7400000: Idle
     9500000: //RootNode
     13700000: CivilianAnt001
   materials:
@@ -122,16 +122,16 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: Idle
       takeName: Take 001
-      firstFrame: 0
-      lastFrame: 200
+      firstFrame: 30
+      lastFrame: 60
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
