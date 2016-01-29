@@ -13,14 +13,13 @@ public class HPZwarteWeduwe : MonoBehaviour
     public GameObject weduwe;
 
     void Start() {
-        
-        
+
+        mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
     }
 
     void Update()
     {
         if(GameObject.Find("Player").GetComponent<Movement>().secondMode == false){
-         mainCamera = GameObject.Find("MainCamera").GetComponent<Camera>();
         }
         
         player = GameObject.Find("Player").GetComponent<Transform>();
@@ -31,4 +30,5 @@ public class HPZwarteWeduwe : MonoBehaviour
             hpText.text = "Health: " + weduwe.GetComponent<ZwarteWeduwe>().livesEnemy.ToString("F0");
         }
     }
+    
 }

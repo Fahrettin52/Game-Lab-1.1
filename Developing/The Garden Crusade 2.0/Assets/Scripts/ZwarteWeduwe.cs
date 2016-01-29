@@ -34,12 +34,12 @@ public class ZwarteWeduwe : MonoBehaviour
     public bool idle;
     public bool mayDie = false;
     private bool mayDrop = true;
-    public MovieTexture movie;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.Find("Player").transform;
+        animator = GetComponent<Animator>();
 
         if (idle == false)
         {
@@ -60,14 +60,6 @@ public class ZwarteWeduwe : MonoBehaviour
         if (player != null)
         {
             distance = Vector3.Distance(transform.position, player.position);
-            if (distance < 35)
-            {
-                agent.Stop();
-            }
-            else
-            {
-                agent.Resume();
-            }
 
             if (distance < range)
             {
@@ -78,22 +70,22 @@ public class ZwarteWeduwe : MonoBehaviour
             else
             {
                 resetBool = true;
-                animator.SetBool("idleToWalk", true);
+                animator.SetBool("idleToWalk", false);
             }
 
             if (distance < attackRange)
             {
-                animator.SetBool("MayAttack", true);
-                animator.SetBool("idleToWalk", true);
-                animator.SetBool("walkToAttack", false);
+                animator.SetBool("idleToWalk", false);
+                animator.SetBool("walkToAttack", true);
+                animator.SetBool("idleToAttack", true);
                 agent.Stop();
                 transform.LookAt(player);
             }
             else
             {
                 agent.Resume();
-                animator.SetBool("MayAttack", false);
-                animator.SetBool("walkToAttack", true);
+                animator.SetBool("walkToAttack", false);
+                animator.SetBool("idleToAttack", false);
             }
         }
     }
@@ -135,10 +127,6 @@ public class ZwarteWeduwe : MonoBehaviour
             GameObject.Instantiate(dropRandomItem).transform.position = transform.position;
             mayDrop = false;
         }
-    }
-    public void Play()
-    {
-        movie.Play();
     }
 }
 

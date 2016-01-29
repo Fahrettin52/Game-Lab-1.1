@@ -88,6 +88,7 @@ public class ToSceneOne : MonoBehaviour {
                 break;
 
             case 2:
+            print("case 2");
                 mayLoad = true;
                 StartCoroutine(Loading());
                 loadingScreen.SetActive(true);
@@ -97,6 +98,7 @@ public class ToSceneOne : MonoBehaviour {
             break;
 
             case 3:
+            print("case 3");
                 mayLoad = true;
                 StartCoroutine(Loading());
                 loadingScreen.SetActive(true);
@@ -106,7 +108,7 @@ public class ToSceneOne : MonoBehaviour {
                 spawn = GameObject.Find("SarahSpawn");
                 player.GetComponent<Movement>().secondMode = true;
                 player.GetComponent<Movement>().jumpSpeed = 10f;
-                player.GetComponent<TwoDimensionalMode>().mainCam.SetActive(false);
+                //player.GetComponent<TwoDimensionalMode>().mainCam.SetActive(false);
                 player.GetComponent<SummoningInsects>().fireFly2.SetActive(false);
                 player.GetComponent<SummoningInsects>().enabled = false;
             break;

@@ -245,7 +245,7 @@ public class PlayerScript : MonoBehaviour {
         if (other.gameObject.name == "ToBoomstronk" && GetComponent<Quests>().quest1[6] == true)
         {
             InventoryManager.Instance.Save();
-            Application.LoadLevel("BoomStronk");
+            Application.LoadLevel("Level 3");
         }
 
         if (other.gameObject.tag == "Load")
